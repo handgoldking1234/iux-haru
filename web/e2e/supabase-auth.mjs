@@ -1,7 +1,7 @@
 /* Supabase 연결 확인: 보호자 가입 → 자녀 추가 → 로그아웃 → 다시 로그인 → 자녀가 서버에서 불러와지는지
    실행: node e2e/supabase-auth.mjs  (서버 3123, .env.local에 Supabase 키) */
 import { chromium } from '@playwright/test';
-const BASE = 'http://localhost:3123';
+const BASE = process.env.BASE ?? 'http://localhost:3123';
 const email = `test.harugongbu+${Date.now()}@example.com`, pw = 'haru2026test';
 const log = [], errs = [];
 const b = await chromium.launch();

@@ -1,7 +1,7 @@
 /* 기기 간 이어짐 확인: 기기 A에서 가입·공부 → 기기 B(빈 브라우저)에서 같은 계정으로 로그인하면 같은 기록이 보이는지
    실행: node e2e/supabase-sync.mjs  (서버 3123, .env.local에 Supabase 키, 0002_student_state.sql 적용) */
 import { chromium } from '@playwright/test';
-const BASE = 'http://localhost:3123';
+const BASE = process.env.BASE ?? 'http://localhost:3123';
 const email = `test.harugongbu+${Date.now()}@example.com`, pw = 'haru2026test';
 const out = [], errs = [];
 const b = await chromium.launch();

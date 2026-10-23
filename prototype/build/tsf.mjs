@@ -1,0 +1,17 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:390,height:844}}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.addInitScript(()=>{ localStorage.setItem('harugongbu-auth',JSON.stringify({email:'a@b.c',kids:[{name:'민왕이',grade:'초5'}]})); window.__osc=0; const C=window.AudioContext; if(C){ const o=C.prototype.createOscillator; C.prototype.createOscillator=function(){ window.__osc++; return o.call(this); }; } });
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1300); await pg.evaluate(()=>document.querySelectorAll('.alm').forEach(x=>x.remove()));
+let P; for(const f of pg.frames().slice(1)) if((await f.title())==='홈') P=f;
+await P.evaluate(()=>parent.postMessage({hg:'ok',s:'math'},'*')); await pg.waitForTimeout(200);
+console.log('after ok msg', await pg.evaluate(()=>__osc));
+await P.evaluate(()=>parent.postMessage({hg:'no',s:'eng'},'*')); await pg.waitForTimeout(200);
+console.log('after no msg', await pg.evaluate(()=>__osc));
+await P.evaluate(()=>parent.postMessage({hg:'ok',s:'typ'},'*')); await pg.waitForTimeout(200);
+console.log('typ ignored', await pg.evaluate(()=>__osc));
+await pg.click('#gnav [data-g=my]'); await P.click('[data-pill=set]'); await pg.waitForTimeout(200); await P.click('#sfxOn');
+await P.evaluate(()=>parent.postMessage({hg:'ok',s:'math'},'*')); await pg.waitForTimeout(200);
+console.log('off', await pg.evaluate(()=>[__osc,HGS.st.sfx]));
+await P.evaluate(()=>document.getElementById('sfxOn').scrollIntoView()); await pg.screenshot({path:'sf.png'});
+console.log(errs); await b.close();

@@ -1,0 +1,10 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:1100,height:860}}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1200);
+let P; for(const f of pg.frames().slice(1)) if((await f.title())==='홈') P=f;
+await pg.click('#gnav [data-g=my]'); await pg.waitForTimeout(300);
+await P.click('#myNm'); await pg.waitForTimeout(200); await pg.screenshot({path:'n1.png'});
+await P.fill('#myI','민왕이'); await P.click('#myF [type=submit]'); await pg.waitForTimeout(200);
+console.log(await P.$eval('.me .nm',e=>e.textContent), await P.evaluate(()=>tab));
+console.log(errs); await b.close();

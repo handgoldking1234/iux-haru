@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const pg=await b.newPage({viewport:{width:390,height:844}}); pg.on('pageerror',e=>console.log('ERR',e.message));
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1500);
+await pg.click('#fLogin [type=submit]');
+await pg.click('[data-go=signup]'); await pg.click('.as[data-v=signup] [data-go=login]');
+await pg.fill('#lEmail','mom@test.com'); await pg.fill('#lPw','abcd1234');
+console.log(await pg.evaluate(()=>[lEmail.value,lPw.value]));
+await pg.click('#fLogin [type=submit]'); await pg.waitForTimeout(200);
+console.log(await pg.$eval('#lErr',e=>e.textContent), await pg.$$eval('.as',x=>x.map(s=>s.dataset.v+(s.hidden?'':'*')).join(',')));
+await b.close();

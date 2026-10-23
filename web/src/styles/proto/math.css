@@ -1,0 +1,433 @@
+/* 자동 생성 — scripts/proto-css.mjs. 직접 고치지 말고 원본(prototype/build) 기준으로 다시 만든다 */
+.pg-math{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}.pg-math{scroll-padding-top:env(safe-area-inset-top,0px)}.pg-math{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}.pg-math img{max-width:100%}.pg-math [hidden]:not([hidden=until-found i]){display:none!important}
+
+/* 레이아웃: 당근색 앱바 + 둥근 카드 쌓기(조안호 연산 구조 + 학습현황 카드 디자인), 흰 바탕·민트그린·검정. 의도적 라이트 단일 테마 */
+.pg-math{
+  color-scheme:light;
+  --bg:#F3F7F5; --paper:#FFFFFF; --hi:#E7EEEA; --line:#DFE7E2;
+  --k:#1E2421; --fg:#1E2421; --sub:#56605B; --dim:#87918C; --on:#FFFFFF;
+  --y:#0FA37F; --y2:#2FC29A; --y-soft:#E2F5EE;
+  --good:#16884A; --red:#E0353F; --orange:#C76A00;
+  --shadow:0 6px 18px rgba(17,17,17,.07);
+  --f:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+}
+.pg-math,.pg-math{height:100%}
+.pg-math{background:#E6ECE8;color:var(--fg);font-family:var(--f);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px}
+.pg-math *{box-sizing:border-box}
+.pg-math button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.pg-math button:focus-visible{outline:2px solid var(--k);outline-offset:2px}
+.pg-math button:disabled{cursor:default}
+.pg-math h1,.pg-math h2,.pg-math h3,.pg-math p{margin:0}
+.pg-math .app{max-width:440px;margin:0 auto;background:var(--bg);border-radius:24px;display:flex;flex-direction:column;overflow:hidden;min-height:100%;border:1px solid var(--line)}
+/* 앱바 */
+.pg-math #bar{background:var(--y);color:var(--on);display:grid;grid-template-columns:72px 1fr 72px;align-items:center;height:56px;padding:0 8px;position:sticky;top:0;z-index:5}
+.pg-math #bar h1{font-size:17px;font-weight:900;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pg-math .bb{height:40px;min-width:40px;display:flex;align-items:center;justify-content:center;border-radius:12px}
+.pg-math .bb:last-child{justify-self:end}
+.pg-math .bb svg{width:24px;height:24px;stroke:var(--k);fill:none;stroke-width:2.4}
+.pg-math .bb.who{background:var(--k);color:var(--y);font-size:13px;font-weight:900;padding:0 10px;gap:4px;justify-self:start}
+.pg-math .bb.who small{font-weight:500;color:#fff;font-size:11px}
+.pg-math .qmark{width:30px;height:30px;border-radius:50%;background:var(--k);display:grid;place-items:center}
+.pg-math #screen{flex:1;display:flex;flex-direction:column;gap:14px;padding:0 0 20px;min-width:0}
+/* 홈: TODAY */
+.pg-math .hello{background:var(--y);color:var(--on);padding:6px 20px 22px;border-radius:0 0 28px 28px;display:flex;flex-direction:column;gap:12px}
+.pg-math .hello small{font-size:12px;font-weight:900;letter-spacing:.1em}
+.pg-math .hello h2{font-size:19px;font-weight:900;letter-spacing:-.02em;margin-top:-6px}
+.pg-math .bubble{align-self:flex-start;background:var(--paper);color:var(--fg);border-radius:16px 16px 16px 4px;padding:8px 14px;font-size:13px;font-weight:500;box-shadow:var(--shadow)}
+.pg-math .stat3{color:var(--fg);display:grid;grid-template-columns:repeat(3,1fr);background:var(--paper);border-radius:18px;padding:14px 6px;box-shadow:var(--shadow)}
+.pg-math .stat3 div{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.pg-math .stat3 div+div{border-left:1px solid var(--line)}
+.pg-math .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;margin-bottom:2px}
+.pg-math .ic svg{width:22px;height:22px;fill:none;stroke-width:2.4}
+.pg-math .stat3 div:nth-child(1) .ic{background:var(--k)} .pg-math .stat3 div:nth-child(1) .ic svg{stroke:var(--y)}
+.pg-math .stat3 div:nth-child(2) .ic{background:var(--y)} .pg-math .stat3 div:nth-child(2) .ic svg{stroke:var(--on)}
+.pg-math .stat3 div:nth-child(3) .ic{background:var(--y-soft);border:2px solid var(--k)} .pg-math .stat3 div:nth-child(3) .ic svg{stroke:var(--k)}
+.pg-math .stat3 b{font-size:20px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.pg-math .stat3 small{font-size:11.5px;color:var(--sub);font-weight:500;letter-spacing:0}
+.pg-math .card,.pg-math .box{background:var(--paper);border-radius:20px;padding:18px;margin:0 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.pg-math .card h3,.pg-math .box h3{font-size:15px;font-weight:900;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pg-math .center{align-items:center;text-align:center}
+.pg-math .todaycard{display:flex;flex-direction:column;gap:12px}
+.pg-math .todaycard h2{font-size:16px;font-weight:900;display:flex;justify-content:space-between;align-items:baseline}
+.pg-math .todaycard h2 small{font-size:12px;color:var(--sub);font-weight:500}
+.pg-math .cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pg-math .cols div{background:var(--bg);border-radius:14px;padding:10px 12px;text-align:right}
+.pg-math .cols small{display:block;text-align:left;font-size:12px;color:var(--sub)}
+.pg-math .cols b{font-size:24px;font-weight:900;font-variant-numeric:tabular-nums}
+.pg-math .cols b.red{color:var(--red)}
+.pg-math .mixline{font-size:12.5px;color:var(--sub)}
+.pg-math .mixline b{color:var(--k)}
+.pg-math .startbtn{background:var(--k);color:var(--y);border-radius:14px;padding:14px;font-size:16px;font-weight:900}
+.pg-math .startbtn:disabled{opacity:.35}
+.pg-math .now{margin:0 16px;background:var(--k);color:#fff;border-radius:20px;padding:16px 16px 16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.pg-math .now small{display:block;font-size:11.5px;color:#BDBDB5}
+.pg-math .now b{display:block;font-size:19px;font-weight:900;color:var(--y);margin:2px 0 8px}
+.pg-math .streak{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.pg-math .streak i{width:12px;height:12px;border-radius:50%;border:2px solid #555}
+.pg-math .streak i.on{background:var(--y);border-color:var(--y)}
+.pg-math .streak em{font-style:normal;font-size:12px;color:#BDBDB5;margin-left:6px}
+.pg-math .now .qbtn .qmark{background:var(--y);width:38px;height:38px}
+.pg-math .areas{display:flex;gap:8px;overflow-x:auto;padding:2px 16px}
+.pg-math .chip{flex:none;padding:8px 14px;border-radius:999px;background:var(--paper);font-size:13px;font-weight:700;box-shadow:var(--shadow)}
+.pg-math .chip small{font-weight:500;color:var(--sub)}
+.pg-math .chip.on{background:var(--k);color:var(--y)}
+.pg-math .chip.on small{color:#BDBDB5}
+/* 단원 목록 */
+.pg-math .units{list-style:none;margin:0 16px;padding:0;background:var(--paper);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.pg-math .units.in{margin:0;box-shadow:none;border:1px solid var(--line)}
+.pg-math .units li{display:flex;align-items:center;gap:10px;padding:0 14px 0 0;border-bottom:1px solid var(--line)}
+.pg-math .units li:last-child{border-bottom:0}
+.pg-math .units li.cur{background:var(--y-soft)}
+.pg-math .units li.lock .unit{opacity:.45}
+.pg-math .unit{flex:1;min-width:0;text-align:left;padding:14px 0 14px 18px;display:flex;flex-direction:column;gap:3px}
+.pg-math .unit b{font-size:15px;font-weight:700}
+.pg-math .unit small{font-size:12px;color:var(--sub)}
+.pg-math .unit.static{cursor:default}
+.pg-math .mq{font-variant-numeric:tabular-nums}
+.pg-math .ansv{background:var(--y-soft);color:var(--y);font-weight:900;padding:0 6px;border-radius:4px}
+.pg-math .tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap;flex:none}
+.pg-math .tag.ok{background:#E3F2E9;color:var(--good)} .pg-math .tag.due{background:#FDEBD2;color:var(--orange)} .pg-math .tag.nowt{background:var(--k);color:var(--y)} .pg-math .tag.lk{background:var(--hi);color:var(--dim)}
+.pg-math .tag.card,.pg-math .tag.retry{background:var(--red);color:#fff} .pg-math .tag.review{background:var(--k);color:var(--y)} .pg-math .tag.new{background:var(--y);color:var(--on)}
+.pg-math .qbtn{flex:none;display:grid;place-items:center}
+.pg-math .x{color:var(--red);font-weight:700}
+.pg-math .note{font-size:12px;color:var(--sub);line-height:1.5}
+.pg-math #screen>.note{padding:0 20px}
+/* 오답 달력 */
+.pg-math .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;text-align:center}
+.pg-math .cal div{border-radius:12px;padding:8px 2px;background:var(--bg)}
+.pg-math .cal div.t{background:var(--k);color:var(--y)}
+.pg-math .cal b{display:block;font-size:20px;font-weight:900;font-variant-numeric:tabular-nums}
+.pg-math .cal span{font-size:11px;opacity:.75}
+.pg-math .btn{padding:12px 18px;border-radius:14px;font-weight:700;font-size:14px;border:1px solid var(--line);background:var(--paper)}
+.pg-math .btn.y{background:var(--y);color:var(--on);border-color:var(--y)}
+.pg-math .btn.k{background:var(--k);color:#fff;border-color:var(--k)}
+.pg-math .btn:disabled{opacity:.35}
+.pg-math .btns{display:flex;gap:8px;flex-wrap:wrap}
+.pg-math .btns.sp{justify-content:space-between}
+/* 풀이 */
+.pg-math .np{display:flex;flex-direction:column;gap:12px;padding:14px 16px 16px;flex:1;background:var(--paper)}
+.pg-math .prog{display:flex;align-items:center;gap:10px}
+.pg-math .prog .tr{flex:1;height:10px;border-radius:5px;background:var(--hi);overflow:hidden}
+.pg-math .prog .tr i{display:block;height:100%;background:var(--y);transition:width .2s}
+.pg-math .prog span{font-size:15px;font-weight:900;font-variant-numeric:tabular-nums;min-width:58px;text-align:right}
+.pg-math .ptag{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--sub);justify-content:center;flex-wrap:wrap}
+.pg-math .toast{border-radius:14px;background:var(--k);color:var(--y);padding:10px 14px;font-weight:700;font-size:13.5px;text-align:center}
+.pg-math .res .toast{margin:0 16px}
+.pg-math .board{min-height:200px;border-radius:20px;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:30px 14px 18px;position:relative;text-align:center}
+.pg-math .board .q{font-size:clamp(30px,9.5vw,42px);font-weight:900;line-height:1.25;font-variant-numeric:tabular-nums;word-break:keep-all}
+.pg-math .board .q sup{font-size:.55em}
+.pg-math .board .q small{display:block;font-size:13px;font-weight:500;color:var(--sub);margin-top:6px}
+.pg-math .board .ans{font-size:34px;font-weight:900;min-height:48px;min-width:140px;border-bottom:3px solid var(--k);font-variant-numeric:tabular-nums;padding:0 12px}
+.pg-math .board .ans.empty::after{content:"?";opacity:.25}
+.pg-math .board.ok{box-shadow:inset 0 0 0 3px var(--good)}
+.pg-math .board.no{box-shadow:inset 0 0 0 3px var(--red);background:#FFF1F1}
+.pg-math .fb{position:absolute;top:10px;left:12px;font-size:13px;font-weight:700;border-radius:8px;padding:4px 10px}
+.pg-math .fb.ok{background:var(--good);color:#fff}
+.pg-math .fb.no{background:var(--red);color:#fff;right:12px}
+.pg-math .fb:empty{display:none}
+.pg-math .tip{font-size:12.5px;color:var(--sub);line-height:1.5;text-align:center;min-height:19px}
+.pg-math .tip b{color:var(--k)}
+.pg-math .pad{display:grid;grid-template-columns:repeat(3,1fr) 1.15fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:auto}
+.pg-math .pad button{height:58px;background:var(--paper);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}
+.pg-math .pad button:active{background:var(--hi)}
+.pg-math .pad .fn{background:#F1F1EB;font-size:16px;color:var(--sub)}
+.pg-math .pad .go{grid-column:4;grid-row:3 / span 2;height:auto;background:var(--y);color:var(--on);font-size:18px;font-weight:900}
+.pg-math .wrongbar{display:flex;gap:8px;margin-top:auto}
+.pg-math .wrongbar .btn{flex:1;padding:16px}
+.pg-math .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1;margin:0 2px;font-size:.78em}
+.pg-math .fr i{font-style:normal;padding:0 3px}
+.pg-math .fr i:first-child{border-bottom:2px solid currentColor;padding-bottom:2px}
+.pg-math .fr i:last-child{padding-top:2px}
+/* 개념 */
+.pg-math .cx{display:flex;flex-direction:column;gap:14px;padding:16px;flex:1}
+.pg-math .steps{display:flex;gap:6px}
+.pg-math .steps span{flex:1;text-align:center;font-size:12px;font-weight:700;padding:7px 0;border-radius:999px;background:var(--hi);color:var(--dim)}
+.pg-math .steps span.on{background:var(--k);color:var(--y)}
+.pg-math .steps span.done{background:var(--y-soft);color:var(--y)}
+.pg-math .lyric{background:var(--paper);border-radius:20px;padding:22px 20px;min-height:300px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow);border-top:8px solid var(--y)}
+.pg-math .lyric .lk{font-size:12px;font-weight:700;color:var(--sub)}
+.pg-math .lyric h2{font-size:22px;font-weight:900;line-height:1.35}
+.pg-math .lyric p{font-size:17px;font-weight:500;line-height:1.6}
+.pg-math .lyric p.soft{font-size:14px;color:var(--sub)}
+.pg-math .lyric .ex{font-size:30px;font-weight:900;font-variant-numeric:tabular-nums;background:var(--y-soft);border-radius:12px;padding:10px 14px;align-self:flex-start}
+.pg-math .lyric ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px;font-size:16px;font-weight:700;line-height:1.5;cursor:pointer}
+.pg-math .lyric ol li.hide{color:var(--dim);font-weight:500}
+.pg-math .lyric .eqa{font-size:22px;font-weight:900;background:var(--k);color:var(--y);border-radius:10px;padding:6px 14px;align-self:flex-start}
+.pg-math .gate{font-size:12.5px;color:var(--sub);text-align:center}
+/* 리포트 */
+.pg-math .seg{display:grid;grid-template-columns:repeat(3,1fr);margin:16px 16px 0;background:var(--paper);border-radius:14px;padding:4px;box-shadow:var(--shadow)}
+.pg-math .seg button{padding:9px 0;border-radius:10px;font-size:13px;font-weight:700;color:var(--sub)}
+.pg-math .seg button.on{background:var(--y);color:var(--on)}
+.pg-math .datenav{display:flex;align-items:center;justify-content:center;gap:16px;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.pg-math .datenav button{width:32px;height:32px;border-radius:50%;font-size:22px;line-height:1}
+.pg-math .datenav button:disabled{opacity:.25}
+.pg-math .ring{width:180px;max-width:100%}
+.pg-math .legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;font-size:12.5px;color:var(--sub)}
+.pg-math .legend i{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:4px;vertical-align:-1px}
+.pg-math .week{display:flex;align-items:flex-end;gap:6px;height:110px;padding-top:16px}
+.pg-math .week.month{gap:2px}
+.pg-math .week div{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;justify-content:flex-end;height:100%}
+.pg-math .week i{width:100%;max-width:24px;border-radius:5px 5px 0 0;background:var(--k);min-height:2px}
+.pg-math .week i.td{background:var(--y)}
+.pg-math .week small{font-size:11px;color:var(--sub);font-variant-numeric:tabular-nums}
+.pg-math .days{display:flex;gap:6px;font-size:11px;color:var(--sub)}
+.pg-math .days span{flex:1;text-align:center}
+.pg-math .hbar{display:grid;grid-template-columns:88px 1fr 40px;gap:10px;align-items:center;font-size:13px}
+.pg-math .hbar .tr{height:10px;border-radius:5px;background:var(--hi);overflow:hidden}
+.pg-math .hbar .tr i{display:block;height:100%;background:var(--y)}
+.pg-math .hbar .v{text-align:right;color:var(--sub);font-variant-numeric:tabular-nums}
+.pg-math .list div{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--hi);font-size:14px;align-items:center}
+.pg-math .share{margin:0 16px;padding:14px;border-radius:14px;background:#FEE500;color:#191600;font-weight:900;text-align:center}
+/* 결과 + 알림 */
+.pg-math .res{display:flex;flex-direction:column;gap:14px;padding-top:16px}
+.pg-math .res>.btns{padding:0 16px}
+.pg-math .big{font-size:56px;font-weight:900;line-height:1;letter-spacing:-.03em;background:linear-gradient(transparent 60%,var(--y-soft) 60%);color:var(--y);padding:0 8px}
+.pg-math .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 16px}
+.pg-math .cell{background:var(--paper);border-radius:16px;padding:12px 8px;text-align:center;box-shadow:var(--shadow)}
+.pg-math .cell b{display:block;font-size:22px;font-weight:900;font-variant-numeric:tabular-nums}
+.pg-math .cell span{font-size:11.5px;color:var(--sub)}
+.pg-math .dim{position:fixed;inset:0;background:rgba(17,17,17,.45);display:grid;place-items:center;z-index:20;padding:24px}
+.pg-math .dialog{background:var(--paper);border-radius:20px;padding:22px 22px 12px;max-width:320px;width:100%;display:flex;flex-direction:column;gap:12px;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.pg-math .dialog h3{font-size:17px;font-weight:900}
+.pg-math .dialog p{font-size:14.5px;line-height:1.7;color:var(--sub)}
+.pg-math .dialog p b{color:var(--k)}
+.pg-math .dialog button{align-self:flex-end;font-weight:900;padding:10px 16px;border-radius:10px;background:var(--y);color:var(--on)}
+/* 탭 */
+.pg-math nav{display:grid;grid-template-columns:repeat(3,1fr);padding:8px 0 calc(10px + env(safe-area-inset-bottom,0px));background:var(--paper);border-top:1px solid var(--line)}
+.pg-math nav button{font-size:11.5px;color:var(--dim);display:flex;flex-direction:column;align-items:center;gap:4px;position:relative;padding:4px 0}
+.pg-math nav button svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.9}
+.pg-math nav button.on{color:var(--k);font-weight:900}
+.pg-math nav button.on{color:var(--y)}
+.pg-math nav button.on .tb{background:var(--y-soft)}
+.pg-math nav .tb{width:48px;height:30px;border-radius:15px;display:grid;place-items:center}
+.pg-math nav .dot{position:absolute;top:0;left:calc(50% + 10px);min-width:17px;height:17px;border-radius:9px;background:var(--red);color:#fff;font-size:10.5px;font-weight:900;display:grid;place-items:center;padding:0 4px}
+.pg-math svg.lucide{width:18px;height:18px;stroke-width:2.2;flex:none}
+.pg-math .btn,.pg-math .startbtn,.pg-math .share,.pg-math .tag,.pg-math .bb.who,.pg-math .dialog h3,.pg-math .steps span{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.pg-math .bb svg.lucide{width:24px;height:24px;stroke:var(--on);stroke-width:2.4}
+.pg-math .bb.who svg.lucide{width:16px;height:16px;stroke:var(--y)}
+.pg-math .bb.who svg.sm{width:14px;height:14px;stroke:#BDBDB5}
+.pg-math .qmark svg.lucide{width:30px;height:30px;stroke:var(--y);stroke-width:2.2}
+.pg-math .now .qbtn .qmark svg.lucide{stroke:var(--on);width:38px;height:38px}
+.pg-math .tag svg.lucide{width:12px;height:12px;stroke-width:2.6}
+.pg-math nav .tb svg.lucide{width:22px;height:22px}
+.pg-math .ic svg.lucide{width:22px;height:22px}
+.pg-math .pad svg.lucide{width:22px;height:22px}
+.pg-math .pad .fn small{font-size:12px;margin-left:2px}
+.pg-math .pad .go{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.pg-math .pad .go svg.lucide{width:26px;height:26px;stroke-width:2.6}
+.pg-math .datenav svg.lucide{width:22px;height:22px}
+.pg-math .steps svg.lucide{width:14px;height:14px}
+.pg-math .tip svg.inl{width:16px;height:16px;vertical-align:-3px}
+.pg-math .dialog h3 svg.lucide{stroke:var(--k)}
+/* ===== 당근 앱 문법 덮어쓰기: 흰 앱바, 회색 띠로 나눈 납작한 섹션, 주황은 주요 행동에만 ===== */
+.pg-math #bar{background:var(--paper);color:var(--fg);border-bottom:1px solid var(--line);grid-template-columns:120px 1fr 120px}
+.pg-math #bar>.bb:first-child{justify-self:start;min-width:40px;width:40px;padding:0}
+.pg-math #bar>.bb.who:first-child{width:auto;padding:0 12px}
+.pg-math #bar>.bb:last-child{justify-self:end;width:40px;padding:0}
+.pg-math .bb.who,.pg-math .bb.who *{white-space:nowrap}
+.pg-math .bb.who{gap:5px;padding:0 12px}
+.pg-math .bb.who small{font-size:12px}
+.pg-math .areas,.pg-math .pills,.pg-math .row{scrollbar-width:none}
+.pg-math .areas::-webkit-scrollbar,.pg-math .pills::-webkit-scrollbar,.pg-math .row::-webkit-scrollbar{display:none}
+.pg-math #bar h1{font-size:16px;font-weight:700}
+.pg-math .bb svg.lucide{stroke:var(--fg);stroke-width:2}
+.pg-math .bb.who{background:var(--bg);color:var(--fg);border-radius:999px;height:34px;font-weight:700}
+.pg-math .bb.who svg.lucide{stroke:var(--y)} .pg-math .bb.who small{color:var(--sub)} .pg-math .bb.who svg.sm{stroke:var(--dim)}
+.pg-math #screen{gap:8px;background:var(--bg);padding-bottom:16px}
+.pg-math .sec{background:var(--paper);padding:18px 16px;display:flex;flex-direction:column;gap:14px}
+.pg-math .sec.flush{padding:18px 0 4px;gap:10px}
+.pg-math .sh{font-size:16px;font-weight:700;display:flex;align-items:baseline;gap:8px;margin:0}
+.pg-math .sh small{font-size:12.5px;color:var(--sub);font-weight:400}
+.pg-math .pad16{padding:0 16px}
+.pg-math .hrow{display:flex;align-items:center;gap:8px}
+.pg-math .badge{background:var(--y);color:#fff;font-size:11px;font-weight:700;border-radius:4px;padding:2px 6px;letter-spacing:.06em}
+.pg-math .paycard{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.pg-math .pc-top{display:flex;align-items:center;gap:8px;font-size:14px}
+.pg-math .pc-logo{width:24px;height:24px;border-radius:50%;background:var(--y);display:grid;place-items:center}
+.pg-math .pc-logo svg.lucide{width:14px;height:14px;stroke:#fff;stroke-width:2.6}
+.pg-math .latepill{margin-left:auto;font-size:12px;font-weight:700;color:var(--y);background:var(--y-soft);border-radius:999px;padding:3px 8px}
+.pg-math .pc-amt{font-size:30px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pg-math .pc-amt small{font-size:18px;font-weight:500;color:var(--sub)}
+.pg-math .pc-btns{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:8px}
+.pg-math .gbtn{background:var(--bg);border-radius:8px;padding:11px 0;font-size:14px;font-weight:700}
+.pg-math .kbtn{background:var(--k);color:#fff;border-radius:8px;padding:11px 0;font-size:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.pg-math .kbtn svg.lucide{width:16px;height:16px;fill:#fff}
+.pg-math .shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.pg-math .shortcuts button{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;color:var(--fg)}
+.pg-math .shortcuts span{width:48px;height:48px;border-radius:50%;background:var(--bg);display:grid;place-items:center}
+.pg-math .shortcuts span svg.lucide{width:22px;height:22px;stroke:var(--fg);stroke-width:1.9}
+.pg-math .shortcuts button:first-child span{background:var(--y-soft)} .pg-math .shortcuts button:first-child span svg{stroke:var(--y)}
+.pg-math .stat3{background:none;box-shadow:none;padding:0;border:1px solid var(--line);border-radius:12px;padding:14px 4px}
+.pg-math .ic{width:40px;height:40px;border-radius:12px;background:var(--bg)!important;border:0!important}
+.pg-math .ic svg.lucide{stroke:var(--fg)!important;width:20px;height:20px}
+.pg-math .stat3 b{font-size:18px;font-weight:700}
+.pg-math .nowrow{display:flex;align-items:center;gap:12px}
+.pg-math .nr-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.pg-math .nr-body b{font-size:17px;font-weight:700}
+.pg-math .streak i{border-color:var(--line)} .pg-math .streak i.on{background:var(--y);border-color:var(--y)}
+.pg-math .streak em{color:var(--sub)}
+.pg-math .lic{width:40px;height:40px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--bg)}
+.pg-math .lic svg.lucide{width:20px;height:20px;stroke:var(--fg);stroke-width:2}
+.pg-math .lic.s-now{background:var(--y)} .pg-math .lic.s-now svg.lucide{stroke:#fff}
+.pg-math .lic.s-ok{background:var(--y-soft)} .pg-math .lic.s-ok svg.lucide{stroke:var(--y)}
+.pg-math .lic.s-due{background:#FDEBD2} .pg-math .lic.s-due svg.lucide{stroke:var(--orange)}
+.pg-math .lic.s-lk svg.lucide{stroke:var(--dim)}
+.pg-math .pillq{display:inline-flex;align-items:center;font-size:13px;font-weight:700;background:var(--bg);color:var(--fg);border-radius:6px;padding:7px 11px;white-space:nowrap}
+.pg-math .areas{padding:0 16px}
+.pg-math .chip{background:var(--bg);box-shadow:none;font-weight:500}
+.pg-math .chip.on{background:var(--k);color:#fff}
+.pg-math .units{margin:0;border-radius:0;box-shadow:none;background:var(--paper)}
+.pg-math .units li{padding:10px 16px;gap:12px;border-bottom:1px solid var(--line)}
+.pg-math .units li.cur{background:var(--paper)}
+.pg-math .units li.cur .unit b{color:var(--y)}
+.pg-math .unit{padding:0}
+.pg-math .tag{display:none}
+.pg-math .card,.pg-math .box{margin:0;border-radius:0;box-shadow:none}
+.pg-math .units.in{border:0}
+.pg-math .units.in li{padding:10px 0}
+.pg-math .cols div{background:var(--bg)}
+.pg-math .startbtn{background:var(--y);color:#fff;border-radius:8px}
+.pg-math .toast{background:#1E2421;color:#fff;border-radius:8px;font-weight:500}
+.pg-math .btn{border-radius:8px}
+.pg-math .btn.k{background:#1E2421}
+.pg-math .cal div.t{background:var(--y);color:#fff}
+.pg-math .seg{background:var(--paper);box-shadow:none;border-radius:0;padding:0;margin:0;border-bottom:1px solid var(--line)}
+.pg-math .seg button{border-radius:0;padding:14px 0;font-weight:500}
+.pg-math .seg button.on{background:none;color:var(--fg);font-weight:700;box-shadow:inset 0 -2px 0 var(--fg)}
+.pg-math .datenav{background:var(--paper);padding:10px 0}
+.pg-math .share{margin:0 16px;border-radius:8px}
+.pg-math .grid3{margin:0 16px}
+.pg-math .cell{box-shadow:none;border:1px solid var(--line)}
+.pg-math nav{border-top:1px solid var(--line)}
+.pg-math nav button.on{color:var(--fg)}
+.pg-math nav button.on .tb{background:none}
+.pg-math nav .tb{height:26px}
+.pg-math nav button.on svg.lucide{stroke-width:2.4}
+/* 풀이: 송금 화면처럼 */
+.pg-math .np{background:var(--paper);padding:12px 16px 12px}
+.pg-math .prog .tr i{background:var(--y)}
+.pg-math .prog span{font-size:13px;font-weight:700;color:var(--sub)}
+.pg-math .board{background:var(--paper);min-height:170px;padding:24px 8px 8px;gap:18px}
+.pg-math .board .ans{border-bottom:2px solid var(--y);font-size:38px;font-weight:700;min-width:180px}
+.pg-math .board.no{background:#FFF4F3}
+.pg-math .pad2{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+.pg-math .padtools{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pg-math .padtools button{background:var(--bg);border-radius:8px;padding:9px 0;font-size:13px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:4px}
+.pg-math .padtools svg.lucide{width:16px;height:16px}
+.pg-math .pad2 .pad{grid-template-columns:repeat(3,1fr);gap:0;background:none;border:0;border-radius:0;margin:0}
+.pg-math .pad2 .pad button{height:56px;background:var(--paper);font-size:24px;font-weight:500;border-radius:8px}
+.pg-math .pad2 .pad button:active{background:var(--bg)}
+.pg-math .pad2 .pad button.fn{font-size:15px;color:var(--sub);background:var(--paper)}
+.pg-math .pad2 .pad svg.lucide{width:24px;height:24px}
+.pg-math .okbtn{background:var(--y);color:#fff;border-radius:8px;padding:16px;font-size:17px;font-weight:700}
+.pg-math .wrongbar .btn{border-radius:8px}
+.pg-math .lyric{border-top:0;box-shadow:none;border:1px solid var(--line);border-radius:12px}
+.pg-math .steps span.on{background:var(--k);color:#fff}
+.pg-math .dialog{border-radius:14px}
+.pg-math .dialog button{border-radius:8px}
+/* 난이도 표시 */
+.pg-math .lvl{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--bg);color:var(--sub)}
+.pg-math .lvl.l-쉬움{background:var(--y-soft);color:var(--y)}
+.pg-math .lvl.l-보통{background:#FDF1DA;color:var(--orange)}
+.pg-math .lvl.l-어려움{background:#FDE7E8;color:var(--red)}
+.pg-math .lvl.src{background:var(--k);color:#fff}
+/* 앱바·하단 탭 고정, 본문만 스크롤 */
+.pg-math,.pg-math{height:100%;overflow:hidden}
+.pg-math{box-sizing:border-box}
+.pg-math .app{height:100%;min-height:0}
+.pg-math #bar{position:static;flex:none}
+.pg-math #screen{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.pg-math #screen>.np,.pg-math #screen>.cx{min-height:100%}
+.pg-math nav{flex:none}
+.pg-math .steps{overflow-x:auto;scrollbar-width:none}
+.pg-math .steps::-webkit-scrollbar{display:none}
+.pg-math .steps span{flex:none;padding:7px 12px}
+
+
+/* ===== 아이패드(태블릿) ===== */
+@media (min-width:700px){
+  .pg-math{padding-left:24px;padding-right:24px;padding-bottom:20px}
+  .pg-math .app{max-width:760px;border-radius:28px}
+  .pg-math #bar{height:64px} .pg-math #bar h1{font-size:19px}
+  .pg-math .sec{padding:22px 24px} .pg-math .pad16,.pg-math .areas{padding-left:24px;padding-right:24px}
+  .pg-math .units li{padding:12px 24px} .pg-math .unit b{font-size:17px} .pg-math .unit small{font-size:13px}
+  .pg-math .np{padding:18px 28px} .pg-math .cx{padding:20px 28px}
+  .pg-math .board{min-height:240px}
+  .pg-math .board .q{font-size:56px}
+  .pg-math .pad2 .pad button{height:68px;font-size:28px}
+  .pg-math .okbtn{padding:20px;font-size:19px}
+  .pg-math .tip,.pg-math .mixline{font-size:14px}
+  .pg-math .lyric{padding:28px} .pg-math .lyric p{font-size:18px} .pg-math .lyric h2{font-size:26px}
+  .pg-math .board .q.hz1{font-size:130px} .pg-math .board .q.hz2{font-size:84px} .pg-math .board .q.hun{font-size:42px}
+  .pg-math .choices{gap:14px} .pg-math .choices button{min-height:84px;font-size:26px} .pg-math .choices.hzc button{min-height:108px} .pg-math .choices.hzc button span{font-size:56px}
+  .pg-math .grid10{grid-template-columns:repeat(10,1fr)}
+  .pg-math .info{padding:20px} .pg-math .ich{width:104px;height:104px;font-size:72px}
+  .pg-math .wcnt{padding:12px 18px} .pg-math .wcnt .dots i{width:18px;height:18px}
+}
+/* 가로(iPad 가로): 문제는 왼쪽, 입력(숫자패드·보기·설명)은 오른쪽 */
+@media (min-width:1000px) and (orientation:landscape){
+  .pg-math .app{max-width:1100px}
+  .pg-math .np{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;align-content:start}
+  .pg-math .np>*{grid-column:1}
+  .pg-math .np>.pad2,.pg-math .np>.wrongbar,.pg-math .np>.choices,.pg-math .np>#after{grid-column:2}
+  .pg-math .np>.pad2{grid-row:1 / span 8;margin-top:0;align-self:start}
+  .pg-math .np>.wrongbar{grid-row:1;align-self:start}
+  .pg-math .np>.choices{grid-row:1 / span 3;align-self:start}
+  .pg-math .np>#after{grid-row:4 / span 10}
+  .pg-math .board{min-height:300px}
+  .pg-math .grid10{grid-template-columns:repeat(5,1fr)}
+  .pg-math .cx{max-width:860px;margin:0 auto;width:100%}
+  .pg-math .res{max-width:860px;margin:0 auto;width:100%}
+}
+
+/* ===== 휴대폰: 화면 꽉 차게, 작은 폰(≤380px)은 글자·버튼 조금 작게 ===== */
+@media (max-width:520px){
+  .pg-math{padding:0!important}
+  .pg-math .app{border-radius:0;border:0;max-width:none}
+}
+@media (max-width:380px){
+  .pg-math #bar{grid-template-columns:auto 1fr 44px} .pg-math #bar h1{font-size:15px}
+  .pg-math .bb.who{padding:0 8px} .pg-math .bb.who small{display:none}
+  .pg-math .board{min-height:150px;padding:20px 6px 8px}
+  .pg-math .board .q{font-size:30px}
+  .pg-math .board .q.hz1{font-size:76px} .pg-math .board .q.hz2{font-size:50px} .pg-math .board .q.hun{font-size:28px}
+  .pg-math .pad2 .pad button{height:50px;font-size:22px}
+  .pg-math .okbtn{padding:13px}
+  .pg-math .choices{gap:8px} .pg-math .choices button{min-height:56px;font-size:19px} .pg-math .choices.hzc button{min-height:72px} .pg-math .choices.hzc button span{font-size:36px}
+  .pg-math .grid10{grid-template-columns:repeat(5,1fr)}
+  .pg-math .shortcuts span{width:42px;height:42px}
+  .pg-math .pc-amt{font-size:26px}
+  .pg-math .wcnt{padding:8px 10px} .pg-math .wcnt .dots i{width:12px;height:12px}
+  .pg-math .ich{width:70px;height:70px;font-size:48px}
+}
+/* 틀린 개수 칸 */
+.pg-math .wcnt{border:1.5px solid #F3C6C9;background:#FFF7F7;border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:5px}
+.pg-math .wcnt .r1{display:flex;align-items:center;gap:10px}
+.pg-math .wcnt .r1 b{font-size:14px;font-weight:900;color:var(--red);flex:none}
+.pg-math .wcnt .dots{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.pg-math .wcnt .dots i{width:14px;height:14px;border-radius:50%;border:2px solid #F0B4B8;background:#fff}
+.pg-math .wcnt .dots i.on{background:var(--red);border-color:var(--red)}
+.pg-math .wcnt .r1 em{font-style:normal;font-size:18px;font-weight:900;color:var(--red);font-variant-numeric:tabular-nums;flex:none}
+.pg-math .wcnt small{font-size:12px;color:var(--sub);line-height:1.45}
+.pg-math .wcnt small b{color:var(--fg)}
+.pg-math .wcnt.full{border-color:var(--red);background:#FDE7E8}
+
+
+.pg-math .board.no,.pg-math .board.ok{padding-top:52px}
+/* 자동 넘김 */
+.pg-math #autoBox{display:flex;align-items:center;gap:10px;min-height:28px}
+.pg-math .autobar{flex:1;height:6px;border-radius:3px;background:var(--hi);overflow:hidden}
+.pg-math .autobar i{display:block;height:100%;width:100%;background:var(--y);transform-origin:left;animation:autoShrink linear forwards}
+@keyframes autoShrink{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.pg-math .stopauto{flex:none;font-size:12.5px;font-weight:700;color:var(--sub);background:var(--bg);border-radius:999px;padding:6px 12px}
+.pg-math .autonote{font-size:12.5px;color:var(--sub)}
+.pg-math .okflash{font-size:14px;font-weight:700;color:var(--y);text-align:center}
+@media (prefers-reduced-motion:reduce){.pg-math .autobar i{animation:none;transform:scaleX(.5)}}
+/* 틀림 상한 */
+.pg-math .restart{display:block;background:#FDE7E8;color:var(--red);font-weight:700;border-radius:8px;padding:8px 10px}
+.pg-math .toast.warn{background:#FDE7E8;color:var(--red)}
+@media (prefers-reduced-motion:reduce){.pg-math *{transition:none!important}}
+
+.pg-math{background:#fff!important;padding-top:6px!important}@media (max-width:520px){.pg-math{padding-top:0!important}}.pg-math #bar{order:0}.pg-math nav#tabs{order:1}.pg-math #screen{order:2}.pg-math nav#tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:10px 16px 12px;background:var(--paper);border-top:0;border-bottom:1px solid var(--line)}.pg-math nav#tabs::-webkit-scrollbar{display:none}.pg-math nav#tabs[hidden]{display:none}.pg-math nav#tabs button{flex:none;flex-direction:row;gap:6px;border:1.5px solid var(--line);border-radius:99px;padding:7px 15px;font-size:15px;font-weight:800;color:var(--fg);background:var(--paper)}.pg-math nav#tabs .tb{display:none}.pg-math nav#tabs button.on{background:#1E2421;border-color:#1E2421;color:#fff;font-weight:800}.pg-math nav#tabs .dot{position:static;height:auto;min-width:20px;border-radius:99px;background:#FF4F1F;font-size:12px;line-height:1;padding:3px 7px}@media (min-width:700px){.pg-math nav#tabs{padding:10px 24px 14px}}
+.pg-math .wset>span>svg{width:16px;height:16px;vertical-align:-3px;margin:0 5px 0 0}.pg-math .wset{margin:0 0 8px!important;border-radius:0!important;padding:14px 16px!important}@media (min-width:700px){.pg-math .wset{padding:14px 24px!important}}.pg-math{padding:0!important}.pg-math .app{max-width:1024px!important;margin:0 auto!important;border:0!important;border-radius:0!important}@media (min-width:521px){.pg-math{padding-bottom:0!important}.pg-math .app{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;border-bottom:0!important}}.pg-math nav#tabs{display:none!important}.pg-math .trk{margin:0!important;padding:0 16px!important;gap:0!important;background:var(--paper)!important;border:0!important;border-radius:0!important;box-shadow:inset 0 -1px 0 var(--line)}.pg-math .trk button{border-radius:0!important;background:none!important;color:#8A9099!important;font-weight:800!important;padding:13px 0 12px!important;box-shadow:inset 0 -2px 0 transparent}.pg-math .trk button[aria-selected="true"]{color:#1E2421!important;font-weight:900!important;box-shadow:inset 0 -2.5px 0 #1E2421}@media (min-width:700px){.pg-math .trk{padding:0 24px!important}}.pg-math #bar[hidden]{display:none!important}.pg-math .shortcuts button{position:relative}.pg-math .shortcuts em.scn{font-style:normal;position:absolute;top:-2px;left:calc(50% + 10px);min-width:20px;border-radius:99px;background:#FF4F1F;color:#fff;font-size:11.5px;font-weight:900;line-height:1;padding:3px 6px;border:2px solid var(--paper)}
+.pg-math{--y:#2563EB;--y2:#2563EB;--y-soft:#E8F0FE;--bg:#F4F5F7;--hi:#E8EBF0;--line:#E1E4EA}

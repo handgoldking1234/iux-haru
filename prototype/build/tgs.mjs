@@ -1,0 +1,11 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:390,height:844}}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.addInitScript(()=>{ localStorage.setItem('harugongbu-auth',JSON.stringify({email:'a@b.c',kids:[{name:'민왕이',grade:'초5'}]})); });
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1300);
+let P; for(const f of pg.frames().slice(1)) if((await f.title())==='홈') P=f;
+console.log(await P.evaluate(()=>{ let bad=0,n=0; for(let i=0;i<300;i++){ const q=genQ('sci'); n++; if(!q.c.includes(q.ans)||new Set(q.c).size!==4) bad++; } const m={}; for(let i=0;i<80;i++){ const q=genQ('mix'); m[q.from]=(m[q.from]||0)+1; } return {n,bad,pool:PD.sci.length,mix:m,ex:genQ('sci')}; }));
+await P.evaluate(()=>{ HG.st.plan.sci=10; HG.save(); }); await pg.waitForTimeout(300); await P.evaluate(()=>{ setTab('home'); }); await pg.waitForTimeout(300);
+console.log(await P.$$eval('.task b, .tk b, .tasks b',x=>x.map(e=>e.textContent).slice(0,8)));
+await pg.screenshot({path:'gs.png'});
+console.log(errs); await b.close();

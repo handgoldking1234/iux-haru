@@ -1,0 +1,23 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:2}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.goto('file://'+process.cwd()+'/english.html'); await pg.waitForTimeout(700);
+await pg.evaluate(()=>{ const p=P(); concept(curSt(p).id,true,()=>{},null); document.getElementById('next').click(); });
+await pg.waitForTimeout(300);
+console.log('eng next disabled',await pg.evaluate(()=>document.getElementById('next').disabled));
+await pg.evaluate(()=>document.getElementById('icv').scrollIntoView()); await pg.waitForTimeout(100);
+const bb=await (await pg.$('#icv')).boundingBox(); await pg.mouse.move(bb.x+40,bb.y+80); await pg.mouse.down(); for(let i=0;i<30;i++) await pg.mouse.move(bb.x+40+i*9,bb.y+80+Math.sin(i)*25); await pg.mouse.up(); await pg.waitForTimeout(200);
+console.log('eng after write',await pg.evaluate(()=>document.getElementById('next').disabled));
+await pg.screenshot({path:'c1.png'});
+await pg.goto('file://'+process.cwd()+'/hanja.html'); await pg.waitForTimeout(700);
+await pg.evaluate(()=>{ const p=P(); concept(curSt(p).id,true,()=>{},null); document.getElementById('next').click(); });
+await pg.waitForTimeout(500);
+console.log('hanja next disabled',await pg.evaluate(()=>document.getElementById('next').disabled));
+await pg.evaluate(()=>document.getElementById('ihw').scrollIntoView()); await pg.waitForTimeout(200);
+const ch=await pg.evaluate(()=>{ const p=P(); return curSt(p).chars[0]; }); const meds=await pg.evaluate(c=>SK[c].medians,ch);
+const box=await (await pg.$('#ihw svg')).boundingBox(); const sc=(box.width-24)/1024;
+for(const m of meds){ const pts=m.map(([x,y])=>[box.x+12+x*sc, box.y+12+(900-y)*sc]); await pg.mouse.move(...pts[0]); await pg.mouse.down(); for(const p of pts.slice(1)) await pg.mouse.move(...p,{steps:4}); await pg.mouse.up(); await pg.waitForTimeout(300); }
+await pg.waitForTimeout(600);
+console.log('hanja after write',ch,await pg.evaluate(()=>document.getElementById('next').disabled));
+await pg.screenshot({path:'c2.png'});
+console.log(errs); await b.close();

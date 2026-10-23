@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:2}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1200);
+let P; for(const f of pg.frames().slice(1)) if((await f.title())==='홈') P=f;
+console.log(await P.$$eval('#tabs button',x=>x.map(b=>b.textContent)));
+await P.click('#tabs [data-tab=my]'); await pg.waitForTimeout(300); await pg.screenshot({path:'my1.png'});
+await P.click('[data-sub=shop]'); await pg.waitForTimeout(300); await P.click('[data-it]:nth-child(3)'); await pg.waitForTimeout(200);
+await P.evaluate(()=>document.querySelector('#screen').scrollTop=300); await pg.waitForTimeout(200); await pg.screenshot({path:'my2.png'});
+console.log(await P.$eval('#tabs [aria-selected=true]',x=>x.textContent));
+await P.click('#tabs [data-tab=home]'); await P.evaluate(()=>setTab('shop')); await pg.waitForTimeout(200);
+console.log(await P.$eval('.mysub .on',x=>x.textContent), await P.$eval('#tabs [aria-selected=true]',x=>x.textContent));
+await P.click('#tabs [data-tab=my]'); console.log(await P.$eval('.mysub .on',x=>x.textContent));
+console.log(errs); await b.close();

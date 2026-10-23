@@ -1,0 +1,10 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const pg=await b.newPage();
+await pg.goto('file://'+process.cwd()+'/math.html'); await pg.waitForTimeout(600);
+console.log('math', await pg.evaluate(()=>{ const a={}; STAGES.forEach(s=>a[s.area]=(a[s.area]||0)+1); return JSON.stringify({stages:STAGES.length, byArea:a, mix:typeof MIX!=='undefined'?MIX.length:null}); }));
+await pg.goto('file://'+process.cwd()+'/hanja.html'); await pg.waitForTimeout(800);
+console.log('hanja', await pg.evaluate(()=>{ try{ const r={}; for(const tr of ['school','grade']){ setupTrack&&setupTrack(tr); r[tr]={stages:STAGES.length,chars:new Set(STAGES.flatMap(s=>s.chars||[])).size}; } return JSON.stringify(r);}catch(e){ return 'stages '+STAGES.length+' '+e.message; } }));
+await pg.goto('file://'+process.cwd()+'/english.html'); await pg.waitForTimeout(800);
+console.log('eng', await pg.evaluate(()=>JSON.stringify({stages:STAGES.length, words:new Set(STAGES.flatMap(s=>s.chars||[])).size})));
+await b.close();

@@ -1,0 +1,13 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[];
+const pg=await b.newPage({viewport:{width:400,height:860},deviceScaleFactor:2}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(800);
+await pg.click('[data-s=hist]'); await pg.waitForTimeout(1500);
+let hf; for(const f of pg.frames().slice(1)) if((await f.title())==='역사하루') hf=f;
+await pg.screenshot({path:'tl0.png'});
+await hf.evaluate(()=>{ tlF={tr:'all',lv:1}; setTab('tl'); }); await pg.waitForTimeout(300); await pg.screenshot({path:'tl1.png'});
+await hf.evaluate(()=>{ screen.scrollTop=2600; }); await pg.waitForTimeout(200); await pg.screenshot({path:'tl2.png'});
+await hf.evaluate(()=>{ tlF={tr:'ko',lv:2}; renderTimeline(); document.querySelectorAll('[data-ev]')[3].click(); }); await pg.waitForTimeout(200); await pg.screenshot({path:'tl3.png'});
+console.log(await hf.evaluate(()=>[1,2].map(()=>0)), errs);
+await b.close();

@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:2}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.addInitScript(()=>{ localStorage.setItem('harugongbu-auth',JSON.stringify({email:'a@b.c',kids:[{name:'민왕이',grade:'초5'}]})); });
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1300); await pg.evaluate(()=>document.querySelectorAll('.alm').forEach(x=>x.remove()));
+let P; for(const f of pg.frames().slice(1)) if((await f.title())==='홈') P=f;
+await P.evaluate(()=>{ const d=HG.day(); HG.tasks().forEach(t=>d.by[t.k]=t.goal); d.bonus=true; HG.st.backGate=false; HG.save(); });
+await pg.click('#gnav [data-g=game]'); await P.click('[data-pill=room]'); await pg.waitForTimeout(300); await pg.screenshot({path:'pr1.png',fullPage:false});
+await P.click('#mkRoom'); await pg.waitForTimeout(400); await pg.screenshot({path:'pr2.png'}); console.log('priv code', await P.$eval('.roomcode b',e=>e.textContent));
+await P.evaluate(()=>{ leaveRoom(); }); await pg.waitForTimeout(200); await P.evaluate(()=>{ setTab('game'); });
+await P.click('[data-mp=pub]'); await P.click('#mkRoom'); await pg.waitForTimeout(400); await pg.screenshot({path:'pr3.png'}); console.log('pub', await P.$eval('.roomcode',e=>e.textContent));
+await P.click('#toPriv'); await pg.waitForTimeout(200); console.log('toPriv', await P.$eval('.roomcode b',e=>e.textContent));
+await P.evaluate(()=>{ leaveRoom(); setTab('game'); }); await P.click('[data-pill=room]'); await P.click('[data-pub="1"]'); await pg.waitForTimeout(400); console.log('joined pub', await P.$eval('.roomcode',e=>e.textContent), await P.$$eval('.pl:not(.empty)',x=>x.length));
+console.log(errs); await b.close();

@@ -1,0 +1,27 @@
+# 이전 자료 (압축 원본·중복 HTML)
+old/
+
+# 의존성·빌드 결과
+node_modules/
+web/.next/
+web/out/
+*.tsbuildinfo
+web/next-env.d.ts
+
+# 키·로컬 설정 (Supabase 키는 Vercel 환경 변수로 넣는다)
+.env*
+!.env.example
+web/.vercel
+
+# 프로토타입 작업 부산물
+__pycache__/
+*.pyc
+prototype/build/shots/
+
+# 화면 비교 스크린샷
+web/e2e/compare/
+web/e2e/shots/
+
+# OS
+.DS_Store
+Thumbs.db

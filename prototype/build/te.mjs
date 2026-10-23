@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:2}); pg.on('pageerror',e=>errs.push(e.stack.slice(0,400)));
+await pg.goto('file://'+process.cwd()+'/english.html'); await pg.waitForTimeout(700);
+await pg.evaluate(()=>{ setPen(true); const p=P(); p.read[curSt(p).id]=true; start('new','t'); const w=ALL.find(w=>spellOK(w)); G.cur={...makeQ({ch:w,t:'s'},2),src:'new'}; drawPlay(); });
+await pg.waitForTimeout(300);
+const bb=await (await pg.$('#ecv')).boundingBox(); await pg.mouse.move(bb.x+40,bb.y+90); await pg.mouse.down(); for(let i=0;i<20;i++) await pg.mouse.move(bb.x+40+i*10,bb.y+90+Math.sin(i)*20); await pg.mouse.up();
+await pg.click('#eChk'); await pg.waitForTimeout(200); await pg.screenshot({path:'e1.png'});
+await pg.click('#eYes'); await pg.waitForTimeout(300); console.log(await pg.evaluate(()=>JSON.stringify(G&&G.log.slice(-1))));
+await pg.evaluate(()=>{ G=null; document.getElementById('screen').innerHTML=infoHTML(ALL[5]); }); await pg.waitForTimeout(100);
+await pg.click('[data-etrace]'); await pg.waitForTimeout(300); await pg.screenshot({path:'e2.png'});
+console.log(errs); await b.close();

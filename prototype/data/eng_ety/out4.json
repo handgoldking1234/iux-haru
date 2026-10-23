@@ -1,0 +1,13979 @@
+{
+ "brand": {
+  "et": "고대 영어 'brand'는 '불, 불타는 나무'라는 뜻이었어요. 달군 쇠로 가축에 찍던 '낙인'을 뜻하게 되었고, 거기서 회사의 '상표'라는 뜻이 나왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "branding",
+    "브랜드화"
+   ],
+   [
+    "brand-new",
+    "아주 새것인"
+   ]
+  ],
+  "syn": [
+   [
+    "trademark",
+    "상표"
+   ],
+   [
+    "label",
+    "상표"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "brand name",
+    "상표명"
+   ],
+   [
+    "brand-new",
+    "신품의"
+   ]
+  ]
+ },
+ "degree": {
+  "et": "옛 프랑스어 'degré'에서 왔는데, 라틴어 de(아래로)와 gradus(걸음, 계단)가 합쳐진 말이에요. '계단 한 칸'이 '단계, 정도'를 거쳐 온도의 '도'와 '학위'가 되었어요.",
+  "pt": "de(아래로) + gree(계단, 단계)",
+  "fam": [
+   [
+    "grade",
+    "등급"
+   ],
+   [
+    "gradual",
+    "점진적인"
+   ]
+  ],
+  "syn": [
+   [
+    "level",
+    "정도"
+   ],
+   [
+    "extent",
+    "범위"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "to some degree",
+    "어느 정도"
+   ],
+   [
+    "a high degree of",
+    "높은 정도의"
+   ]
+  ]
+ },
+ "influence": {
+  "et": "라틴어 in(안으로)과 fluere(흐르다)에서 온 말로, '안으로 흘러듦'이라는 뜻이에요. 옛날엔 별에서 흘러나온 기운이 사람의 운명에 작용한다고 믿어서 '영향'이라는 뜻이 되었어요.",
+  "pt": "in(안으로) + flu(흐르다) + ence(명사)",
+  "fam": [
+   [
+    "influential",
+    "영향력 있는"
+   ],
+   [
+    "fluid",
+    "액체"
+   ],
+   [
+    "flow",
+    "흐름"
+   ]
+  ],
+  "syn": [
+   [
+    "effect",
+    "영향"
+   ],
+   [
+    "impact",
+    "영향"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "have an influence on",
+    "~에 영향을 주다"
+   ],
+   [
+    "under the influence of",
+    "~의 영향을 받아"
+   ]
+  ]
+ },
+ "plain": {
+  "et": "라틴어 'planus(평평한, 분명한)'가 옛 프랑스어를 거쳐 들어왔어요. '평평하고 걸리는 게 없는' 느낌에서 '분명한, 꾸밈없는, 평범한'이라는 뜻이 나왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "plainly",
+    "분명히"
+   ],
+   [
+    "plane",
+    "평면"
+   ],
+   [
+    "explain",
+    "설명하다"
+   ]
+  ],
+  "syn": [
+   [
+    "simple",
+    "단순한"
+   ],
+   [
+    "clear",
+    "분명한"
+   ]
+  ],
+  "ant": [
+   [
+    "fancy",
+    "화려한"
+   ]
+  ],
+  "ph": [
+   [
+    "plain clothes",
+    "사복"
+   ],
+   [
+    "in plain English",
+    "쉬운 말로"
+   ]
+  ]
+ },
+ "recent": {
+  "et": "라틴어 'recens(새로운, 갓 생긴)'에서 왔어요. '방금 생긴 것'이라는 뜻이 그대로 '최근의'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "recently",
+    "최근에"
+   ]
+  ],
+  "syn": [
+   [
+    "new",
+    "새로운"
+   ],
+   [
+    "latest",
+    "최신의"
+   ]
+  ],
+  "ant": [
+   [
+    "old",
+    "오래된"
+   ],
+   [
+    "ancient",
+    "고대의"
+   ]
+  ],
+  "ph": [
+   [
+    "in recent years",
+    "최근 몇 년 동안"
+   ]
+  ]
+ },
+ "confirm": {
+  "et": "라틴어 confirmare에서 왔는데 con(강하게)과 firmare(단단하게 하다)가 합쳐졌어요. '단단히 굳히다'에서 '확인하다, 확정하다'라는 뜻이 되었어요.",
+  "pt": "con(완전히) + firm(단단한)",
+  "fam": [
+   [
+    "confirmation",
+    "확인"
+   ],
+   [
+    "firm",
+    "단단한"
+   ]
+  ],
+  "syn": [
+   [
+    "verify",
+    "확인하다"
+   ],
+   [
+    "prove",
+    "증명하다"
+   ]
+  ],
+  "ant": [
+   [
+    "deny",
+    "부인하다"
+   ]
+  ],
+  "ph": [
+   [
+    "confirm a reservation",
+    "예약을 확인하다"
+   ]
+  ]
+ },
+ "scratch": {
+  "et": "15세기부터 쓰인 말인데, 비슷한 옛 단어들이 섞여 생긴 것으로 보여요. 정확히 어디서 왔는지는 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "scratchy",
+    "긁히는 듯한"
+   ]
+  ],
+  "syn": [
+   [
+    "scrape",
+    "긁다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "from scratch",
+    "처음부터"
+   ],
+   [
+    "scratch one's head",
+    "머리를 긁적이다"
+   ]
+  ]
+ },
+ "contest": {
+  "et": "라틴어 contestari(증인을 불러 다투다)에서 왔어요. con(함께)과 testis(증인)가 합쳐진 말로, '법정 다툼'에서 '경쟁, 대회'로 뜻이 넓어졌어요.",
+  "pt": "con(함께) + test(증인)",
+  "fam": [
+   [
+    "contestant",
+    "참가자"
+   ]
+  ],
+  "syn": [
+   [
+    "competition",
+    "대회"
+   ],
+   [
+    "match",
+    "시합"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "enter a contest",
+    "대회에 참가하다"
+   ],
+   [
+    "beauty contest",
+    "미인 대회"
+   ]
+  ]
+ },
+ "motion": {
+  "et": "라틴어 'motio(움직임)'에서 왔고, movere(움직이다)와 같은 뿌리예요. 회의에서 안건을 '움직여 내놓는' 데서 '발의'라는 뜻도 생겼어요.",
+  "pt": "mot(움직이다) + ion(명사)",
+  "fam": [
+   [
+    "move",
+    "움직이다"
+   ],
+   [
+    "motor",
+    "모터"
+   ],
+   [
+    "emotion",
+    "감정"
+   ]
+  ],
+  "syn": [
+   [
+    "movement",
+    "움직임"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in slow motion",
+    "느린 동작으로"
+   ],
+   [
+    "motion picture",
+    "영화"
+   ]
+  ]
+ },
+ "seal": {
+  "et": "모양이 같은 두 단어예요. '물개'는 고대 영어 'seolh'에서, '봉인, 도장'은 라틴어 'sigillum(작은 표시)'에서 프랑스어를 거쳐 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "sign",
+    "표시"
+   ],
+   [
+    "signal",
+    "신호"
+   ]
+  ],
+  "syn": [
+   [
+    "stamp",
+    "도장"
+   ]
+  ],
+  "ant": [
+   [
+    "unseal",
+    "개봉하다"
+   ]
+  ],
+  "ph": [
+   [
+    "seal a letter",
+    "편지를 봉하다"
+   ],
+   [
+    "sealed with a kiss",
+    "키스로 봉한"
+   ]
+  ]
+ },
+ "standard": {
+  "et": "옛 프랑스어 'estandart(군대의 깃발)'에서 왔어요. 깃발은 모두가 모이는 기준점이어서, 왕이 정한 '기준, 표준'이라는 뜻으로 이어졌어요.",
+  "pt": "",
+  "fam": [
+   [
+    "standardize",
+    "표준화하다"
+   ]
+  ],
+  "syn": [
+   [
+    "norm",
+    "표준"
+   ],
+   [
+    "criterion",
+    "기준"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "standard of living",
+    "생활 수준"
+   ],
+   [
+    "up to standard",
+    "기준에 맞는"
+   ]
+  ]
+ },
+ "inform": {
+  "et": "라틴어 informare에서 왔는데 in(안에)과 forma(모양)가 합쳐져 '모양을 갖추게 하다, 가르치다'라는 뜻이었어요. 지금은 '알리다'라는 뜻으로 써요.",
+  "pt": "in(안에) + form(모양)",
+  "fam": [
+   [
+    "information",
+    "정보"
+   ],
+   [
+    "informative",
+    "유익한"
+   ],
+   [
+    "form",
+    "형태"
+   ]
+  ],
+  "syn": [
+   [
+    "tell",
+    "말하다"
+   ],
+   [
+    "notify",
+    "통지하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "inform A of B",
+    "A에게 B를 알리다"
+   ]
+  ]
+ },
+ "gentle": {
+  "et": "라틴어 gentilis(같은 가문의)에서 온 옛 프랑스어 'gentil(귀족 태생의)'이 들어왔어요. '점잖은 집안 사람'의 느낌에서 '온화한, 부드러운'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "gently",
+    "부드럽게"
+   ],
+   [
+    "gentleman",
+    "신사"
+   ]
+  ],
+  "syn": [
+   [
+    "mild",
+    "온화한"
+   ],
+   [
+    "kind",
+    "친절한"
+   ]
+  ],
+  "ant": [
+   [
+    "rough",
+    "거친"
+   ],
+   [
+    "harsh",
+    "가혹한"
+   ]
+  ],
+  "ph": [
+   [
+    "gentle breeze",
+    "산들바람"
+   ]
+  ]
+ },
+ "frankly": {
+  "et": "frank(솔직한) + -ly(부사)예요. frank는 옛 프랑스어 'franc(자유로운)'에서 왔는데, 프랑크족이 '자유민'이었던 데서 생긴 말이에요.",
+  "pt": "frank(솔직한) + ly(부사)",
+  "fam": [
+   [
+    "frank",
+    "솔직한"
+   ]
+  ],
+  "syn": [
+   [
+    "honestly",
+    "솔직히"
+   ],
+   [
+    "openly",
+    "터놓고"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "frankly speaking",
+    "솔직히 말해서"
+   ]
+  ]
+ },
+ "exit": {
+  "et": "라틴어 exire(나가다)에서 왔는데 ex(밖으로)와 ire(가다)가 합쳐졌어요. 연극 대본에서 '(배우가) 나간다'는 지시어로 쓰이다가 '출구'라는 뜻이 되었어요.",
+  "pt": "ex(밖으로) + it(가다)",
+  "fam": [
+   [
+    "exodus",
+    "탈출"
+   ]
+  ],
+  "syn": [
+   [
+    "way out",
+    "출구"
+   ]
+  ],
+  "ant": [
+   [
+    "entrance",
+    "입구"
+   ],
+   [
+    "enter",
+    "들어가다"
+   ]
+  ],
+  "ph": [
+   [
+    "emergency exit",
+    "비상구"
+   ]
+  ]
+ },
+ "gain": {
+  "et": "옛 프랑스어 'gaaignier(벌다, 얻다)'에서 왔고, 더 앞은 '사냥하다, 먹을 것을 찾다'라는 게르만어로 여겨져요.",
+  "pt": "",
+  "fam": [
+   [
+    "regain",
+    "되찾다"
+   ]
+  ],
+  "syn": [
+   [
+    "get",
+    "얻다"
+   ],
+   [
+    "obtain",
+    "얻다"
+   ],
+   [
+    "profit",
+    "이익"
+   ]
+  ],
+  "ant": [
+   [
+    "lose",
+    "잃다"
+   ],
+   [
+    "loss",
+    "손실"
+   ]
+  ],
+  "ph": [
+   [
+    "gain weight",
+    "살이 찌다"
+   ],
+   [
+    "No pain, no gain.",
+    "고통 없이는 얻는 것도 없다."
+   ]
+  ]
+ },
+ "link": {
+  "et": "'사슬의 고리'를 뜻하던 북유럽(고대 노르드어) 계통 말에서 왔어요. 고리처럼 '이어 주는 것'이라 인터넷의 '링크'로도 쓰여요.",
+  "pt": "",
+  "fam": [
+   [
+    "linkage",
+    "연결"
+   ]
+  ],
+  "syn": [
+   [
+    "connection",
+    "연결"
+   ],
+   [
+    "tie",
+    "유대"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "link A to B",
+    "A를 B와 연결하다"
+   ],
+   [
+    "missing link",
+    "빠진 고리"
+   ]
+  ]
+ },
+ "chip": {
+  "et": "고대 영어 'cipp(작은 나뭇조각)'에서 온 것으로 보여요. '떨어져 나온 작은 조각'에서 감자칩, 컴퓨터 칩까지 뜻이 넓어졌어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "piece",
+    "조각"
+   ],
+   [
+    "fragment",
+    "파편"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "chocolate chip",
+    "초콜릿 칩"
+   ],
+   [
+    "a chip off the old block",
+    "부모를 쏙 빼닮은 자식"
+   ]
+  ]
+ },
+ "temperature": {
+  "et": "라틴어 temperatura(알맞게 섞음)에서 왔고, temperare(적절히 섞다)와 관련 있어요. '알맞은 정도'에서 17세기에 '온도'라는 뜻이 되었어요.",
+  "pt": "temper(알맞게 섞다) + ature(명사)",
+  "fam": [
+   [
+    "temper",
+    "기질"
+   ],
+   [
+    "temperate",
+    "온화한"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "take one's temperature",
+    "체온을 재다"
+   ],
+   [
+    "high temperature",
+    "고온"
+   ]
+  ]
+ },
+ "equal": {
+  "et": "라틴어 aequalis(같은, 평평한)에서 왔고 aequus(평평한, 고른)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "equality",
+    "평등"
+   ],
+   [
+    "equally",
+    "똑같이"
+   ],
+   [
+    "equation",
+    "방정식"
+   ]
+  ],
+  "syn": [
+   [
+    "same",
+    "같은"
+   ],
+   [
+    "even",
+    "고른"
+   ]
+  ],
+  "ant": [
+   [
+    "unequal",
+    "불평등한"
+   ],
+   [
+    "different",
+    "다른"
+   ]
+  ],
+  "ph": [
+   [
+    "be equal to",
+    "~와 같다"
+   ],
+   [
+    "equal rights",
+    "평등권"
+   ]
+  ]
+ },
+ "bug": {
+  "et": "어디서 왔는지 확실하지 않은 단어예요. '벌레'라는 뜻이 먼저였고, 기계의 '결함'을 bug라 부르다가 컴퓨터 프로그램의 '오류'라는 뜻이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "debug",
+    "오류를 고치다"
+   ]
+  ],
+  "syn": [
+   [
+    "insect",
+    "곤충"
+   ],
+   [
+    "error",
+    "오류"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "nerve": {
+  "et": "라틴어 'nervus(힘줄)'에서 왔어요. '힘'의 느낌에서 '신경'과 함께 '용기, 배짱'이라는 뜻도 생겼어요.",
+  "pt": "",
+  "fam": [
+   [
+    "nervous",
+    "불안한"
+   ],
+   [
+    "nervously",
+    "초조하게"
+   ]
+  ],
+  "syn": [
+   [
+    "courage",
+    "용기"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "get on one's nerves",
+    "신경을 거스르다"
+   ],
+   [
+    "lose one's nerve",
+    "용기를 잃다"
+   ]
+  ]
+ },
+ "port": {
+  "et": "'항구'는 라틴어 'portus(항구)'에서 왔고, 컴퓨터의 '포트(연결 구멍)'는 '문'을 뜻하는 라틴어 'porta'와 이어져요.",
+  "pt": "",
+  "fam": [
+   [
+    "airport",
+    "공항"
+   ],
+   [
+    "passport",
+    "여권"
+   ],
+   [
+    "export",
+    "수출하다"
+   ],
+   [
+    "import",
+    "수입하다"
+   ]
+  ],
+  "syn": [
+   [
+    "harbor",
+    "항구"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "port of call",
+    "기항지"
+   ]
+  ]
+ },
+ "proceed": {
+  "et": "라틴어 procedere에서 왔는데 pro(앞으로)와 cedere(가다)가 합쳐졌어요. 그래서 '나아가다, 진행하다'라는 뜻이에요.",
+  "pt": "pro(앞으로) + ceed(가다)",
+  "fam": [
+   [
+    "process",
+    "과정"
+   ],
+   [
+    "procedure",
+    "절차"
+   ],
+   [
+    "proceeds",
+    "수익금"
+   ]
+  ],
+  "syn": [
+   [
+    "continue",
+    "계속하다"
+   ],
+   [
+    "advance",
+    "나아가다"
+   ]
+  ],
+  "ant": [
+   [
+    "stop",
+    "멈추다"
+   ]
+  ],
+  "ph": [
+   [
+    "proceed with",
+    "~을 계속 진행하다"
+   ]
+  ]
+ },
+ "pet": {
+  "et": "16세기 스코틀랜드와 영국 북부에서 '귀여움 받는 아이나 길들인 동물'을 뜻하던 말이에요. 그 전 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "pet shop",
+    "애완동물 가게"
+   ],
+   [
+    "teacher's pet",
+    "선생님이 아끼는 학생"
+   ]
+  ]
+ },
+ "cage": {
+  "et": "라틴어 'cavea(움푹한 곳, 우리)'가 옛 프랑스어 cage를 거쳐 왔어요. cave(동굴)와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "cave",
+    "동굴"
+   ],
+   [
+    "birdcage",
+    "새장"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "awkward": {
+  "et": "'잘못된 방향의, 거꾸로의'라는 뜻의 옛말 awk(고대 노르드어 계통)에 방향을 나타내는 -ward가 붙었어요. '뒤틀린'에서 '서툰, 어색한'이 되었어요.",
+  "pt": "awk(거꾸로) + ward(~쪽으로)",
+  "fam": [
+   [
+    "awkwardly",
+    "어색하게"
+   ],
+   [
+    "awkwardness",
+    "어색함"
+   ]
+  ],
+  "syn": [
+   [
+    "clumsy",
+    "서툰"
+   ],
+   [
+    "uncomfortable",
+    "불편한"
+   ]
+  ],
+  "ant": [
+   [
+    "comfortable",
+    "편안한"
+   ],
+   [
+    "graceful",
+    "우아한"
+   ]
+  ],
+  "ph": [
+   [
+    "awkward silence",
+    "어색한 침묵"
+   ]
+  ]
+ },
+ "pattern": {
+  "et": "중세 영어 'patron(본보기가 되는 사람)'에서 갈라져 나왔어요. '따라 만들 본보기'에서 '무늬, 양식'이라는 뜻이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "patron",
+    "후원자"
+   ]
+  ],
+  "syn": [
+   [
+    "design",
+    "무늬"
+   ],
+   [
+    "model",
+    "본보기"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "behavior pattern",
+    "행동 양식"
+   ]
+  ]
+ },
+ "concentrate": {
+  "et": "con(함께) + center(중심) + -ate로, '한 중심으로 모으다'라는 뜻의 프랑스어 concentrer에서 왔어요.",
+  "pt": "con(함께) + centr(중심) + ate(동사)",
+  "fam": [
+   [
+    "concentration",
+    "집중"
+   ],
+   [
+    "center",
+    "중심"
+   ]
+  ],
+  "syn": [
+   [
+    "focus",
+    "집중하다"
+   ]
+  ],
+  "ant": [
+   [
+    "distract",
+    "산만하게 하다"
+   ]
+  ],
+  "ph": [
+   [
+    "concentrate on",
+    "~에 집중하다"
+   ]
+  ]
+ },
+ "aim": {
+  "et": "옛 프랑스어 esmer(어림잡다, 겨냥하다)에서 왔고, 라틴어 aestimare(가치를 매기다)가 뿌리예요. estimate(추정하다)와 같은 집안이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "aimless",
+    "목적 없는"
+   ],
+   [
+    "estimate",
+    "추정하다"
+   ]
+  ],
+  "syn": [
+   [
+    "goal",
+    "목표"
+   ],
+   [
+    "target",
+    "목표물"
+   ],
+   [
+    "purpose",
+    "목적"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "aim at",
+    "~을 겨누다"
+   ],
+   [
+    "aim to",
+    "~하는 것을 목표로 하다"
+   ]
+  ]
+ },
+ "thick": {
+  "et": "아주 오래된 고대 영어 단어 'þicce(두꺼운, 빽빽한)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "thickness",
+    "두께"
+   ],
+   [
+    "thicken",
+    "두껍게 하다"
+   ]
+  ],
+  "syn": [
+   [
+    "dense",
+    "빽빽한"
+   ],
+   [
+    "heavy",
+    "짙은"
+   ]
+  ],
+  "ant": [
+   [
+    "thin",
+    "얇은"
+   ]
+  ],
+  "ph": [
+   [
+    "through thick and thin",
+    "좋을 때나 나쁠 때나"
+   ]
+  ]
+ },
+ "electric": {
+  "et": "1600년 영국 과학자 길버트가 그리스어 'ēlektron(호박)'을 바탕으로 만든 말이에요. 호박(보석)을 문지르면 정전기가 생기는 것을 보고 붙인 이름이에요.",
+  "pt": "electr(호박, 전기) + ic(형용사)",
+  "fam": [
+   [
+    "electricity",
+    "전기"
+   ],
+   [
+    "electronic",
+    "전자의"
+   ],
+   [
+    "electrical",
+    "전기의"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "electric car",
+    "전기차"
+   ],
+   [
+    "electric guitar",
+    "전자 기타"
+   ]
+  ]
+ },
+ "cliff": {
+  "et": "고대 영어 'clif(가파른 바위 비탈)'에서 왔어요. 아주 오래된 게르만어 계통 단어예요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "precipice",
+    "절벽"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "cliff edge",
+    "절벽 끝"
+   ]
+  ]
+ },
+ "nail": {
+  "et": "고대 영어 'nægl'에서 왔는데, 처음부터 '손톱'과 '못' 두 뜻을 다 가지고 있었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "hit the nail on the head",
+    "정곡을 찌르다"
+   ],
+   [
+    "nail polish",
+    "매니큐어"
+   ]
+  ]
+ },
+ "average": {
+  "et": "배로 실어 나르다 생긴 화물 손해를 여러 사람이 '똑같이 나눠 부담하던 것'을 가리키는 말에서 '평균'이라는 뜻이 되었어요. 더 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "ordinary",
+    "보통의"
+   ],
+   [
+    "mean",
+    "평균"
+   ],
+   [
+    "typical",
+    "전형적인"
+   ]
+  ],
+  "ant": [
+   [
+    "exceptional",
+    "뛰어난"
+   ]
+  ],
+  "ph": [
+   [
+    "on average",
+    "평균적으로"
+   ],
+   [
+    "above average",
+    "평균 이상인"
+   ]
+  ]
+ },
+ "ease": {
+  "et": "옛 프랑스어 'aise(편안함, 즐거움)'에서 왔어요. 그보다 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "easy",
+    "쉬운"
+   ],
+   [
+    "easily",
+    "쉽게"
+   ],
+   [
+    "disease",
+    "질병"
+   ]
+  ],
+  "syn": [
+   [
+    "comfort",
+    "편안함"
+   ],
+   [
+    "relieve",
+    "덜어 주다"
+   ]
+  ],
+  "ant": [
+   [
+    "difficulty",
+    "어려움"
+   ]
+  ],
+  "ph": [
+   [
+    "with ease",
+    "쉽게"
+   ],
+   [
+    "at ease",
+    "편안한"
+   ]
+  ]
+ },
+ "interrupt": {
+  "et": "라틴어 interrumpere에서 왔는데 inter(사이에)와 rumpere(깨다)가 합쳐졌어요. '사이를 깨고 들어가다'라는 뜻이에요.",
+  "pt": "inter(사이에) + rupt(깨다)",
+  "fam": [
+   [
+    "interruption",
+    "방해"
+   ],
+   [
+    "erupt",
+    "분출하다"
+   ],
+   [
+    "bankrupt",
+    "파산한"
+   ]
+  ],
+  "syn": [
+   [
+    "disturb",
+    "방해하다"
+   ],
+   [
+    "cut in",
+    "끼어들다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "Sorry to interrupt.",
+    "말씀 중에 죄송해요."
+   ]
+  ]
+ },
+ "forth": {
+  "et": "고대 영어 'forþ(앞으로)'에서 왔고, for, fore와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "forward",
+    "앞으로"
+   ]
+  ],
+  "syn": [
+   [
+    "forward",
+    "앞으로"
+   ],
+   [
+    "onward",
+    "앞으로"
+   ]
+  ],
+  "ant": [
+   [
+    "back",
+    "뒤로"
+   ]
+  ],
+  "ph": [
+   [
+    "and so forth",
+    "기타 등등"
+   ],
+   [
+    "back and forth",
+    "앞뒤로"
+   ]
+  ]
+ },
+ "complex": {
+  "et": "라틴어 complexus(둘러싼, 얽힌)에서 왔고 com(함께)과 plectere(엮다)가 합쳐졌어요. '여러 가닥이 함께 엮인'에서 '복잡한'이라는 뜻이 되었어요.",
+  "pt": "com(함께) + plex(엮다)",
+  "fam": [
+   [
+    "complexity",
+    "복잡성"
+   ],
+   [
+    "complicated",
+    "복잡한"
+   ]
+  ],
+  "syn": [
+   [
+    "complicated",
+    "복잡한"
+   ]
+  ],
+  "ant": [
+   [
+    "simple",
+    "단순한"
+   ]
+  ],
+  "ph": [
+   [
+    "apartment complex",
+    "아파트 단지"
+   ]
+  ]
+ },
+ "replace": {
+  "et": "re(다시) + place(놓다)로, 처음엔 '제자리에 다시 놓다'라는 뜻이었어요. 나중에 '다른 것의 자리를 대신하다'가 되었어요.",
+  "pt": "re(다시) + place(놓다)",
+  "fam": [
+   [
+    "replacement",
+    "교체"
+   ],
+   [
+    "place",
+    "놓다"
+   ]
+  ],
+  "syn": [
+   [
+    "substitute",
+    "대신하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "replace A with B",
+    "A를 B로 교체하다"
+   ]
+  ]
+ },
+ "guilt": {
+  "et": "고대 영어 'gylt(죄, 잘못)'에서 왔어요. 그 이전 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "guilty",
+    "유죄의"
+   ]
+  ],
+  "syn": [
+   [
+    "shame",
+    "부끄러움"
+   ]
+  ],
+  "ant": [
+   [
+    "innocence",
+    "결백"
+   ]
+  ],
+  "ph": [
+   [
+    "feel guilt",
+    "죄책감을 느끼다"
+   ]
+  ]
+ },
+ "tune": {
+  "et": "중세 영어에서 tone(음조)의 다른 형태로 생긴 말이에요. tone은 그리스어 tonos(팽팽하게 당김, 음조)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "tone",
+    "음조"
+   ]
+  ],
+  "syn": [
+   [
+    "melody",
+    "선율"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in tune",
+    "음이 맞는"
+   ],
+   [
+    "out of tune",
+    "음이 틀린"
+   ],
+   [
+    "stay tuned",
+    "채널 고정하세요"
+   ]
+  ]
+ },
+ "pour": {
+  "et": "중세 영어 'pouren'에서 왔는데, 어디서 왔는지는 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "downpour",
+    "폭우"
+   ]
+  ],
+  "syn": [
+   [
+    "spill",
+    "쏟다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "pour out",
+    "쏟아내다"
+   ],
+   [
+    "It's pouring.",
+    "비가 억수같이 와요."
+   ]
+  ]
+ },
+ "wrap": {
+  "et": "중세 영어 'wrappen'에서 왔고, 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "wrapper",
+    "포장지"
+   ],
+   [
+    "unwrap",
+    "풀다"
+   ]
+  ],
+  "syn": [
+   [
+    "pack",
+    "싸다"
+   ],
+   [
+    "cover",
+    "덮다"
+   ]
+  ],
+  "ant": [
+   [
+    "unwrap",
+    "포장을 풀다"
+   ]
+  ],
+  "ph": [
+   [
+    "wrap up",
+    "마무리하다, 싸다"
+   ]
+  ]
+ },
+ "trunk": {
+  "et": "라틴어 truncus(나무줄기, 몸통)에서 왔어요. 줄기처럼 생긴 '큰 상자(여행 가방)'를 뜻하게 되었고, 자동차 짐칸도 trunk라 불러요.",
+  "pt": "",
+  "fam": [
+   [
+    "truncate",
+    "잘라 줄이다"
+   ]
+  ],
+  "syn": [
+   [
+    "stem",
+    "줄기"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "tradition": {
+  "et": "라틴어 traditio(넘겨줌)에서 왔고, tradere(trans 건너서 + dare 주다)가 뿌리예요. 세대에서 세대로 '건네준 것'이 '전통'이에요.",
+  "pt": "tra(건너서) + dit(주다) + ion(명사)",
+  "fam": [
+   [
+    "traditional",
+    "전통적인"
+   ]
+  ],
+  "syn": [
+   [
+    "custom",
+    "관습"
+   ],
+   [
+    "heritage",
+    "유산"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "by tradition",
+    "전통적으로"
+   ]
+  ]
+ },
+ "benefit": {
+  "et": "라틴어 benefactum(좋은 행동)에서 왔고 bene(좋게)와 facere(하다)가 합쳐졌어요.",
+  "pt": "bene(좋게) + fit(하다)",
+  "fam": [
+   [
+    "beneficial",
+    "이로운"
+   ]
+  ],
+  "syn": [
+   [
+    "advantage",
+    "이점"
+   ],
+   [
+    "profit",
+    "이익"
+   ]
+  ],
+  "ant": [
+   [
+    "harm",
+    "해"
+   ],
+   [
+    "disadvantage",
+    "불리한 점"
+   ]
+  ],
+  "ph": [
+   [
+    "benefit from",
+    "~에서 이익을 얻다"
+   ],
+   [
+    "for the benefit of",
+    "~을 위하여"
+   ]
+  ]
+ },
+ "adventure": {
+  "et": "라틴어 adventura(앞으로 닥칠 일)에서 왔고, advenire(ad ~로 + venire 오다)가 뿌리예요. '다가올 일'이 '모험'이 되었어요.",
+  "pt": "ad(~로) + vent(오다) + ure(명사)",
+  "fam": [
+   [
+    "adventurous",
+    "모험심 있는"
+   ],
+   [
+    "adventurer",
+    "모험가"
+   ]
+  ],
+  "syn": [
+   [
+    "journey",
+    "여정"
+   ],
+   [
+    "quest",
+    "탐험"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "go on an adventure",
+    "모험을 떠나다"
+   ]
+  ]
+ },
+ "thus": {
+  "et": "고대 영어 'þus'에서 왔어요. this와 관련 있는 말로 보지만 정확한 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "therefore",
+    "그러므로"
+   ],
+   [
+    "so",
+    "그래서"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "thus far",
+    "지금까지"
+   ]
+  ]
+ },
+ "pipe": {
+  "et": "고대 영어 'pipe(피리)'에서 왔고, 라틴어 pipare(삐삐 울다)와 관련 있어요. '피리 같은 관'에서 '파이프'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "pipeline",
+    "송유관"
+   ],
+   [
+    "bagpipe",
+    "백파이프"
+   ]
+  ],
+  "syn": [
+   [
+    "tube",
+    "관"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "water pipe",
+    "수도관"
+   ]
+  ]
+ },
+ "atmosphere": {
+  "et": "그리스어 atmos(증기)와 sphaira(공)를 합쳐 17세기에 만든 말이에요. 지구를 둘러싼 '공기층'에서 '분위기'라는 뜻도 생겼어요.",
+  "pt": "atmo(증기) + sphere(구)",
+  "fam": [
+   [
+    "atmospheric",
+    "대기의"
+   ],
+   [
+    "sphere",
+    "구"
+   ]
+  ],
+  "syn": [
+   [
+    "air",
+    "공기"
+   ],
+   [
+    "mood",
+    "분위기"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "relaxed atmosphere",
+    "편안한 분위기"
+   ]
+  ]
+ },
+ "comment": {
+  "et": "라틴어 commentum(설명, 해석)에서 왔어요. '생각하다'와 관련된 뿌리가 들어 있어 '생각을 덧붙인 말'이 '논평'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "commentary",
+    "해설"
+   ],
+   [
+    "commentator",
+    "해설자"
+   ]
+  ],
+  "syn": [
+   [
+    "remark",
+    "발언"
+   ],
+   [
+    "opinion",
+    "의견"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "No comment.",
+    "할 말 없습니다."
+   ],
+   [
+    "make a comment",
+    "의견을 말하다"
+   ]
+  ]
+ },
+ "frame": {
+  "et": "고대 영어 framian(쓸모 있게 하다)에서 와서, 중세에 '건물 뼈대를 짜다'라는 뜻이 되었어요. 그래서 '틀, 뼈대, 액자'를 뜻해요.",
+  "pt": "",
+  "fam": [
+   [
+    "framework",
+    "뼈대, 체계"
+   ]
+  ],
+  "syn": [
+   [
+    "structure",
+    "구조"
+   ],
+   [
+    "border",
+    "테두리"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "picture frame",
+    "액자"
+   ],
+   [
+    "frame of mind",
+    "기분, 마음 상태"
+   ]
+  ]
+ },
+ "shelter": {
+  "et": "16세기에 처음 보이는 말인데, 어디서 왔는지는 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "refuge",
+    "피난처"
+   ],
+   [
+    "protect",
+    "보호하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "take shelter",
+    "피하다"
+   ],
+   [
+    "animal shelter",
+    "동물 보호소"
+   ]
+  ]
+ },
+ "flow": {
+  "et": "아주 오래된 고대 영어 단어 'flowan(흐르다)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "flood",
+    "홍수"
+   ],
+   [
+    "fluent",
+    "유창한"
+   ]
+  ],
+  "syn": [
+   [
+    "stream",
+    "흐름"
+   ]
+  ],
+  "ant": [
+   [
+    "ebb",
+    "썰물"
+   ]
+  ],
+  "ph": [
+   [
+    "go with the flow",
+    "흐름에 맡기다"
+   ]
+  ]
+ },
+ "prevent": {
+  "et": "라틴어 praevenire(prae 미리 + venire 오다)에서 왔어요. '먼저 와서 막다'에서 '예방하다, 막다'가 되었어요.",
+  "pt": "pre(미리) + vent(오다)",
+  "fam": [
+   [
+    "prevention",
+    "예방"
+   ],
+   [
+    "preventive",
+    "예방의"
+   ]
+  ],
+  "syn": [
+   [
+    "stop",
+    "막다"
+   ],
+   [
+    "avoid",
+    "피하다"
+   ]
+  ],
+  "ant": [
+   [
+    "allow",
+    "허락하다"
+   ]
+  ],
+  "ph": [
+   [
+    "prevent A from -ing",
+    "A가 ~하지 못하게 막다"
+   ]
+  ]
+ },
+ "lend": {
+  "et": "고대 영어 lænan(빌려주다)에서 왔어요. loan(대출)과 같은 뿌리이고, 끝의 d는 나중에 붙었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "loan",
+    "대출"
+   ],
+   [
+    "lender",
+    "빌려주는 사람"
+   ]
+  ],
+  "syn": [],
+  "ant": [
+   [
+    "borrow",
+    "빌리다"
+   ]
+  ],
+  "ph": [
+   [
+    "lend a hand",
+    "도와주다"
+   ]
+  ]
+ },
+ "sample": {
+  "et": "example(예)의 앞부분이 떨어져 나간 말이에요. 라틴어 exemplum(본보기)에서 프랑스어를 거쳐 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "example",
+    "예"
+   ]
+  ],
+  "syn": [
+   [
+    "specimen",
+    "견본"
+   ],
+   [
+    "example",
+    "예"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "free sample",
+    "무료 견본"
+   ]
+  ]
+ },
+ "produce": {
+  "et": "라틴어 producere(pro 앞으로 + ducere 이끌다)에서 왔어요. '앞으로 끌어내다'에서 '만들어 내다, 생산하다'가 되었어요.",
+  "pt": "pro(앞으로) + duce(이끌다)",
+  "fam": [
+   [
+    "product",
+    "제품"
+   ],
+   [
+    "production",
+    "생산"
+   ],
+   [
+    "producer",
+    "생산자"
+   ]
+  ],
+  "syn": [
+   [
+    "make",
+    "만들다"
+   ],
+   [
+    "create",
+    "만들다"
+   ]
+  ],
+  "ant": [
+   [
+    "consume",
+    "소비하다"
+   ]
+  ],
+  "ph": [
+   [
+    "farm produce",
+    "농산물"
+   ]
+  ]
+ },
+ "chairman": {
+  "et": "chair(의자) + man(사람)으로 17세기에 생겼어요. 회의에서 '의자에 앉아 이끄는 사람'이에요. 요즘은 chairperson, chair라고도 해요.",
+  "pt": "chair(의자) + man(사람)",
+  "fam": [
+   [
+    "chair",
+    "의자, 의장"
+   ]
+  ],
+  "syn": [
+   [
+    "president",
+    "회장"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "individual": {
+  "et": "라틴어 individuus(나눌 수 없는)에서 왔어요. in(아닌) + dividuus(나뉘는)로, 더 이상 나눌 수 없는 한 사람이 '개인'이에요.",
+  "pt": "in(아닌) + divid(나누다) + ual(형용사)",
+  "fam": [
+   [
+    "individually",
+    "개별적으로"
+   ],
+   [
+    "divide",
+    "나누다"
+   ]
+  ],
+  "syn": [
+   [
+    "personal",
+    "개인의"
+   ],
+   [
+    "single",
+    "하나의"
+   ]
+  ],
+  "ant": [
+   [
+    "group",
+    "집단"
+   ],
+   [
+    "collective",
+    "집단의"
+   ]
+  ],
+  "ph": [
+   [
+    "individual differences",
+    "개인차"
+   ]
+  ]
+ },
+ "fence": {
+  "et": "defense(방어)의 앞부분이 떨어져 나간 말이에요. '막아 주는 것'에서 '울타리'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "defense",
+    "방어"
+   ]
+  ],
+  "syn": [
+   [
+    "barrier",
+    "장벽"
+   ],
+   [
+    "wall",
+    "담"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "sit on the fence",
+    "중립을 지키다, 양다리 걸치다"
+   ]
+  ]
+ },
+ "sink": {
+  "et": "아주 오래된 고대 영어 단어 'sincan(가라앉다)'에서 왔어요. 물이 빠져 내려가는 곳이라 '싱크대'도 sink예요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "go down",
+    "가라앉다"
+   ]
+  ],
+  "ant": [
+   [
+    "float",
+    "뜨다"
+   ]
+  ],
+  "ph": [
+   [
+    "kitchen sink",
+    "부엌 싱크대"
+   ]
+  ]
+ },
+ "limit": {
+  "et": "라틴어 limes(경계, 밭 사이 길)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "limitation",
+    "제한"
+   ],
+   [
+    "unlimited",
+    "무제한의"
+   ]
+  ],
+  "syn": [
+   [
+    "boundary",
+    "경계"
+   ],
+   [
+    "restrict",
+    "제한하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "speed limit",
+    "제한 속도"
+   ],
+   [
+    "within limits",
+    "어느 한도 내에서"
+   ]
+  ]
+ },
+ "relief": {
+  "et": "옛 프랑스어 relief에서 왔고, 라틴어 relevare(re 다시 + levare 들어 올리다)가 뿌리예요. 무거운 짐을 '들어 올려 가볍게 해 줌'에서 '안도, 완화'가 되었어요.",
+  "pt": "re(다시) + lief(들어 올리다)",
+  "fam": [
+   [
+    "relieve",
+    "덜어 주다"
+   ],
+   [
+    "relieved",
+    "안도한"
+   ]
+  ],
+  "syn": [
+   [
+    "comfort",
+    "위안"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "What a relief!",
+    "정말 다행이다!"
+   ],
+   [
+    "sigh of relief",
+    "안도의 한숨"
+   ]
+  ]
+ },
+ "mud": {
+  "et": "14세기 중세 영어에 나타난 말로, 독일 북부의 옛말 mudde에서 온 것으로 보여요.",
+  "pt": "",
+  "fam": [
+   [
+    "muddy",
+    "진흙투성이의"
+   ]
+  ],
+  "syn": [
+   [
+    "dirt",
+    "흙"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "mud house",
+    "흙집"
+   ]
+  ]
+ },
+ "occasion": {
+  "et": "라틴어 occasio(기회)에서 왔어요. ob(~쪽으로) + cadere(떨어지다)로, 일이 '떨어져 생긴 때'가 '경우, 행사'가 되었어요.",
+  "pt": "oc(~쪽으로) + cas(떨어지다) + ion(명사)",
+  "fam": [
+   [
+    "occasional",
+    "가끔의"
+   ],
+   [
+    "occasionally",
+    "가끔"
+   ]
+  ],
+  "syn": [
+   [
+    "event",
+    "행사"
+   ],
+   [
+    "time",
+    "때"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "on occasion",
+    "가끔"
+   ],
+   [
+    "special occasion",
+    "특별한 날"
+   ]
+  ]
+ },
+ "complain": {
+  "et": "옛 프랑스어 complaindre에서 왔는데, 라틴어 plangere(가슴을 치며 슬퍼하다)가 뿌리예요. '한탄하다'에서 '불평하다'가 되었어요.",
+  "pt": "com(강조) + plain(슬퍼하다)",
+  "fam": [
+   [
+    "complaint",
+    "불평"
+   ]
+  ],
+  "syn": [
+   [
+    "grumble",
+    "투덜대다"
+   ]
+  ],
+  "ant": [
+   [
+    "praise",
+    "칭찬하다"
+   ]
+  ],
+  "ph": [
+   [
+    "complain about",
+    "~에 대해 불평하다"
+   ]
+  ]
+ },
+ "monitor": {
+  "et": "라틴어 monitor(일깨워 주는 사람)에서 왔고, monere(경고하다)가 뿌리예요. '지켜보며 알려 주는 것'에서 '감시하다, 모니터'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "monitoring",
+    "감시"
+   ]
+  ],
+  "syn": [
+   [
+    "watch",
+    "지켜보다"
+   ],
+   [
+    "screen",
+    "화면"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "computer monitor",
+    "컴퓨터 모니터"
+   ]
+  ]
+ },
+ "yell": {
+  "et": "고대 영어 gellan(소리 지르다)에서 왔어요. 소리를 흉내 낸 말로 보여요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "shout",
+    "외치다"
+   ],
+   [
+    "scream",
+    "비명을 지르다"
+   ]
+  ],
+  "ant": [
+   [
+    "whisper",
+    "속삭이다"
+   ]
+  ],
+  "ph": [
+   [
+    "yell at",
+    "~에게 소리치다"
+   ]
+  ]
+ },
+ "smooth": {
+  "et": "고대 영어 'smoþ(매끄러운)'에서 왔는데, 그 이전 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "smoothly",
+    "순조롭게"
+   ],
+   [
+    "smoothie",
+    "스무디"
+   ]
+  ],
+  "syn": [
+   [
+    "even",
+    "고른"
+   ],
+   [
+    "soft",
+    "부드러운"
+   ]
+  ],
+  "ant": [
+   [
+    "rough",
+    "거친"
+   ]
+  ],
+  "ph": [
+   [
+    "smooth skin",
+    "매끄러운 피부"
+   ]
+  ]
+ },
+ "resist": {
+  "et": "라틴어 resistere(re 맞서 + sistere 서다)에서 왔어요. '맞서 버티고 서다'라는 뜻이에요.",
+  "pt": "re(맞서) + sist(서다)",
+  "fam": [
+   [
+    "resistance",
+    "저항"
+   ],
+   [
+    "irresistible",
+    "거부할 수 없는"
+   ]
+  ],
+  "syn": [
+   [
+    "oppose",
+    "반대하다"
+   ],
+   [
+    "withstand",
+    "견디다"
+   ]
+  ],
+  "ant": [
+   [
+    "give in",
+    "굴복하다"
+   ],
+   [
+    "yield",
+    "굴복하다"
+   ]
+  ],
+  "ph": [
+   [
+    "resist temptation",
+    "유혹을 참다"
+   ]
+  ]
+ },
+ "pitch": {
+  "et": "중세 영어 picchen(박다, 세우다)에서 왔는데 기원은 확실하지 않아요. '던지다', '경기장', '음높이' 등 여러 뜻이 갈라져 나왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "pitcher",
+    "투수"
+   ]
+  ],
+  "syn": [
+   [
+    "throw",
+    "던지다"
+   ],
+   [
+    "field",
+    "경기장"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "pitch a tent",
+    "텐트를 치다"
+   ]
+  ]
+ },
+ "noon": {
+  "et": "라틴어 nona hora(아홉째 시간)에서 왔어요. 해 뜬 뒤 아홉째 시간, 즉 오후 3시쯤이었는데 차츰 앞당겨져 '정오'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "afternoon",
+    "오후"
+   ],
+   [
+    "noonday",
+    "한낮"
+   ]
+  ],
+  "syn": [
+   [
+    "midday",
+    "정오"
+   ]
+  ],
+  "ant": [
+   [
+    "midnight",
+    "자정"
+   ]
+  ],
+  "ph": [
+   [
+    "at noon",
+    "정오에"
+   ]
+  ]
+ },
+ "helicopter": {
+  "et": "1861년 프랑스에서 그리스어 helix(나선)와 pteron(날개)을 합쳐 만든 말이에요. '나선형 날개'라는 뜻이에요.",
+  "pt": "helico(나선) + pter(날개)",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "spin": {
+  "et": "고대 영어 spinnan(실을 잣다)에서 왔어요. 실을 뽑으려 물레를 '돌리던' 데서 '돌다, 회전하다'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "spinner",
+    "도는 것"
+   ],
+   [
+    "spider",
+    "거미"
+   ]
+  ],
+  "syn": [
+   [
+    "rotate",
+    "회전하다"
+   ],
+   [
+    "turn",
+    "돌다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "spin around",
+    "빙글빙글 돌다"
+   ]
+  ]
+ },
+ "charm": {
+  "et": "라틴어 carmen(노래, 주문)이 옛 프랑스어 charme(주문, 마법)로 들어왔어요. '마법을 거는 힘'에서 '매력'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "charming",
+    "매력적인"
+   ]
+  ],
+  "syn": [
+   [
+    "attraction",
+    "매력"
+   ],
+   [
+    "appeal",
+    "매력"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "lucky charm",
+    "행운의 부적"
+   ]
+  ]
+ },
+ "apply": {
+  "et": "라틴어 applicare(ad ~에 + plicare 접다)에서 왔어요. '~에 갖다 붙이다'에서 '적용하다, 바르다, 지원하다'로 뜻이 넓어졌어요.",
+  "pt": "ap(~에) + ply(접다, 붙이다)",
+  "fam": [
+   [
+    "application",
+    "지원서, 적용"
+   ],
+   [
+    "applicant",
+    "지원자"
+   ]
+  ],
+  "syn": [
+   [
+    "use",
+    "사용하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "apply for",
+    "~에 지원하다"
+   ],
+   [
+    "apply to",
+    "~에 적용되다"
+   ]
+  ]
+ },
+ "previous": {
+  "et": "라틴어 praevius(prae 앞에 + via 길)에서 왔어요. '앞서 가는'이라는 뜻이에요.",
+  "pt": "pre(앞에) + vi(길) + ous(형용사)",
+  "fam": [
+   [
+    "previously",
+    "이전에"
+   ]
+  ],
+  "syn": [
+   [
+    "former",
+    "이전의"
+   ],
+   [
+    "prior",
+    "이전의"
+   ]
+  ],
+  "ant": [
+   [
+    "next",
+    "다음의"
+   ],
+   [
+    "following",
+    "다음의"
+   ]
+  ],
+  "ph": [
+   [
+    "previous day",
+    "전날"
+   ]
+  ]
+ },
+ "photograph": {
+  "et": "1839년 영국 과학자 허셜이 그리스어 phōs(빛)와 graphein(쓰다, 그리다)을 합쳐 만든 말이에요. '빛으로 그린 그림'이에요.",
+  "pt": "photo(빛) + graph(그리다)",
+  "fam": [
+   [
+    "photographer",
+    "사진작가"
+   ],
+   [
+    "photography",
+    "사진술"
+   ],
+   [
+    "photo",
+    "사진"
+   ]
+  ],
+  "syn": [
+   [
+    "picture",
+    "사진"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "take a photograph",
+    "사진을 찍다"
+   ]
+  ]
+ },
+ "beneath": {
+  "et": "고대 영어 beneoðan에서 왔어요. be(~에) + neoþan(아래에)로, 'below, under'와 비슷한 말이에요.",
+  "pt": "be(~에) + neath(아래)",
+  "fam": [
+   [
+    "underneath",
+    "~의 밑에"
+   ]
+  ],
+  "syn": [
+   [
+    "below",
+    "아래에"
+   ],
+   [
+    "under",
+    "아래에"
+   ]
+  ],
+  "ant": [
+   [
+    "above",
+    "위에"
+   ]
+  ],
+  "ph": [
+   [
+    "beneath the surface",
+    "표면 아래에"
+   ]
+  ]
+ },
+ "represent": {
+  "et": "라틴어 repraesentare(다시 앞에 내보이다)에서 왔어요. '대신 앞에 나서다'에서 '대표하다, 나타내다'가 되었어요.",
+  "pt": "re(다시) + present(앞에 보이다)",
+  "fam": [
+   [
+    "representative",
+    "대표자"
+   ],
+   [
+    "representation",
+    "표현"
+   ]
+  ],
+  "syn": [
+   [
+    "stand for",
+    "나타내다"
+   ],
+   [
+    "symbolize",
+    "상징하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "represent one's country",
+    "나라를 대표하다"
+   ]
+  ]
+ },
+ "citizen": {
+  "et": "옛 프랑스어 citeien에서 왔고, cité(도시)가 뿌리예요. 원래 '도시에 사는 사람'이었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "city",
+    "도시"
+   ],
+   [
+    "citizenship",
+    "시민권"
+   ],
+   [
+    "civil",
+    "시민의"
+   ]
+  ],
+  "syn": [
+   [
+    "resident",
+    "주민"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "senior citizen",
+    "노인"
+   ]
+  ]
+ },
+ "snap": {
+  "et": "'덥석 물다'라는 뜻의 네덜란드·독일 북부 옛말에서 온 것으로 보여요. 딱 하는 소리를 흉내 낸 말이기도 해요.",
+  "pt": "",
+  "fam": [
+   [
+    "snapshot",
+    "스냅 사진"
+   ]
+  ],
+  "syn": [
+   [
+    "break",
+    "부러지다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "snap one's fingers",
+    "손가락을 딱 튕기다"
+   ],
+   [
+    "in a snap",
+    "순식간에"
+   ]
+  ]
+ },
+ "extreme": {
+  "et": "라틴어 extremus(가장 바깥의)에서 왔어요. exterus(바깥의)의 최상급이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "extremely",
+    "극도로"
+   ]
+  ],
+  "syn": [
+   [
+    "severe",
+    "극심한"
+   ]
+  ],
+  "ant": [
+   [
+    "moderate",
+    "적당한"
+   ]
+  ],
+  "ph": [
+   [
+    "extreme sports",
+    "극한 스포츠"
+   ],
+   [
+    "go to extremes",
+    "극단으로 치닫다"
+   ]
+  ]
+ },
+ "minor": {
+  "et": "라틴어 minor(더 작은)에서 왔어요. minus(빼기)와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "minority",
+    "소수"
+   ],
+   [
+    "minus",
+    "빼기"
+   ]
+  ],
+  "syn": [
+   [
+    "small",
+    "작은"
+   ],
+   [
+    "slight",
+    "사소한"
+   ]
+  ],
+  "ant": [
+   [
+    "major",
+    "주요한"
+   ],
+   [
+    "adult",
+    "성인"
+   ]
+  ],
+  "ph": [
+   [
+    "minor problem",
+    "사소한 문제"
+   ]
+  ]
+ },
+ "rocket": {
+  "et": "이탈리아어 rocchetta(작은 실패, 실 감는 막대)에서 왔어요. 생김새가 비슷해서 불꽃놀이 로켓에 붙은 이름이에요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "rocket science",
+    "아주 어려운 일"
+   ]
+  ]
+ },
+ "intense": {
+  "et": "라틴어 intensus(팽팽하게 당겨진)에서 왔어요. in + tendere(당기다)가 뿌리라, '팽팽하게 당긴 듯 강렬한'이라는 뜻이에요.",
+  "pt": "in(안으로) + tense(당겨진)",
+  "fam": [
+   [
+    "intensity",
+    "강도"
+   ],
+   [
+    "intensive",
+    "집중적인"
+   ],
+   [
+    "intend",
+    "의도하다"
+   ]
+  ],
+  "syn": [
+   [
+    "strong",
+    "강한"
+   ],
+   [
+    "fierce",
+    "격렬한"
+   ]
+  ],
+  "ant": [
+   [
+    "mild",
+    "약한, 온화한"
+   ]
+  ],
+  "ph": [
+   [
+    "intense heat",
+    "극심한 더위"
+   ]
+  ]
+ },
+ "respond": {
+  "et": "라틴어 respondere(re 되돌려 + spondere 약속하다)에서 왔어요. '되돌려 약속하다'에서 '대답하다, 반응하다'가 되었어요.",
+  "pt": "re(되돌려) + spond(약속하다)",
+  "fam": [
+   [
+    "response",
+    "대답, 반응"
+   ],
+   [
+    "responsible",
+    "책임 있는"
+   ]
+  ],
+  "syn": [
+   [
+    "answer",
+    "대답하다"
+   ],
+   [
+    "react",
+    "반응하다"
+   ]
+  ],
+  "ant": [
+   [
+    "ignore",
+    "무시하다"
+   ]
+  ],
+  "ph": [
+   [
+    "respond to",
+    "~에 반응하다"
+   ]
+  ]
+ },
+ "absolute": {
+  "et": "라틴어 absolutus(풀려난, 제한 없는)에서 왔어요. ab(떨어져) + solvere(풀다)로, '아무것에도 묶이지 않은 완전한'이라는 뜻이에요.",
+  "pt": "ab(떨어져) + solute(풀린)",
+  "fam": [
+   [
+    "absolutely",
+    "절대적으로, 물론"
+   ],
+   [
+    "solve",
+    "풀다"
+   ]
+  ],
+  "syn": [
+   [
+    "complete",
+    "완전한"
+   ],
+   [
+    "total",
+    "전적인"
+   ]
+  ],
+  "ant": [
+   [
+    "relative",
+    "상대적인"
+   ]
+  ],
+  "ph": [
+   [
+    "absolute power",
+    "절대 권력"
+   ]
+  ]
+ },
+ "investigate": {
+  "et": "라틴어 investigare(흔적을 따라가다)에서 왔어요. vestigium(발자국)이 뿌리라 '발자국을 쫓아 조사하다'라는 뜻이에요.",
+  "pt": "in(안으로) + vestig(발자국) + ate(동사)",
+  "fam": [
+   [
+    "investigation",
+    "조사"
+   ],
+   [
+    "investigator",
+    "조사관"
+   ]
+  ],
+  "syn": [
+   [
+    "examine",
+    "조사하다"
+   ],
+   [
+    "look into",
+    "조사하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "investigate a crime",
+    "범죄를 수사하다"
+   ]
+  ]
+ },
+ "stable": {
+  "et": "'안정된'은 라틴어 stabilis(굳게 선)에서, '마구간'은 라틴어 stabulum(서 있는 곳)에서 왔어요. 둘 다 stare(서다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "stability",
+    "안정"
+   ],
+   [
+    "establish",
+    "설립하다"
+   ]
+  ],
+  "syn": [
+   [
+    "steady",
+    "안정된"
+   ]
+  ],
+  "ant": [
+   [
+    "unstable",
+    "불안정한"
+   ]
+  ],
+  "ph": [
+   [
+    "stable condition",
+    "안정된 상태"
+   ]
+  ]
+ },
+ "session": {
+  "et": "라틴어 sessio(앉아 있기)에서 왔고, sedere(앉다)가 뿌리예요. '함께 앉아 있는 시간'이 '회의, 수업 시간'이 되었어요.",
+  "pt": "sess(앉다) + ion(명사)",
+  "fam": [
+   [
+    "sit",
+    "앉다"
+   ],
+   [
+    "sediment",
+    "퇴적물"
+   ]
+  ],
+  "syn": [
+   [
+    "meeting",
+    "회의"
+   ],
+   [
+    "period",
+    "기간"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in session",
+    "개회 중인"
+   ],
+   [
+    "training session",
+    "훈련 시간"
+   ]
+  ]
+ },
+ "stretch": {
+  "et": "아주 오래된 고대 영어 단어 'streccan(펴다, 뻗다)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "stretcher",
+    "들것"
+   ]
+  ],
+  "syn": [
+   [
+    "extend",
+    "뻗다"
+   ]
+  ],
+  "ant": [
+   [
+    "shrink",
+    "줄어들다"
+   ]
+  ],
+  "ph": [
+   [
+    "stretch out",
+    "쭉 뻗다"
+   ],
+   [
+    "at a stretch",
+    "단숨에"
+   ]
+  ]
+ },
+ "bush": {
+  "et": "중세 영어 busshe에서 왔고, 북유럽·게르만어 계통의 '덤불'이라는 말이 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "bushy",
+    "숱이 많은"
+   ]
+  ],
+  "syn": [
+   [
+    "shrub",
+    "관목"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "beat around the bush",
+    "돌려 말하다"
+   ]
+  ]
+ },
+ "increase": {
+  "et": "라틴어 increscere(in + crescere 자라다)에서 왔어요. '자라서 커지다'라는 뜻이에요.",
+  "pt": "in(안으로) + crease(자라다)",
+  "fam": [
+   [
+    "increasingly",
+    "점점 더"
+   ],
+   [
+    "increasing",
+    "증가하는"
+   ]
+  ],
+  "syn": [
+   [
+    "grow",
+    "늘다"
+   ],
+   [
+    "rise",
+    "오르다"
+   ]
+  ],
+  "ant": [
+   [
+    "decrease",
+    "감소하다"
+   ],
+   [
+    "reduce",
+    "줄이다"
+   ]
+  ],
+  "ph": [
+   [
+    "on the increase",
+    "증가하고 있는"
+   ]
+  ]
+ },
+ "chop": {
+  "et": "14세기 중세 영어 chappen에서 왔어요. chip(조각)과 관련 있다고 보기도 하지만 확실하지는 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "chopper",
+    "큰 칼, 헬리콥터"
+   ]
+  ],
+  "syn": [
+   [
+    "cut",
+    "자르다"
+   ],
+   [
+    "slice",
+    "얇게 썰다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "chop down",
+    "베어 넘어뜨리다"
+   ],
+   [
+    "chop up",
+    "잘게 썰다"
+   ]
+  ]
+ },
+ "scale": {
+  "et": "모양이 같은 세 단어예요. '저울'은 고대 노르드어 skál(그릇)에서, '비늘'은 옛 프랑스어 escale(껍질)에서, '규모, 눈금'은 라틴어 scala(사다리)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "escalator",
+    "에스컬레이터"
+   ]
+  ],
+  "syn": [
+   [
+    "size",
+    "규모"
+   ],
+   [
+    "extent",
+    "범위"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "on a large scale",
+    "대규모로"
+   ],
+   [
+    "scale model",
+    "축소 모형"
+   ]
+  ]
+ },
+ "furniture": {
+  "et": "프랑스어 fourniture(필요한 물건을 갖춤)에서 왔어요. fournir(공급하다, 갖추다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "furnish",
+    "가구를 갖추다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "a piece of furniture",
+    "가구 한 점"
+   ]
+  ]
+ },
+ "engineer": {
+  "et": "라틴어 ingenium(재주, 발명)에서 나온 중세 라틴어 ingeniator에서 왔어요. 처음엔 성을 공격하는 '전쟁 기계(engine)를 만드는 사람'이었어요.",
+  "pt": "engine(기계) + er(사람)",
+  "fam": [
+   [
+    "engine",
+    "엔진"
+   ],
+   [
+    "engineering",
+    "공학"
+   ],
+   [
+    "ingenious",
+    "기발한"
+   ]
+  ],
+  "syn": [
+   [
+    "technician",
+    "기술자"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "civil engineer",
+    "토목 기사"
+   ]
+  ]
+ },
+ "transport": {
+  "et": "라틴어 transportare(trans 건너서 + portare 나르다)에서 왔어요.",
+  "pt": "trans(건너서) + port(나르다)",
+  "fam": [
+   [
+    "transportation",
+    "교통"
+   ],
+   [
+    "portable",
+    "휴대용의"
+   ],
+   [
+    "export",
+    "수출하다"
+   ]
+  ],
+  "syn": [
+   [
+    "carry",
+    "나르다"
+   ],
+   [
+    "transfer",
+    "옮기다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "public transport",
+    "대중교통"
+   ]
+  ]
+ },
+ "succeed": {
+  "et": "라틴어 succedere(sub 아래로·뒤로 + cedere 가다)에서 왔어요. '뒤를 이어 가다'에서 '뒤를 잇다'와 '(일이 잘 이어져) 성공하다'라는 뜻이 나왔어요.",
+  "pt": "suc(뒤로) + ceed(가다)",
+  "fam": [
+   [
+    "success",
+    "성공"
+   ],
+   [
+    "successful",
+    "성공한"
+   ],
+   [
+    "succession",
+    "계승"
+   ]
+  ],
+  "syn": [
+   [
+    "win",
+    "이기다"
+   ],
+   [
+    "achieve",
+    "이루다"
+   ]
+  ],
+  "ant": [
+   [
+    "fail",
+    "실패하다"
+   ]
+  ],
+  "ph": [
+   [
+    "succeed in",
+    "~에 성공하다"
+   ]
+  ]
+ },
+ "shell": {
+  "et": "고대 영어 sciell(껍데기)에서 왔어요. scale(비늘)과 같은 뿌리로 보여요.",
+  "pt": "",
+  "fam": [
+   [
+    "shellfish",
+    "조개류"
+   ]
+  ],
+  "syn": [
+   [
+    "husk",
+    "껍질"
+   ],
+   [
+    "case",
+    "껍데기"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "come out of one's shell",
+    "마음을 열다"
+   ]
+  ]
+ },
+ "instance": {
+  "et": "라틴어 instantia(곁에 있음, 재촉함)에서 왔어요. 논쟁에서 '들이대는 사례'라는 뜻을 거쳐 '예, 경우'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "instant",
+    "즉각적인"
+   ]
+  ],
+  "syn": [
+   [
+    "example",
+    "예"
+   ],
+   [
+    "case",
+    "경우"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "for instance",
+    "예를 들면"
+   ]
+  ]
+ },
+ "pin": {
+  "et": "고대 영어 pinn(못, 말뚝)에서 왔어요. 라틴어 pinna(깃털, 뾰족한 끝)와 관련 있다고 보기도 해요.",
+  "pt": "",
+  "fam": [
+   [
+    "pinpoint",
+    "정확히 찾아내다"
+   ]
+  ],
+  "syn": [
+   [
+    "fasten",
+    "고정하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "pin down",
+    "꼼짝 못하게 하다"
+   ],
+   [
+    "safety pin",
+    "안전핀"
+   ]
+  ]
+ },
+ "strategy": {
+  "et": "그리스어 stratēgia(장군의 지휘술)에서 왔어요. stratos(군대)와 agein(이끌다)가 합쳐진 stratēgos(장군)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "strategic",
+    "전략적인"
+   ]
+  ],
+  "syn": [
+   [
+    "plan",
+    "계획"
+   ],
+   [
+    "tactic",
+    "전술"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "marketing strategy",
+    "마케팅 전략"
+   ]
+  ]
+ },
+ "powder": {
+  "et": "라틴어 pulvis(먼지)가 옛 프랑스어 poudre를 거쳐 들어왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "powdered",
+    "가루로 된"
+   ]
+  ],
+  "syn": [
+   [
+    "dust",
+    "먼지"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "baking powder",
+    "베이킹파우더"
+   ],
+   [
+    "washing powder",
+    "가루 세제"
+   ]
+  ]
+ },
+ "supper": {
+  "et": "옛 프랑스어 soper(저녁을 먹다)에서 왔어요. soup(수프)와 관련 있는 말로, 원래 '가벼운 저녁 식사'였어요.",
+  "pt": "",
+  "fam": [
+   [
+    "sup",
+    "저녁을 먹다"
+   ]
+  ],
+  "syn": [
+   [
+    "dinner",
+    "저녁 식사"
+   ]
+  ],
+  "ant": [
+   [
+    "breakfast",
+    "아침 식사"
+   ]
+  ],
+  "ph": [
+   [
+    "the Last Supper",
+    "최후의 만찬"
+   ]
+  ]
+ },
+ "pole": {
+  "et": "'막대기'는 라틴어 palus(말뚝)에서, '(지구의) 극'은 그리스어 polos(축, 회전축)에서 온 서로 다른 단어예요.",
+  "pt": "",
+  "fam": [
+   [
+    "polar",
+    "극지의"
+   ]
+  ],
+  "syn": [
+   [
+    "post",
+    "기둥"
+   ],
+   [
+    "rod",
+    "막대"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "North Pole",
+    "북극"
+   ],
+   [
+    "South Pole",
+    "남극"
+   ]
+  ]
+ },
+ "highway": {
+  "et": "고대 영어 heahweg에서 왔어요. high(높은, 주요한) + way(길)로, '큰길'이라는 뜻이었어요.",
+  "pt": "high(주요한) + way(길)",
+  "fam": [],
+  "syn": [
+   [
+    "freeway",
+    "고속도로"
+   ],
+   [
+    "expressway",
+    "고속도로"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "diet": {
+  "et": "그리스어 diaita(생활 방식)가 라틴어·프랑스어를 거쳐 왔어요. '생활 방식'에서 '식단', '다이어트'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "dietary",
+    "식사의"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "go on a diet",
+    "다이어트를 하다"
+   ],
+   [
+    "balanced diet",
+    "균형 잡힌 식단"
+   ]
+  ]
+ },
+ "moral": {
+  "et": "라틴어 moralis(풍습에 관한)에서 왔고 mos(풍습)가 뿌리예요. 로마의 키케로가 그리스어 '윤리'를 옮기려고 만든 말이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "morality",
+    "도덕"
+   ],
+   [
+    "morally",
+    "도덕적으로"
+   ]
+  ],
+  "syn": [
+   [
+    "ethical",
+    "윤리적인"
+   ]
+  ],
+  "ant": [
+   [
+    "immoral",
+    "비도덕적인"
+   ]
+  ],
+  "ph": [
+   [
+    "moral of the story",
+    "이야기의 교훈"
+   ]
+  ]
+ },
+ "award": {
+  "et": "옛 프랑스어 계통의 awarder(잘 살펴보고 결정하다)에서 왔어요. ward(지키다), guard와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "reward",
+    "보상"
+   ]
+  ],
+  "syn": [
+   [
+    "prize",
+    "상"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "win an award",
+    "상을 받다"
+   ],
+   [
+    "award ceremony",
+    "시상식"
+   ]
+  ]
+ },
+ "knee": {
+  "et": "아주 오래된 고대 영어 단어 'cneo(무릎)'에서 왔어요. 라틴어 genu(무릎)와 먼 친척이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "kneel",
+    "무릎을 꿇다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "on one's knees",
+    "무릎을 꿇고"
+   ]
+  ]
+ },
+ "internal": {
+  "et": "라틴어 internus(안쪽의)에서 왔어요.",
+  "pt": "intern(안쪽의) + al(형용사)",
+  "fam": [
+   [
+    "internally",
+    "내부적으로"
+   ],
+   [
+    "interior",
+    "내부"
+   ]
+  ],
+  "syn": [
+   [
+    "inner",
+    "안의"
+   ]
+  ],
+  "ant": [
+   [
+    "external",
+    "외부의"
+   ]
+  ],
+  "ph": [
+   [
+    "internal organs",
+    "내장"
+   ]
+  ]
+ },
+ "aid": {
+  "et": "라틴어 adjutare(돕다)가 옛 프랑스어 aidier를 거쳐 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "aide",
+    "보좌관"
+   ]
+  ],
+  "syn": [
+   [
+    "help",
+    "도움"
+   ],
+   [
+    "assist",
+    "돕다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "first aid",
+    "응급 처치"
+   ],
+   [
+    "hearing aid",
+    "보청기"
+   ]
+  ]
+ },
+ "opera": {
+  "et": "이탈리아어 opera(작품)에서 왔고, 라틴어 opus(일, 작품)가 뿌리예요. '음악 작품'이라는 뜻으로 굳었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "operate",
+    "작동하다"
+   ],
+   [
+    "operation",
+    "수술, 작동"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "soap opera",
+    "연속극"
+   ]
+  ]
+ },
+ "brief": {
+  "et": "라틴어 brevis(짧은)가 옛 프랑스어를 거쳐 들어왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "briefly",
+    "잠시"
+   ],
+   [
+    "briefing",
+    "브리핑"
+   ]
+  ],
+  "syn": [
+   [
+    "short",
+    "짧은"
+   ],
+   [
+    "concise",
+    "간결한"
+   ]
+  ],
+  "ant": [
+   [
+    "long",
+    "긴"
+   ]
+  ],
+  "ph": [
+   [
+    "in brief",
+    "간단히 말해서"
+   ]
+  ]
+ },
+ "punish": {
+  "et": "라틴어 punire(벌하다)에서 왔고, poena(벌, 벌금)와 관련 있어요.",
+  "pt": "",
+  "fam": [
+   [
+    "punishment",
+    "벌"
+   ],
+   [
+    "penalty",
+    "처벌"
+   ]
+  ],
+  "syn": [
+   [
+    "discipline",
+    "징계하다"
+   ]
+  ],
+  "ant": [
+   [
+    "reward",
+    "보상하다"
+   ]
+  ],
+  "ph": [
+   [
+    "punish A for B",
+    "B 때문에 A를 벌하다"
+   ]
+  ]
+ },
+ "tend": {
+  "et": "'경향이 있다'는 라틴어 tendere(뻗다, 향하다)에서 왔어요. '돌보다'는 attend(돌보다)의 앞부분이 떨어져 나간 말이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "tendency",
+    "경향"
+   ],
+   [
+    "attend",
+    "돌보다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "tend to",
+    "~하는 경향이 있다"
+   ]
+  ]
+ },
+ "tap": {
+  "et": "'가볍게 두드리다'는 소리를 흉내 낸 프랑스어 taper에서, '수도꼭지'는 고대 영어 tæppa(마개)에서 온 다른 단어예요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "knock",
+    "두드리다"
+   ],
+   [
+    "faucet",
+    "수도꼭지"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "tap water",
+    "수돗물"
+   ],
+   [
+    "tap on the shoulder",
+    "어깨를 톡 치다"
+   ]
+  ]
+ },
+ "string": {
+  "et": "고대 영어 streng(줄, 끈)에서 왔어요. strong(강한)과 같은 뿌리로, '팽팽하게 당긴 것'이라는 느낌이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "strong",
+    "강한"
+   ]
+  ],
+  "syn": [
+   [
+    "rope",
+    "밧줄"
+   ],
+   [
+    "cord",
+    "끈"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "no strings attached",
+    "아무 조건 없이"
+   ],
+   [
+    "string instrument",
+    "현악기"
+   ]
+  ]
+ },
+ "bitter": {
+  "et": "고대 영어 biter에서 왔고, bite(물다)와 같은 뿌리예요. '혀를 무는 듯한 맛'에서 '쓴'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "bitterly",
+    "몹시"
+   ],
+   [
+    "bite",
+    "물다"
+   ]
+  ],
+  "syn": [
+   [
+    "harsh",
+    "가혹한"
+   ]
+  ],
+  "ant": [
+   [
+    "sweet",
+    "달콤한"
+   ]
+  ],
+  "ph": [
+   [
+    "bitter taste",
+    "쓴맛"
+   ]
+  ]
+ },
+ "propose": {
+  "et": "옛 프랑스어 proposer(pro 앞에 + poser 놓다)에서 왔어요. '앞에 내놓다'에서 '제안하다, 청혼하다'가 되었어요.",
+  "pt": "pro(앞에) + pose(놓다)",
+  "fam": [
+   [
+    "proposal",
+    "제안"
+   ],
+   [
+    "purpose",
+    "목적"
+   ]
+  ],
+  "syn": [
+   [
+    "suggest",
+    "제안하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "propose to",
+    "~에게 청혼하다"
+   ]
+  ]
+ },
+ "bend": {
+  "et": "고대 영어 bendan(활에 줄을 걸어 당기다)에서 왔어요. 줄을 걸면 활이 휘어지니 '구부리다'라는 뜻이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "bent",
+    "구부러진"
+   ]
+  ],
+  "syn": [
+   [
+    "curve",
+    "휘다"
+   ]
+  ],
+  "ant": [
+   [
+    "straighten",
+    "펴다"
+   ]
+  ],
+  "ph": [
+   [
+    "bend down",
+    "몸을 굽히다"
+   ]
+  ]
+ },
+ "connect": {
+  "et": "라틴어 connectere(con 함께 + nectere 묶다)에서 왔어요.",
+  "pt": "con(함께) + nect(묶다)",
+  "fam": [
+   [
+    "connection",
+    "연결"
+   ]
+  ],
+  "syn": [
+   [
+    "link",
+    "연결하다"
+   ],
+   [
+    "join",
+    "잇다"
+   ]
+  ],
+  "ant": [
+   [
+    "disconnect",
+    "연결을 끊다"
+   ]
+  ],
+  "ph": [
+   [
+    "connect A to B",
+    "A를 B에 연결하다"
+   ]
+  ]
+ },
+ "salary": {
+  "et": "라틴어 salarium(급료)에서 왔는데, sal(소금)과 관련된 말이에요. 로마 병사가 소금을 받았다는 이야기가 있지만 확실하지는 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "salt",
+    "소금"
+   ]
+  ],
+  "syn": [
+   [
+    "pay",
+    "급료"
+   ],
+   [
+    "wage",
+    "임금"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "disturb": {
+  "et": "라틴어 disturbare(dis 완전히 + turbare 어지럽히다)에서 왔어요. turba는 '소란, 무리'라는 뜻이에요.",
+  "pt": "dis(완전히) + turb(어지럽히다)",
+  "fam": [
+   [
+    "disturbance",
+    "방해"
+   ],
+   [
+    "turbulence",
+    "난기류"
+   ]
+  ],
+  "syn": [
+   [
+    "bother",
+    "방해하다"
+   ],
+   [
+    "interrupt",
+    "방해하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "Do not disturb.",
+    "방해하지 마시오."
+   ]
+  ]
+ },
+ "maintain": {
+  "et": "옛 프랑스어 maintenir에서 왔고, 라틴어 manu tenere(손으로 붙잡다)가 뿌리예요.",
+  "pt": "main(손) + tain(붙잡다)",
+  "fam": [
+   [
+    "maintenance",
+    "유지"
+   ],
+   [
+    "contain",
+    "담다"
+   ]
+  ],
+  "syn": [
+   [
+    "keep",
+    "유지하다"
+   ],
+   [
+    "preserve",
+    "보존하다"
+   ]
+  ],
+  "ant": [
+   [
+    "abandon",
+    "버리다"
+   ]
+  ],
+  "ph": [
+   [
+    "maintain a balance",
+    "균형을 유지하다"
+   ]
+  ]
+ },
+ "upper": {
+  "et": "up(위) + -er(비교급)로 중세 영어에서 생긴 말이에요.",
+  "pt": "up(위) + per(더)",
+  "fam": [
+   [
+    "up",
+    "위로"
+   ]
+  ],
+  "syn": [
+   [
+    "higher",
+    "더 높은"
+   ]
+  ],
+  "ant": [
+   [
+    "lower",
+    "아래의"
+   ]
+  ],
+  "ph": [
+   [
+    "upper class",
+    "상류층"
+   ],
+   [
+    "have the upper hand",
+    "우위에 있다"
+   ]
+  ]
+ },
+ "tale": {
+  "et": "고대 영어 talu(이야기, 셈)에서 왔어요. tell(말하다)과 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "tell",
+    "말하다"
+   ]
+  ],
+  "syn": [
+   [
+    "story",
+    "이야기"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "fairy tale",
+    "동화"
+   ],
+   [
+    "folk tale",
+    "민간 설화"
+   ]
+  ]
+ },
+ "profit": {
+  "et": "라틴어 profectus(진보, 이익)에서 왔고, proficere(나아가다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "profitable",
+    "이익이 되는"
+   ]
+  ],
+  "syn": [
+   [
+    "gain",
+    "이익"
+   ],
+   [
+    "benefit",
+    "이익"
+   ]
+  ],
+  "ant": [
+   [
+    "loss",
+    "손실"
+   ]
+  ],
+  "ph": [
+   [
+    "make a profit",
+    "이익을 내다"
+   ]
+  ]
+ },
+ "shore": {
+  "et": "중세 영어 schore에서 왔는데, 독일 북부·네덜란드의 옛말에서 온 것으로 보여요.",
+  "pt": "",
+  "fam": [
+   [
+    "ashore",
+    "해변으로"
+   ]
+  ],
+  "syn": [
+   [
+    "coast",
+    "해안"
+   ],
+   [
+    "beach",
+    "해변"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "on shore",
+    "육지에서"
+   ]
+  ]
+ },
+ "net": {
+  "et": "아주 오래된 고대 영어 단어 'net(그물)'에서 왔어요. 그물처럼 얽힌 '인터넷(internet)'에도 들어 있어요.",
+  "pt": "",
+  "fam": [
+   [
+    "network",
+    "네트워크"
+   ],
+   [
+    "internet",
+    "인터넷"
+   ]
+  ],
+  "syn": [
+   [
+    "web",
+    "망"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "fishing net",
+    "어망"
+   ],
+   [
+    "safety net",
+    "안전망"
+   ]
+  ]
+ },
+ "lemon": {
+  "et": "페르시아어 līmūn이 아랍어를 거쳐 옛 프랑스어 limon으로 들어왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "lemonade",
+    "레몬에이드"
+   ],
+   [
+    "lime",
+    "라임"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "appeal": {
+  "et": "라틴어 appellare(부르다, 호소하다)가 옛 프랑스어 apeler를 거쳐 왔어요. '도와 달라고 부르다'에서 '호소, 매력'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "appealing",
+    "매력적인"
+   ]
+  ],
+  "syn": [
+   [
+    "attraction",
+    "매력"
+   ],
+   [
+    "plea",
+    "호소"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "appeal to",
+    "~의 마음을 끌다, ~에 호소하다"
+   ]
+  ]
+ },
+ "enormous": {
+  "et": "라틴어 enormis(규칙에서 벗어난)에서 왔어요. e(밖으로) + norma(규칙)로, '보통을 벗어나 엄청난'이라는 뜻이 되었어요.",
+  "pt": "e(밖으로) + norm(기준) + ous(형용사)",
+  "fam": [
+   [
+    "norm",
+    "기준"
+   ],
+   [
+    "normal",
+    "보통의"
+   ]
+  ],
+  "syn": [
+   [
+    "huge",
+    "거대한"
+   ],
+   [
+    "vast",
+    "막대한"
+   ]
+  ],
+  "ant": [
+   [
+    "tiny",
+    "아주 작은"
+   ]
+  ],
+  "ph": [
+   [
+    "an enormous amount of",
+    "엄청난 양의"
+   ]
+  ]
+ },
+ "branch": {
+  "et": "후기 라틴어 branca(동물의 발)가 옛 프랑스어 branche로 들어왔어요. 발처럼 갈라진 모양이라 '가지'가 되었고, 본점에서 갈라진 '지점'도 뜻해요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "limb",
+    "큰 가지"
+   ],
+   [
+    "bough",
+    "큰 가지"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "branch office",
+    "지점"
+   ]
+  ]
+ },
+ "muscle": {
+  "et": "라틴어 musculus(작은 쥐)에서 왔어요. 근육이 움직이는 모습이 피부 밑에서 쥐가 움직이는 것 같다고 해서 붙은 이름이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "muscular",
+    "근육질의"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "pull a muscle",
+    "근육을 다치다"
+   ]
+  ]
+ },
+ "tense": {
+  "et": "'긴장한'은 라틴어 tensus(팽팽하게 당겨진)에서 왔어요. 문법의 '시제'는 라틴어 tempus(시간)에서 온 다른 단어예요.",
+  "pt": "",
+  "fam": [
+   [
+    "tension",
+    "긴장"
+   ],
+   [
+    "intense",
+    "강렬한"
+   ]
+  ],
+  "syn": [
+   [
+    "nervous",
+    "긴장한"
+   ],
+   [
+    "tight",
+    "팽팽한"
+   ]
+  ],
+  "ant": [
+   [
+    "relaxed",
+    "편안한"
+   ],
+   [
+    "loose",
+    "느슨한"
+   ]
+  ],
+  "ph": [
+   [
+    "tense situation",
+    "긴장된 상황"
+   ]
+  ]
+ },
+ "blonde": {
+  "et": "프랑스어 blond(금발의)에서 왔고 -e는 프랑스어에서 여성형 표시예요. 더 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "blond",
+    "금발의"
+   ]
+  ],
+  "syn": [
+   [
+    "fair",
+    "금발의"
+   ]
+  ],
+  "ant": [
+   [
+    "brunette",
+    "흑갈색 머리의"
+   ]
+  ],
+  "ph": []
+ },
+ "comedy": {
+  "et": "그리스어 kōmōidia에서 왔어요. kōmos(흥겨운 잔치)와 aoidos(노래하는 사람)가 합쳐진 말이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "comedian",
+    "코미디언"
+   ],
+   [
+    "comic",
+    "웃기는"
+   ]
+  ],
+  "syn": [
+   [
+    "humor",
+    "유머"
+   ]
+  ],
+  "ant": [
+   [
+    "tragedy",
+    "비극"
+   ]
+  ],
+  "ph": [
+   [
+    "romantic comedy",
+    "로맨틱 코미디"
+   ]
+  ]
+ },
+ "appropriate": {
+  "et": "라틴어 appropriare(ad ~에 + proprius 자기 것)에서 왔어요. '자기 것으로 삼다'에서 '딱 맞는, 적절한'이라는 뜻이 나왔어요.",
+  "pt": "ap(~에) + propri(자기 것) + ate",
+  "fam": [
+   [
+    "appropriately",
+    "적절하게"
+   ],
+   [
+    "proper",
+    "적절한"
+   ]
+  ],
+  "syn": [
+   [
+    "suitable",
+    "적합한"
+   ],
+   [
+    "proper",
+    "적절한"
+   ]
+  ],
+  "ant": [
+   [
+    "inappropriate",
+    "부적절한"
+   ]
+  ],
+  "ph": [
+   [
+    "appropriate for",
+    "~에 적절한"
+   ]
+  ]
+ },
+ "motor": {
+  "et": "라틴어 motor(움직이게 하는 것)에서 왔고, movere(움직이다)가 뿌리예요.",
+  "pt": "mot(움직이다) + or(~하는 것)",
+  "fam": [
+   [
+    "motorcycle",
+    "오토바이"
+   ],
+   [
+    "motion",
+    "움직임"
+   ]
+  ],
+  "syn": [
+   [
+    "engine",
+    "엔진"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "motor vehicle",
+    "자동차"
+   ]
+  ]
+ },
+ "pile": {
+  "et": "옛 프랑스어 pile(더미, 기둥)에서 왔고, 라틴어 pila(기둥)가 뿌리예요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "heap",
+    "더미"
+   ],
+   [
+    "stack",
+    "쌓다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "a pile of",
+    "많은, 한 더미의"
+   ],
+   [
+    "pile up",
+    "쌓이다"
+   ]
+  ]
+ },
+ "pan": {
+  "et": "고대 영어 panne(납작한 냄비)에서 왔어요. 라틴어 patina(얕은 접시)에서 왔을 것으로 보지만 확실하지는 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "pancake",
+    "팬케이크"
+   ]
+  ],
+  "syn": [
+   [
+    "pot",
+    "냄비"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "frying pan",
+    "프라이팬"
+   ]
+  ]
+ },
+ "native": {
+  "et": "라틴어 nativus(타고난)에서 왔고, nasci(태어나다)가 뿌리예요.",
+  "pt": "nat(태어나다) + ive(형용사)",
+  "fam": [
+   [
+    "nation",
+    "국가"
+   ],
+   [
+    "nature",
+    "자연"
+   ],
+   [
+    "nationality",
+    "국적"
+   ]
+  ],
+  "syn": [
+   [
+    "local",
+    "토박이의"
+   ]
+  ],
+  "ant": [
+   [
+    "foreign",
+    "외국의"
+   ]
+  ],
+  "ph": [
+   [
+    "native speaker",
+    "원어민"
+   ],
+   [
+    "native language",
+    "모국어"
+   ]
+  ]
+ },
+ "cable": {
+  "et": "중세 라틴어 capulum(소를 매는 밧줄)에서 프랑스어를 거쳐 왔어요. 굵은 '밧줄'에서 '전선, 케이블'이 되었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "wire",
+    "전선"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "cable car",
+    "케이블카"
+   ],
+   [
+    "cable TV",
+    "유선 방송"
+   ]
+  ]
+ },
+ "anxious": {
+  "et": "라틴어 anxius(불안한)에서 왔어요. angere(목을 조르다)가 뿌리라 '숨 막히듯 걱정되는'이라는 뜻이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "anxiety",
+    "불안"
+   ],
+   [
+    "anxiously",
+    "걱정스럽게"
+   ]
+  ],
+  "syn": [
+   [
+    "worried",
+    "걱정하는"
+   ],
+   [
+    "nervous",
+    "불안한"
+   ]
+  ],
+  "ant": [
+   [
+    "calm",
+    "차분한"
+   ],
+   [
+    "relaxed",
+    "느긋한"
+   ]
+  ],
+  "ph": [
+   [
+    "be anxious about",
+    "~을 걱정하다"
+   ],
+   [
+    "be anxious to",
+    "몹시 ~하고 싶어 하다"
+   ]
+  ]
+ },
+ "slide": {
+  "et": "아주 오래된 고대 영어 단어 'slidan(미끄러지다)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "slider",
+    "미끄러지는 것"
+   ],
+   [
+    "landslide",
+    "산사태"
+   ]
+  ],
+  "syn": [
+   [
+    "slip",
+    "미끄러지다"
+   ],
+   [
+    "glide",
+    "미끄러지다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "slide down",
+    "미끄러져 내려가다"
+   ]
+  ]
+ },
+ "pork": {
+  "et": "라틴어 porcus(돼지)가 옛 프랑스어 porc로 들어왔어요. 영어에서는 살아 있는 돼지는 pig, 고기는 프랑스어에서 온 pork라고 해요.",
+  "pt": "",
+  "fam": [
+   [
+    "porcupine",
+    "호저"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "pork cutlet",
+    "돈가스"
+   ]
+  ]
+ },
+ "structure": {
+  "et": "라틴어 structura(짜 맞춤, 건축)에서 왔고 struere(쌓다, 짓다)가 뿌리예요.",
+  "pt": "struct(쌓다) + ure(명사)",
+  "fam": [
+   [
+    "construct",
+    "건설하다"
+   ],
+   [
+    "destroy",
+    "파괴하다"
+   ],
+   [
+    "instruct",
+    "가르치다"
+   ]
+  ],
+  "syn": [
+   [
+    "framework",
+    "뼈대"
+   ],
+   [
+    "building",
+    "건물"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "social structure",
+    "사회 구조"
+   ]
+  ]
+ },
+ "admire": {
+  "et": "라틴어 admirari(ad ~에 + mirari 놀라다)에서 왔어요. '경이롭게 바라보다'라는 뜻이에요.",
+  "pt": "ad(~에) + mire(놀라다)",
+  "fam": [
+   [
+    "admiration",
+    "감탄"
+   ],
+   [
+    "admirable",
+    "훌륭한"
+   ],
+   [
+    "miracle",
+    "기적"
+   ]
+  ],
+  "syn": [
+   [
+    "respect",
+    "존경하다"
+   ],
+   [
+    "look up to",
+    "우러러보다"
+   ]
+  ],
+  "ant": [
+   [
+    "despise",
+    "경멸하다"
+   ]
+  ],
+  "ph": [
+   [
+    "admire A for B",
+    "B 때문에 A를 존경하다"
+   ]
+  ]
+ },
+ "manner": {
+  "et": "라틴어 manus(손)에서 나온 말이 프랑스어 manere(행동 방식)를 거쳐 왔어요. '손을 다루는 방식'에서 '방식, 태도'가 되었고 복수형은 '예의'예요.",
+  "pt": "",
+  "fam": [
+   [
+    "manual",
+    "손으로 하는"
+   ]
+  ],
+  "syn": [
+   [
+    "way",
+    "방식"
+   ],
+   [
+    "method",
+    "방법"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "table manners",
+    "식사 예절"
+   ],
+   [
+    "in a manner of speaking",
+    "말하자면"
+   ]
+  ]
+ },
+ "mount": {
+  "et": "명사 '산'은 라틴어 mons(산)에서, 동사 '오르다'는 같은 뿌리의 옛 프랑스어 monter에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "mountain",
+    "산"
+   ],
+   [
+    "amount",
+    "양"
+   ]
+  ],
+  "syn": [
+   [
+    "climb",
+    "오르다"
+   ],
+   [
+    "ride",
+    "올라타다"
+   ]
+  ],
+  "ant": [
+   [
+    "dismount",
+    "내리다"
+   ]
+  ],
+  "ph": [
+   [
+    "Mount Everest",
+    "에베레스트 산"
+   ]
+  ]
+ },
+ "battery": {
+  "et": "옛 프랑스어 baterie(때리기)에서 왔고 battre(치다)가 뿌리예요. '대포를 줄지어 놓은 포대'를 뜻하다가, 프랭클린이 여러 개를 이어 놓은 전기 장치를 battery라고 부르며 '전지'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "battle",
+    "전투"
+   ],
+   [
+    "beat",
+    "치다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "battery charger",
+    "충전기"
+   ],
+   [
+    "dead battery",
+    "방전된 배터리"
+   ]
+  ]
+ },
+ "cinema": {
+  "et": "프랑스어 cinéma에서 왔어요. 뤼미에르 형제의 영사기 cinématographe를 줄인 말이고, 그리스어 kinēma(움직임)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "cinematic",
+    "영화의"
+   ]
+  ],
+  "syn": [
+   [
+    "movie theater",
+    "영화관"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "go to the cinema",
+    "영화 보러 가다"
+   ]
+  ]
+ },
+ "brick": {
+  "et": "옛 프랑스어 brique에서 왔고, 네덜란드 옛말 bricke(조각)에서 온 것으로 보여요. break(깨다)와 관련 있을 수 있어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "recommend": {
+  "et": "중세 라틴어 recommendare(re 강조 + commendare 맡기다, 칭찬하다)에서 왔어요.",
+  "pt": "re(강조) + commend(칭찬하다, 맡기다)",
+  "fam": [
+   [
+    "recommendation",
+    "추천"
+   ],
+   [
+    "commend",
+    "칭찬하다"
+   ]
+  ],
+  "syn": [
+   [
+    "suggest",
+    "제안하다"
+   ],
+   [
+    "advise",
+    "권하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "highly recommend",
+    "강력히 추천하다"
+   ]
+  ]
+ },
+ "concept": {
+  "et": "라틴어 conceptum(마음에 품은 것)에서 왔어요. con(함께) + capere(잡다)로, '머릿속에 붙잡은 생각'이라는 뜻이에요.",
+  "pt": "con(함께) + cept(잡다)",
+  "fam": [
+   [
+    "conceive",
+    "생각해 내다"
+   ],
+   [
+    "conception",
+    "개념"
+   ]
+  ],
+  "syn": [
+   [
+    "idea",
+    "생각"
+   ],
+   [
+    "notion",
+    "개념"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "basic concept",
+    "기본 개념"
+   ]
+  ]
+ },
+ "delay": {
+  "et": "옛 프랑스어 delaier(미루다)에서 왔어요. 그 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "postpone",
+    "미루다"
+   ],
+   [
+    "put off",
+    "연기하다"
+   ]
+  ],
+  "ant": [
+   [
+    "hurry",
+    "서두르다"
+   ]
+  ],
+  "ph": [
+   [
+    "without delay",
+    "지체 없이"
+   ]
+  ]
+ },
+ "rub": {
+  "et": "중세 영어 rubben에서 왔는데, 독일 북부 계통 말에서 왔을 것으로 보지만 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "rubber",
+    "고무"
+   ]
+  ],
+  "syn": [
+   [
+    "scrub",
+    "문지르다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "rub one's eyes",
+    "눈을 비비다"
+   ]
+  ]
+ },
+ "soil": {
+  "et": "라틴어 solum(땅, 바닥)이 프랑스어를 거쳐 들어왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "earth",
+    "흙"
+   ],
+   [
+    "dirt",
+    "흙"
+   ],
+   [
+    "ground",
+    "땅"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "rich soil",
+    "비옥한 토양"
+   ]
+  ]
+ },
+ "sail": {
+  "et": "아주 오래된 고대 영어 단어 'segl(돛)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "sailor",
+    "선원"
+   ],
+   [
+    "sailboat",
+    "돛단배"
+   ]
+  ],
+  "syn": [
+   [
+    "voyage",
+    "항해하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "set sail",
+    "출항하다"
+   ]
+  ]
+ },
+ "measure": {
+  "et": "라틴어 mensura(잼, 측정)에서 옛 프랑스어 mesure를 거쳐 왔어요. metiri(재다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "measurement",
+    "측정"
+   ],
+   [
+    "dimension",
+    "치수"
+   ]
+  ],
+  "syn": [
+   [
+    "gauge",
+    "재다"
+   ],
+   [
+    "step",
+    "조치"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "take measures",
+    "조치를 취하다"
+   ],
+   [
+    "measure up",
+    "기준에 맞다"
+   ]
+  ]
+ },
+ "function": {
+  "et": "라틴어 functio(수행, 실행)에서 왔고, fungi(수행하다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "functional",
+    "기능적인"
+   ],
+   [
+    "malfunction",
+    "고장"
+   ]
+  ],
+  "syn": [
+   [
+    "role",
+    "역할"
+   ],
+   [
+    "work",
+    "작동하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "function as",
+    "~의 역할을 하다"
+   ]
+  ]
+ },
+ "labor": {
+  "et": "라틴어 labor(수고, 고된 일)가 옛 프랑스어를 거쳐 들어왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "laboratory",
+    "실험실"
+   ],
+   [
+    "laborer",
+    "노동자"
+   ]
+  ],
+  "syn": [
+   [
+    "work",
+    "일"
+   ],
+   [
+    "effort",
+    "수고"
+   ]
+  ],
+  "ant": [
+   [
+    "rest",
+    "휴식"
+   ]
+  ],
+  "ph": [
+   [
+    "Labor Day",
+    "노동절"
+   ]
+  ]
+ },
+ "log": {
+  "et": "'통나무'는 중세 영어 logge에서 왔고 기원은 확실하지 않아요. 배의 속도를 재려고 통나무 조각을 던지고 그 결과를 적던 책(logbook)에서 '기록'이라는 뜻이 나왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "blog",
+    "블로그"
+   ],
+   [
+    "logbook",
+    "항해 일지"
+   ]
+  ],
+  "syn": [
+   [
+    "record",
+    "기록"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "log in",
+    "로그인하다"
+   ],
+   [
+    "log out",
+    "로그아웃하다"
+   ]
+  ]
+ },
+ "poem": {
+  "et": "그리스어 poiēma(만들어진 것)가 라틴어·프랑스어를 거쳐 왔어요. poiein(만들다)이 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "poet",
+    "시인"
+   ],
+   [
+    "poetry",
+    "시, 시가"
+   ],
+   [
+    "poetic",
+    "시적인"
+   ]
+  ],
+  "syn": [
+   [
+    "verse",
+    "시"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "write a poem",
+    "시를 쓰다"
+   ]
+  ]
+ },
+ "privacy": {
+  "et": "private(사적인) + -cy(명사)예요. private는 라틴어 privatus(따로 떨어진, 자기만의)에서 왔어요.",
+  "pt": "priv(따로) + acy(명사)",
+  "fam": [
+   [
+    "private",
+    "사적인"
+   ],
+   [
+    "deprive",
+    "빼앗다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "invasion of privacy",
+    "사생활 침해"
+   ]
+  ]
+ },
+ "budget": {
+  "et": "옛 프랑스어 bougette(작은 가죽 주머니)에서 왔어요. 영국 재무장관이 '주머니를 열어' 나라 살림을 발표하던 데서 '예산'이 되었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "on a budget",
+    "적은 예산으로"
+   ],
+   [
+    "budget cut",
+    "예산 삭감"
+   ]
+  ]
+ },
+ "pub": {
+  "et": "public house(누구나 들어오는 집, 술집)를 줄인 말로 19세기에 생겼어요.",
+  "pt": "",
+  "fam": [
+   [
+    "public",
+    "공공의"
+   ]
+  ],
+  "syn": [
+   [
+    "bar",
+    "술집"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "lamb": {
+  "et": "아주 오래된 고대 영어 단어 'lamb(새끼 양)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "basis": {
+  "et": "그리스어 basis(발판, 받침)가 라틴어를 거쳐 들어왔어요. bainein(걷다, 딛다)이 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "base",
+    "기초"
+   ],
+   [
+    "basic",
+    "기본적인"
+   ]
+  ],
+  "syn": [
+   [
+    "foundation",
+    "기초"
+   ],
+   [
+    "ground",
+    "근거"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "on a daily basis",
+    "매일"
+   ],
+   [
+    "on the basis of",
+    "~에 근거하여"
+   ]
+  ]
+ },
+ "recover": {
+  "et": "라틴어 recuperare(다시 얻다)가 옛 프랑스어를 거쳐 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "recovery",
+    "회복"
+   ]
+  ],
+  "syn": [
+   [
+    "regain",
+    "되찾다"
+   ],
+   [
+    "heal",
+    "낫다"
+   ]
+  ],
+  "ant": [
+   [
+    "lose",
+    "잃다"
+   ]
+  ],
+  "ph": [
+   [
+    "recover from",
+    "~에서 회복하다"
+   ]
+  ]
+ },
+ "twist": {
+  "et": "고대 영어에서 '두 갈래로 나뉜 것, 꼰 줄'과 관련된 말에서 왔어요. two(둘)와 같은 뿌리로 여겨져요.",
+  "pt": "",
+  "fam": [
+   [
+    "twin",
+    "쌍둥이"
+   ],
+   [
+    "two",
+    "둘"
+   ]
+  ],
+  "syn": [
+   [
+    "turn",
+    "돌리다"
+   ],
+   [
+    "wind",
+    "감다"
+   ]
+  ],
+  "ant": [
+   [
+    "straighten",
+    "펴다"
+   ]
+  ],
+  "ph": [
+   [
+    "twist one's ankle",
+    "발목을 삐다"
+   ]
+  ]
+ },
+ "item": {
+  "et": "라틴어 item(또한, 마찬가지로)에서 왔어요. 목록의 항목마다 앞에 'item'을 써서 하나씩 나열하던 데서 '항목, 물품'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "itemize",
+    "항목별로 적다"
+   ]
+  ],
+  "syn": [
+   [
+    "thing",
+    "물건"
+   ],
+   [
+    "article",
+    "물품"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "news item",
+    "뉴스 한 꼭지"
+   ]
+  ]
+ },
+ "affect": {
+  "et": "라틴어 affectare(ad ~에 + facere 하다)에서 왔어요. '~에 작용하다'라는 뜻이에요.",
+  "pt": "af(~에) + fect(하다)",
+  "fam": [
+   [
+    "affection",
+    "애정"
+   ],
+   [
+    "effect",
+    "효과"
+   ]
+  ],
+  "syn": [
+   [
+    "influence",
+    "영향을 주다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be affected by",
+    "~의 영향을 받다"
+   ]
+  ]
+ },
+ "humor": {
+  "et": "라틴어 humor(체액)에서 왔어요. 옛날 의학에서는 몸속 네 가지 체액이 기분을 정한다고 믿어 '기분'을 뜻하게 되었고, 거기서 '유머'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "humorous",
+    "유머러스한"
+   ]
+  ],
+  "syn": [
+   [
+    "wit",
+    "재치"
+   ],
+   [
+    "comedy",
+    "코미디"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "sense of humor",
+    "유머 감각"
+   ]
+  ]
+ },
+ "various": {
+  "et": "라틴어 varius(가지각색의, 변하는)에서 왔어요.",
+  "pt": "vari(여러 가지) + ous(형용사)",
+  "fam": [
+   [
+    "vary",
+    "다르다"
+   ],
+   [
+    "variety",
+    "다양성"
+   ]
+  ],
+  "syn": [
+   [
+    "different",
+    "다른"
+   ],
+   [
+    "diverse",
+    "다양한"
+   ]
+  ],
+  "ant": [
+   [
+    "same",
+    "같은"
+   ]
+  ],
+  "ph": [
+   [
+    "various kinds of",
+    "다양한 종류의"
+   ]
+  ]
+ },
+ "dive": {
+  "et": "고대 영어 dufan(잠기다)과 dyfan(담그다)에서 왔어요. dip(담그다)과 관련 있어요.",
+  "pt": "",
+  "fam": [
+   [
+    "diver",
+    "잠수부"
+   ],
+   [
+    "diving",
+    "다이빙"
+   ]
+  ],
+  "syn": [
+   [
+    "plunge",
+    "뛰어들다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "dive into",
+    "~에 뛰어들다"
+   ]
+  ]
+ },
+ "pump": {
+  "et": "네덜란드 옛말 pompe에서 왔는데, 물소리를 흉내 낸 말로 보기도 하지만 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "pump up",
+    "부풀리다"
+   ]
+  ]
+ },
+ "coin": {
+  "et": "옛 프랑스어 coing(쐐기, 도장)에서 왔고, 라틴어 cuneus(쐐기)가 뿌리예요. 동전에 무늬를 찍던 쐐기 모양 도구에서 '동전'이 되었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "flip a coin",
+    "동전을 던지다"
+   ],
+   [
+    "coin a word",
+    "새 말을 만들다"
+   ]
+  ]
+ },
+ "require": {
+  "et": "라틴어 requirere(re 다시 + quaerere 찾다, 구하다)에서 왔어요.",
+  "pt": "re(다시) + quire(구하다)",
+  "fam": [
+   [
+    "requirement",
+    "요구 사항"
+   ],
+   [
+    "request",
+    "요청"
+   ],
+   [
+    "question",
+    "질문"
+   ]
+  ],
+  "syn": [
+   [
+    "need",
+    "필요로 하다"
+   ],
+   [
+    "demand",
+    "요구하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be required to",
+    "~해야 한다"
+   ]
+  ]
+ },
+ "achieve": {
+  "et": "옛 프랑스어 achever(끝내다)에서 왔어요. a chief(끝·머리까지)라는 표현에서 나온 말이라 '끝까지 해내다'라는 뜻이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "achievement",
+    "성취"
+   ],
+   [
+    "chief",
+    "우두머리"
+   ]
+  ],
+  "syn": [
+   [
+    "accomplish",
+    "성취하다"
+   ],
+   [
+    "attain",
+    "달성하다"
+   ]
+  ],
+  "ant": [
+   [
+    "fail",
+    "실패하다"
+   ]
+  ],
+  "ph": [
+   [
+    "achieve a goal",
+    "목표를 이루다"
+   ]
+  ]
+ },
+ "nest": {
+  "et": "고대 영어 nest에서 왔어요. 아주 옛날 '새가 내려앉는 곳'이라는 뜻의 말에서 온 것으로 여겨져요.",
+  "pt": "",
+  "fam": [
+   [
+    "nestle",
+    "편히 앉다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "constant": {
+  "et": "라틴어 constans(꿋꿋이 서 있는)에서 왔어요. con(함께, 굳게) + stare(서다)가 뿌리예요.",
+  "pt": "con(굳게) + stant(서 있는)",
+  "fam": [
+   [
+    "constantly",
+    "끊임없이"
+   ]
+  ],
+  "syn": [
+   [
+    "continuous",
+    "계속되는"
+   ],
+   [
+    "steady",
+    "일정한"
+   ]
+  ],
+  "ant": [
+   [
+    "changing",
+    "변하는"
+   ]
+  ],
+  "ph": [
+   [
+    "constant noise",
+    "끊임없는 소음"
+   ]
+  ]
+ },
+ "analysis": {
+  "et": "그리스어 analysis(풀어 헤침)에서 왔어요. ana(위로, 완전히) + lyein(풀다)로, '하나하나 풀어서 살펴봄'이라는 뜻이에요.",
+  "pt": "ana(완전히) + lysis(풀기)",
+  "fam": [
+   [
+    "analyze",
+    "분석하다"
+   ],
+   [
+    "analyst",
+    "분석가"
+   ]
+  ],
+  "syn": [
+   [
+    "examination",
+    "검토"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "data analysis",
+    "데이터 분석"
+   ]
+  ]
+ },
+ "height": {
+  "et": "고대 영어 hiehþu에서 왔고, heah(high, 높은)에 명사를 만드는 꼬리가 붙은 말이에요.",
+  "pt": "high(높은) + th(명사)",
+  "fam": [
+   [
+    "high",
+    "높은"
+   ],
+   [
+    "heighten",
+    "높이다"
+   ]
+  ],
+  "syn": [
+   [
+    "altitude",
+    "고도"
+   ]
+  ],
+  "ant": [
+   [
+    "depth",
+    "깊이"
+   ]
+  ],
+  "ph": [
+   [
+    "at the height of",
+    "~이 한창일 때"
+   ]
+  ]
+ },
+ "fund": {
+  "et": "라틴어 fundus(바닥, 땅, 재산)에서 왔어요. '밑바탕이 되는 재산'에서 '기금'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "fundamental",
+    "근본적인"
+   ],
+   [
+    "refund",
+    "환불"
+   ]
+  ],
+  "syn": [
+   [
+    "money",
+    "돈"
+   ],
+   [
+    "capital",
+    "자본"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "raise funds",
+    "기금을 모으다"
+   ]
+  ]
+ },
+ "region": {
+  "et": "라틴어 regio(방향, 경계, 구역)에서 왔고, regere(다스리다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "regional",
+    "지역의"
+   ]
+  ],
+  "syn": [
+   [
+    "area",
+    "지역"
+   ],
+   [
+    "district",
+    "구역"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in the region of",
+    "약, 대략"
+   ]
+  ]
+ },
+ "operate": {
+  "et": "라틴어 operari(일하다)에서 왔고, opus(일, 작품)가 뿌리예요.",
+  "pt": "oper(일) + ate(동사)",
+  "fam": [
+   [
+    "operation",
+    "수술, 작동"
+   ],
+   [
+    "operator",
+    "조작자"
+   ]
+  ],
+  "syn": [
+   [
+    "run",
+    "운영하다"
+   ],
+   [
+    "work",
+    "작동하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "operate on",
+    "~을 수술하다"
+   ]
+  ]
+ },
+ "smash": {
+  "et": "17세기에 생긴 말로, 소리를 흉내 낸 말로 보여요. smack(탁 치다)과 mash(으깨다)가 섞였다는 설도 있어요.",
+  "pt": "",
+  "fam": [
+   [
+    "smashing",
+    "멋진"
+   ]
+  ],
+  "syn": [
+   [
+    "crush",
+    "박살 내다"
+   ],
+   [
+    "shatter",
+    "산산조각 내다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "smash hit",
+    "대성공"
+   ]
+  ]
+ },
+ "blanket": {
+  "et": "옛 프랑스어 blanchet(흰 모직 천)에서 왔어요. blanc(하얀)이 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "blank",
+    "빈"
+   ]
+  ],
+  "syn": [
+   [
+    "cover",
+    "덮개"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "a blanket of snow",
+    "온통 덮인 눈"
+   ]
+  ]
+ },
+ "nut": {
+  "et": "아주 오래된 고대 영어 단어 'hnutu(견과)'에서 왔어요. 견과처럼 생긴 볼트용 '너트'도 같은 말이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "nutshell",
+    "견과 껍데기"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "in a nutshell",
+    "간단히 말해서"
+   ]
+  ]
+ },
+ "repair": {
+  "et": "라틴어 reparare(re 다시 + parare 준비하다)에서 왔어요. '다시 갖추다'라는 뜻이에요.",
+  "pt": "re(다시) + pair(갖추다)",
+  "fam": [
+   [
+    "prepare",
+    "준비하다"
+   ]
+  ],
+  "syn": [
+   [
+    "fix",
+    "고치다"
+   ],
+   [
+    "mend",
+    "수선하다"
+   ]
+  ],
+  "ant": [
+   [
+    "break",
+    "부수다"
+   ],
+   [
+    "damage",
+    "손상시키다"
+   ]
+  ],
+  "ph": [
+   [
+    "under repair",
+    "수리 중인"
+   ]
+  ]
+ },
+ "method": {
+  "et": "그리스어 methodos(탐구의 길)에서 왔어요. meta(뒤따라) + hodos(길)로, '따라가는 길'이라는 뜻이에요.",
+  "pt": "meth(따라) + od(길)",
+  "fam": [
+   [
+    "methodical",
+    "체계적인"
+   ]
+  ],
+  "syn": [
+   [
+    "way",
+    "방법"
+   ],
+   [
+    "means",
+    "수단"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "teaching method",
+    "교수법"
+   ]
+  ]
+ },
+ "tool": {
+  "et": "고대 영어 tol(도구)에서 왔어요. '만들다, 준비하다'라는 뜻의 게르만어가 뿌리로 여겨져요.",
+  "pt": "",
+  "fam": [
+   [
+    "toolbox",
+    "공구함"
+   ]
+  ],
+  "syn": [
+   [
+    "instrument",
+    "기구"
+   ],
+   [
+    "device",
+    "장치"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "power tool",
+    "전동 공구"
+   ]
+  ]
+ },
+ "towel": {
+  "et": "옛 프랑스어 toaille(천, 수건)에서 왔고, 그보다 앞은 프랑크족(게르만)의 말로 보여요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "paper towel",
+    "종이 타월"
+   ],
+   [
+    "throw in the towel",
+    "포기하다"
+   ]
+  ]
+ },
+ "nowadays": {
+  "et": "now(지금) + a(~에) + days(날들)로 '요즘 날에'라는 뜻이에요.",
+  "pt": "now(지금) + a(~에) + days(날들)",
+  "fam": [
+   [
+    "now",
+    "지금"
+   ]
+  ],
+  "syn": [
+   [
+    "these days",
+    "요즘"
+   ],
+   [
+    "today",
+    "오늘날"
+   ]
+  ],
+  "ant": [
+   [
+    "in the past",
+    "과거에"
+   ]
+  ],
+  "ph": []
+ },
+ "technique": {
+  "et": "프랑스어 technique에서 왔고, 그리스어 tekhnē(기술, 솜씨)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "technical",
+    "기술적인"
+   ],
+   [
+    "technology",
+    "기술"
+   ]
+  ],
+  "syn": [
+   [
+    "skill",
+    "기술"
+   ],
+   [
+    "method",
+    "기법"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "skill": {
+  "et": "고대 노르드어 skil(구별, 분별력)에서 왔어요. '잘 구별하는 능력'에서 '기술, 솜씨'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "skilled",
+    "숙련된"
+   ],
+   [
+    "skillful",
+    "능숙한"
+   ]
+  ],
+  "syn": [
+   [
+    "ability",
+    "능력"
+   ],
+   [
+    "talent",
+    "재능"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "communication skills",
+    "의사소통 능력"
+   ]
+  ]
+ },
+ "menu": {
+  "et": "프랑스어 menu(자세한 목록)에서 왔어요. '작은, 세세한'이라는 뜻의 라틴어 minutus가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "minute",
+    "아주 작은"
+   ]
+  ],
+  "syn": [
+   [
+    "list",
+    "목록"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "on the menu",
+    "메뉴에 있는"
+   ]
+  ]
+ },
+ "diary": {
+  "et": "라틴어 diarium(하루치 배급, 일지)에서 왔고 dies(날)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "daily",
+    "매일의"
+   ]
+  ],
+  "syn": [
+   [
+    "journal",
+    "일기"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "keep a diary",
+    "일기를 쓰다"
+   ]
+  ]
+ },
+ "bacon": {
+  "et": "옛 프랑스어 bacon(돼지고기)에서 왔고, 그보다 앞은 '등'을 뜻하는 게르만어예요. back(등)과 관련 있어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "bring home the bacon",
+    "생활비를 벌다"
+   ]
+  ]
+ },
+ "click": {
+  "et": "딸깍 하는 소리를 흉내 낸 말로 16세기에 생겼어요. 1980년대 컴퓨터 마우스가 나오며 '클릭하다'라는 뜻이 생겼어요.",
+  "pt": "",
+  "fam": [
+   [
+    "clicker",
+    "리모컨"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "double-click",
+    "더블클릭하다"
+   ]
+  ]
+ },
+ "burst": {
+  "et": "아주 오래된 고대 영어 단어 'berstan(터지다)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "explode",
+    "폭발하다"
+   ],
+   [
+    "pop",
+    "펑 터지다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "burst into tears",
+    "울음을 터뜨리다"
+   ],
+   [
+    "burst out laughing",
+    "웃음을 터뜨리다"
+   ]
+  ]
+ },
+ "polite": {
+  "et": "라틴어 politus(닦은, 세련된)에서 왔고 polire(닦다)가 뿌리예요. '닦아 반질반질한'에서 '예의 바른'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "politely",
+    "공손하게"
+   ],
+   [
+    "polish",
+    "닦다"
+   ]
+  ],
+  "syn": [
+   [
+    "courteous",
+    "공손한"
+   ],
+   [
+    "respectful",
+    "공손한"
+   ]
+  ],
+  "ant": [
+   [
+    "rude",
+    "무례한"
+   ],
+   [
+    "impolite",
+    "무례한"
+   ]
+  ],
+  "ph": []
+ },
+ "swallow": {
+  "et": "모양이 같은 두 단어예요. '삼키다'는 고대 영어 swelgan에서, '제비'는 고대 영어 swealwe에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "gulp",
+    "꿀꺽 삼키다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "swallow one's pride",
+    "자존심을 굽히다"
+   ]
+  ]
+ },
+ "sheet": {
+  "et": "고대 영어 sciete(천, 덮개)에서 왔어요. 침대 '시트'에서 종이 '한 장'으로 뜻이 넓어졌어요.",
+  "pt": "",
+  "fam": [
+   [
+    "worksheet",
+    "학습지"
+   ]
+  ],
+  "syn": [
+   [
+    "page",
+    "장"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "a sheet of paper",
+    "종이 한 장"
+   ]
+  ]
+ },
+ "parade": {
+  "et": "프랑스어 parade(과시, 사열)에서 왔어요. 스페인어 parada와 라틴어 parare(준비하다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "prepare",
+    "준비하다"
+   ]
+  ],
+  "syn": [
+   [
+    "march",
+    "행진"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "steam": {
+  "et": "아주 오래된 고대 영어 단어 'steam(증기, 냄새)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "steamer",
+    "찜기"
+   ]
+  ],
+  "syn": [
+   [
+    "vapor",
+    "증기"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "let off steam",
+    "울분을 풀다"
+   ],
+   [
+    "steam engine",
+    "증기 기관"
+   ]
+  ]
+ },
+ "root": {
+  "et": "고대 노르드어 rót(뿌리)에서 고대 영어 후기에 들어왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "rootless",
+    "뿌리 없는"
+   ]
+  ],
+  "syn": [
+   [
+    "origin",
+    "근원"
+   ],
+   [
+    "source",
+    "근원"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "take root",
+    "뿌리내리다"
+   ],
+   [
+    "root cause",
+    "근본 원인"
+   ]
+  ]
+ },
+ "boot": {
+  "et": "옛 프랑스어 bote에서 왔는데 그 기원은 확실하지 않아요. 컴퓨터를 '부팅'하는 것은 bootstrap(장화 끈)에서 나온 표현이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "reboot",
+    "재부팅하다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "conflict": {
+  "et": "라틴어 confligere(con 함께 + fligere 치다)에서 왔어요. '서로 부딪쳐 치다'라는 뜻이에요.",
+  "pt": "con(함께) + flict(치다)",
+  "fam": [
+   [
+    "inflict",
+    "가하다"
+   ]
+  ],
+  "syn": [
+   [
+    "clash",
+    "충돌"
+   ],
+   [
+    "dispute",
+    "분쟁"
+   ]
+  ],
+  "ant": [
+   [
+    "harmony",
+    "조화"
+   ],
+   [
+    "agreement",
+    "합의"
+   ]
+  ],
+  "ph": [
+   [
+    "in conflict with",
+    "~와 충돌하여"
+   ]
+  ]
+ },
+ "sore": {
+  "et": "고대 영어 sar(아픈, 괴로운)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "sorely",
+    "몹시"
+   ],
+   [
+    "sorry",
+    "미안한"
+   ]
+  ],
+  "syn": [
+   [
+    "painful",
+    "아픈"
+   ],
+   [
+    "aching",
+    "쑤시는"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "sore throat",
+    "목감기, 인후통"
+   ]
+  ]
+ },
+ "fee": {
+  "et": "옛 프랑스어 fieu(영지, 봉토)에서 왔고, 더 앞은 '가축, 재산'을 뜻하는 게르만어와 관련 있어요. '봉사의 대가'에서 '요금'이 되었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "charge",
+    "요금"
+   ],
+   [
+    "cost",
+    "비용"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "entrance fee",
+    "입장료"
+   ],
+   [
+    "tuition fee",
+    "수업료"
+   ]
+  ]
+ },
+ "register": {
+  "et": "중세 라틴어 registrum(기록부)에서 왔어요. re(다시) + gerere(나르다)로, '옮겨 적은 목록'이라는 뜻이에요.",
+  "pt": "re(다시) + gist(나르다) + er",
+  "fam": [
+   [
+    "registration",
+    "등록"
+   ]
+  ],
+  "syn": [
+   [
+    "enroll",
+    "등록하다"
+   ],
+   [
+    "record",
+    "기록하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "cash register",
+    "금전 등록기"
+   ]
+  ]
+ },
+ "spoil": {
+  "et": "라틴어 spoliare(벗기다, 약탈하다)에서 옛 프랑스어를 거쳐 왔어요. '빼앗아 망가뜨리다'에서 '망치다, 버릇없게 만들다'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "spoiler",
+    "스포일러"
+   ],
+   [
+    "spoiled",
+    "버릇없는"
+   ]
+  ],
+  "syn": [
+   [
+    "ruin",
+    "망치다"
+   ],
+   [
+    "rot",
+    "썩다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "spoil a child",
+    "아이를 버릇없게 만들다"
+   ]
+  ]
+ },
+ "immediate": {
+  "et": "후기 라틴어 immediatus(중간에 아무것도 없는)에서 왔어요. in(아닌) + medius(가운데)가 뿌리예요.",
+  "pt": "im(아닌) + medi(가운데) + ate",
+  "fam": [
+   [
+    "immediately",
+    "즉시"
+   ],
+   [
+    "medium",
+    "중간"
+   ]
+  ],
+  "syn": [
+   [
+    "instant",
+    "즉각적인"
+   ]
+  ],
+  "ant": [
+   [
+    "delayed",
+    "지연된"
+   ]
+  ],
+  "ph": [
+   [
+    "immediate family",
+    "직계 가족"
+   ]
+  ]
+ },
+ "hunger": {
+  "et": "아주 오래된 고대 영어 단어 'hungor(배고픔)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "hungry",
+    "배고픈"
+   ]
+  ],
+  "syn": [
+   [
+    "starvation",
+    "굶주림"
+   ]
+  ],
+  "ant": [
+   [
+    "fullness",
+    "배부름"
+   ]
+  ],
+  "ph": [
+   [
+    "die of hunger",
+    "굶어 죽다"
+   ]
+  ]
+ },
+ "develop": {
+  "et": "프랑스어 développer(포장을 풀다)에서 왔어요. 접혀 있던 것을 '펼치다'에서 '발달시키다, 개발하다'가 되었어요. 사진을 '현상하다'도 같은 말이에요.",
+  "pt": "de(반대) + velop(싸다)",
+  "fam": [
+   [
+    "development",
+    "발달"
+   ],
+   [
+    "envelope",
+    "봉투"
+   ]
+  ],
+  "syn": [
+   [
+    "grow",
+    "성장하다"
+   ],
+   [
+    "evolve",
+    "발전하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "developing country",
+    "개발도상국"
+   ]
+  ]
+ },
+ "cart": {
+  "et": "고대 노르드어 kartr(수레)에서 온 것으로 보여요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "wagon",
+    "마차"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "shopping cart",
+    "쇼핑 카트"
+   ],
+   [
+    "put the cart before the horse",
+    "앞뒤가 바뀌다"
+   ]
+  ]
+ },
+ "announce": {
+  "et": "라틴어 annuntiare(ad ~에 + nuntiare 알리다)에서 왔어요. nuntius는 '전령'이에요.",
+  "pt": "an(~에) + nounce(알리다)",
+  "fam": [
+   [
+    "announcement",
+    "발표"
+   ],
+   [
+    "announcer",
+    "아나운서"
+   ],
+   [
+    "pronounce",
+    "발음하다"
+   ]
+  ],
+  "syn": [
+   [
+    "declare",
+    "선언하다"
+   ],
+   [
+    "report",
+    "알리다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "announce the winner",
+    "우승자를 발표하다"
+   ]
+  ]
+ },
+ "instant": {
+  "et": "라틴어 instans(눈앞에 있는, 재촉하는)에서 왔어요. instare(가까이 서다)가 뿌리예요.",
+  "pt": "in(가까이) + stant(서 있는)",
+  "fam": [
+   [
+    "instantly",
+    "즉시"
+   ],
+   [
+    "instance",
+    "예"
+   ]
+  ],
+  "syn": [
+   [
+    "immediate",
+    "즉각적인"
+   ],
+   [
+    "moment",
+    "순간"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "instant noodles",
+    "라면"
+   ],
+   [
+    "in an instant",
+    "순식간에"
+   ]
+  ]
+ },
+ "lean": {
+  "et": "'기대다'는 고대 영어 hleonian에서, '마른'은 고대 영어 hlæne에서 온 다른 단어예요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "rest",
+    "기대다"
+   ],
+   [
+    "thin",
+    "마른"
+   ]
+  ],
+  "ant": [
+   [
+    "fat",
+    "살찐"
+   ]
+  ],
+  "ph": [
+   [
+    "lean on",
+    "~에 기대다, 의지하다"
+   ]
+  ]
+ },
+ "economy": {
+  "et": "그리스어 oikonomia(집안 살림)에서 왔어요. oikos(집) + nemein(관리하다)로, '집 관리'가 나라 단위의 '경제'가 되었어요.",
+  "pt": "eco(집) + nomy(관리)",
+  "fam": [
+   [
+    "economic",
+    "경제의"
+   ],
+   [
+    "economical",
+    "절약하는"
+   ],
+   [
+    "economist",
+    "경제학자"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "economy class",
+    "일반석"
+   ]
+  ]
+ },
+ "impress": {
+  "et": "라틴어 imprimere(in 안으로 + premere 누르다)에서 왔어요. '꾹 눌러 찍다'에서 '마음에 깊은 인상을 남기다'가 되었어요.",
+  "pt": "im(안으로) + press(누르다)",
+  "fam": [
+   [
+    "impression",
+    "인상"
+   ],
+   [
+    "impressive",
+    "인상적인"
+   ],
+   [
+    "press",
+    "누르다"
+   ]
+  ],
+  "syn": [
+   [
+    "move",
+    "감동시키다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be impressed by",
+    "~에 감명받다"
+   ]
+  ]
+ },
+ "bump": {
+  "et": "16세기에 생긴 말로, 쿵 부딪치는 소리를 흉내 낸 말이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "bumpy",
+    "울퉁불퉁한"
+   ]
+  ],
+  "syn": [
+   [
+    "hit",
+    "부딪치다"
+   ],
+   [
+    "knock",
+    "부딪치다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "bump into",
+    "~와 우연히 마주치다"
+   ]
+  ]
+ },
+ "document": {
+  "et": "라틴어 documentum(가르침, 증거)에서 왔고 docere(가르치다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "documentary",
+    "다큐멘터리"
+   ],
+   [
+    "doctor",
+    "의사, 박사"
+   ]
+  ],
+  "syn": [
+   [
+    "paper",
+    "서류"
+   ],
+   [
+    "record",
+    "기록"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "official document",
+    "공문서"
+   ]
+  ]
+ },
+ "broad": {
+  "et": "아주 오래된 고대 영어 단어 'brad(넓은)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "broaden",
+    "넓히다"
+   ],
+   [
+    "breadth",
+    "폭"
+   ],
+   [
+    "abroad",
+    "해외로"
+   ]
+  ],
+  "syn": [
+   [
+    "wide",
+    "넓은"
+   ]
+  ],
+  "ant": [
+   [
+    "narrow",
+    "좁은"
+   ]
+  ],
+  "ph": [
+   [
+    "in broad daylight",
+    "대낮에"
+   ]
+  ]
+ },
+ "stare": {
+  "et": "고대 영어 starian(뚫어지게 보다)에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "gaze",
+    "응시하다"
+   ]
+  ],
+  "ant": [
+   [
+    "glance",
+    "흘끗 보다"
+   ]
+  ],
+  "ph": [
+   [
+    "stare at",
+    "~을 빤히 쳐다보다"
+   ]
+  ]
+ },
+ "cotton": {
+  "et": "아랍어 quṭn이 옛 프랑스어 coton을 거쳐 들어왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "cotton candy",
+    "솜사탕"
+   ]
+  ]
+ },
+ "advise": {
+  "et": "옛 프랑스어 aviser(살펴보다)에서 왔어요. 라틴어 ad(~에) + visum(본 것)이 뿌리라, '잘 살펴보고 의견을 주다'라는 뜻이에요.",
+  "pt": "ad(~에) + vise(보다)",
+  "fam": [
+   [
+    "advice",
+    "충고"
+   ],
+   [
+    "advisor",
+    "조언자"
+   ],
+   [
+    "vision",
+    "시력"
+   ]
+  ],
+  "syn": [
+   [
+    "counsel",
+    "조언하다"
+   ],
+   [
+    "recommend",
+    "권하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "advise A to",
+    "A에게 ~하라고 조언하다"
+   ]
+  ]
+ },
+ "include": {
+  "et": "라틴어 includere(in 안에 + claudere 닫다)에서 왔어요. '안에 넣고 닫다'라는 뜻이에요.",
+  "pt": "in(안에) + clude(닫다)",
+  "fam": [
+   [
+    "including",
+    "~을 포함하여"
+   ],
+   [
+    "inclusive",
+    "포함한"
+   ]
+  ],
+  "syn": [
+   [
+    "contain",
+    "포함하다"
+   ],
+   [
+    "involve",
+    "포함하다"
+   ]
+  ],
+  "ant": [
+   [
+    "exclude",
+    "제외하다"
+   ]
+  ],
+  "ph": []
+ },
+ "determine": {
+  "et": "라틴어 determinare(de 완전히 + terminare 경계를 정하다)에서 왔어요. terminus는 '경계, 끝'이에요.",
+  "pt": "de(완전히) + termin(경계)",
+  "fam": [
+   [
+    "determination",
+    "결심"
+   ],
+   [
+    "determined",
+    "단단히 결심한"
+   ],
+   [
+    "terminal",
+    "종점"
+   ]
+  ],
+  "syn": [
+   [
+    "decide",
+    "결정하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be determined to",
+    "~하기로 굳게 결심하다"
+   ]
+  ]
+ },
+ "lamp": {
+  "et": "그리스어 lampas(횃불)가 라틴어·프랑스어를 거쳐 들어왔어요. lampein(빛나다)이 뿌리예요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "light",
+    "전등"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "desk lamp",
+    "탁상 램프"
+   ]
+  ]
+ },
+ "practical": {
+  "et": "그리스어 praktikos(행동에 알맞은)에서 왔어요. prassein(하다)이 뿌리예요.",
+  "pt": "practic(실행) + al(형용사)",
+  "fam": [
+   [
+    "practice",
+    "연습"
+   ],
+   [
+    "practically",
+    "실제로"
+   ]
+  ],
+  "syn": [
+   [
+    "useful",
+    "유용한"
+   ],
+   [
+    "realistic",
+    "현실적인"
+   ]
+  ],
+  "ant": [
+   [
+    "theoretical",
+    "이론적인"
+   ],
+   [
+    "impractical",
+    "비실용적인"
+   ]
+  ],
+  "ph": [
+   [
+    "practical advice",
+    "실용적인 조언"
+   ]
+  ]
+ },
+ "purple": {
+  "et": "그리스어 porphyra(자줏빛 염료를 내는 조개)가 라틴어 purpura를 거쳐 고대 영어로 들어왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "poet": {
+  "et": "그리스어 poiētēs(만드는 사람)가 라틴어 poeta를 거쳐 왔어요. poiein(만들다)이 뿌리예요.",
+  "pt": "poe(만들다) + t(사람)",
+  "fam": [
+   [
+    "poem",
+    "시"
+   ],
+   [
+    "poetry",
+    "시"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "carpet": {
+  "et": "중세 라틴어 carpita(두꺼운 모직 천)에서 옛 프랑스어를 거쳐 왔어요. 라틴어 carpere(뜯다, 털을 빗다)와 관련 있어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "rug",
+    "깔개"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "red carpet",
+    "레드 카펫, 극진한 대우"
+   ]
+  ]
+ },
+ "rely": {
+  "et": "옛 프랑스어 relier(묶다)에서 왔고, 라틴어 religare(re 단단히 + ligare 묶다)가 뿌리예요. '~에 몸을 묶다'에서 '의지하다'가 되었어요.",
+  "pt": "re(단단히) + ly(묶다)",
+  "fam": [
+   [
+    "reliable",
+    "믿을 수 있는"
+   ],
+   [
+    "reliance",
+    "의존"
+   ]
+  ],
+  "syn": [
+   [
+    "depend",
+    "의존하다"
+   ],
+   [
+    "count on",
+    "믿다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "rely on",
+    "~에 의지하다"
+   ]
+  ]
+ },
+ "shave": {
+  "et": "고대 영어 sceafan(긁어 내다, 깎다)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "shaver",
+    "면도기"
+   ]
+  ],
+  "syn": [
+   [
+    "trim",
+    "다듬다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "close shave",
+    "아슬아슬한 위기"
+   ]
+  ]
+ },
+ "breast": {
+  "et": "아주 오래된 고대 영어 단어 'breost(가슴)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "breaststroke",
+    "평영"
+   ]
+  ],
+  "syn": [
+   [
+    "chest",
+    "가슴"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "react": {
+  "et": "re(되돌려) + act(행동하다)로, 17세기에 '되받아 행동하다'라는 뜻으로 생겼어요.",
+  "pt": "re(되돌려) + act(행동하다)",
+  "fam": [
+   [
+    "reaction",
+    "반응"
+   ],
+   [
+    "reactor",
+    "원자로"
+   ],
+   [
+    "act",
+    "행동하다"
+   ]
+  ],
+  "syn": [
+   [
+    "respond",
+    "반응하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "react to",
+    "~에 반응하다"
+   ]
+  ]
+ },
+ "protest": {
+  "et": "라틴어 protestari(pro 앞에서 + testari 증언하다)에서 왔어요. '사람들 앞에서 공개적으로 밝히다'에서 '항의하다'가 되었어요.",
+  "pt": "pro(앞에서) + test(증언하다)",
+  "fam": [
+   [
+    "protester",
+    "시위자"
+   ],
+   [
+    "test",
+    "시험"
+   ]
+  ],
+  "syn": [
+   [
+    "object",
+    "반대하다"
+   ],
+   [
+    "demonstration",
+    "시위"
+   ]
+  ],
+  "ant": [
+   [
+    "support",
+    "지지하다"
+   ]
+  ],
+  "ph": [
+   [
+    "protest against",
+    "~에 항의하다"
+   ]
+  ]
+ },
+ "communicate": {
+  "et": "라틴어 communicare(나누다, 함께하다)에서 왔고, communis(공통의)가 뿌리예요.",
+  "pt": "commun(공통의) + ic + ate(동사)",
+  "fam": [
+   [
+    "communication",
+    "의사소통"
+   ],
+   [
+    "community",
+    "공동체"
+   ],
+   [
+    "common",
+    "공통의"
+   ]
+  ],
+  "syn": [
+   [
+    "talk",
+    "이야기하다"
+   ],
+   [
+    "convey",
+    "전달하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "communicate with",
+    "~와 의사소통하다"
+   ]
+  ]
+ },
+ "flame": {
+  "et": "라틴어 flamma(불꽃)가 옛 프랑스어를 거쳐 들어왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "flaming",
+    "불타는"
+   ],
+   [
+    "flammable",
+    "불붙기 쉬운"
+   ]
+  ],
+  "syn": [
+   [
+    "fire",
+    "불"
+   ],
+   [
+    "blaze",
+    "불길"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in flames",
+    "불길에 휩싸인"
+   ]
+  ]
+ },
+ "emotion": {
+  "et": "프랑스어 émotion에서 왔고, 라틴어 emovere(e 밖으로 + movere 움직이다)가 뿌리예요. 마음을 '움직이게 하는 것'이 '감정'이에요.",
+  "pt": "e(밖으로) + mot(움직이다) + ion",
+  "fam": [
+   [
+    "emotional",
+    "감정적인"
+   ],
+   [
+    "motion",
+    "움직임"
+   ]
+  ],
+  "syn": [
+   [
+    "feeling",
+    "감정"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "show emotion",
+    "감정을 드러내다"
+   ]
+  ]
+ },
+ "bin": {
+  "et": "고대 영어 binn(여물통, 바구니)에서 왔어요. 켈트어에서 왔다고 보기도 해요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "container",
+    "용기"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "trash bin",
+    "쓰레기통"
+   ],
+   [
+    "recycling bin",
+    "재활용 통"
+   ]
+  ]
+ },
+ "content": {
+  "et": "라틴어 contentum(담긴 것)에서 왔고, continere(함께 붙잡다, 담다)가 뿌리예요. '만족한'이라는 뜻도 같은 뿌리로, '가진 것 안에 머물러 만족하는' 느낌이에요.",
+  "pt": "con(함께) + tent(붙잡다)",
+  "fam": [
+   [
+    "contain",
+    "담다"
+   ],
+   [
+    "contentment",
+    "만족"
+   ]
+  ],
+  "syn": [
+   [
+    "substance",
+    "내용"
+   ],
+   [
+    "satisfied",
+    "만족한"
+   ]
+  ],
+  "ant": [
+   [
+    "discontent",
+    "불만"
+   ]
+  ],
+  "ph": [
+   [
+    "table of contents",
+    "목차"
+   ],
+   [
+    "be content with",
+    "~에 만족하다"
+   ]
+  ]
+ },
+ "debate": {
+  "et": "옛 프랑스어 debatre(싸우다)에서 왔어요. de(완전히) + batre(치다)가 합쳐진 말이에요.",
+  "pt": "de(완전히) + bate(치다)",
+  "fam": [
+   [
+    "debatable",
+    "논란의 여지가 있는"
+   ],
+   [
+    "battle",
+    "전투"
+   ]
+  ],
+  "syn": [
+   [
+    "discussion",
+    "토론"
+   ],
+   [
+    "argument",
+    "논쟁"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "heated debate",
+    "열띤 토론"
+   ]
+  ]
+ },
+ "profession": {
+  "et": "라틴어 professio(공개 선언)에서 왔고 profiteri(공개적으로 밝히다)가 뿌리예요. 수도사가 서약을 밝히던 데서, '드러내 놓고 하는 일'인 '직업'이 되었어요.",
+  "pt": "pro(앞에) + fess(말하다) + ion",
+  "fam": [
+   [
+    "professional",
+    "전문적인"
+   ],
+   [
+    "professor",
+    "교수"
+   ]
+  ],
+  "syn": [
+   [
+    "occupation",
+    "직업"
+   ],
+   [
+    "career",
+    "경력"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "by profession",
+    "직업이 ~인"
+   ]
+  ]
+ },
+ "bench": {
+  "et": "아주 오래된 고대 영어 단어 'benc(긴 의자)'에서 왔어요. bank(은행, 둑)와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "bank",
+    "은행"
+   ]
+  ],
+  "syn": [
+   [
+    "seat",
+    "좌석"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "display": {
+  "et": "라틴어 displicare(dis 반대 + plicare 접다)에서 프랑스어를 거쳐 왔어요. '접힌 것을 펼치다'에서 '보여 주다, 전시하다'가 되었어요.",
+  "pt": "dis(반대로) + play(접다)",
+  "fam": [
+   [
+    "deploy",
+    "배치하다"
+   ]
+  ],
+  "syn": [
+   [
+    "show",
+    "보여 주다"
+   ],
+   [
+    "exhibit",
+    "전시하다"
+   ]
+  ],
+  "ant": [
+   [
+    "hide",
+    "숨기다"
+   ]
+  ],
+  "ph": [
+   [
+    "on display",
+    "전시 중인"
+   ]
+  ]
+ },
+ "twin": {
+  "et": "고대 영어 twinn(둘씩의, 짝의)에서 왔어요. two(둘)와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "two",
+    "둘"
+   ],
+   [
+    "twice",
+    "두 번"
+   ],
+   [
+    "between",
+    "사이에"
+   ]
+  ],
+  "syn": [
+   [
+    "double",
+    "두 배의"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "twin brother",
+    "쌍둥이 형제"
+   ],
+   [
+    "identical twins",
+    "일란성 쌍둥이"
+   ]
+  ]
+ },
+ "quote": {
+  "et": "중세 라틴어 quotare(번호를 매기다)에서 왔어요. 라틴어 quot(몇 개)가 뿌리라, 책의 장·절 번호를 붙이던 데서 '인용하다'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "quotation",
+    "인용"
+   ],
+   [
+    "quota",
+    "할당량"
+   ]
+  ],
+  "syn": [
+   [
+    "cite",
+    "인용하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "quote from",
+    "~에서 인용하다"
+   ]
+  ]
+ },
+ "pepper": {
+  "et": "산스크리트어 pippali(긴 후추)가 그리스어·라틴어를 거쳐 고대 영어 pipor로 들어왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "peppermint",
+    "박하"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "red pepper",
+    "고추, 빨간 피망"
+   ]
+  ]
+ },
+ "compare": {
+  "et": "라틴어 comparare(짝지어 맞추다)에서 왔어요. com(함께) + par(같은)가 뿌리예요.",
+  "pt": "com(함께) + pare(같게 하다)",
+  "fam": [
+   [
+    "comparison",
+    "비교"
+   ],
+   [
+    "comparative",
+    "비교의"
+   ],
+   [
+    "pair",
+    "짝"
+   ]
+  ],
+  "syn": [
+   [
+    "contrast",
+    "대조하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "compare A with B",
+    "A를 B와 비교하다"
+   ],
+   [
+    "compared to",
+    "~와 비교하면"
+   ]
+  ]
+ },
+ "envelope": {
+  "et": "프랑스어 enveloppe에서 왔고, envelopper(싸다)가 뿌리예요.",
+  "pt": "en(안에) + velope(싸다)",
+  "fam": [
+   [
+    "envelop",
+    "감싸다"
+   ],
+   [
+    "develop",
+    "발달하다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "push the envelope",
+    "한계를 넓히다"
+   ]
+  ]
+ },
+ "oven": {
+  "et": "아주 오래된 고대 영어 단어 'ofen(화덕, 가마)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "microwave oven",
+    "전자레인지"
+   ]
+  ]
+ },
+ "tin": {
+  "et": "아주 오래된 고대 영어 단어 'tin(주석)'에서 왔어요. 주석으로 도금한 통을 쓰던 데서 '깡통'이 되었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "can",
+    "깡통"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "tin can",
+    "깡통"
+   ]
+  ]
+ },
+ "belief": {
+  "et": "중세 영어 bileave에서 왔고, 고대 영어 '믿음'을 대신했어요. believe와 같은 뿌리이고, 멀리는 love(사랑)와도 관련 있어요.",
+  "pt": "",
+  "fam": [
+   [
+    "believe",
+    "믿다"
+   ],
+   [
+    "believable",
+    "믿을 만한"
+   ]
+  ],
+  "syn": [
+   [
+    "faith",
+    "믿음"
+   ],
+   [
+    "trust",
+    "신뢰"
+   ]
+  ],
+  "ant": [
+   [
+    "doubt",
+    "의심"
+   ]
+  ],
+  "ph": [
+   [
+    "beyond belief",
+    "믿기 어려울 정도로"
+   ]
+  ]
+ },
+ "sum": {
+  "et": "라틴어 summa(맨 꼭대기, 합계)에서 왔어요. 로마 사람들은 숫자를 아래에서 위로 더해 맨 위에 합계를 적었다고 해요.",
+  "pt": "",
+  "fam": [
+   [
+    "summary",
+    "요약"
+   ],
+   [
+    "summit",
+    "정상"
+   ]
+  ],
+  "syn": [
+   [
+    "total",
+    "합계"
+   ],
+   [
+    "amount",
+    "금액"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in sum",
+    "요컨대"
+   ],
+   [
+    "sum up",
+    "요약하다"
+   ]
+  ]
+ },
+ "folk": {
+  "et": "아주 오래된 고대 영어 단어 'folc(백성, 사람들)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "people",
+    "사람들"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "folk song",
+    "민요"
+   ],
+   [
+    "folk tale",
+    "민간 설화"
+   ]
+  ]
+ },
+ "teenage": {
+  "et": "teen + age로 20세기에 생겼어요. teen은 thirteen~nineteen의 -teen(열)에서 온 말이에요.",
+  "pt": "teen(10대) + age(나이)",
+  "fam": [
+   [
+    "teenager",
+    "십대"
+   ],
+   [
+    "teen",
+    "십대"
+   ]
+  ],
+  "syn": [
+   [
+    "adolescent",
+    "청소년의"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "frog": {
+  "et": "아주 오래된 고대 영어 단어 'frogga(개구리)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "have a frog in one's throat",
+    "목이 잠기다"
+   ]
+  ]
+ },
+ "improve": {
+  "et": "앵글로·프랑스어 emprouwer(이익이 되게 하다)에서 왔어요. 처음엔 '땅을 잘 써서 이익을 내다'였다가 '더 좋게 만들다'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "improvement",
+    "향상"
+   ]
+  ],
+  "syn": [
+   [
+    "enhance",
+    "향상시키다"
+   ],
+   [
+    "get better",
+    "나아지다"
+   ]
+  ],
+  "ant": [
+   [
+    "worsen",
+    "악화되다"
+   ]
+  ],
+  "ph": [
+   [
+    "improve one's skills",
+    "실력을 향상시키다"
+   ]
+  ]
+ },
+ "whale": {
+  "et": "아주 오래된 고대 영어 단어 'hwæl(고래)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "whaling",
+    "고래잡이"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "a whale of a time",
+    "아주 즐거운 시간"
+   ]
+  ]
+ },
+ "coal": {
+  "et": "고대 영어 col(숯, 타고 있는 불씨)에서 왔어요. 나중에 땅에서 캐는 '석탄'을 뜻하게 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "charcoal",
+    "숯"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "coal mine",
+    "탄광"
+   ]
+  ]
+ },
+ "villa": {
+  "et": "라틴어 villa(시골집, 농장)에서 그대로 왔어요. village(마을)와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "village",
+    "마을"
+   ]
+  ],
+  "syn": [
+   [
+    "cottage",
+    "시골집"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "faint": {
+  "et": "옛 프랑스어 faint(꾸민, 힘없는)에서 왔어요. feign(~인 척하다)과 같은 뿌리로, '힘없는'에서 '희미한, 기절하다'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "faintly",
+    "희미하게"
+   ],
+   [
+    "feign",
+    "~인 척하다"
+   ]
+  ],
+  "syn": [
+   [
+    "dim",
+    "희미한"
+   ],
+   [
+    "pass out",
+    "기절하다"
+   ]
+  ],
+  "ant": [
+   [
+    "clear",
+    "선명한"
+   ]
+  ],
+  "ph": [
+   [
+    "faint smell",
+    "희미한 냄새"
+   ]
+  ]
+ },
+ "volunteer": {
+  "et": "프랑스어 volontaire(자발적인)에서 왔어요. 라틴어 voluntas(의지)가 뿌리로, 원래 '스스로 나선 군인'을 가리켰어요.",
+  "pt": "",
+  "fam": [
+   [
+    "voluntary",
+    "자발적인"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "volunteer work",
+    "자원봉사"
+   ],
+   [
+    "volunteer for",
+    "~에 자원하다"
+   ]
+  ]
+ },
+ "narrow": {
+  "et": "아주 오래된 고대 영어 단어 'nearu(좁은)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "narrowly",
+    "간신히"
+   ]
+  ],
+  "syn": [
+   [
+    "tight",
+    "꽉 끼는"
+   ]
+  ],
+  "ant": [
+   [
+    "wide",
+    "넓은"
+   ],
+   [
+    "broad",
+    "넓은"
+   ]
+  ],
+  "ph": [
+   [
+    "narrow escape",
+    "구사일생"
+   ]
+  ]
+ },
+ "neat": {
+  "et": "앵글로·프랑스어 neit에서 왔고, 라틴어 nitidus(반짝이는, 깨끗한)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "neatly",
+    "깔끔하게"
+   ]
+  ],
+  "syn": [
+   [
+    "tidy",
+    "깔끔한"
+   ],
+   [
+    "clean",
+    "깨끗한"
+   ]
+  ],
+  "ant": [
+   [
+    "messy",
+    "지저분한"
+   ]
+  ],
+  "ph": [
+   [
+    "neat and tidy",
+    "말끔한"
+   ]
+  ]
+ },
+ "observe": {
+  "et": "라틴어 observare(ob ~쪽으로 + servare 지키다, 살피다)에서 왔어요. '지켜보다'와 '(규칙을) 지키다' 두 뜻이 다 여기서 나왔어요.",
+  "pt": "ob(~쪽으로) + serve(지키다)",
+  "fam": [
+   [
+    "observation",
+    "관찰"
+   ],
+   [
+    "observer",
+    "관찰자"
+   ],
+   [
+    "observatory",
+    "천문대"
+   ]
+  ],
+  "syn": [
+   [
+    "watch",
+    "지켜보다"
+   ],
+   [
+    "notice",
+    "알아차리다"
+   ]
+  ],
+  "ant": [
+   [
+    "ignore",
+    "무시하다"
+   ]
+  ],
+  "ph": [
+   [
+    "observe the rules",
+    "규칙을 지키다"
+   ]
+  ]
+ },
+ "cycle": {
+  "et": "그리스어 kyklos(원, 바퀴)가 라틴어를 거쳐 들어왔어요. '바퀴'라서 bicycle(두 바퀴 자전거)에도 들어 있어요.",
+  "pt": "",
+  "fam": [
+   [
+    "bicycle",
+    "자전거"
+   ],
+   [
+    "recycle",
+    "재활용하다"
+   ],
+   [
+    "cyclist",
+    "자전거 타는 사람"
+   ]
+  ],
+  "syn": [
+   [
+    "circle",
+    "원"
+   ],
+   [
+    "period",
+    "주기"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "life cycle",
+    "생애 주기"
+   ]
+  ]
+ },
+ "sweep": {
+  "et": "고대 영어 swapan(쓸다, 휩쓸다)에서 중세 영어 swepen으로 이어졌어요.",
+  "pt": "",
+  "fam": [
+   [
+    "sweeper",
+    "청소부"
+   ]
+  ],
+  "syn": [
+   [
+    "brush",
+    "쓸다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "sweep the floor",
+    "바닥을 쓸다"
+   ]
+  ]
+ },
+ "blank": {
+  "et": "옛 프랑스어 blanc(하얀)에서 왔어요. 아무것도 적지 않은 '하얀 곳'에서 '빈칸'이라는 뜻이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "blanket",
+    "담요"
+   ]
+  ],
+  "syn": [
+   [
+    "empty",
+    "빈"
+   ]
+  ],
+  "ant": [
+   [
+    "full",
+    "가득 찬"
+   ]
+  ],
+  "ph": [
+   [
+    "fill in the blank",
+    "빈칸을 채우다"
+   ],
+   [
+    "go blank",
+    "머리가 하얘지다"
+   ]
+  ]
+ },
+ "slight": {
+  "et": "고대 노르드어 sléttr(매끄러운, 평평한)에서 왔어요. '가는, 날씬한'을 거쳐 '약간의, 사소한'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "slightly",
+    "약간"
+   ]
+  ],
+  "syn": [
+   [
+    "small",
+    "작은"
+   ],
+   [
+    "minor",
+    "사소한"
+   ]
+  ],
+  "ant": [
+   [
+    "considerable",
+    "상당한"
+   ],
+   [
+    "major",
+    "중대한"
+   ]
+  ],
+  "ph": [
+   [
+    "not in the slightest",
+    "조금도 ~아닌"
+   ]
+  ]
+ },
+ "fry": {
+  "et": "라틴어 frigere(굽다, 튀기다)가 옛 프랑스어 frire를 거쳐 들어왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "fries",
+    "감자튀김"
+   ],
+   [
+    "fryer",
+    "튀김기"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "French fries",
+    "감자튀김"
+   ],
+   [
+    "stir-fry",
+    "볶음 요리"
+   ]
+  ]
+ },
+ "ceiling": {
+  "et": "'판자를 대다, 덮다'라는 뜻의 옛 동사 ceil에서 왔어요. 그 이전 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "roof",
+    "지붕"
+   ]
+  ],
+  "ant": [
+   [
+    "floor",
+    "바닥"
+   ]
+  ],
+  "ph": [
+   [
+    "glass ceiling",
+    "보이지 않는 차별의 벽"
+   ]
+  ]
+ },
+ "somewhat": {
+  "et": "some(어떤) + what(무엇)으로 중세 영어에서 생긴 말이에요.",
+  "pt": "some(어떤) + what(무엇)",
+  "fam": [
+   [
+    "somehow",
+    "어떻게든"
+   ]
+  ],
+  "syn": [
+   [
+    "rather",
+    "다소"
+   ],
+   [
+    "slightly",
+    "약간"
+   ]
+  ],
+  "ant": [
+   [
+    "very",
+    "매우"
+   ]
+  ],
+  "ph": []
+ },
+ "depend": {
+  "et": "라틴어 dependere(de 아래로 + pendere 매달리다)에서 왔어요. '~에 매달려 있다'에서 '의존하다, ~에 달려 있다'가 되었어요.",
+  "pt": "de(아래로) + pend(매달리다)",
+  "fam": [
+   [
+    "dependent",
+    "의존하는"
+   ],
+   [
+    "independent",
+    "독립적인"
+   ],
+   [
+    "pendant",
+    "펜던트"
+   ]
+  ],
+  "syn": [
+   [
+    "rely",
+    "의지하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "depend on",
+    "~에 달려 있다"
+   ],
+   [
+    "It depends.",
+    "상황에 따라 달라요."
+   ]
+  ]
+ },
+ "principle": {
+  "et": "라틴어 principium(시작, 기초)에서 왔고, princeps(첫째, 우두머리)가 뿌리예요. '맨 처음 바탕'이 '원칙, 원리'가 되었어요.",
+  "pt": "prin(첫째) + ciple(잡다)",
+  "fam": [
+   [
+    "prince",
+    "왕자"
+   ],
+   [
+    "principal",
+    "주요한, 교장"
+   ]
+  ],
+  "syn": [
+   [
+    "rule",
+    "규칙"
+   ],
+   [
+    "law",
+    "법칙"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in principle",
+    "원칙적으로"
+   ]
+  ]
+ },
+ "retire": {
+  "et": "프랑스어 retirer(re 뒤로 + tirer 끌다)에서 왔어요. '뒤로 물러나다'에서 '은퇴하다'가 되었어요.",
+  "pt": "re(뒤로) + tire(끌다)",
+  "fam": [
+   [
+    "retirement",
+    "은퇴"
+   ],
+   [
+    "retired",
+    "은퇴한"
+   ]
+  ],
+  "syn": [
+   [
+    "quit",
+    "그만두다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "retire from",
+    "~에서 은퇴하다"
+   ]
+  ]
+ },
+ "picnic": {
+  "et": "17세기 프랑스어 pique-nique에서 왔어요. 어디서 왔는지는 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "outing",
+    "나들이"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "go on a picnic",
+    "소풍 가다"
+   ],
+   [
+    "no picnic",
+    "쉬운 일이 아닌"
+   ]
+  ]
+ },
+ "clerk": {
+  "et": "고대 영어 cleric(성직자)에서 왔고, 그리스어 klērikos가 뿌리예요. 옛날엔 성직자가 글을 아는 사람이어서 '기록하는 사람, 사무원'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "clergy",
+    "성직자들"
+   ],
+   [
+    "clerical",
+    "사무직의"
+   ]
+  ],
+  "syn": [
+   [
+    "assistant",
+    "점원"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "bank clerk",
+    "은행원"
+   ]
+  ]
+ },
+ "bare": {
+  "et": "아주 오래된 고대 영어 단어 'bær(벌거벗은)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "barely",
+    "간신히"
+   ],
+   [
+    "barefoot",
+    "맨발의"
+   ]
+  ],
+  "syn": [
+   [
+    "naked",
+    "벌거벗은"
+   ],
+   [
+    "empty",
+    "텅 빈"
+   ]
+  ],
+  "ant": [
+   [
+    "covered",
+    "덮인"
+   ]
+  ],
+  "ph": [
+   [
+    "bare hands",
+    "맨손"
+   ]
+  ]
+ },
+ "sweater": {
+  "et": "sweat(땀) + -er예요. 19세기 말 운동선수가 '땀을 내서 살을 빼려고' 입던 옷에서 이름이 붙었어요.",
+  "pt": "sweat(땀) + er(~하는 것)",
+  "fam": [
+   [
+    "sweat",
+    "땀"
+   ]
+  ],
+  "syn": [
+   [
+    "jumper",
+    "스웨터"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "locate": {
+  "et": "라틴어 locare(놓다, 두다)에서 왔고, locus(장소)가 뿌리예요.",
+  "pt": "loc(장소) + ate(동사)",
+  "fam": [
+   [
+    "location",
+    "위치"
+   ],
+   [
+    "local",
+    "지역의"
+   ]
+  ],
+  "syn": [
+   [
+    "find",
+    "찾다"
+   ],
+   [
+    "situate",
+    "위치시키다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be located in",
+    "~에 위치하다"
+   ]
+  ]
+ },
+ "examine": {
+  "et": "라틴어 examinare(무게를 달다, 시험하다)에서 왔어요. examen은 '저울의 바늘'이라는 뜻이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "exam",
+    "시험"
+   ],
+   [
+    "examination",
+    "조사, 시험"
+   ]
+  ],
+  "syn": [
+   [
+    "inspect",
+    "검사하다"
+   ],
+   [
+    "check",
+    "점검하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "examine closely",
+    "자세히 조사하다"
+   ]
+  ]
+ },
+ "stream": {
+  "et": "아주 오래된 고대 영어 단어 'stream(흐름, 시내)'에서 왔어요. 요즘은 인터넷 영상 '스트리밍'에도 써요.",
+  "pt": "",
+  "fam": [
+   [
+    "streaming",
+    "스트리밍"
+   ],
+   [
+    "mainstream",
+    "주류"
+   ]
+  ],
+  "syn": [
+   [
+    "brook",
+    "개울"
+   ],
+   [
+    "flow",
+    "흐름"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "live stream",
+    "생방송"
+   ]
+  ]
+ },
+ "element": {
+  "et": "라틴어 elementum(기본 원리, 기초)에서 왔어요. 그보다 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "elementary",
+    "초보의, 초등의"
+   ],
+   [
+    "elemental",
+    "기본적인"
+   ]
+  ],
+  "syn": [
+   [
+    "component",
+    "요소"
+   ],
+   [
+    "factor",
+    "요인"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "chemical element",
+    "화학 원소"
+   ]
+  ]
+ },
+ "balloon": {
+  "et": "프랑스어 ballon과 이탈리아어 ballone(큰 공)에서 왔어요. ball(공)과 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "ball",
+    "공"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "hot-air balloon",
+    "열기구"
+   ]
+  ]
+ },
+ "spray": {
+  "et": "17세기에 네덜란드 옛말 sprayen(뿌리다)에서 온 것으로 보여요.",
+  "pt": "",
+  "fam": [
+   [
+    "sprayer",
+    "분무기"
+   ]
+  ],
+  "syn": [
+   [
+    "sprinkle",
+    "뿌리다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "hair spray",
+    "헤어스프레이"
+   ]
+  ]
+ },
+ "crawl": {
+  "et": "고대 노르드어 krafla(손으로 더듬다)에서 온 것으로 보여요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "creep",
+    "기다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "crawl on hands and knees",
+    "기어가다"
+   ]
+  ]
+ },
+ "discipline": {
+  "et": "라틴어 disciplina(가르침, 배움)에서 왔어요. discipulus(제자)와 같은 뿌리로, '제자를 가르쳐 바로잡음'에서 '규율, 훈육'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "disciple",
+    "제자"
+   ]
+  ],
+  "syn": [
+   [
+    "training",
+    "훈련"
+   ],
+   [
+    "order",
+    "질서"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "self-discipline",
+    "자기 절제"
+   ]
+  ]
+ },
+ "puzzle": {
+  "et": "16세기 말에 나타난 말인데, 어디서 왔는지는 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "puzzled",
+    "어리둥절한"
+   ]
+  ],
+  "syn": [
+   [
+    "riddle",
+    "수수께끼"
+   ],
+   [
+    "confuse",
+    "혼란스럽게 하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "jigsaw puzzle",
+    "조각 그림 퍼즐"
+   ]
+  ]
+ },
+ "income": {
+  "et": "in(안으로) + come(오다)으로 '들어오는 것'이에요. 17세기쯤 '들어오는 돈, 수입'이라는 뜻이 되었어요.",
+  "pt": "in(안으로) + come(오다)",
+  "fam": [],
+  "syn": [
+   [
+    "earnings",
+    "소득"
+   ]
+  ],
+  "ant": [
+   [
+    "expense",
+    "지출"
+   ],
+   [
+    "outgo",
+    "지출"
+   ]
+  ],
+  "ph": [
+   [
+    "income tax",
+    "소득세"
+   ]
+  ]
+ },
+ "recipe": {
+  "et": "라틴어 recipe(받아라!)에서 왔어요. 옛날 의사의 처방전이 이 말로 시작해서 '처방' → '요리법'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "receive",
+    "받다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "recipe for",
+    "~의 요리법, ~의 비결"
+   ]
+  ]
+ },
+ "bubble": {
+  "et": "중세 영어 bobel에서 왔고, 보글보글 하는 소리를 흉내 낸 말로 보여요.",
+  "pt": "",
+  "fam": [
+   [
+    "bubbly",
+    "거품이 많은"
+   ]
+  ],
+  "syn": [
+   [
+    "foam",
+    "거품"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "bubble gum",
+    "풍선껌"
+   ],
+   [
+    "soap bubble",
+    "비눗방울"
+   ]
+  ]
+ },
+ "maximum": {
+  "et": "라틴어 maximum(가장 큰 것)에서 그대로 왔어요. magnus(큰)의 최상급이에요.",
+  "pt": "maxim(가장 큰) + um",
+  "fam": [
+   [
+    "maximize",
+    "최대화하다"
+   ],
+   [
+    "max",
+    "최대"
+   ]
+  ],
+  "syn": [
+   [
+    "most",
+    "최대"
+   ]
+  ],
+  "ant": [
+   [
+    "minimum",
+    "최소"
+   ]
+  ],
+  "ph": [
+   [
+    "at the maximum",
+    "최대로"
+   ]
+  ]
+ },
+ "associate": {
+  "et": "라틴어 associare(ad ~에 + sociare 결합하다)에서 왔어요. socius는 '동료'라는 뜻이에요.",
+  "pt": "as(~에) + soci(동료) + ate",
+  "fam": [
+   [
+    "association",
+    "협회, 연상"
+   ],
+   [
+    "social",
+    "사회의"
+   ]
+  ],
+  "syn": [
+   [
+    "connect",
+    "관련시키다"
+   ],
+   [
+    "link",
+    "연결하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "associate A with B",
+    "A를 보고 B를 떠올리다"
+   ]
+  ]
+ },
+ "rainbow": {
+  "et": "고대 영어 regnboga에서 왔어요. rain(비) + bow(활, 아치)로, '비 온 뒤 뜨는 활'이라는 뜻이에요.",
+  "pt": "rain(비) + bow(활)",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "seed": {
+  "et": "고대 영어 sæd에서 왔어요. sow(씨를 뿌리다)와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "sow",
+    "씨를 뿌리다"
+   ]
+  ],
+  "syn": [
+   [
+    "grain",
+    "낟알"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "plant seeds",
+    "씨앗을 심다"
+   ]
+  ]
+ },
+ "mill": {
+  "et": "후기 라틴어 molina(방앗간)에서 고대 영어로 들어왔어요. 라틴어 molere(빻다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "miller",
+    "방앗간 주인"
+   ],
+   [
+    "windmill",
+    "풍차"
+   ]
+  ],
+  "syn": [
+   [
+    "factory",
+    "공장"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "paper mill",
+    "제지 공장"
+   ]
+  ]
+ },
+ "dentist": {
+  "et": "프랑스어 dentiste에서 왔어요. 라틴어 dens(이빨)가 뿌리예요.",
+  "pt": "dent(이) + ist(사람)",
+  "fam": [
+   [
+    "dental",
+    "치아의"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "go to the dentist",
+    "치과에 가다"
+   ]
+  ]
+ },
+ "flood": {
+  "et": "고대 영어 flod(물의 흐름)에서 왔어요. flow(흐르다)와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "flow",
+    "흐르다"
+   ]
+  ],
+  "syn": [
+   [
+    "overflow",
+    "범람하다"
+   ]
+  ],
+  "ant": [
+   [
+    "drought",
+    "가뭄"
+   ]
+  ],
+  "ph": [
+   [
+    "a flood of",
+    "쏟아지는"
+   ]
+  ]
+ },
+ "tide": {
+  "et": "고대 영어 tid(때, 시간)에서 왔어요. '물이 차오르는 때'라는 뜻에서 '조수'가 되었고, time과 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "tidal",
+    "조수의"
+   ],
+   [
+    "time",
+    "시간"
+   ]
+  ],
+  "syn": [
+   [
+    "current",
+    "흐름"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "high tide",
+    "밀물"
+   ],
+   [
+    "low tide",
+    "썰물"
+   ]
+  ]
+ },
+ "snack": {
+  "et": "네덜란드 옛말 snacken(개가 덥석 물다)에서 왔어요. '한 입 덥석'에서 '간식'이 되었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "refreshment",
+    "다과"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "snack bar",
+    "간이식당"
+   ]
+  ]
+ },
+ "fur": {
+  "et": "옛 프랑스어 forrer(옷에 안감을 대다)에서 왔어요. 동물 가죽으로 안감을 대던 데서 '털, 모피'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "furry",
+    "털이 많은"
+   ]
+  ],
+  "syn": [
+   [
+    "hair",
+    "털"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "fur coat",
+    "모피 코트"
+   ]
+  ]
+ },
+ "cheek": {
+  "et": "고대 영어 ceace(턱, 턱뼈)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "cheeky",
+    "건방진"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "cheek to cheek",
+    "볼을 맞대고"
+   ]
+  ]
+ },
+ "domestic": {
+  "et": "라틴어 domesticus(집안의)에서 왔고, domus(집)가 뿌리예요.",
+  "pt": "domest(집) + ic(형용사)",
+  "fam": [
+   [
+    "domesticate",
+    "길들이다"
+   ]
+  ],
+  "syn": [
+   [
+    "household",
+    "가정의"
+   ],
+   [
+    "internal",
+    "국내의"
+   ]
+  ],
+  "ant": [
+   [
+    "foreign",
+    "외국의"
+   ],
+   [
+    "wild",
+    "야생의"
+   ]
+  ],
+  "ph": [
+   [
+    "domestic flight",
+    "국내선"
+   ]
+  ]
+ },
+ "bore": {
+  "et": "'지루하게 하다'라는 뜻은 18세기에 처음 나타났는데, 어디서 왔는지 확실하지 않아요. '구멍을 뚫다'라는 뜻의 bore와 같은 말일 수도 있어요.",
+  "pt": "",
+  "fam": [
+   [
+    "boring",
+    "지루한"
+   ],
+   [
+    "bored",
+    "지루해하는"
+   ],
+   [
+    "boredom",
+    "지루함"
+   ]
+  ],
+  "syn": [
+   [
+    "tire",
+    "싫증 나게 하다"
+   ]
+  ],
+  "ant": [
+   [
+    "interest",
+    "흥미를 끌다"
+   ]
+  ],
+  "ph": []
+ },
+ "fortunate": {
+  "et": "라틴어 fortunatus(번영한, 운 좋은)에서 왔어요. fortuna(운, 운명)가 뿌리예요.",
+  "pt": "fortun(운) + ate(형용사)",
+  "fam": [
+   [
+    "fortune",
+    "행운, 재산"
+   ],
+   [
+    "fortunately",
+    "다행히"
+   ]
+  ],
+  "syn": [
+   [
+    "lucky",
+    "운 좋은"
+   ]
+  ],
+  "ant": [
+   [
+    "unfortunate",
+    "불운한"
+   ]
+  ],
+  "ph": [
+   [
+    "be fortunate to",
+    "~하다니 운이 좋다"
+   ]
+  ]
+ },
+ "reply": {
+  "et": "옛 프랑스어 replier(다시 접다, 되돌리다)에서 왔어요. 라틴어 replicare(re 되돌려 + plicare 접다)가 뿌리예요.",
+  "pt": "re(되돌려) + ply(접다)",
+  "fam": [
+   [
+    "replica",
+    "복제품"
+   ]
+  ],
+  "syn": [
+   [
+    "answer",
+    "대답하다"
+   ],
+   [
+    "respond",
+    "응답하다"
+   ]
+  ],
+  "ant": [
+   [
+    "ask",
+    "묻다"
+   ]
+  ],
+  "ph": [
+   [
+    "reply to",
+    "~에 답하다"
+   ]
+  ]
+ },
+ "disappoint": {
+  "et": "옛 프랑스어 desapointier(직위에서 물러나게 하다)에서 왔어요. dis(반대) + appoint(임명하다)로, '기대를 무너뜨리다'로 뜻이 바뀌었어요.",
+  "pt": "dis(반대) + appoint(정하다)",
+  "fam": [
+   [
+    "disappointed",
+    "실망한"
+   ],
+   [
+    "disappointment",
+    "실망"
+   ]
+  ],
+  "syn": [
+   [
+    "let down",
+    "실망시키다"
+   ]
+  ],
+  "ant": [
+   [
+    "satisfy",
+    "만족시키다"
+   ]
+  ],
+  "ph": [
+   [
+    "be disappointed with",
+    "~에 실망하다"
+   ]
+  ]
+ },
+ "expose": {
+  "et": "옛 프랑스어 exposer(ex 밖에 + poser 놓다)에서 왔어요. '밖에 내놓다'라는 뜻이에요.",
+  "pt": "ex(밖에) + pose(놓다)",
+  "fam": [
+   [
+    "exposure",
+    "노출"
+   ],
+   [
+    "exhibition",
+    "전시"
+   ]
+  ],
+  "syn": [
+   [
+    "reveal",
+    "드러내다"
+   ]
+  ],
+  "ant": [
+   [
+    "hide",
+    "숨기다"
+   ],
+   [
+    "cover",
+    "덮다"
+   ]
+  ],
+  "ph": [
+   [
+    "be exposed to",
+    "~에 노출되다"
+   ]
+  ]
+ },
+ "toe": {
+  "et": "아주 오래된 고대 영어 단어 'ta(발가락)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "tiptoe",
+    "발끝으로 걷다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "from head to toe",
+    "머리부터 발끝까지"
+   ]
+  ]
+ },
+ "greet": {
+  "et": "고대 영어 gretan(다가가다, 인사하다)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "greeting",
+    "인사"
+   ]
+  ],
+  "syn": [
+   [
+    "welcome",
+    "맞이하다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "label": {
+  "et": "옛 프랑스어 label(리본, 가는 띠)에서 왔어요. 그보다 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "tag",
+    "꼬리표"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "price label",
+    "가격표"
+   ]
+  ]
+ },
+ "establish": {
+  "et": "옛 프랑스어 establir에서 왔고, 라틴어 stabilire(굳게 세우다)가 뿌리예요. stable(안정된)과 같은 집안이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "establishment",
+    "설립"
+   ],
+   [
+    "stable",
+    "안정된"
+   ]
+  ],
+  "syn": [
+   [
+    "found",
+    "설립하다"
+   ],
+   [
+    "set up",
+    "세우다"
+   ]
+  ],
+  "ant": [
+   [
+    "abolish",
+    "폐지하다"
+   ]
+  ],
+  "ph": []
+ },
+ "climate": {
+  "et": "그리스어 klima(기울기, 지역)에서 왔어요. 해가 비추는 각도(땅의 기울기)에 따라 지역을 나누던 데서 '기후'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "climatic",
+    "기후의"
+   ]
+  ],
+  "syn": [
+   [
+    "weather",
+    "날씨"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "climate change",
+    "기후 변화"
+   ]
+  ]
+ },
+ "lawn": {
+  "et": "중세 영어 launde(숲속 빈터)에서 왔어요. 옛 프랑스어를 거쳤고, 켈트어에서 왔다고 보기도 해요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "grass",
+    "풀밭"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "lawn mower",
+    "잔디 깎는 기계"
+   ]
+  ]
+ },
+ "jeans": {
+  "et": "jean(질긴 면직물)의 복수형이에요. jean은 이탈리아 도시 '제노바'의 옛 이름에서 왔는데, 그곳에서 만든 천이었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "denim",
+    "데님"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "a pair of jeans",
+    "청바지 한 벌"
+   ]
+  ]
+ },
+ "instrument": {
+  "et": "라틴어 instrumentum(도구)에서 왔고 instruere(갖추다, 마련하다)가 뿌리예요.",
+  "pt": "in(안에) + stru(쌓다) + ment(명사)",
+  "fam": [
+   [
+    "instrumental",
+    "악기의, 도움이 되는"
+   ]
+  ],
+  "syn": [
+   [
+    "tool",
+    "도구"
+   ],
+   [
+    "device",
+    "기구"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "musical instrument",
+    "악기"
+   ]
+  ]
+ },
+ "cough": {
+  "et": "중세 영어 coughen에서 왔고, 기침 소리를 흉내 낸 말이에요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "cough drop",
+    "기침약 사탕"
+   ]
+  ]
+ },
+ "assist": {
+  "et": "라틴어 assistere(ad 곁에 + sistere 서다)에서 왔어요. '곁에 서서 돕다'라는 뜻이에요.",
+  "pt": "as(곁에) + sist(서다)",
+  "fam": [
+   [
+    "assistant",
+    "조수"
+   ],
+   [
+    "assistance",
+    "도움"
+   ]
+  ],
+  "syn": [
+   [
+    "help",
+    "돕다"
+   ],
+   [
+    "aid",
+    "돕다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "assist with",
+    "~을 돕다"
+   ]
+  ]
+ },
+ "float": {
+  "et": "아주 오래된 고대 영어 단어 'flotian(뜨다)'에서 왔어요. fleet(함대)과도 먼 친척이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "floating",
+    "떠 있는"
+   ]
+  ],
+  "syn": [
+   [
+    "drift",
+    "떠다니다"
+   ]
+  ],
+  "ant": [
+   [
+    "sink",
+    "가라앉다"
+   ]
+  ],
+  "ph": [
+   [
+    "float on water",
+    "물에 뜨다"
+   ]
+  ]
+ },
+ "glove": {
+  "et": "아주 오래된 고대 영어 단어 'glof(장갑)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "mitten",
+    "벙어리장갑"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "fit like a glove",
+    "꼭 맞다"
+   ]
+  ]
+ },
+ "fog": {
+  "et": "16세기에 나타난 말로, 북유럽 계통 말에서 왔을 것으로 보지만 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "foggy",
+    "안개 낀"
+   ]
+  ],
+  "syn": [
+   [
+    "mist",
+    "옅은 안개"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "thick fog",
+    "짙은 안개"
+   ]
+  ]
+ },
+ "hint": {
+  "et": "17세기에 나타난 말로, 어디서 왔는지 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "clue",
+    "단서"
+   ],
+   [
+    "suggestion",
+    "암시"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "drop a hint",
+    "넌지시 알리다"
+   ],
+   [
+    "take a hint",
+    "눈치채다"
+   ]
+  ]
+ },
+ "contain": {
+  "et": "라틴어 continere(con 함께 + tenere 붙잡다)에서 왔어요. '안에 붙잡아 두다'라는 뜻이에요.",
+  "pt": "con(함께) + tain(붙잡다)",
+  "fam": [
+   [
+    "container",
+    "용기"
+   ],
+   [
+    "content",
+    "내용"
+   ],
+   [
+    "maintain",
+    "유지하다"
+   ]
+  ],
+  "syn": [
+   [
+    "include",
+    "포함하다"
+   ],
+   [
+    "hold",
+    "담다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "gesture": {
+  "et": "중세 라틴어 gestura(행동 방식)에서 왔고, gerere(나르다, 행하다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "suggest",
+    "제안하다"
+   ]
+  ],
+  "syn": [
+   [
+    "sign",
+    "신호"
+   ],
+   [
+    "movement",
+    "동작"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "a kind gesture",
+    "친절한 행동"
+   ]
+  ]
+ },
+ "leap": {
+  "et": "아주 오래된 고대 영어 단어 'hleapan(뛰다)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "jump",
+    "뛰다"
+   ],
+   [
+    "spring",
+    "도약하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "leap year",
+    "윤년"
+   ],
+   [
+    "by leaps and bounds",
+    "급속히"
+   ]
+  ]
+ },
+ "leaf": {
+  "et": "아주 오래된 고대 영어 단어 'leaf(잎)'에서 왔어요. 책의 '한 장'도 leaf라고 해요.",
+  "pt": "",
+  "fam": [
+   [
+    "leaflet",
+    "전단지"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "turn over a new leaf",
+    "새 출발을 하다"
+   ]
+  ]
+ },
+ "bounce": {
+  "et": "중세 영어 bunsen(쾅 치다)에서 왔고, 소리를 흉내 낸 말로 보여요.",
+  "pt": "",
+  "fam": [
+   [
+    "bouncy",
+    "통통 튀는"
+   ]
+  ],
+  "syn": [
+   [
+    "rebound",
+    "튀어 오르다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "bounce back",
+    "다시 회복하다"
+   ]
+  ]
+ },
+ "volume": {
+  "et": "라틴어 volumen(두루마리)에서 왔어요. volvere(말다)가 뿌리로, 옛날 책은 두루마리였기 때문에 '책의 권'이 되었고, 책의 크기에서 '부피, 음량'으로 넓어졌어요.",
+  "pt": "",
+  "fam": [
+   [
+    "revolve",
+    "회전하다"
+   ]
+  ],
+  "syn": [
+   [
+    "amount",
+    "양"
+   ],
+   [
+    "loudness",
+    "음량"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "turn up the volume",
+    "소리를 키우다"
+   ]
+  ]
+ },
+ "engage": {
+  "et": "프랑스어 engager(약속으로 묶다)에서 왔어요. en(안에) + gage(담보, 약속)가 합쳐진 말이에요.",
+  "pt": "en(안에) + gage(약속)",
+  "fam": [
+   [
+    "engagement",
+    "약혼, 참여"
+   ],
+   [
+    "engaged",
+    "약혼한"
+   ]
+  ],
+  "syn": [
+   [
+    "involve",
+    "관여시키다"
+   ],
+   [
+    "participate",
+    "참여하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be engaged in",
+    "~에 종사하다"
+   ],
+   [
+    "get engaged",
+    "약혼하다"
+   ]
+  ]
+ },
+ "cape": {
+  "et": "'망토'는 후기 라틴어 cappa(두건, 망토)에서, '곶'은 라틴어 caput(머리)에서 온 다른 단어예요.",
+  "pt": "",
+  "fam": [
+   [
+    "cap",
+    "모자"
+   ],
+   [
+    "capital",
+    "수도"
+   ]
+  ],
+  "syn": [
+   [
+    "cloak",
+    "망토"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "Cape Town",
+    "케이프타운"
+   ]
+  ]
+ },
+ "bean": {
+  "et": "아주 오래된 고대 영어 단어 'bean(콩)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "spill the beans",
+    "비밀을 누설하다"
+   ],
+   [
+    "coffee bean",
+    "커피콩"
+   ]
+  ]
+ },
+ "melt": {
+  "et": "아주 오래된 고대 영어 단어 'meltan(녹다)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "meltdown",
+    "붕괴"
+   ]
+  ],
+  "syn": [
+   [
+    "thaw",
+    "녹다"
+   ],
+   [
+    "dissolve",
+    "녹이다"
+   ]
+  ],
+  "ant": [
+   [
+    "freeze",
+    "얼다"
+   ]
+  ],
+  "ph": [
+   [
+    "melt away",
+    "녹아 없어지다"
+   ]
+  ]
+ },
+ "factor": {
+  "et": "라틴어 factor(만드는 사람, 행하는 사람)에서 왔어요. facere(하다, 만들다)가 뿌리라, '결과를 만드는 것'이 '요인'이 되었어요.",
+  "pt": "fact(만들다) + or(~하는 것)",
+  "fam": [
+   [
+    "factory",
+    "공장"
+   ]
+  ],
+  "syn": [
+   [
+    "element",
+    "요소"
+   ],
+   [
+    "cause",
+    "원인"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "key factor",
+    "핵심 요인"
+   ]
+  ]
+ },
+ "reserve": {
+  "et": "라틴어 reservare(re 뒤에 + servare 지키다)에서 왔어요. '뒤에 따로 지켜 두다'라는 뜻이에요.",
+  "pt": "re(뒤에) + serve(지키다)",
+  "fam": [
+   [
+    "reservation",
+    "예약"
+   ],
+   [
+    "reserved",
+    "예약된, 내성적인"
+   ]
+  ],
+  "syn": [
+   [
+    "book",
+    "예약하다"
+   ],
+   [
+    "save",
+    "남겨 두다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in reserve",
+    "비축하여"
+   ]
+  ]
+ },
+ "chew": {
+  "et": "아주 오래된 고대 영어 단어 'ceowan(씹다)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "chewy",
+    "쫄깃한"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "chewing gum",
+    "껌"
+   ],
+   [
+    "bite off more than one can chew",
+    "감당 못할 일을 맡다"
+   ]
+  ]
+ },
+ "involve": {
+  "et": "라틴어 involvere(in 안으로 + volvere 말다)에서 왔어요. '안으로 말아 넣다'에서 '포함하다, 관련시키다'가 되었어요.",
+  "pt": "in(안으로) + volve(말다)",
+  "fam": [
+   [
+    "involvement",
+    "관여"
+   ],
+   [
+    "evolve",
+    "진화하다"
+   ]
+  ],
+  "syn": [
+   [
+    "include",
+    "포함하다"
+   ],
+   [
+    "engage",
+    "참여시키다"
+   ]
+  ],
+  "ant": [
+   [
+    "exclude",
+    "제외하다"
+   ]
+  ],
+  "ph": [
+   [
+    "be involved in",
+    "~에 관련되다"
+   ]
+  ]
+ },
+ "indicate": {
+  "et": "라틴어 indicare(가리키다)에서 왔어요. index(검지, 색인)와 같은 뿌리예요.",
+  "pt": "in(~으로) + dic(말하다, 가리키다) + ate",
+  "fam": [
+   [
+    "indication",
+    "암시"
+   ],
+   [
+    "indicator",
+    "지표"
+   ],
+   [
+    "index",
+    "색인"
+   ]
+  ],
+  "syn": [
+   [
+    "show",
+    "보여 주다"
+   ],
+   [
+    "point out",
+    "가리키다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "occur": {
+  "et": "라틴어 occurrere(ob ~쪽으로 + currere 달리다)에서 왔어요. '달려와 눈앞에 나타나다'라는 뜻이에요.",
+  "pt": "oc(~쪽으로) + cur(달리다)",
+  "fam": [
+   [
+    "occurrence",
+    "발생"
+   ],
+   [
+    "current",
+    "흐름"
+   ]
+  ],
+  "syn": [
+   [
+    "happen",
+    "일어나다"
+   ],
+   [
+    "take place",
+    "발생하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "occur to",
+    "(생각이) ~에게 떠오르다"
+   ]
+  ]
+ },
+ "stamp": {
+  "et": "중세 영어 stampen(쿵쿵 찧다)에서 왔어요. 쾅 눌러 찍는 '도장'이 되었고, 1830년대에 '우표'라는 뜻이 생겼어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "stamp one's feet",
+    "발을 구르다"
+   ]
+  ]
+ },
+ "annual": {
+  "et": "라틴어 annualis에서 왔고, annus(해, 년)가 뿌리예요.",
+  "pt": "ann(해) + ual(형용사)",
+  "fam": [
+   [
+    "annually",
+    "매년"
+   ],
+   [
+    "anniversary",
+    "기념일"
+   ]
+  ],
+  "syn": [
+   [
+    "yearly",
+    "매년의"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "annual event",
+    "연례행사"
+   ]
+  ]
+ },
+ "hesitate": {
+  "et": "라틴어 haesitare(달라붙다, 말을 더듬다)에서 왔어요. haerere(들러붙다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "hesitation",
+    "망설임"
+   ]
+  ],
+  "syn": [
+   [
+    "pause",
+    "멈추다"
+   ]
+  ],
+  "ant": [
+   [
+    "decide",
+    "결정하다"
+   ]
+  ],
+  "ph": [
+   [
+    "Don't hesitate to",
+    "주저하지 말고 ~하세요"
+   ]
+  ]
+ },
+ "calendar": {
+  "et": "라틴어 calendarium(장부)에서 왔어요. 로마에서 매달 첫날을 kalendae라 불렀는데, 그날이 빚을 갚는 날이었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "schedule",
+    "일정표"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "regard": {
+  "et": "옛 프랑스어 regarder(바라보다, 주의하다)에서 왔어요. re(다시) + garder(지키다, 살피다)가 합쳐졌어요.",
+  "pt": "re(다시) + gard(살피다)",
+  "fam": [
+   [
+    "regarding",
+    "~에 관하여"
+   ],
+   [
+    "regardless",
+    "상관없이"
+   ],
+   [
+    "guard",
+    "지키다"
+   ]
+  ],
+  "syn": [
+   [
+    "consider",
+    "여기다"
+   ],
+   [
+    "view",
+    "보다"
+   ]
+  ],
+  "ant": [
+   [
+    "disregard",
+    "무시하다"
+   ]
+  ],
+  "ph": [
+   [
+    "regard A as B",
+    "A를 B로 여기다"
+   ],
+   [
+    "with regard to",
+    "~에 관하여"
+   ]
+  ]
+ },
+ "fold": {
+  "et": "아주 오래된 고대 영어 단어 'fealdan(접다)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "folder",
+    "폴더"
+   ],
+   [
+    "unfold",
+    "펼치다"
+   ]
+  ],
+  "syn": [
+   [
+    "bend",
+    "구부리다"
+   ]
+  ],
+  "ant": [
+   [
+    "unfold",
+    "펴다"
+   ]
+  ],
+  "ph": [
+   [
+    "fold one's arms",
+    "팔짱을 끼다"
+   ]
+  ]
+ },
+ "laboratory": {
+  "et": "중세 라틴어 laboratorium(일하는 곳)에서 왔고, laborare(일하다)가 뿌리예요. 줄여서 lab이라고 해요.",
+  "pt": "labor(일) + atory(장소)",
+  "fam": [
+   [
+    "labor",
+    "노동"
+   ],
+   [
+    "lab",
+    "실험실"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "cottage": {
+  "et": "앵글로·프랑스어 cotage에서 왔고, cote(오두막)에 -age가 붙은 말이에요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "hut",
+    "오두막"
+   ],
+   [
+    "cabin",
+    "오두막"
+   ]
+  ],
+  "ant": [
+   [
+    "mansion",
+    "저택"
+   ]
+  ],
+  "ph": []
+ },
+ "bloom": {
+  "et": "고대 노르드어 blóm(꽃)에서 왔어요. blossom(꽃)과 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "blossom",
+    "꽃"
+   ]
+  ],
+  "syn": [
+   [
+    "flower",
+    "꽃"
+   ],
+   [
+    "blossom",
+    "꽃피다"
+   ]
+  ],
+  "ant": [
+   [
+    "wither",
+    "시들다"
+   ]
+  ],
+  "ph": [
+   [
+    "in full bloom",
+    "만발한"
+   ]
+  ]
+ },
+ "oak": {
+  "et": "아주 오래된 고대 영어 단어 'ac(참나무)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "acorn",
+    "도토리"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "conscious": {
+  "et": "라틴어 conscius(알고 있는)에서 왔어요. con(함께) + scire(알다)가 뿌리예요.",
+  "pt": "con(함께) + sci(알다) + ous",
+  "fam": [
+   [
+    "consciousness",
+    "의식"
+   ],
+   [
+    "science",
+    "과학"
+   ]
+  ],
+  "syn": [
+   [
+    "aware",
+    "알고 있는"
+   ]
+  ],
+  "ant": [
+   [
+    "unconscious",
+    "의식이 없는"
+   ]
+  ],
+  "ph": [
+   [
+    "be conscious of",
+    "~을 의식하다"
+   ]
+  ]
+ },
+ "accuse": {
+  "et": "라틴어 accusare(ad ~에 + causa 소송, 이유)에서 왔어요. '책임을 물어 소송하다'라는 뜻이에요.",
+  "pt": "ac(~에) + cuse(소송)",
+  "fam": [
+   [
+    "accusation",
+    "고발"
+   ],
+   [
+    "cause",
+    "원인"
+   ]
+  ],
+  "syn": [
+   [
+    "blame",
+    "비난하다"
+   ],
+   [
+    "charge",
+    "고소하다"
+   ]
+  ],
+  "ant": [
+   [
+    "defend",
+    "변호하다"
+   ]
+  ],
+  "ph": [
+   [
+    "accuse A of B",
+    "A를 B로 고발하다"
+   ]
+  ]
+ },
+ "glue": {
+  "et": "후기 라틴어 glutem(풀, 아교)에서 옛 프랑스어 glu를 거쳐 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "paste",
+    "풀"
+   ],
+   [
+    "stick",
+    "붙이다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "weigh": {
+  "et": "고대 영어 wegan(들다, 나르다, 무게를 달다)에서 왔어요. way(길), wagon(마차)과 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "weight",
+    "무게"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "weigh down",
+    "짓누르다"
+   ]
+  ]
+ },
+ "topic": {
+  "et": "그리스어 topos(장소)에서 왔어요. 아리스토텔레스의 책 'Topika'(논의의 자리들)에서 '주제'라는 뜻이 나왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "topical",
+    "시사적인"
+   ]
+  ],
+  "syn": [
+   [
+    "subject",
+    "주제"
+   ],
+   [
+    "theme",
+    "주제"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "altogether": {
+  "et": "all(모두) + together(함께)로 중세 영어에서 생긴 말이에요.",
+  "pt": "al(모두) + together(함께)",
+  "fam": [
+   [
+    "together",
+    "함께"
+   ]
+  ],
+  "syn": [
+   [
+    "completely",
+    "완전히"
+   ],
+   [
+    "in total",
+    "모두 합쳐"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "attract": {
+  "et": "라틴어 attrahere(ad ~쪽으로 + trahere 끌다)에서 왔어요.",
+  "pt": "at(~쪽으로) + tract(끌다)",
+  "fam": [
+   [
+    "attraction",
+    "매력, 명소"
+   ],
+   [
+    "attractive",
+    "매력적인"
+   ],
+   [
+    "tractor",
+    "트랙터"
+   ]
+  ],
+  "syn": [
+   [
+    "draw",
+    "끌다"
+   ]
+  ],
+  "ant": [
+   [
+    "repel",
+    "쫓아버리다"
+   ]
+  ],
+  "ph": [
+   [
+    "attract attention",
+    "관심을 끌다"
+   ]
+  ]
+ },
+ "embarrass": {
+  "et": "프랑스어 embarrasser(막다, 방해하다)에서 왔고, 스페인어·포르투갈어에서 들어온 말이에요. '길을 막아 곤란하게 하다'에서 '당황하게 하다'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "embarrassed",
+    "당황한"
+   ],
+   [
+    "embarrassing",
+    "창피한"
+   ],
+   [
+    "embarrassment",
+    "당황"
+   ]
+  ],
+  "syn": [
+   [
+    "humiliate",
+    "창피를 주다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "expense": {
+  "et": "후기 라틴어 expensa(지출한 돈)에서 왔고, expendere(ex 밖으로 + pendere 달다, 지불하다)가 뿌리예요. 옛날엔 돈을 저울에 달아 냈어요.",
+  "pt": "ex(밖으로) + pense(달다)",
+  "fam": [
+   [
+    "expensive",
+    "비싼"
+   ],
+   [
+    "spend",
+    "쓰다"
+   ]
+  ],
+  "syn": [
+   [
+    "cost",
+    "비용"
+   ]
+  ],
+  "ant": [
+   [
+    "income",
+    "수입"
+   ]
+  ],
+  "ph": [
+   [
+    "at the expense of",
+    "~을 희생하여"
+   ]
+  ]
+ },
+ "clip": {
+  "et": "'자르다'는 고대 노르드어 klippa에서, '고정하다'는 고대 영어 clyppan(껴안다)에서 온 다른 단어예요.",
+  "pt": "",
+  "fam": [
+   [
+    "clipper",
+    "깎는 기구"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "paper clip",
+    "종이 클립"
+   ],
+   [
+    "video clip",
+    "짧은 영상"
+   ]
+  ]
+ },
+ "brake": {
+  "et": "15세기쯤 나타난 말인데, 어디서 왔는지 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "hit the brakes",
+    "급브레이크를 밟다"
+   ]
+  ]
+ },
+ "scarf": {
+  "et": "옛 노르망디 프랑스어 escarpe(어깨띠)에서 왔어요. 그보다 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "possess": {
+  "et": "라틴어 possidere(potis 힘 있는 + sedere 앉다)에서 왔어요. '주인으로 앉아 있다'에서 '소유하다'가 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "possession",
+    "소유"
+   ],
+   [
+    "possessive",
+    "소유욕이 강한"
+   ]
+  ],
+  "syn": [
+   [
+    "own",
+    "소유하다"
+   ],
+   [
+    "have",
+    "가지다"
+   ]
+  ],
+  "ant": [
+   [
+    "lack",
+    "부족하다"
+   ]
+  ],
+  "ph": [
+   [
+    "be possessed by",
+    "~에 사로잡히다"
+   ]
+  ]
+ },
+ "feature": {
+  "et": "앵글로·프랑스어 feture(모양, 형태)에서 왔고, 라틴어 factura(만듦)가 뿌리예요. '만들어진 모양'에서 '특징'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "fact",
+    "사실"
+   ]
+  ],
+  "syn": [
+   [
+    "characteristic",
+    "특징"
+   ],
+   [
+    "trait",
+    "특성"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "main feature",
+    "주요 특징"
+   ]
+  ]
+ },
+ "cope": {
+  "et": "옛 프랑스어 coper(치다)에서 왔어요. '맞붙어 싸우다'에서 '대처하다'로 뜻이 바뀌었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "deal with",
+    "처리하다"
+   ],
+   [
+    "manage",
+    "해내다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "cope with",
+    "~에 대처하다"
+   ]
+  ]
+ },
+ "reduce": {
+  "et": "라틴어 reducere(re 뒤로 + ducere 이끌다)에서 왔어요. '뒤로 되돌리다'에서 '줄이다'가 되었어요.",
+  "pt": "re(뒤로) + duce(이끌다)",
+  "fam": [
+   [
+    "reduction",
+    "감소"
+   ],
+   [
+    "produce",
+    "생산하다"
+   ]
+  ],
+  "syn": [
+   [
+    "decrease",
+    "줄이다"
+   ],
+   [
+    "cut",
+    "줄이다"
+   ]
+  ],
+  "ant": [
+   [
+    "increase",
+    "늘리다"
+   ]
+  ],
+  "ph": [
+   [
+    "reduce waste",
+    "쓰레기를 줄이다"
+   ]
+  ]
+ },
+ "automatic": {
+  "et": "그리스어 automatos(스스로 움직이는)에서 왔어요. autos(스스로)가 뿌리예요.",
+  "pt": "auto(스스로) + mat(움직이는) + ic",
+  "fam": [
+   [
+    "automatically",
+    "자동으로"
+   ],
+   [
+    "automobile",
+    "자동차"
+   ]
+  ],
+  "syn": [
+   [
+    "self-operating",
+    "자동의"
+   ]
+  ],
+  "ant": [
+   [
+    "manual",
+    "수동의"
+   ]
+  ],
+  "ph": [
+   [
+    "automatic door",
+    "자동문"
+   ]
+  ]
+ },
+ "divide": {
+  "et": "라틴어 dividere(나누다)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "division",
+    "나눗셈, 분할"
+   ],
+   [
+    "individual",
+    "개인"
+   ]
+  ],
+  "syn": [
+   [
+    "split",
+    "쪼개다"
+   ],
+   [
+    "separate",
+    "나누다"
+   ]
+  ],
+  "ant": [
+   [
+    "unite",
+    "결합하다"
+   ],
+   [
+    "combine",
+    "합치다"
+   ]
+  ],
+  "ph": [
+   [
+    "divide A into B",
+    "A를 B로 나누다"
+   ]
+  ]
+ },
+ "whisper": {
+  "et": "고대 영어 hwisprian에서 왔고, 속삭이는 소리를 흉내 낸 말이에요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "murmur",
+    "중얼거리다"
+   ]
+  ],
+  "ant": [
+   [
+    "shout",
+    "외치다"
+   ]
+  ],
+  "ph": [
+   [
+    "in a whisper",
+    "속삭이며"
+   ]
+  ]
+ },
+ "shade": {
+  "et": "고대 영어 sceadu(그늘, 그림자)에서 왔어요. shadow(그림자)와 같은 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "shadow",
+    "그림자"
+   ],
+   [
+    "shady",
+    "그늘진"
+   ]
+  ],
+  "syn": [
+   [
+    "shadow",
+    "그림자"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in the shade",
+    "그늘에서"
+   ],
+   [
+    "a shade of",
+    "약간의"
+   ]
+  ]
+ },
+ "purchase": {
+  "et": "앵글로·프랑스어 purchacer(얻으려고 쫓아가다)에서 왔어요. pur(~을 위해) + chacier(쫓다, chase)가 합쳐진 말이에요.",
+  "pt": "pur(~을 위해) + chase(쫓다)",
+  "fam": [
+   [
+    "chase",
+    "쫓다"
+   ]
+  ],
+  "syn": [
+   [
+    "buy",
+    "사다"
+   ]
+  ],
+  "ant": [
+   [
+    "sell",
+    "팔다"
+   ]
+  ],
+  "ph": [
+   [
+    "make a purchase",
+    "구매하다"
+   ]
+  ]
+ },
+ "shelf": {
+  "et": "고대 영어 scylfe(선반)에서 왔어요. 독일 북부 옛말에서 왔을 수도 있어요.",
+  "pt": "",
+  "fam": [
+   [
+    "shelve",
+    "선반에 얹다"
+   ],
+   [
+    "bookshelf",
+    "책장"
+   ]
+  ],
+  "syn": [
+   [
+    "rack",
+    "선반"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "on the shelf",
+    "보류된"
+   ]
+  ]
+ },
+ "chart": {
+  "et": "라틴어 charta(종이, 지도)에서 왔고, 그리스어 khartēs(파피루스 종이)가 뿌리예요. card(카드)와 같은 집안이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "card",
+    "카드"
+   ]
+  ],
+  "syn": [
+   [
+    "graph",
+    "그래프"
+   ],
+   [
+    "diagram",
+    "도표"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "pie chart",
+    "원그래프"
+   ],
+   [
+    "top the charts",
+    "인기 순위 1위를 하다"
+   ]
+  ]
+ },
+ "sour": {
+  "et": "아주 오래된 고대 영어 단어 'sur(신, 시큼한)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "acid",
+    "신"
+   ]
+  ],
+  "ant": [
+   [
+    "sweet",
+    "단"
+   ]
+  ],
+  "ph": [
+   [
+    "go sour",
+    "시어지다, 틀어지다"
+   ]
+  ]
+ },
+ "invest": {
+  "et": "라틴어 investire(in 안에 + vestis 옷)에서 왔어요. '옷을 입히다'라는 뜻이었는데, 돈에 다른 '옷(형태)'을 입힌다는 데서 '투자하다'가 되었어요.",
+  "pt": "in(안에) + vest(옷)",
+  "fam": [
+   [
+    "investment",
+    "투자"
+   ],
+   [
+    "investor",
+    "투자자"
+   ],
+   [
+    "vest",
+    "조끼"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "invest in",
+    "~에 투자하다"
+   ]
+  ]
+ },
+ "intent": {
+  "et": "라틴어 intentus(~로 뻗은, 집중한)에서 왔어요. intendere(in + tendere 뻗다)가 뿌리예요.",
+  "pt": "in(~로) + tent(뻗다)",
+  "fam": [
+   [
+    "intend",
+    "의도하다"
+   ],
+   [
+    "intention",
+    "의도"
+   ]
+  ],
+  "syn": [
+   [
+    "purpose",
+    "목적"
+   ],
+   [
+    "aim",
+    "목표"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be intent on",
+    "~에 몰두하다"
+   ]
+  ]
+ },
+ "bark": {
+  "et": "'짖다'는 고대 영어 beorcan(소리를 흉내 낸 말)에서, '나무껍질'은 고대 노르드어 börkr에서 온 다른 단어예요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "bark up the wrong tree",
+    "헛다리 짚다"
+   ]
+  ]
+ },
+ "pine": {
+  "et": "'소나무'는 라틴어 pinus에서 고대 영어로 들어왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "pineapple",
+    "파인애플"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "pine tree",
+    "소나무"
+   ]
+  ]
+ },
+ "finance": {
+  "et": "옛 프랑스어 finance(지불)에서 왔고, finer(빚을 끝내다, 갚다)가 뿌리예요. fin은 '끝'이라는 뜻이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "financial",
+    "재정의"
+   ],
+   [
+    "final",
+    "마지막의"
+   ]
+  ],
+  "syn": [
+   [
+    "money",
+    "돈"
+   ],
+   [
+    "funding",
+    "자금"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "stir": {
+  "et": "아주 오래된 고대 영어 단어 'styrian(움직이다, 휘젓다)'에서 왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "mix",
+    "섞다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "stir up",
+    "불러일으키다"
+   ]
+  ]
+ },
+ "jaw": {
+  "et": "중세 영어 jowe에서 왔는데, 프랑스어 joue(뺨)에서 왔다는 설도 있지만 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "jawbone",
+    "턱뼈"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "jaw drop",
+    "입이 떡 벌어지다"
+   ]
+  ]
+ },
+ "refer": {
+  "et": "라틴어 referre(re 되돌려 + ferre 나르다)에서 왔어요. '~로 다시 가져가다'에서 '언급하다, 참조하다'가 되었어요.",
+  "pt": "re(되돌려) + fer(나르다)",
+  "fam": [
+   [
+    "reference",
+    "참고"
+   ],
+   [
+    "referee",
+    "심판"
+   ]
+  ],
+  "syn": [
+   [
+    "mention",
+    "언급하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "refer to",
+    "~을 언급하다, 참조하다"
+   ]
+  ]
+ },
+ "extend": {
+  "et": "라틴어 extendere(ex 밖으로 + tendere 뻗다)에서 왔어요.",
+  "pt": "ex(밖으로) + tend(뻗다)",
+  "fam": [
+   [
+    "extension",
+    "연장"
+   ],
+   [
+    "extent",
+    "범위"
+   ],
+   [
+    "extensive",
+    "광범위한"
+   ]
+  ],
+  "syn": [
+   [
+    "lengthen",
+    "늘이다"
+   ],
+   [
+    "expand",
+    "확장하다"
+   ]
+  ],
+  "ant": [
+   [
+    "shorten",
+    "줄이다"
+   ]
+  ],
+  "ph": [
+   [
+    "extend a deadline",
+    "마감을 연장하다"
+   ]
+  ]
+ },
+ "countryside": {
+  "et": "country(시골) + side(쪽)로 처음엔 스코틀랜드에서 쓰였어요. country는 라틴어 contra(맞은편)에서 나온 '맞은편 땅'이라는 말이에요.",
+  "pt": "country(시골) + side(쪽)",
+  "fam": [
+   [
+    "country",
+    "나라, 시골"
+   ]
+  ],
+  "syn": [
+   [
+    "rural area",
+    "농촌"
+   ]
+  ],
+  "ant": [
+   [
+    "city",
+    "도시"
+   ]
+  ],
+  "ph": []
+ },
+ "adopt": {
+  "et": "라틴어 adoptare(ad ~을 + optare 고르다)에서 왔어요. '자기 것으로 고르다'에서 '입양하다, 채택하다'가 되었어요.",
+  "pt": "ad(~을) + opt(고르다)",
+  "fam": [
+   [
+    "adoption",
+    "입양, 채택"
+   ],
+   [
+    "option",
+    "선택"
+   ]
+  ],
+  "syn": [
+   [
+    "take on",
+    "채택하다"
+   ],
+   [
+    "accept",
+    "받아들이다"
+   ]
+  ],
+  "ant": [
+   [
+    "reject",
+    "거절하다"
+   ]
+  ],
+  "ph": [
+   [
+    "adopt a child",
+    "아이를 입양하다"
+   ]
+  ]
+ },
+ "tray": {
+  "et": "고대 영어 trig(나무판)에서 왔어요. tree(나무)와 관련 있을 것으로 보여요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "entertain": {
+  "et": "프랑스어 entretenir(함께 붙잡다, 유지하다)에서 왔어요. '손님을 머물게 하다'에서 '즐겁게 하다, 접대하다'가 되었어요.",
+  "pt": "enter(사이에) + tain(붙잡다)",
+  "fam": [
+   [
+    "entertainment",
+    "오락"
+   ],
+   [
+    "entertainer",
+    "연예인"
+   ]
+  ],
+  "syn": [
+   [
+    "amuse",
+    "즐겁게 하다"
+   ]
+  ],
+  "ant": [
+   [
+    "bore",
+    "지루하게 하다"
+   ]
+  ],
+  "ph": []
+ },
+ "satisfy": {
+  "et": "라틴어 satisfacere(satis 충분히 + facere 하다)에서 왔어요.",
+  "pt": "satis(충분히) + fy(하다)",
+  "fam": [
+   [
+    "satisfaction",
+    "만족"
+   ],
+   [
+    "satisfied",
+    "만족한"
+   ]
+  ],
+  "syn": [
+   [
+    "please",
+    "기쁘게 하다"
+   ],
+   [
+    "content",
+    "만족시키다"
+   ]
+  ],
+  "ant": [
+   [
+    "disappoint",
+    "실망시키다"
+   ]
+  ],
+  "ph": [
+   [
+    "be satisfied with",
+    "~에 만족하다"
+   ]
+  ]
+ },
+ "define": {
+  "et": "라틴어 definire(de 완전히 + finire 경계를 짓다)에서 왔어요. finis는 '끝, 경계'라는 뜻이에요.",
+  "pt": "de(완전히) + fine(경계)",
+  "fam": [
+   [
+    "definition",
+    "정의"
+   ],
+   [
+    "definite",
+    "분명한"
+   ],
+   [
+    "final",
+    "마지막의"
+   ]
+  ],
+  "syn": [
+   [
+    "explain",
+    "설명하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "define A as B",
+    "A를 B로 정의하다"
+   ]
+  ]
+ },
+ "grocery": {
+  "et": "grocer(식료품 상인) + -y예요. grocer는 옛 프랑스어 grossier(도매상)에서 왔고, gros(큰, 대량)가 뿌리예요.",
+  "pt": "grocer(식료품상) + y(가게)",
+  "fam": [
+   [
+    "grocer",
+    "식료품 상인"
+   ],
+   [
+    "gross",
+    "총계의"
+   ]
+  ],
+  "syn": [
+   [
+    "supermarket",
+    "슈퍼마켓"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "grocery store",
+    "식료품점"
+   ]
+  ]
+ },
+ "lid": {
+  "et": "고대 영어 hlid(덮개, 문)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "eyelid",
+    "눈꺼풀"
+   ]
+  ],
+  "syn": [
+   [
+    "cover",
+    "덮개"
+   ],
+   [
+    "cap",
+    "뚜껑"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "boil": {
+  "et": "옛 프랑스어 boillir에서 왔고, 라틴어 bullire(거품이 일다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "boiler",
+    "보일러"
+   ],
+   [
+    "boiling",
+    "끓는"
+   ]
+  ],
+  "syn": [
+   [
+    "cook",
+    "익히다"
+   ]
+  ],
+  "ant": [
+   [
+    "freeze",
+    "얼다"
+   ]
+  ],
+  "ph": [
+   [
+    "boiled egg",
+    "삶은 달걀"
+   ],
+   [
+    "boil over",
+    "끓어 넘치다"
+   ]
+  ]
+ },
+ "rapid": {
+  "et": "라틴어 rapidus(휩쓸어 가는, 빠른)에서 왔어요. rapere(낚아채다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "rapidly",
+    "빠르게"
+   ]
+  ],
+  "syn": [
+   [
+    "quick",
+    "빠른"
+   ],
+   [
+    "fast",
+    "빠른"
+   ]
+  ],
+  "ant": [
+   [
+    "slow",
+    "느린"
+   ]
+  ],
+  "ph": [
+   [
+    "rapid growth",
+    "급속한 성장"
+   ]
+  ]
+ },
+ "detect": {
+  "et": "라틴어 detegere(de 벗기다 + tegere 덮다)에서 왔어요. '덮개를 벗기다'라는 뜻이에요.",
+  "pt": "de(벗기다) + tect(덮다)",
+  "fam": [
+   [
+    "detective",
+    "탐정"
+   ],
+   [
+    "detector",
+    "탐지기"
+   ]
+  ],
+  "syn": [
+   [
+    "discover",
+    "발견하다"
+   ],
+   [
+    "notice",
+    "알아차리다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "expand": {
+  "et": "라틴어 expandere(ex 밖으로 + pandere 펼치다)에서 왔어요.",
+  "pt": "ex(밖으로) + pand(펼치다)",
+  "fam": [
+   [
+    "expansion",
+    "확장"
+   ]
+  ],
+  "syn": [
+   [
+    "enlarge",
+    "확대하다"
+   ],
+   [
+    "extend",
+    "넓히다"
+   ]
+  ],
+  "ant": [
+   [
+    "shrink",
+    "줄어들다"
+   ],
+   [
+    "contract",
+    "수축하다"
+   ]
+  ],
+  "ph": []
+ },
+ "delight": {
+  "et": "옛 프랑스어 delit(즐거움)에서 왔고, 라틴어 delectare(매혹하다)가 뿌리예요. 철자의 gh는 16세기에 light를 흉내 내 붙인 거예요.",
+  "pt": "",
+  "fam": [
+   [
+    "delightful",
+    "즐거운"
+   ],
+   [
+    "delighted",
+    "기뻐하는"
+   ]
+  ],
+  "syn": [
+   [
+    "joy",
+    "기쁨"
+   ],
+   [
+    "pleasure",
+    "즐거움"
+   ]
+  ],
+  "ant": [
+   [
+    "disappointment",
+    "실망"
+   ]
+  ],
+  "ph": [
+   [
+    "to one's delight",
+    "기쁘게도"
+   ]
+  ]
+ },
+ "reflect": {
+  "et": "라틴어 reflectere(re 뒤로 + flectere 구부리다)에서 왔어요. '빛을 뒤로 꺾다'에서 '반사하다', '생각을 되돌리다'에서 '숙고하다'가 되었어요.",
+  "pt": "re(뒤로) + flect(구부리다)",
+  "fam": [
+   [
+    "reflection",
+    "반사, 반영"
+   ],
+   [
+    "flexible",
+    "유연한"
+   ]
+  ],
+  "syn": [
+   [
+    "mirror",
+    "비추다"
+   ],
+   [
+    "consider",
+    "숙고하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "reflect on",
+    "~을 곰곰이 생각하다"
+   ]
+  ]
+ },
+ "demonstrate": {
+  "et": "라틴어 demonstrare(de 완전히 + monstrare 보여 주다)에서 왔어요.",
+  "pt": "de(완전히) + monstr(보여 주다) + ate",
+  "fam": [
+   [
+    "demonstration",
+    "시연, 시위"
+   ]
+  ],
+  "syn": [
+   [
+    "show",
+    "보여 주다"
+   ],
+   [
+    "prove",
+    "증명하다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "ant": {
+  "et": "고대 영어 æmete에서 왔어요. 아주 오래된 게르만어 계통의 말이에요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "unite": {
+  "et": "라틴어 unire(하나로 만들다)에서 왔고, unus(하나)가 뿌리예요.",
+  "pt": "uni(하나) + te",
+  "fam": [
+   [
+    "unity",
+    "통일"
+   ],
+   [
+    "union",
+    "연합"
+   ],
+   [
+    "unit",
+    "단위"
+   ]
+  ],
+  "syn": [
+   [
+    "join",
+    "합치다"
+   ],
+   [
+    "combine",
+    "결합하다"
+   ]
+  ],
+  "ant": [
+   [
+    "divide",
+    "나누다"
+   ],
+   [
+    "separate",
+    "분리하다"
+   ]
+  ],
+  "ph": [
+   [
+    "the United States",
+    "미국"
+   ]
+  ]
+ },
+ "pronounce": {
+  "et": "라틴어 pronuntiare(pro 앞에 + nuntiare 알리다)에서 왔어요. '앞에서 크게 알리다'에서 '선언하다, 발음하다'가 되었어요.",
+  "pt": "pro(앞에) + nounce(알리다)",
+  "fam": [
+   [
+    "pronunciation",
+    "발음"
+   ],
+   [
+    "announce",
+    "발표하다"
+   ]
+  ],
+  "syn": [
+   [
+    "declare",
+    "선언하다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "sponsor": {
+  "et": "라틴어 sponsor(보증인)에서 왔고, spondere(엄숙히 약속하다)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "respond",
+    "반응하다"
+   ]
+  ],
+  "syn": [
+   [
+    "supporter",
+    "후원자"
+   ],
+   [
+    "back",
+    "후원하다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "pause": {
+  "et": "그리스어 pausis(멈춤)가 라틴어 pausa를 거쳐 들어왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "stop",
+    "멈추다"
+   ],
+   [
+    "break",
+    "휴식"
+   ]
+  ],
+  "ant": [
+   [
+    "continue",
+    "계속하다"
+   ]
+  ],
+  "ph": [
+   [
+    "pause for breath",
+    "숨을 고르다"
+   ]
+  ]
+ },
+ "rail": {
+  "et": "옛 프랑스어 reille(쇠막대)에서 왔고, 라틴어 regula(곧은 막대, 규칙)가 뿌리예요. rule(규칙)과 같은 집안이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "railway",
+    "철도"
+   ],
+   [
+    "railroad",
+    "철도"
+   ],
+   [
+    "rule",
+    "규칙"
+   ]
+  ],
+  "syn": [
+   [
+    "track",
+    "선로"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "by rail",
+    "기차로"
+   ]
+  ]
+ },
+ "select": {
+  "et": "라틴어 seligere(se 따로 + legere 고르다)에서 왔어요. '따로 골라내다'라는 뜻이에요.",
+  "pt": "se(따로) + lect(고르다)",
+  "fam": [
+   [
+    "selection",
+    "선택"
+   ],
+   [
+    "elect",
+    "선출하다"
+   ],
+   [
+    "collect",
+    "모으다"
+   ]
+  ],
+  "syn": [
+   [
+    "choose",
+    "고르다"
+   ],
+   [
+    "pick",
+    "고르다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "select from",
+    "~에서 고르다"
+   ]
+  ]
+ },
+ "invent": {
+  "et": "라틴어 invenire(in ~에 + venire 오다)에서 왔어요. '~에 와서 찾아내다'라는 뜻이었는데 '발명하다'가 되었어요.",
+  "pt": "in(~에) + vent(오다)",
+  "fam": [
+   [
+    "invention",
+    "발명"
+   ],
+   [
+    "inventor",
+    "발명가"
+   ]
+  ],
+  "syn": [
+   [
+    "create",
+    "창조하다"
+   ],
+   [
+    "make up",
+    "지어내다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "alter": {
+  "et": "중세 라틴어 alterare(바꾸다)에서 왔고, 라틴어 alter(다른 하나)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "alternative",
+    "대안"
+   ],
+   [
+    "alternate",
+    "번갈아 하는"
+   ]
+  ],
+  "syn": [
+   [
+    "change",
+    "바꾸다"
+   ],
+   [
+    "modify",
+    "수정하다"
+   ]
+  ],
+  "ant": [
+   [
+    "keep",
+    "유지하다"
+   ]
+  ],
+  "ph": []
+ },
+ "definite": {
+  "et": "라틴어 definitus(경계가 정해진)에서 왔어요.",
+  "pt": "de(완전히) + fin(경계) + ite",
+  "fam": [
+   [
+    "definitely",
+    "분명히"
+   ],
+   [
+    "define",
+    "정의하다"
+   ]
+  ],
+  "syn": [
+   [
+    "certain",
+    "확실한"
+   ],
+   [
+    "clear",
+    "분명한"
+   ]
+  ],
+  "ant": [
+   [
+    "indefinite",
+    "불확실한"
+   ],
+   [
+    "vague",
+    "모호한"
+   ]
+  ],
+  "ph": [
+   [
+    "definite article",
+    "정관사(the)"
+   ]
+  ]
+ },
+ "relate": {
+  "et": "라틴어 relatus(되돌려 나른)에서 왔고, referre의 과거분사형이에요. '이야기를 전하다'에서 '관련시키다'가 되었어요.",
+  "pt": "re(되돌려) + late(나른)",
+  "fam": [
+   [
+    "relation",
+    "관계"
+   ],
+   [
+    "relative",
+    "친척"
+   ],
+   [
+    "relationship",
+    "관계"
+   ]
+  ],
+  "syn": [
+   [
+    "connect",
+    "연결하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "relate to",
+    "~와 관련되다, 공감하다"
+   ]
+  ]
+ },
+ "triangle": {
+  "et": "라틴어 triangulum에서 왔어요. tri(셋) + angulus(모서리, 각)가 합쳐진 말이에요.",
+  "pt": "tri(셋) + angle(각)",
+  "fam": [
+   [
+    "angle",
+    "각도"
+   ],
+   [
+    "tricycle",
+    "세발자전거"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "strawberry": {
+  "et": "고대 영어 streawberige에서 왔어요. straw(짚) + berry(열매)인데, 왜 straw가 붙었는지는 확실하지 않아요.",
+  "pt": "straw(짚) + berry(열매)",
+  "fam": [
+   [
+    "berry",
+    "딸기류 열매"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "survey": {
+  "et": "앵글로·프랑스어 surveier(위에서 내려다보다)에서 왔어요. 라틴어 super(위에서) + videre(보다)가 뿌리예요.",
+  "pt": "sur(위에서) + vey(보다)",
+  "fam": [
+   [
+    "supervise",
+    "감독하다"
+   ]
+  ],
+  "syn": [
+   [
+    "poll",
+    "여론 조사"
+   ],
+   [
+    "examine",
+    "조사하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "conduct a survey",
+    "설문 조사를 하다"
+   ]
+  ]
+ },
+ "context": {
+  "et": "라틴어 contextus(함께 엮음)에서 왔어요. con(함께) + texere(짜다)로, 글이 '엮여 있는 흐름'이 '문맥'이에요.",
+  "pt": "con(함께) + text(짜다)",
+  "fam": [
+   [
+    "text",
+    "글"
+   ],
+   [
+    "texture",
+    "질감"
+   ]
+  ],
+  "syn": [
+   [
+    "situation",
+    "상황"
+   ],
+   [
+    "background",
+    "배경"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "in this context",
+    "이런 맥락에서"
+   ]
+  ]
+ },
+ "donate": {
+  "et": "donation(기부)에서 거꾸로 만든 동사예요. 라틴어 donare(주다)가 뿌리이고, donum은 '선물'이에요.",
+  "pt": "don(주다) + ate",
+  "fam": [
+   [
+    "donation",
+    "기부"
+   ],
+   [
+    "donor",
+    "기증자"
+   ]
+  ],
+  "syn": [
+   [
+    "give",
+    "주다"
+   ],
+   [
+    "contribute",
+    "기부하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "donate blood",
+    "헌혈하다"
+   ]
+  ]
+ },
+ "overall": {
+  "et": "over(전체에 걸쳐) + all(모두)로 중세 영어에서 생겼어요.",
+  "pt": "over(전체에) + all(모두)",
+  "fam": [],
+  "syn": [
+   [
+    "general",
+    "전반적인"
+   ],
+   [
+    "on the whole",
+    "전체적으로"
+   ]
+  ],
+  "ant": [
+   [
+    "partial",
+    "부분적인"
+   ]
+  ],
+  "ph": []
+ },
+ "estimate": {
+  "et": "라틴어 aestimare(가치를 매기다)에서 왔어요. aim(겨누다)과 같은 집안이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "estimation",
+    "추정"
+   ],
+   [
+    "aim",
+    "겨누다"
+   ]
+  ],
+  "syn": [
+   [
+    "guess",
+    "추측하다"
+   ],
+   [
+    "calculate",
+    "계산하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "rough estimate",
+    "대략적인 추정치"
+   ]
+  ]
+ },
+ "sew": {
+  "et": "아주 오래된 고대 영어 단어 'siwian(꿰매다)'에서 왔어요. 라틴어 suere(꿰매다)와 먼 친척이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "sewing",
+    "바느질"
+   ]
+  ],
+  "syn": [
+   [
+    "stitch",
+    "꿰매다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "confuse": {
+  "et": "confused에서 거꾸로 만든 말이에요. 라틴어 confundere(con 함께 + fundere 붓다)에서 왔는데, '한데 부어 뒤섞다'라는 뜻이에요.",
+  "pt": "con(함께) + fuse(붓다)",
+  "fam": [
+   [
+    "confusion",
+    "혼란"
+   ],
+   [
+    "confused",
+    "혼란스러운"
+   ],
+   [
+    "confusing",
+    "헷갈리는"
+   ]
+  ],
+  "syn": [
+   [
+    "mix up",
+    "혼동하다"
+   ],
+   [
+    "puzzle",
+    "어리둥절하게 하다"
+   ]
+  ],
+  "ant": [
+   [
+    "clarify",
+    "분명히 하다"
+   ]
+  ],
+  "ph": [
+   [
+    "confuse A with B",
+    "A를 B와 혼동하다"
+   ]
+  ]
+ },
+ "wage": {
+  "et": "옛 노르망디 프랑스어 wage(담보, 지불)에서 왔어요. 게르만어가 뿌리이고, '일한 대가로 주기로 약속한 돈'이 '임금'이 되었어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "salary",
+    "급여"
+   ],
+   [
+    "pay",
+    "급료"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "minimum wage",
+    "최저 임금"
+   ]
+  ]
+ },
+ "microwave": {
+  "et": "그리스어 mikros(작은) + wave(파동)로, 20세기에 생긴 말이에요. 아주 짧은 전자기파인 '극초단파'를 이용하는 기계라 '전자레인지'가 되었어요.",
+  "pt": "micro(작은) + wave(파)",
+  "fam": [
+   [
+    "microscope",
+    "현미경"
+   ],
+   [
+    "wave",
+    "파도"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "microwave oven",
+    "전자레인지"
+   ]
+  ]
+ },
+ "glance": {
+  "et": "중세 영어에서 '비스듬히 스치다'라는 뜻으로 쓰였어요. 프랑스어에서 왔다고 보기도 하지만 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "glimpse",
+    "흘끗 봄"
+   ],
+   [
+    "peek",
+    "엿보다"
+   ]
+  ],
+  "ant": [
+   [
+    "stare",
+    "빤히 보다"
+   ]
+  ],
+  "ph": [
+   [
+    "at a glance",
+    "한눈에"
+   ],
+   [
+    "glance at",
+    "~을 흘끗 보다"
+   ]
+  ]
+ },
+ "promote": {
+  "et": "라틴어 promovere(pro 앞으로 + movere 움직이다)에서 왔어요.",
+  "pt": "pro(앞으로) + mote(움직이다)",
+  "fam": [
+   [
+    "promotion",
+    "승진, 홍보"
+   ],
+   [
+    "motion",
+    "움직임"
+   ]
+  ],
+  "syn": [
+   [
+    "advance",
+    "나아가게 하다"
+   ],
+   [
+    "advertise",
+    "광고하다"
+   ]
+  ],
+  "ant": [
+   [
+    "demote",
+    "강등시키다"
+   ]
+  ],
+  "ph": [
+   [
+    "be promoted to",
+    "~로 승진하다"
+   ]
+  ]
+ },
+ "category": {
+  "et": "그리스어 katēgoria(주장, 분류)에서 왔어요. 아리스토텔레스가 사물을 나누는 '범주'라는 뜻으로 썼어요.",
+  "pt": "",
+  "fam": [
+   [
+    "categorize",
+    "분류하다"
+   ]
+  ],
+  "syn": [
+   [
+    "class",
+    "부류"
+   ],
+   [
+    "type",
+    "종류"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "fall into a category",
+    "어떤 범주에 속하다"
+   ]
+  ]
+ },
+ "essay": {
+  "et": "프랑스어 essai(시도)에서 왔어요. 몽테뉴가 자기 글 모음을 'Essais(시도들)'라고 부르면서 '짧은 글'이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "essayist",
+    "수필가"
+   ]
+  ],
+  "syn": [
+   [
+    "composition",
+    "작문"
+   ],
+   [
+    "article",
+    "글"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "write an essay",
+    "에세이를 쓰다"
+   ]
+  ]
+ },
+ "wool": {
+  "et": "아주 오래된 고대 영어 단어 'wull(양털)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "woolen",
+    "양모의"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "pull the wool over one's eyes",
+    "속이다"
+   ]
+  ]
+ },
+ "adapt": {
+  "et": "라틴어 adaptare(ad ~에 + aptare 맞추다)에서 왔어요. aptus는 '알맞은'이라는 뜻이에요.",
+  "pt": "ad(~에) + apt(알맞은)",
+  "fam": [
+   [
+    "adaptation",
+    "적응, 각색"
+   ],
+   [
+    "apt",
+    "적절한"
+   ]
+  ],
+  "syn": [
+   [
+    "adjust",
+    "조정하다"
+   ],
+   [
+    "fit",
+    "맞추다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "adapt to",
+    "~에 적응하다"
+   ]
+  ]
+ },
+ "moreover": {
+  "et": "more(더) + over(위에)로 중세 영어에서 생긴 말이에요.",
+  "pt": "more(더) + over(넘어서)",
+  "fam": [
+   [
+    "more",
+    "더"
+   ]
+  ],
+  "syn": [
+   [
+    "furthermore",
+    "게다가"
+   ],
+   [
+    "besides",
+    "게다가"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "airline": {
+  "et": "air(공중) + line(선)으로 처음엔 '공중의 직선 길'이라는 뜻이었어요. 20세기 초 비행기가 생기며 '항공 노선, 항공사'가 되었어요.",
+  "pt": "air(공중) + line(노선)",
+  "fam": [
+   [
+    "airplane",
+    "비행기"
+   ],
+   [
+    "airport",
+    "공항"
+   ]
+  ],
+  "syn": [
+   [
+    "carrier",
+    "항공사"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "surround": {
+  "et": "앵글로·프랑스어 surounder(넘쳐흐르다)에서 왔어요. 라틴어 super(위로) + undare(물결치다)인데, round(둥근)와 헷갈리면서 '둘러싸다'라는 뜻이 되었어요.",
+  "pt": "sur(위로) + round(물결치다)",
+  "fam": [
+   [
+    "surroundings",
+    "환경"
+   ]
+  ],
+  "syn": [
+   [
+    "encircle",
+    "둘러싸다"
+   ],
+   [
+    "enclose",
+    "에워싸다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be surrounded by",
+    "~에 둘러싸이다"
+   ]
+  ]
+ },
+ "fright": {
+  "et": "고대 영어 fyrhto(두려움)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "frighten",
+    "겁먹게 하다"
+   ],
+   [
+    "frightening",
+    "무서운"
+   ]
+  ],
+  "syn": [
+   [
+    "fear",
+    "두려움"
+   ],
+   [
+    "terror",
+    "공포"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "stage fright",
+    "무대 공포증"
+   ]
+  ]
+ },
+ "contribute": {
+  "et": "라틴어 contribuere(con 함께 + tribuere 나누어 주다)에서 왔어요.",
+  "pt": "con(함께) + tribute(나누어 주다)",
+  "fam": [
+   [
+    "contribution",
+    "기여"
+   ],
+   [
+    "distribute",
+    "분배하다"
+   ]
+  ],
+  "syn": [
+   [
+    "donate",
+    "기부하다"
+   ],
+   [
+    "add",
+    "더하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "contribute to",
+    "~에 기여하다, ~의 원인이 되다"
+   ]
+  ]
+ },
+ "disgust": {
+  "et": "프랑스어 desgouster(맛없어하다)에서 왔어요. dis(반대) + gouster(맛보다)로, 라틴어 gustus(맛)가 뿌리예요.",
+  "pt": "dis(반대) + gust(맛)",
+  "fam": [
+   [
+    "disgusting",
+    "역겨운"
+   ],
+   [
+    "disgusted",
+    "혐오감을 느끼는"
+   ]
+  ],
+  "syn": [
+   [
+    "dislike",
+    "싫어함"
+   ],
+   [
+    "hatred",
+    "혐오"
+   ]
+  ],
+  "ant": [
+   [
+    "delight",
+    "기쁨"
+   ]
+  ],
+  "ph": [
+   [
+    "in disgust",
+    "넌더리를 내며"
+   ]
+  ]
+ },
+ "bind": {
+  "et": "아주 오래된 고대 영어 단어 'bindan(묶다)'에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "binder",
+    "바인더"
+   ],
+   [
+    "bond",
+    "유대"
+   ],
+   [
+    "band",
+    "끈"
+   ]
+  ],
+  "syn": [
+   [
+    "tie",
+    "묶다"
+   ],
+   [
+    "fasten",
+    "매다"
+   ]
+  ],
+  "ant": [
+   [
+    "loosen",
+    "풀다"
+   ],
+   [
+    "untie",
+    "풀다"
+   ]
+  ],
+  "ph": [
+   [
+    "bind together",
+    "결속시키다"
+   ]
+  ]
+ },
+ "employ": {
+  "et": "옛 프랑스어 emploiier에서 왔고, 라틴어 implicare(in 안에 + plicare 접다)가 뿌리예요. '안으로 끌어들이다'에서 '고용하다, 쓰다'가 되었어요.",
+  "pt": "em(안에) + ploy(접다)",
+  "fam": [
+   [
+    "employee",
+    "직원"
+   ],
+   [
+    "employer",
+    "고용주"
+   ],
+   [
+    "employment",
+    "고용"
+   ]
+  ],
+  "syn": [
+   [
+    "hire",
+    "고용하다"
+   ],
+   [
+    "use",
+    "이용하다"
+   ]
+  ],
+  "ant": [
+   [
+    "fire",
+    "해고하다"
+   ],
+   [
+    "dismiss",
+    "해고하다"
+   ]
+  ],
+  "ph": []
+ },
+ "disc": {
+  "et": "그리스어 diskos(원반)가 라틴어 discus를 거쳐 들어왔어요. 미국에서는 disk라고도 써요.",
+  "pt": "",
+  "fam": [
+   [
+    "disk",
+    "디스크"
+   ],
+   [
+    "discus",
+    "원반던지기"
+   ],
+   [
+    "dish",
+    "접시"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "compact disc",
+    "CD"
+   ]
+  ]
+ },
+ "dolphin": {
+  "et": "그리스어 delphis(돌고래)가 라틴어·프랑스어를 거쳐 들어왔어요. delphys(자궁)와 관련이 있다고 보는데, '새끼를 낳는 물고기'라는 뜻이에요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "combine": {
+  "et": "후기 라틴어 combinare(com 함께 + bini 둘씩)에서 왔어요. '둘씩 짝지어 합치다'라는 뜻이에요.",
+  "pt": "com(함께) + bine(둘씩)",
+  "fam": [
+   [
+    "combination",
+    "조합"
+   ],
+   [
+    "binary",
+    "이진법의"
+   ]
+  ],
+  "syn": [
+   [
+    "mix",
+    "섞다"
+   ],
+   [
+    "join",
+    "합치다"
+   ]
+  ],
+  "ant": [
+   [
+    "separate",
+    "분리하다"
+   ]
+  ],
+  "ph": [
+   [
+    "combine A with B",
+    "A와 B를 결합하다"
+   ]
+  ]
+ },
+ "dictionary": {
+  "et": "중세 라틴어 dictionarium(낱말 모음)에서 왔어요. 라틴어 dictio(말, 낱말)와 dicere(말하다)가 뿌리예요.",
+  "pt": "dict(말) + ion + ary(모음)",
+  "fam": [
+   [
+    "dictate",
+    "받아쓰게 하다"
+   ],
+   [
+    "predict",
+    "예측하다"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "look up in a dictionary",
+    "사전에서 찾아보다"
+   ]
+  ]
+ },
+ "oppose": {
+  "et": "옛 프랑스어 oposer(ob 맞서 + poser 놓다)에서 왔어요. '맞은편에 놓다'라는 뜻이에요.",
+  "pt": "op(맞서) + pose(놓다)",
+  "fam": [
+   [
+    "opposite",
+    "반대의"
+   ],
+   [
+    "opposition",
+    "반대"
+   ],
+   [
+    "opponent",
+    "상대"
+   ]
+  ],
+  "syn": [
+   [
+    "object",
+    "반대하다"
+   ],
+   [
+    "resist",
+    "저항하다"
+   ]
+  ],
+  "ant": [
+   [
+    "support",
+    "지지하다"
+   ],
+   [
+    "agree",
+    "동의하다"
+   ]
+  ],
+  "ph": [
+   [
+    "be opposed to",
+    "~에 반대하다"
+   ]
+  ]
+ },
+ "mushroom": {
+  "et": "앵글로·프랑스어 musherun에서 왔는데, 그 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [
+   [
+    "fungus",
+    "균류"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "annoy": {
+  "et": "옛 프랑스어 anoier(지치게 하다, 괴롭히다)에서 왔어요. 라틴어 in odio(미움 속에)라는 표현이 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "annoying",
+    "짜증 나는"
+   ],
+   [
+    "annoyed",
+    "짜증 난"
+   ],
+   [
+    "annoyance",
+    "짜증"
+   ]
+  ],
+  "syn": [
+   [
+    "bother",
+    "귀찮게 하다"
+   ],
+   [
+    "irritate",
+    "짜증 나게 하다"
+   ]
+  ],
+  "ant": [
+   [
+    "please",
+    "기쁘게 하다"
+   ]
+  ],
+  "ph": [
+   [
+    "be annoyed with",
+    "~에게 짜증이 나다"
+   ]
+  ]
+ },
+ "probable": {
+  "et": "라틴어 probabilis(증명할 수 있는, 그럴듯한)에서 왔어요. probare(시험하다, 증명하다)가 뿌리예요.",
+  "pt": "prob(증명하다) + able(~할 수 있는)",
+  "fam": [
+   [
+    "probably",
+    "아마"
+   ],
+   [
+    "probability",
+    "확률"
+   ],
+   [
+    "prove",
+    "증명하다"
+   ]
+  ],
+  "syn": [
+   [
+    "likely",
+    "있음 직한"
+   ]
+  ],
+  "ant": [
+   [
+    "improbable",
+    "있을 것 같지 않은"
+   ],
+   [
+    "unlikely",
+    "가능성 없는"
+   ]
+  ],
+  "ph": []
+ },
+ "attach": {
+  "et": "옛 프랑스어 atachier(고정하다)에서 왔어요. stake(말뚝)와 관련된 게르만어가 뿌리라 '말뚝에 묶다'라는 뜻이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "attachment",
+    "첨부 파일, 애착"
+   ]
+  ],
+  "syn": [
+   [
+    "fasten",
+    "고정하다"
+   ],
+   [
+    "connect",
+    "붙이다"
+   ]
+  ],
+  "ant": [
+   [
+    "detach",
+    "떼다"
+   ]
+  ],
+  "ph": [
+   [
+    "attach A to B",
+    "A를 B에 붙이다"
+   ]
+  ]
+ },
+ "calculate": {
+  "et": "라틴어 calculare(계산하다)에서 왔어요. calculus는 '작은 돌'인데, 옛날에 작은 돌로 셈을 했기 때문이에요.",
+  "pt": "calcul(작은 돌) + ate",
+  "fam": [
+   [
+    "calculation",
+    "계산"
+   ],
+   [
+    "calculator",
+    "계산기"
+   ]
+  ],
+  "syn": [
+   [
+    "compute",
+    "계산하다"
+   ],
+   [
+    "count",
+    "세다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "crisp": {
+  "et": "라틴어 crispus(곱슬곱슬한)에서 고대 영어로 들어왔어요. 16세기에 '바삭한'이라는 뜻이 생겼어요.",
+  "pt": "",
+  "fam": [
+   [
+    "crispy",
+    "바삭한"
+   ],
+   [
+    "crisps",
+    "감자칩"
+   ]
+  ],
+  "syn": [
+   [
+    "crunchy",
+    "아삭한"
+   ],
+   [
+    "fresh",
+    "상쾌한"
+   ]
+  ],
+  "ant": [
+   [
+    "soggy",
+    "눅눅한"
+   ]
+  ],
+  "ph": [
+   [
+    "crisp air",
+    "상쾌한 공기"
+   ]
+  ]
+ },
+ "commerce": {
+  "et": "라틴어 commercium(거래)에서 왔어요. com(함께) + merx(상품)가 합쳐진 말이에요.",
+  "pt": "com(함께) + merce(상품)",
+  "fam": [
+   [
+    "commercial",
+    "상업의, 광고"
+   ],
+   [
+    "merchant",
+    "상인"
+   ]
+  ],
+  "syn": [
+   [
+    "trade",
+    "무역"
+   ],
+   [
+    "business",
+    "사업"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "e-commerce",
+    "전자 상거래"
+   ]
+  ]
+ },
+ "marvel": {
+  "et": "옛 프랑스어 merveille(놀라운 것)에서 왔고, 라틴어 mirabilia(놀라운 일들)가 뿌리예요. mirari(놀라다)와 관련 있어요.",
+  "pt": "",
+  "fam": [
+   [
+    "marvelous",
+    "놀라운"
+   ],
+   [
+    "miracle",
+    "기적"
+   ]
+  ],
+  "syn": [
+   [
+    "wonder",
+    "경탄하다, 놀라운 일"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "marvel at",
+    "~에 경탄하다"
+   ]
+  ]
+ },
+ "consume": {
+  "et": "라틴어 consumere(con 완전히 + sumere 가지다)에서 왔어요. '다 가져가 써 버리다'라는 뜻이에요.",
+  "pt": "con(완전히) + sume(가지다)",
+  "fam": [
+   [
+    "consumer",
+    "소비자"
+   ],
+   [
+    "consumption",
+    "소비"
+   ]
+  ],
+  "syn": [
+   [
+    "use up",
+    "다 써 버리다"
+   ],
+   [
+    "eat",
+    "먹다"
+   ]
+  ],
+  "ant": [
+   [
+    "produce",
+    "생산하다"
+   ]
+  ],
+  "ph": [
+   [
+    "time-consuming",
+    "시간이 많이 드는"
+   ]
+  ]
+ },
+ "inspect": {
+  "et": "라틴어 inspicere(in 안을 + specere 보다)에서 왔어요. '안을 들여다보다'라는 뜻이에요.",
+  "pt": "in(안을) + spect(보다)",
+  "fam": [
+   [
+    "inspection",
+    "검사"
+   ],
+   [
+    "inspector",
+    "검사관"
+   ],
+   [
+    "respect",
+    "존경"
+   ]
+  ],
+  "syn": [
+   [
+    "examine",
+    "검사하다"
+   ],
+   [
+    "check",
+    "점검하다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "melon": {
+  "et": "그리스어 mēlopepōn(사과 모양 박)이 라틴어·프랑스어를 거쳐 들어왔어요. mēlon(사과) + pepōn(박)이 합쳐진 말이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "watermelon",
+    "수박"
+   ]
+  ],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "remark": {
+  "et": "프랑스어 remarquer(주목하다)에서 왔어요. re(강조) + marquer(표시하다)가 합쳐졌어요.",
+  "pt": "re(강조) + mark(표시하다)",
+  "fam": [
+   [
+    "remarkable",
+    "놀라운"
+   ],
+   [
+    "mark",
+    "표시"
+   ]
+  ],
+  "syn": [
+   [
+    "comment",
+    "논평"
+   ],
+   [
+    "statement",
+    "말"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "make a remark",
+    "한마디 하다"
+   ]
+  ]
+ },
+ "circumstance": {
+  "et": "라틴어 circumstantia(주위 상황)에서 왔어요. circum(주위에) + stare(서다)로, '주위에 서 있는 것'이라는 뜻이에요.",
+  "pt": "circum(주위에) + stance(서 있음)",
+  "fam": [
+   [
+    "circle",
+    "원"
+   ],
+   [
+    "distance",
+    "거리"
+   ]
+  ],
+  "syn": [
+   [
+    "situation",
+    "상황"
+   ],
+   [
+    "condition",
+    "조건"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "under no circumstances",
+    "어떤 일이 있어도 ~않다"
+   ]
+  ]
+ },
+ "decorate": {
+  "et": "라틴어 decorare(꾸미다)에서 왔고, decus(장식)가 뿌리예요.",
+  "pt": "decor(장식) + ate",
+  "fam": [
+   [
+    "decoration",
+    "장식"
+   ],
+   [
+    "decor",
+    "실내 장식"
+   ]
+  ],
+  "syn": [
+   [
+    "adorn",
+    "꾸미다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "decorate A with B",
+    "A를 B로 장식하다"
+   ]
+  ]
+ },
+ "educate": {
+  "et": "라틴어 educare(기르다, 양육하다)에서 왔어요. '이끌어 내다'라는 educere(e 밖으로 + ducere 이끌다)와 관련 있어요.",
+  "pt": "e(밖으로) + duc(이끌다) + ate",
+  "fam": [
+   [
+    "education",
+    "교육"
+   ],
+   [
+    "educational",
+    "교육적인"
+   ]
+  ],
+  "syn": [
+   [
+    "teach",
+    "가르치다"
+   ],
+   [
+    "train",
+    "훈련하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "well-educated",
+    "교육을 잘 받은"
+   ]
+  ]
+ },
+ "appoint": {
+  "et": "옛 프랑스어 apointier(준비하다, 정하다)에서 왔어요. a point(딱 그 지점으로)라는 표현이 뿌리예요.",
+  "pt": "ap(~로) + point(지점)",
+  "fam": [
+   [
+    "appointment",
+    "약속, 임명"
+   ],
+   [
+    "disappoint",
+    "실망시키다"
+   ]
+  ],
+  "syn": [
+   [
+    "name",
+    "지명하다"
+   ],
+   [
+    "assign",
+    "정하다"
+   ]
+  ],
+  "ant": [
+   [
+    "dismiss",
+    "해임하다"
+   ]
+  ],
+  "ph": [
+   [
+    "appoint A as B",
+    "A를 B로 임명하다"
+   ]
+  ]
+ },
+ "edit": {
+  "et": "editor(편집자)에서 거꾸로 만든 말이에요. 라틴어 edere(e 밖으로 + dare 주다, 내놓다)가 뿌리로, '세상에 내놓다'라는 뜻이었어요.",
+  "pt": "e(밖으로) + dit(주다)",
+  "fam": [
+   [
+    "editor",
+    "편집자"
+   ],
+   [
+    "edition",
+    "판"
+   ]
+  ],
+  "syn": [
+   [
+    "revise",
+    "수정하다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "paragraph": {
+  "et": "그리스어 paragraphos에서 왔어요. para(옆에) + graphein(쓰다)로, 글의 내용이 바뀌는 곳 '옆에 그은 표시'를 뜻했어요.",
+  "pt": "para(옆에) + graph(쓰다)",
+  "fam": [
+   [
+    "graph",
+    "그래프"
+   ],
+   [
+    "autograph",
+    "사인"
+   ]
+  ],
+  "syn": [
+   [
+    "passage",
+    "구절"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "amuse": {
+  "et": "프랑스어 amuser에서 왔어요. a(~에) + muser(멍하니 바라보다)로, 처음엔 '정신을 딴 데 팔게 하다'라는 뜻이었다가 '즐겁게 하다'가 되었어요.",
+  "pt": "a(~에) + muse(멍하니 보다)",
+  "fam": [
+   [
+    "amusement",
+    "즐거움"
+   ],
+   [
+    "amusing",
+    "재미있는"
+   ]
+  ],
+  "syn": [
+   [
+    "entertain",
+    "즐겁게 하다"
+   ]
+  ],
+  "ant": [
+   [
+    "bore",
+    "지루하게 하다"
+   ]
+  ],
+  "ph": [
+   [
+    "amusement park",
+    "놀이공원"
+   ]
+  ]
+ },
+ "assign": {
+  "et": "라틴어 assignare(ad ~에 + signare 표시하다)에서 왔어요. '~의 몫이라고 표시하다'라는 뜻이에요.",
+  "pt": "as(~에) + sign(표시하다)",
+  "fam": [
+   [
+    "assignment",
+    "과제"
+   ],
+   [
+    "sign",
+    "표시"
+   ]
+  ],
+  "syn": [
+   [
+    "allocate",
+    "할당하다"
+   ],
+   [
+    "give",
+    "주다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "assign A to B",
+    "A를 B에게 배정하다"
+   ]
+  ]
+ },
+ "exhaust": {
+  "et": "라틴어 exhaurire(ex 밖으로 + haurire 물을 퍼내다)에서 왔어요. '다 퍼내서 바닥나게 하다'라는 뜻이에요.",
+  "pt": "ex(밖으로) + haust(퍼내다)",
+  "fam": [
+   [
+    "exhausted",
+    "지친"
+   ],
+   [
+    "exhaustion",
+    "탈진"
+   ]
+  ],
+  "syn": [
+   [
+    "tire out",
+    "지치게 하다"
+   ],
+   [
+    "use up",
+    "다 써 버리다"
+   ]
+  ],
+  "ant": [
+   [
+    "refresh",
+    "기운 나게 하다"
+   ]
+  ],
+  "ph": [
+   [
+    "exhaust fumes",
+    "배기가스"
+   ]
+  ]
+ },
+ "zebra": {
+  "et": "포르투갈어·이탈리아어 zebra에서 왔어요. 원래 이베리아반도의 야생 당나귀를 부르던 말인데, 그 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": [
+   [
+    "zebra crossing",
+    "횡단보도"
+   ]
+  ]
+ },
+ "assess": {
+  "et": "옛 프랑스어 assesser(세금을 매기다)에서 왔어요. 라틴어 assidere(ad 곁에 + sedere 앉다)로, '재판관 곁에 앉아 판단을 돕다'라는 뜻이었어요.",
+  "pt": "as(곁에) + sess(앉다)",
+  "fam": [
+   [
+    "assessment",
+    "평가"
+   ]
+  ],
+  "syn": [
+   [
+    "evaluate",
+    "평가하다"
+   ],
+   [
+    "judge",
+    "판단하다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "aloud": {
+  "et": "a(~으로) + loud(큰 소리의)로 중세 영어에서 생긴 말이에요.",
+  "pt": "a(~으로) + loud(큰 소리)",
+  "fam": [
+   [
+    "loud",
+    "시끄러운"
+   ]
+  ],
+  "syn": [
+   [
+    "out loud",
+    "소리 내어"
+   ]
+  ],
+  "ant": [
+   [
+    "silently",
+    "조용히"
+   ]
+  ],
+  "ph": [
+   [
+    "read aloud",
+    "소리 내어 읽다"
+   ],
+   [
+    "think aloud",
+    "생각을 소리 내어 말하다"
+   ]
+  ]
+ },
+ "resource": {
+  "et": "프랑스어 ressource(회복 수단)에서 왔어요. 라틴어 resurgere(다시 일어나다)가 뿌리로, '다시 일어설 수 있게 하는 것'이 '자원'이 되었어요.",
+  "pt": "re(다시) + source(솟아나다)",
+  "fam": [
+   [
+    "resourceful",
+    "수완이 좋은"
+   ],
+   [
+    "source",
+    "근원"
+   ]
+  ],
+  "syn": [
+   [
+    "supply",
+    "공급"
+   ],
+   [
+    "asset",
+    "자산"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "natural resources",
+    "천연자원"
+   ]
+  ]
+ },
+ "pear": {
+  "et": "라틴어 pirum(배)이 고대 영어 pere로 들어왔어요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "giraffe": {
+  "et": "아랍어 zarāfa가 이탈리아어 giraffa와 프랑스어 girafe를 거쳐 들어왔어요. 아랍어 이전은 아프리카 말에서 왔을 수도 있지만 확실하지 않아요.",
+  "pt": "",
+  "fam": [],
+  "syn": [],
+  "ant": [],
+  "ph": []
+ },
+ "manufacture": {
+  "et": "중세 라틴어 manufactura(손으로 만듦)에서 왔어요. manu(손으로) + factura(만듦)인데, 지금은 주로 기계로 만드는 것을 말해요.",
+  "pt": "manu(손) + fact(만들다) + ure",
+  "fam": [
+   [
+    "manufacturer",
+    "제조업체"
+   ],
+   [
+    "manual",
+    "손으로 하는"
+   ],
+   [
+    "factory",
+    "공장"
+   ]
+  ],
+  "syn": [
+   [
+    "produce",
+    "생산하다"
+   ],
+   [
+    "make",
+    "만들다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "curl": {
+  "et": "중세 영어 crul(곱슬곱슬한)에서 왔고, 네덜란드 옛말에서 온 것으로 보여요. 글자 순서가 바뀌어 curl이 되었어요.",
+  "pt": "",
+  "fam": [
+   [
+    "curly",
+    "곱슬곱슬한"
+   ]
+  ],
+  "syn": [
+   [
+    "twist",
+    "꼬다"
+   ],
+   [
+    "coil",
+    "감다"
+   ]
+  ],
+  "ant": [
+   [
+    "straighten",
+    "펴다"
+   ]
+  ],
+  "ph": [
+   [
+    "curl up",
+    "몸을 웅크리다"
+   ]
+  ]
+ },
+ "govern": {
+  "et": "라틴어 gubernare(배의 키를 잡다, 다스리다)에서 왔어요. 그리스어 kybernan(배를 조종하다)이 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "government",
+    "정부"
+   ],
+   [
+    "governor",
+    "주지사"
+   ]
+  ],
+  "syn": [
+   [
+    "rule",
+    "통치하다"
+   ],
+   [
+    "control",
+    "다스리다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "catalogue": {
+  "et": "그리스어 katalogos(목록)에서 왔어요. kata(완전히) + legein(세다, 말하다)이 합쳐진 말이에요. 미국에서는 catalog라고 써요.",
+  "pt": "cata(완전히) + logue(말하다, 세다)",
+  "fam": [
+   [
+    "catalog",
+    "카탈로그"
+   ]
+  ],
+  "syn": [
+   [
+    "list",
+    "목록"
+   ],
+   [
+    "directory",
+    "목록"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "instruct": {
+  "et": "라틴어 instruere(in 안에 + struere 쌓다)에서 왔어요. '머릿속에 차곡차곡 쌓아 주다'에서 '가르치다, 지시하다'가 되었어요.",
+  "pt": "in(안에) + struct(쌓다)",
+  "fam": [
+   [
+    "instruction",
+    "지시"
+   ],
+   [
+    "instructor",
+    "강사"
+   ],
+   [
+    "structure",
+    "구조"
+   ]
+  ],
+  "syn": [
+   [
+    "teach",
+    "가르치다"
+   ],
+   [
+    "direct",
+    "지시하다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "elect": {
+  "et": "라틴어 eligere(e 밖으로 + legere 고르다)에서 왔어요. '골라내다'라는 뜻이에요.",
+  "pt": "e(밖으로) + lect(고르다)",
+  "fam": [
+   [
+    "election",
+    "선거"
+   ],
+   [
+    "select",
+    "선택하다"
+   ]
+  ],
+  "syn": [
+   [
+    "vote",
+    "투표하다"
+   ],
+   [
+    "choose",
+    "고르다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be elected",
+    "당선되다"
+   ]
+  ]
+ },
+ "amaze": {
+  "et": "고대 영어 amasian(정신을 잃게 하다)에서 왔어요. maze(미로)와 관련 있지만 그 앞선 기원은 확실하지 않아요.",
+  "pt": "",
+  "fam": [
+   [
+    "amazing",
+    "놀라운"
+   ],
+   [
+    "amazed",
+    "놀란"
+   ],
+   [
+    "maze",
+    "미로"
+   ]
+  ],
+  "syn": [
+   [
+    "astonish",
+    "놀라게 하다"
+   ],
+   [
+    "surprise",
+    "놀라게 하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be amazed at",
+    "~에 놀라다"
+   ]
+  ]
+ },
+ "complicate": {
+  "et": "라틴어 complicare(com 함께 + plicare 접다)에서 왔어요. '여러 겹으로 접어 얽히게 하다'라는 뜻이에요.",
+  "pt": "com(함께) + plic(접다) + ate",
+  "fam": [
+   [
+    "complicated",
+    "복잡한"
+   ],
+   [
+    "complex",
+    "복잡한"
+   ]
+  ],
+  "syn": [
+   [
+    "confuse",
+    "혼란스럽게 하다"
+   ]
+  ],
+  "ant": [
+   [
+    "simplify",
+    "단순화하다"
+   ]
+  ],
+  "ph": []
+ },
+ "characteristic": {
+  "et": "그리스어 kharaktēr(새긴 표시, 도장)에서 나온 말이에요. kharassein(새기다)이 뿌리라 '새겨진 듯한 고유한 특징'이라는 뜻이에요.",
+  "pt": "character(특성) + istic(형용사)",
+  "fam": [
+   [
+    "character",
+    "성격"
+   ],
+   [
+    "characterize",
+    "특징짓다"
+   ]
+  ],
+  "syn": [
+   [
+    "feature",
+    "특징"
+   ],
+   [
+    "trait",
+    "특성"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "excite": {
+  "et": "라틴어 excitare(ex 밖으로 + ciere 움직이게 하다)에서 왔어요. '불러내어 들뜨게 하다'라는 뜻이에요.",
+  "pt": "ex(밖으로) + cite(움직이게 하다)",
+  "fam": [
+   [
+    "exciting",
+    "신나는"
+   ],
+   [
+    "excited",
+    "신난"
+   ],
+   [
+    "excitement",
+    "흥분"
+   ]
+  ],
+  "syn": [
+   [
+    "thrill",
+    "신나게 하다"
+   ]
+  ],
+  "ant": [
+   [
+    "calm",
+    "진정시키다"
+   ]
+  ],
+  "ph": [
+   [
+    "be excited about",
+    "~에 신나다"
+   ]
+  ]
+ },
+ "vary": {
+  "et": "라틴어 variare(바꾸다)에서 왔고, varius(가지각색의)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "variety",
+    "다양성"
+   ],
+   [
+    "various",
+    "다양한"
+   ],
+   [
+    "variable",
+    "변수"
+   ]
+  ],
+  "syn": [
+   [
+    "differ",
+    "다르다"
+   ],
+   [
+    "change",
+    "바꾸다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "vary from A to B",
+    "A에서 B까지 다양하다"
+   ]
+  ]
+ },
+ "emphasize": {
+  "et": "emphasis(강조) + -ize예요. 그리스어 emphainein(en 안에 + phainein 보여 주다)에서 온 말이에요.",
+  "pt": "em(안에) + phas(보여 주다) + ize",
+  "fam": [
+   [
+    "emphasis",
+    "강조"
+   ]
+  ],
+  "syn": [
+   [
+    "stress",
+    "강조하다"
+   ],
+   [
+    "highlight",
+    "강조하다"
+   ]
+  ],
+  "ant": [
+   [
+    "downplay",
+    "경시하다"
+   ]
+  ],
+  "ph": []
+ },
+ "injure": {
+  "et": "injury(부상)에서 거꾸로 만든 말이에요. 라틴어 injuria(부당한 행위)에서 왔는데, in(아닌) + jus(권리, 법)가 합쳐졌어요.",
+  "pt": "in(아닌) + jure(법, 권리)",
+  "fam": [
+   [
+    "injury",
+    "부상"
+   ],
+   [
+    "injured",
+    "다친"
+   ],
+   [
+    "justice",
+    "정의"
+   ]
+  ],
+  "syn": [
+   [
+    "hurt",
+    "다치게 하다"
+   ],
+   [
+    "wound",
+    "상처 입히다"
+   ]
+  ],
+  "ant": [
+   [
+    "heal",
+    "치료하다"
+   ]
+  ],
+  "ph": []
+ },
+ "graph": {
+  "et": "1878년 graphic formula(그림 공식)를 줄여 생긴 말이에요. 그리스어 graphein(쓰다, 그리다)이 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "graphic",
+    "그래픽"
+   ],
+   [
+    "photograph",
+    "사진"
+   ]
+  ],
+  "syn": [
+   [
+    "chart",
+    "도표"
+   ],
+   [
+    "diagram",
+    "도표"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "bar graph",
+    "막대그래프"
+   ]
+  ]
+ },
+ "insure": {
+  "et": "ensure(확실하게 하다)의 다른 형태예요. 앵글로·프랑스어 enseurer에서 왔고 sure(확실한)가 들어 있어요.",
+  "pt": "in(~하게 하다) + sure(확실한)",
+  "fam": [
+   [
+    "insurance",
+    "보험"
+   ],
+   [
+    "ensure",
+    "보장하다"
+   ],
+   [
+    "sure",
+    "확실한"
+   ]
+  ],
+  "syn": [
+   [
+    "cover",
+    "보장하다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "insure against",
+    "~에 대비해 보험에 들다"
+   ]
+  ]
+ },
+ "converse": {
+  "et": "라틴어 conversari(함께 지내다)에서 왔어요. con(함께) + versari(이리저리 돌다)가 합쳐진 말이에요.",
+  "pt": "con(함께) + verse(돌다)",
+  "fam": [
+   [
+    "conversation",
+    "대화"
+   ]
+  ],
+  "syn": [
+   [
+    "talk",
+    "이야기하다"
+   ],
+   [
+    "chat",
+    "수다 떨다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "converse with",
+    "~와 대화하다"
+   ]
+  ]
+ },
+ "illustrate": {
+  "et": "라틴어 illustrare(in 위에 + lustrare 비추다)에서 왔어요. '빛을 비춰 환히 밝히다'에서 '설명하다, 그림을 넣다'가 되었어요.",
+  "pt": "il(위에) + lustr(비추다) + ate",
+  "fam": [
+   [
+    "illustration",
+    "삽화"
+   ],
+   [
+    "illustrator",
+    "삽화가"
+   ]
+  ],
+  "syn": [
+   [
+    "explain",
+    "설명하다"
+   ],
+   [
+    "show",
+    "보여 주다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "pollute": {
+  "et": "라틴어 polluere(더럽히다)에서 왔어요.",
+  "pt": "",
+  "fam": [
+   [
+    "pollution",
+    "오염"
+   ],
+   [
+    "pollutant",
+    "오염 물질"
+   ]
+  ],
+  "syn": [
+   [
+    "contaminate",
+    "오염시키다"
+   ]
+  ],
+  "ant": [
+   [
+    "purify",
+    "정화하다"
+   ],
+   [
+    "clean",
+    "깨끗하게 하다"
+   ]
+  ],
+  "ph": []
+ },
+ "depress": {
+  "et": "라틴어 deprimere(de 아래로 + premere 누르다)에서 옛 프랑스어를 거쳐 왔어요. '내리누르다'에서 '기분을 가라앉게 하다'가 되었어요.",
+  "pt": "de(아래로) + press(누르다)",
+  "fam": [
+   [
+    "depression",
+    "우울증, 불황"
+   ],
+   [
+    "depressed",
+    "우울한"
+   ],
+   [
+    "press",
+    "누르다"
+   ]
+  ],
+  "syn": [
+   [
+    "sadden",
+    "슬프게 하다"
+   ]
+  ],
+  "ant": [
+   [
+    "cheer up",
+    "기운을 북돋다"
+   ]
+  ],
+  "ph": []
+ },
+ "fascinate": {
+  "et": "라틴어 fascinare(마법을 걸다)에서 왔어요. fascinus는 '주문, 마법'이라는 뜻이에요.",
+  "pt": "",
+  "fam": [
+   [
+    "fascinating",
+    "매혹적인"
+   ],
+   [
+    "fascination",
+    "매혹"
+   ]
+  ],
+  "syn": [
+   [
+    "attract",
+    "끌다"
+   ],
+   [
+    "charm",
+    "매혹하다"
+   ]
+  ],
+  "ant": [
+   [
+    "bore",
+    "지루하게 하다"
+   ]
+  ],
+  "ph": [
+   [
+    "be fascinated by",
+    "~에 매료되다"
+   ]
+  ]
+ },
+ "frustrate": {
+  "et": "라틴어 frustrari(속이다, 실망시키다)에서 왔어요. frustra(헛되이)가 뿌리예요.",
+  "pt": "",
+  "fam": [
+   [
+    "frustration",
+    "좌절"
+   ],
+   [
+    "frustrated",
+    "좌절한"
+   ],
+   [
+    "frustrating",
+    "답답한"
+   ]
+  ],
+  "syn": [
+   [
+    "disappoint",
+    "실망시키다"
+   ]
+  ],
+  "ant": [
+   [
+    "encourage",
+    "격려하다"
+   ]
+  ],
+  "ph": []
+ },
+ "advertize": {
+  "et": "advertise의 다른 철자예요. 옛 프랑스어 avertir(알리다)에서 왔고, 라틴어 advertere(ad ~쪽으로 + vertere 돌리다)가 뿌리라 '사람들의 관심을 ~쪽으로 돌리다'라는 뜻이에요.",
+  "pt": "ad(~쪽으로) + vert(돌리다) + ize",
+  "fam": [
+   [
+    "advertisement",
+    "광고"
+   ],
+   [
+    "advertiser",
+    "광고주"
+   ],
+   [
+    "advertise",
+    "광고하다"
+   ]
+  ],
+  "syn": [
+   [
+    "promote",
+    "홍보하다"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "especial": {
+  "et": "옛 프랑스어 especial에서 왔고, 라틴어 specialis(특별한)가 뿌리예요. special과 같은 말인데 지금은 주로 especially 형태로 써요.",
+  "pt": "e + special(특별한)",
+  "fam": [
+   [
+    "especially",
+    "특히"
+   ],
+   [
+    "special",
+    "특별한"
+   ]
+  ],
+  "syn": [
+   [
+    "particular",
+    "특별한"
+   ]
+  ],
+  "ant": [
+   [
+    "ordinary",
+    "평범한"
+   ]
+  ],
+  "ph": []
+ },
+ "livingroom": {
+  "et": "living(생활하는) + room(방)으로, 보통은 띄어서 living room이라고 써요. 19세기에 '가족이 생활하는 방'이라는 뜻으로 쓰이기 시작했어요.",
+  "pt": "living(생활) + room(방)",
+  "fam": [
+   [
+    "live",
+    "살다"
+   ]
+  ],
+  "syn": [
+   [
+    "lounge",
+    "거실"
+   ]
+  ],
+  "ant": [],
+  "ph": []
+ },
+ "situate": {
+  "et": "중세 라틴어 situare(놓다)에서 왔어요. 라틴어 situs(위치, 장소)가 뿌리예요.",
+  "pt": "situ(위치) + ate",
+  "fam": [
+   [
+    "situation",
+    "상황"
+   ],
+   [
+    "site",
+    "장소"
+   ]
+  ],
+  "syn": [
+   [
+    "locate",
+    "위치시키다"
+   ],
+   [
+    "place",
+    "두다"
+   ]
+  ],
+  "ant": [],
+  "ph": [
+   [
+    "be situated in",
+    "~에 위치하다"
+   ]
+  ]
+ }
+}

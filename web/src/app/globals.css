@@ -1,0 +1,8 @@
+/* 화면 모양은 프로토타입 CSS를 그대로 쓴다 (src/styles/proto, npm run proto-css로 생성).
+   여기에는 iframe 대신 쓰는 틀만 둔다. */
+.frames > .pg {
+  position: absolute;
+  inset: 0;
+  /* iframe처럼: 화면 안의 position:fixed(슬라이드·알림창)가 이 틀을 기준으로 놓이게 */
+  transform: translateZ(0);
+}

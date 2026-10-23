@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:1024,height:820}}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.addInitScript(()=>{ localStorage.setItem('harugongbu-auth',JSON.stringify({email:'a@b.c',kids:[{name:'민왕이',grade:'초5'}]})); });
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1300); await pg.evaluate(()=>document.querySelectorAll('.alm').forEach(x=>x.remove()));
+await pg.click('#gnav [data-g=study]'); await pg.waitForTimeout(700);
+let M; for(const f of pg.frames().slice(1)) if((await f.title())==='셈하루') M=f;
+console.log('home top hidden', await pg.$eval('.top',e=>e.hidden));
+await M.click('#goCards'); await pg.waitForTimeout(500); console.log('quiz top hidden', await pg.$eval('.top',e=>e.hidden)); await pg.screenshot({path:'sb1.png'});
+await M.click('#bBack'); await pg.waitForTimeout(500); console.log('back top hidden', await pg.$eval('.top',e=>e.hidden));
+await pg.click('#ddb'); await pg.click('#ddm [data-s=hanja]'); await pg.waitForTimeout(500); await pg.click('#ddb'); await pg.click('#ddm [data-s=math]'); await pg.waitForTimeout(300); console.log('switch back top hidden', await pg.$eval('.top',e=>e.hidden));
+console.log(errs); await b.close();

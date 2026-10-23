@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+const SP=process.cwd()+'/shots/';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:420,height:1500},deviceScaleFactor:2}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.addInitScript(()=>{ localStorage.setItem('harugongbu-auth',JSON.stringify({email:'a@b.c',kids:[{name:'민왕이',grade:'초5'}]})); });
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1300); await pg.evaluate(()=>document.querySelectorAll('.alm').forEach(x=>x.remove()));
+await pg.click('#gnav [data-g=study]'); await pg.waitForTimeout(700);
+await pg.click('#ddb'); await pg.click('#ddm [data-s=eng]'); await pg.waitForTimeout(800);
+let M; for(const f of pg.frames().slice(1)) if((await f.title())==='영단어하루') M=f;
+await M.click('.slbtn'); await pg.waitForTimeout(500); if(await M.$('[data-m=view][aria-pressed=false]')) await M.click('[data-m=view]');
+await M.click('[data-a=next]'); await M.click('[data-a=next]'); await pg.waitForTimeout(500);
+await pg.screenshot({path:SP+'ety.png'}); console.log(errs); await b.close();

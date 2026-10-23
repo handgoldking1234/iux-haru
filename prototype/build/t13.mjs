@@ -1,0 +1,15 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const pg=await b.newPage({viewport:{width:400,height:860},deviceScaleFactor:2});
+const errs=[]; pg.on('pageerror',e=>errs.push(e.message));
+await pg.goto('file://'+process.cwd()+'/english.html'); await pg.waitForTimeout(800);
+await pg.screenshot({path:'e1-home.png'});
+console.log(await pg.evaluate(()=>{ let bad=[]; for(const w of ALL) for(const t of ['m','k','b','s']){ try{ const q=makeQ({ch:w,t}); if(!q.spell&&(new Set(q.choices).size!==4||!q.choices.includes(q.ans))) bad.push(w+t+':'+q.choices.join('/')); infoHTML(w);}catch(e){bad.push(w+t+e.message)} } return [STAGES.length, STAGES.filter(s=>s.kind==='exam').map(s=>s.name+s.chars.length).join(','), bad.length, bad.slice(0,6)]; }));
+await pg.evaluate(()=>{ start('new','x'); }); await pg.waitForTimeout(300); await pg.screenshot({path:'e2-gate.png'});
+await pg.evaluate(()=>{ const p=P(); p.read[curSt(p).id]=true; G=null; start('new','초등 1단원'); }); await pg.waitForTimeout(300); await pg.screenshot({path:'e3-q.png'});
+await pg.evaluate(()=>{ choose(G.cur.choices.indexOf(G.cur.ans)); }); await pg.waitForTimeout(200); await pg.evaluate(()=>screen.scrollTop=300); await pg.screenshot({path:'e4-ans.png'});
+await pg.evaluate(()=>{ next(); G.cur=makeQ({ch:curSt(P()).chars[1],t:'s'}); G.cur.src='new'; drawPlay(); }); await pg.waitForTimeout(200);
+const w=await pg.evaluate(()=>G.cur.ans); await pg.type('#sp', w); await pg.waitForTimeout(300); await pg.screenshot({path:'e5-spell.png'});
+console.log('spell logged',await pg.evaluate(()=>G.log.slice(-1)[0]));
+await pg.evaluate(()=>{ next(); G.cur=makeQ({ch:curSt(P()).chars[2],t:'b'}); G.cur.src='new'; drawPlay(); }); await pg.waitForTimeout(200); await pg.screenshot({path:'e6-blank.png'});
+console.log(errs); await b.close();

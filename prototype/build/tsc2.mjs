@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:2}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.addInitScript(()=>{ localStorage.setItem('harugongbu-auth',JSON.stringify({email:'a@b.c',kids:[{name:'민왕이',grade:'초5'}]})); });
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1300); await pg.evaluate(()=>document.querySelectorAll('.alm').forEach(x=>x.remove()));
+await pg.click('#gnav [data-g=study]'); await pg.waitForTimeout(400); await pg.click('#ddb'); await pg.click('#ddm [data-s=sci]'); await pg.waitForTimeout(900);
+await pg.screenshot({path:'sx_home.png'});
+let F; for(const f of pg.frames().slice(1)) if((await f.title())==='과학하루') F=f;
+await F.evaluate(()=>{ const p=P(); openConcept(curSt(p).id,true,()=>{}); }).catch(e=>console.log('oc',e.message));
+await pg.waitForTimeout(400); await pg.screenshot({path:'sx_cx.png',fullPage:false});
+await F.evaluate(()=>{ document.querySelector('#screen').scrollTop=500; }); await pg.waitForTimeout(200); await pg.screenshot({path:'sx_cx2.png'});
+console.log(errs); await b.close();

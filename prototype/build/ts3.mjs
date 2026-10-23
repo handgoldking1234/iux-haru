@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome'});
+const errs=[]; const pg=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:2}); pg.on('pageerror',e=>errs.push(e.message));
+await pg.goto('file://'+process.cwd()+'/study.html'); await pg.waitForTimeout(1200);
+let P; for(const f of pg.frames().slice(1)) if((await f.title())==='홈') P=f;
+await pg.evaluate(()=>{ const t=HGS.dayN(), st=HGS.st; st.since=t-30; st.hist={}; st.log={}; for(let k=t-28;k<t;k++){ if(k%5===0) continue; const ok=30+((k*7)%40), no=(k*3)%9; st.hist[k]={ok,no,done:ok>45}; if(k>t-8) st.log[k]={by:{math:ok*.4|0,hanja:ok*.2|0,eng:ok*.25|0,kor:ok*.15|0},byNo:{math:no*.3|0,hanja:no*.2|0,eng:(no*.4|0)+2,kor:no*.1|0},no,plan:st.plan,paid:{},done:ok>45}; } HGS.save(); });
+await P.evaluate(()=>{ for(let i=0;i<14;i++) parent.postMessage({hg:'ok',s:'math'},'*'); parent.postMessage({hg:'no',s:'eng'},'*'); });
+await pg.waitForTimeout(400);
+await P.evaluate(()=>{ setTab('my'); const el=[...document.querySelectorAll('.sh')].find(x=>x.textContent.includes('통계')); el.scrollIntoView(); }); await pg.waitForTimeout(300);
+await pg.screenshot({path:'sx1.png'});
+await P.evaluate(()=>{ document.querySelector('#screen').scrollTop+=700; }); await pg.waitForTimeout(200); await pg.screenshot({path:'sx2.png'});
+await P.evaluate(()=>{ document.querySelector('#screen').scrollTop+=650; }); await pg.waitForTimeout(200);
+const g=await P.$('.chart .hv'); if(g){ await g.hover(); } await pg.waitForTimeout(200); await pg.screenshot({path:'sx3.png'});
+console.log(errs); await b.close();

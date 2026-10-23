@@ -1,0 +1,48 @@
+{
+  "source": "prototype v62",
+  "subjects": {
+    "hanja": {
+      "file": "hanja.json",
+      "bytes": 427657,
+      "chars": 3500,
+      "units": 352,
+      "phrases": 250
+    },
+    "eng": {
+      "file": "eng.json",
+      "bytes": 1266388,
+      "words": 3000,
+      "units": 312,
+      "ety": 3000
+    },
+    "sci": {
+      "file": "sci.json",
+      "bytes": 1627194,
+      "units": 229,
+      "items": 2290,
+      "mc": 1832
+    },
+    "kor": {
+      "file": "kor.json",
+      "bytes": 756339,
+      "units": 61,
+      "items": 610,
+      "mc": 610
+    },
+    "hist": {
+      "file": "hist.json",
+      "bytes": 290260,
+      "units": 101,
+      "items": 1010,
+      "timeline": 464
+    },
+    "typ": {
+      "file": "typ.json",
+      "bytes": 49401,
+      "koW": 508,
+      "koS": 302,
+      "enW": 752,
+      "enS": 794
+    }
+  }
+}

@@ -4,7 +4,8 @@ import { BookOpen, House, Swords, Trophy, UserRound, X } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { backlogTotal as backTotal, block, gamesLeft, tasks, todayDone } from '@/lib/rewards/rewards';
-import { myRank } from '@/lib/play/data';
+import { myRank, myVal } from '@/lib/play/data';
+import { rankWith, useBoard } from '@/lib/play/ranking';
 import { MENU_ORDER, SUBJECTS } from '@/lib/subjects';
 import { useKid } from './Kid';
 
@@ -104,7 +105,8 @@ const NAV = [
 export function BottomNav() {
   const path = usePathname();
   const router = useRouter();
-  const { rewards, today } = useKid();
+  const { kid, rewards, today } = useKid();
+  const weekBoard = useBoard('week', kid.id);
   const study = tasks(rewards, today).reduce((a, t) => a + Math.max(0, t.goal - t.n), 0) + backTotal(rewards, today);
   const cur = path.split('/')[1];
   const [on, setOn] = useState(true);
@@ -116,7 +118,7 @@ export function BottomNav() {
     <nav className="gnav" aria-label="메뉴">
       <div className="gbox">
         {NAV.map(({ g, name, I }) => {
-          const n = g === 'study' ? study : g === 'rank' ? myRank(rewards, 'week', today) : 0;
+          const n = g === 'study' ? study : g === 'rank' ? (weekBoard ? rankWith(weekBoard, myVal(rewards, 'week', today)) : myRank(rewards, 'week', today)) : 0;
           return (
             <button key={g} aria-current={cur === g ? 'page' : undefined} onClick={() => router.push(`/${g}`)}>
               <I aria-hidden /><span>{name}</span>

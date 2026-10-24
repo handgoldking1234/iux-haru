@@ -15,7 +15,7 @@ export interface SubjectInfo {
 }
 
 export const SUBJECTS: Record<SubjectKey, SubjectInfo> = {
-  math: { key: 'math', name: '연산', color: '#CA8A04', soft: '#FEF7D6', tracks: [], cards: false },
+  math: { key: 'math', name: '연산', color: '#F59F00', soft: '#FFF4C2', tracks: [], cards: false },
   hanja: {
     key: 'hanja', name: '한자', color: '#C2410C', soft: '#FDEDE4', cards: true,
     tracks: [{ key: 'school', name: '학교 필수' }, { key: 'grade', name: '급수별' }, { key: 'cjm', name: '천자문' }],

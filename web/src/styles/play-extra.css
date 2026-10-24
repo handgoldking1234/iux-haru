@@ -3,3 +3,7 @@
 /* 둥근 모서리 줄이기: 버튼 14→10px, 안내 상자 12→8px */
 .pg-play .btn{border-radius:10px}
 .pg-play .gblock{border-radius:8px}
+
+/* 설정 줄의 선택 버튼 글자는 한 줄로 (무제한 등) */
+.pg-play .setrow .seg button{white-space:nowrap}
+.pg-play .setrow>span{min-width:0}

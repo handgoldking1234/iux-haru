@@ -40,5 +40,3 @@
 .pg-math .wkme .wkt{font-size:14px;color:var(--sub);line-height:1.6}
 .pg-math .wkme .wkt b{color:var(--k)}
 
-/* 오늘 기록: 칸 사이 세로선 제거 */
-.pg-math .stat3 div+div{border-left:0}

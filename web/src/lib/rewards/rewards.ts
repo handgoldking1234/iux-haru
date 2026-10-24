@@ -17,6 +17,8 @@ export const BONUS = { grad: 5, pass: 20, done: 20, backDay: 5 };
 export const BACKLOG_DAYS = 7;
 export const CURFEW_HOUR = 21;
 export const GAME_LIMITS = [1, 3, 5] as const;
+/** 타자 하루 최대 시간(분) — 0은 제한 없음, 기본 30분 (보호자 설정) */
+export const TYP_LIMITS = [15, 30, 60, 0] as const;
 
 export type Plan = Record<SubjectKey, number>;
 export const DEFAULT_PLAN: Plan = { math: 20, hanja: 10, eng: 10, kor: 10, hist: 0, sci: 0, typ: 0 };
@@ -87,6 +89,9 @@ export interface RewardState {
   wkBy: Record<number, Partial<Record<SubjectKey, number>>>;
   plan: Plan;
   gameLimit: (typeof GAME_LIMITS)[number];
+  typLimit: (typeof TYP_LIMITS)[number];
+  /** 날짜별 타자 연습 시간(ms) */
+  typMs: Record<number, number>;
   curfew: boolean;
   backGate: boolean;
   /** 가입한 날 — 밀린 공부는 이날부터 센다 */
@@ -116,7 +121,7 @@ export const dayNumber = (d: Date) => Math.floor((d.getTime() - d.getTimezoneOff
 export const weekNumber = (day: number) => Math.floor((day + 3) / 7);
 
 export const freshRewards = (today: number): RewardState => ({
-  xp: 0, cash: 30, total: 0, wk: {}, wkBy: {}, plan: { ...DEFAULT_PLAN }, gameLimit: 3,
+  xp: 0, cash: 30, total: 0, wk: {}, wkBy: {}, plan: { ...DEFAULT_PLAN }, gameLimit: 3, typLimit: 30, typMs: {},
   curfew: false, backGate: true, since: today, day: null, log: {},
   eq: { ...DEFAULT_EQ }, owned: [], alarms: DEFAULT_ALARMS.map((a) => ({ ...a })), hist: {},
 });
@@ -311,3 +316,6 @@ export const weekOkOf = (st: RewardState, s: SubjectKey, today: number) => st.wk
 /** 과목 학습결과의 '이번 주 기록' 문구 (내 기록만 — 남과 비교하지 않음) */
 export const weekOkText = (n: number, name: string) =>
   n ? `이번 주 ${name}에서 <b>${n}문제</b> 맞혔어요. 월요일에 새로 세요.` : '이번 주에는 아직 맞힌 문제가 없어요. 오늘 할 일부터 시작해요.';
+
+/** 오늘 타자 연습을 더 할 수 있는 시간(ms) — 제한 없음이면 Infinity */
+export const typLeftMs = (st: RewardState, today: number) => (st.typLimit ? Math.max(0, st.typLimit * 60000 - (st.typMs?.[today] ?? 0)) : Infinity);

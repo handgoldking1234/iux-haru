@@ -10,7 +10,7 @@ import { logout } from '@/lib/account';
 import { AVI, CATS, avatar, stampKind, stampSVG } from '@/lib/play/avatar';
 import { GSUBJ } from '@/lib/play/data';
 import { bindTips, myStats, statsInner } from '@/lib/play/stats';
-import { allDone, GRADES, gradeOf, tasks, type Equip, type RewardState } from '@/lib/rewards/rewards';
+import { allDone, GRADES, gradeOf, tasks, TYP_LIMITS, type Equip, type RewardState } from '@/lib/rewards/rewards';
 import { updateRewards, useAuth } from '@/lib/store';
 import { SUBJECT_KEYS, SUBJECTS } from '@/lib/subjects';
 
@@ -74,6 +74,11 @@ function Settings({ st, save, email }: { st: RewardState; save: (f: (s: RewardSt
         <div className="setrow"><span>영단어 펜으로 쓰기 (철자 문제·따라 쓰기)</span><button className="sw" role="switch" aria-checked={st.engWrite !== false} aria-label="영단어 펜으로 쓰기" onClick={() => save((s) => { s.engWrite = s.engWrite === false; })} /></div>
         <div className="setrow"><span>한자 쓰기 문제 넣기 (펜·손가락)</span><button className="sw" role="switch" aria-checked={st.hanjaWrite !== false} aria-label="한자 쓰기 문제 넣기" onClick={() => save((s) => { s.hanjaWrite = s.hanjaWrite === false; })} /></div>
         <div className="setrow"><span>밀린 공부도 끝내야 꾸미기·게임 열기</span><button className="sw" role="switch" aria-checked={!!st.backGate} aria-label="밀린 공부도 끝내야 열기" onClick={() => save((s) => { s.backGate = !s.backGate; })} /></div>
+        <div className="setrow"><span>타자 하루 최대 시간<small className="sub" style={{ display: 'block' }}>다 쓰면 그날은 타자 연습이 닫혀요</small></span>
+          <div className="seg" role="group">
+            {TYP_LIMITS.map((v) => <button key={v} className={(st.typLimit ?? 30) === v ? 'on' : ''} onClick={() => save((s) => { s.typLimit = v; })}>{v ? `${v}분` : '무제한'}</button>)}
+          </div>
+        </div>
         <p className="note">출시 버전에서는 보호자 비밀번호를 넣어야 바꿀 수 있어요.</p>
       </section>
       <section className="sec">

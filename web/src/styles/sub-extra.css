@@ -1,7 +1,8 @@
 /* 과목 화면(한자·영단어·국어·과학·역사) 사용자 요청 수정 — 프로토타입 이후 추가, 손으로 고치는 파일 */
 
 /* 오늘 학습 카드: 문제 수는 '오늘 학습' 제목 줄 오른쪽, 구성(오답 다시…)은 그 아래 */
-.pg-sub .pc-top .pc-amt{margin-left:auto;line-height:1}
+.pg-sub .pc-top .pc-amt{margin-left:auto;line-height:1;font-size:22px}
+.pg-sub .pc-top .pc-amt small{font-size:14px}
 .pg-sub .pc-top .latepill{margin-left:0}
 
 /* 나의 학습 길: 지금 칸(.now)에 '지금 단계' 카드용 .now 여백(0 16px)이 붙어 간격이 어긋나던 것 */

@@ -9,7 +9,8 @@
 .pg-math .wpop .tip{min-height:0;text-align:left;margin:0 4px}
 
 /* 오늘 학습 카드: 문제 수는 '오늘 학습' 제목 줄 오른쪽, 구성(오답 다시…)은 그 아래 */
-.pg-math .pc-top .pc-amt{margin-left:auto;line-height:1}
+.pg-math .pc-top .pc-amt{margin-left:auto;line-height:1;font-size:22px}
+.pg-math .pc-top .pc-amt small{font-size:14px}
 .pg-math .pc-top .latepill{margin-left:0}
 
 /* 오늘 기록: 아이콘을 오른쪽에, 숫자·이름은 왼쪽 두 줄로 (세로 공간 줄이기) */

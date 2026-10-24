@@ -34,3 +34,7 @@
 .pg-math .dialog .qrow{display:flex;gap:8px;justify-content:flex-end}
 .pg-math .dialog .qrow button{align-self:auto}
 .pg-math .dialog .qrow .qno{background:var(--bg);color:var(--k)}
+
+/* 학습결과: 이번 주 이 과목 기록 (내 기록만) */
+.pg-math .wkme .wkt{font-size:14px;color:var(--sub);line-height:1.6}
+.pg-math .wkme .wkt b{color:var(--k)}

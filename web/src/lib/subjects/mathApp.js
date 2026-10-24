@@ -2,7 +2,7 @@
 // @ts-nocheck
 /**
  * 연산(셈하루) — prototype/build/math.html을 그대로 옮김 (자동 생성: scripts/math-app.mjs, 직접 고치지 않기)
- * env: { hg(e), load(), save(S), fresh(), switchKid(), onSub(off, tabs) }
+ * env: { hg(e), load(), save(S), fresh(), switchKid(), onSub(off, tabs), weekOk() }
  */
 export const MATH_SKELETON = "<div class=\"app\">\n  <header id=\"bar\"></header>\n  <div id=\"screen\"></div>\n  <nav id=\"tabs\">\n    <button data-tab=\"home\"><span class=\"tb\"><i data-lucide=\"house\"></i></span>연산학습</button>\n    <button data-tab=\"cards\"><span class=\"tb\"><i data-lucide=\"notebook-pen\"></i></span>오답노트</button>\n    <button data-tab=\"report\"><span class=\"tb\"><i data-lucide=\"chart-pie\"></i></span>학습결과</button>\n  </nav>\n</div>";
 
@@ -614,6 +614,7 @@ function renderReport(){
       <p class="note">${rmode==='day'?'하루 목표 15분':`${span}일 중 ${att}일 출석 · 하루 목표 15분`}</p>
     </section>
     </div>
+    <section class="card wkme"><h3>이번 주 기록</h3><div class="wkt">${env.weekOk()}</div></section>
     ${rmode!=='day'?`<section class="card"><h3>하루 푼 문제</h3>
       <div class="week ${rmode}">${hs.map((h,i)=>`<div><small>${rmode==='week'&&h.n?h.n:''}</small><i class="${days[i]===t?'td':''}" style="height:${h.n/mx*100}%"></i></div>`).join('')}</div>
       ${rmode==='week'?`<div class="days">${days.map(d=>`<span>${d===t?'오늘':DOW[new Date(d*864e5).getUTCDay()]}</span>`).join('')}</div>`:''}</section>`:''}

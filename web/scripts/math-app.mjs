@@ -61,7 +61,7 @@ rep(`      <div class="shortcuts">
 
 /* 사용자 요청: 학습결과 두 그래프(총 문제 개수·총 학습 시간)를 한 줄에 */
 rep('    <section class="card center">\n      ${ring(tot.n/goalN', '    <div class="ringrow">\n    <section class="card center">\n      ${ring(tot.n/goalN');
-rep('하루 목표 15분`}</p>\n    </section>', '하루 목표 15분`}</p>\n    </section>\n    </div>');
+rep('하루 목표 15분`}</p>\n    </section>', '하루 목표 15분`}</p>\n    </section>\n    </div>\n    <section class="card wkme"><h3>이번 주 기록</h3><div class="wkt">${env.weekOk()}</div></section>');
 
 /* 사용자 요청: 입력 버튼의 '· 자릿수만큼 넣으면 자동' 문구 제거 */
 rep('<button data-k="ok" class="okbtn">입력 <small style="font-weight:500;opacity:.8">· 자릿수만큼 넣으면 자동</small></button>', '<button data-k="ok" class="okbtn">입력</button>');
@@ -99,7 +99,7 @@ const out = `/* eslint-disable */
 // @ts-nocheck
 /**
  * 연산(셈하루) — prototype/build/math.html을 그대로 옮김 (자동 생성: scripts/math-app.mjs, 직접 고치지 않기)
- * env: { hg(e), load(), save(S), fresh(), switchKid(), onSub(off, tabs) }
+ * env: { hg(e), load(), save(S), fresh(), switchKid(), onSub(off, tabs), weekOk() }
  */
 export const MATH_SKELETON = ${JSON.stringify(skeleton)};
 

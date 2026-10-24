@@ -46,3 +46,7 @@
 .pg-sub .dialog .qrow{display:flex;gap:8px;justify-content:flex-end}
 .pg-sub .dialog .qrow button{align-self:auto}
 .pg-sub .dialog .qrow .qno{background:var(--bg);color:var(--k)}
+
+/* 학습결과: 이번 주 이 과목 기록 (내 기록만) */
+.pg-sub .wkme .wkt{font-size:14px;color:var(--sub);line-height:1.6}
+.pg-sub .wkme .wkt b{color:var(--k)}

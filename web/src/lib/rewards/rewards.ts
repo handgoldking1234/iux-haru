@@ -83,6 +83,8 @@ export interface RewardState {
   total: number;
   /** 주 번호별 XP (이번 주 랭킹) */
   wk: Record<number, number>;
+  /** 주 번호별 과목별 맞힌 수 — 과목 학습결과 '이번 주 기록', 나중에 과목별 랭킹에 쓴다 */
+  wkBy: Record<number, Partial<Record<SubjectKey, number>>>;
   plan: Plan;
   gameLimit: (typeof GAME_LIMITS)[number];
   curfew: boolean;
@@ -114,7 +116,7 @@ export const dayNumber = (d: Date) => Math.floor((d.getTime() - d.getTimezoneOff
 export const weekNumber = (day: number) => Math.floor((day + 3) / 7);
 
 export const freshRewards = (today: number): RewardState => ({
-  xp: 0, cash: 30, total: 0, wk: {}, plan: { ...DEFAULT_PLAN }, gameLimit: 3,
+  xp: 0, cash: 30, total: 0, wk: {}, wkBy: {}, plan: { ...DEFAULT_PLAN }, gameLimit: 3,
   curfew: false, backGate: true, since: today, day: null, log: {},
   eq: { ...DEFAULT_EQ }, owned: [], alarms: DEFAULT_ALARMS.map((a) => ({ ...a })), hist: {},
 });
@@ -259,6 +261,8 @@ export function rewardEvent(st: RewardState, e: 'ok' | 'no' | 'pass' | 'grad', s
     st.xp++;
     const wk = weekNumber(today);
     st.wk[wk] = (st.wk[wk] ?? 0) + 1;
+    const wb = (st.wkBy[wk] ??= {});
+    wb[s] = (wb[s] ?? 0) + 1;
     const after = gradeOf(st.xp);
     if (after > before) {
       out.gradeUp = after;
@@ -300,3 +304,10 @@ export function rewardEvent(st: RewardState, e: 'ok' | 'no' | 'pass' | 'grad', s
   }
   return out;
 }
+
+/** 이번 주 이 과목에서 맞힌 문제 수 */
+export const weekOkOf = (st: RewardState, s: SubjectKey, today: number) => st.wkBy?.[weekNumber(today)]?.[s] ?? 0;
+
+/** 과목 학습결과의 '이번 주 기록' 문구 (내 기록만 — 남과 비교하지 않음) */
+export const weekOkText = (n: number, name: string) =>
+  n ? `이번 주 ${name}에서 <b>${n}문제</b> 맞혔어요. 월요일에 새로 세요.` : '이번 주에는 아직 맞힌 문제가 없어요. 오늘 할 일부터 시작해요.';

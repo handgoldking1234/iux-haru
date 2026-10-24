@@ -12,7 +12,8 @@ import { EXAM_CAP, LEVEL_NAME, levelOf, RULES, wrongCap } from '@/lib/engine/rul
 import { StudySession, type AnswerResult, type Mode, type SessionResult } from '@/lib/engine/session';
 import type { PlayQuestion, Stage } from '@/lib/engine/types';
 import { report } from '@/lib/feedback';
-import { dayNumber } from '@/lib/rewards/rewards';
+import { dayNumber, weekOkOf, weekOkText } from '@/lib/rewards/rewards';
+import { SUBJECTS, type SubjectKey } from '@/lib/subjects';
 import { createSlide, SIC, termCard, termFace } from '@/lib/slide';
 import { freshSave, lastPosStore, loadSave, loadTrack, storeSave, storeTrack, type SubjectSave } from '@/lib/subjectStore';
 import type { PQ, SStage, SubjectDef, SubjectUI, Track } from '@/lib/subjects/types';
@@ -662,6 +663,7 @@ function Report({ def, ui, T, S, trName, today, curArea, stages, onNextDay, onRe
   def: SubjectDef; ui: SubjectUI; T: Track; S: SubjectSave; trName: string; today: number; curArea: string; stages: SStage[];
   onNextDay: () => void; onReset: () => void;
 }) {
+  const { rewards } = useKid();
   const [rmode, setRmode] = useState<'day' | 'week' | 'month'>('day');
   const [rshift, setRshift] = useState(0);
   const [resetArm, setResetArm] = useState(false);
@@ -696,6 +698,7 @@ function Report({ def, ui, T, S, trName, today, curArea, stages, onNextDay, onRe
         <p className="note">{rmode === 'day' ? '하루 목표 10분' : `${span}일 중 ${att}일 출석 · 하루 목표 10분`}</p>
       </section>
       </div>
+      <section className="card wkme"><h3>이번 주 기록</h3><H as="div" className="wkt" html={weekOkText(weekOkOf(rewards, def.key as SubjectKey, today), SUBJECTS[def.key as SubjectKey].name)} /></section>
       {rmode !== 'day' && (
         <section className="card"><h3>하루 푼 문제</h3>
           <div className={`week ${rmode}`}>{hs.map((h, i) => <div key={i}><small>{rmode === 'week' && h.n ? h.n : ''}</small><i className={days[i] === t ? 'td' : ''} style={{ height: `${(h.n / mx) * 100}%` }} /></div>)}</div>

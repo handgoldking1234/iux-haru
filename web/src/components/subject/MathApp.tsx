@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import StudyTop from '@/components/StudyTop';
 import { useKid } from '@/components/Kid';
 import { saveLocal } from '@/lib/sync';
+import { dayNumber, weekOkOf, weekOkText } from '@/lib/rewards/rewards';
+import { getRewards } from '@/lib/store';
 import { report } from '@/lib/feedback';
 import { mountMath } from '@/lib/subjects/mathApp';
 
@@ -26,6 +28,7 @@ export default function MathApp() {
       // 새 학생: 기초(초1 덧셈)부터
       fresh: () => ({ offset: 0, active: 'me', profiles: { me: { id: 'me', name: kid.name, age: kid.grade, color: '#0FA37F', stage: 0, streak: 0, grad: 0, read: {}, passed: {}, sst: {}, stat: {}, hist: {}, cards: [], bp: {} } } }),
       switchKid: () => { location.href = '/kids'; },
+      weekOk: () => weekOkText(weekOkOf(getRewards(kid.name), 'math', dayNumber(new Date())), '연산'),
       onSub: (o: boolean, list: Tab[]) => { setOff(o); setTabs(list); },
     });
     return () => { app.current?.destroy(); app.current = null; };

@@ -8,9 +8,10 @@
 .pg-math .wpop[hidden]{display:none}
 .pg-math .wpop .tip{min-height:0;text-align:left;margin:0 4px}
 
-/* 오늘 학습 카드: 문제 수 왼쪽, 구성(오답 다시·단계 복습·새 진도) 오른쪽 한 줄 */
+/* 오늘 학습 카드: 구성(오답 다시·단계 복습·새 진도) 왼쪽, 문제 수 오른쪽 한 줄 */
 .pg-math .pc-row{display:flex;align-items:baseline;justify-content:space-between;gap:4px 12px;flex-wrap:wrap}
-.pg-math .pc-row .mixline{margin:0;text-align:right;margin-left:auto}
+.pg-math .pc-row .mixline{margin:0;text-align:left;order:-1}
+.pg-math .pc-row .pc-amt{margin-left:auto}
 
 /* 오늘 기록: 아이콘을 오른쪽에, 숫자·이름은 왼쪽 두 줄로 (세로 공간 줄이기) */
 .pg-math .stat3 div{display:grid;grid-template-columns:1fr auto;grid-template-areas:"b ic" "s ic";align-items:center;text-align:left;gap:0 8px;padding:0 14px}
@@ -29,7 +30,7 @@
 .pg-math .lvl.l-쉬움,.pg-math .steps span.done{background:var(--y-soft);color:#9A6200}
 .pg-math .shortcuts button:first-child span svg,.pg-math .lic.s-ok svg.lucide{stroke:var(--or)}
 .pg-math .wtb[aria-expanded="true"]{color:var(--or)}
-.pg-math .pc-logo svg.lucide,.pg-math .lic.s-now svg.lucide{stroke:#fff}
+.pg-math .pc-logo svg.lucide,.pg-math .lic.s-now svg.lucide{stroke:var(--k)}
 
 /* 오늘 학습 카드 아래 회색 구분 띠 제거 (다음 칸과 이어 붙임) */
 .pg-math #screen>.sec:has(.paycard)+.sec{margin-top:-8px;padding-top:4px}

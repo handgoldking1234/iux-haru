@@ -30,3 +30,6 @@
 .pg-math .shortcuts button:first-child span svg,.pg-math .lic.s-ok svg.lucide{stroke:var(--or)}
 .pg-math .wtb[aria-expanded="true"]{color:var(--or)}
 .pg-math .pc-logo svg.lucide,.pg-math .lic.s-now svg.lucide{stroke:#fff}
+
+/* 오늘 학습 카드 아래 회색 구분 띠 제거 (다음 칸과 이어 붙임) */
+.pg-math #screen>.sec:has(.paycard)+.sec{margin-top:-8px;padding-top:4px}

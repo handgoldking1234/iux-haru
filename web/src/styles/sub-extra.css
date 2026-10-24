@@ -16,3 +16,6 @@
 .pg-sub .wpop{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);z-index:20;width:min(320px,calc(100vw - 32px));background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 24px rgba(20,24,32,.14);padding:10px;display:flex;flex-direction:column;gap:8px;text-align:left}
 .pg-sub .wpop .wcnt{margin:0}
 .pg-sub .wpop .tip{min-height:0;text-align:left;margin:0 4px}
+
+/* 오늘 학습 카드 아래 회색 구분 띠 제거 (다음 칸과 이어 붙임) */
+.pg-sub #screen>.sec:has(.paycard)+.sec{margin-top:-8px;padding-top:4px}

@@ -6,3 +6,13 @@
 
 /* 나의 학습 길: 지금 칸(.now)에 '지금 단계' 카드용 .now 여백(0 16px)이 붙어 간격이 어긋나던 것 */
 .pg-sub .path span.now{margin:0}
+
+/* 문제 화면: 틀림 옆 안내 아이콘 + 팝업 (연산 math-extra.css와 같은 모양) */
+.pg-sub .ptag{position:relative}
+.pg-sub .wtip{display:inline-flex}
+.pg-sub .wtb{border:0;background:none;padding:2px;margin:-2px;display:grid;place-items:center;color:var(--sub);cursor:pointer;border-radius:50%}
+.pg-sub .wtb svg.lucide{width:17px;height:17px}
+.pg-sub .wtb[aria-expanded="true"]{color:var(--y)}
+.pg-sub .wpop{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);z-index:20;width:min(320px,calc(100vw - 32px));background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 24px rgba(20,24,32,.14);padding:10px;display:flex;flex-direction:column;gap:8px;text-align:left}
+.pg-sub .wpop .wcnt{margin:0}
+.pg-sub .wpop .tip{min-height:0;text-align:left;margin:0 4px}

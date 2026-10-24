@@ -55,6 +55,23 @@ function ring(pct: number, big: string, sub: string, col?: string) {
   return `<svg viewBox="0 0 140 140" class="ring" role="img" aria-label="${big} ${sub}"><circle cx="70" cy="70" r="${r}" fill="none" stroke="var(--hi)" stroke-width="12"/><circle cx="70" cy="70" r="${r}" fill="none" stroke="${col || 'var(--y)'}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${d} ${C}" transform="rotate(-90 70 70)"/><text x="70" y="72" text-anchor="middle" font-size="30" font-weight="900" fill="var(--k)">${big}</text><text x="70" y="94" text-anchor="middle" font-size="11.5" fill="var(--sub)">${sub}</text></svg>`;
 }
 
+/** 틀림 옆 안내 아이콘: 누르면 틀린 개수·개념 보기 안내를 팝업으로 (사용자 요청 — 문제 아래 칸 대신) */
+function WrongTip({ children }: { children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const close = () => setOpen(false);
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, [open]);
+  return (
+    <span className="wtip">
+      <button type="button" className="wtb" aria-label="틀린 개수 안내" aria-expanded={open} onClick={(e) => { e.stopPropagation(); setOpen(!open); }}><L n="info" /></button>
+      {open && <span className="wpop" role="dialog" onClick={(e) => e.stopPropagation()}>{children}</span>}
+    </span>
+  );
+}
+
 export default function SubjectApp({ def, data }: { def: SubjectDef; data: unknown }) {
   const { kid } = useKid();
   const ui: SubjectUI = def.ui ?? DEFAULT_UI;
@@ -303,6 +320,13 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
           <span>{def.tname[c.qtype]} · {c.src === 'exam' ? `정답 ${ex.filter((x) => x.ok).length}/${ex.length}` : st.name}{c.src === 'new' ? ` · 연속 ${p.streak}/${GOAL}` : ''}
             {ui.ptagWrong && c.src === 'new' && <> · <b className="x">틀림 {p.wr[st.id] ?? 0}/{wrongCap(st.area)}</b></>}
             {ui.ptagWrong && c.src === 'exam' && <> · <b className="x">틀림 {ex.filter((x) => !x.ok).length}/{EXAM_CAP}</b></>}</span>
+          <WrongTip key={s.index}>
+            <div className={`wcnt ${wc.wrong >= wc.cap - 1 ? 'full' : ''}`} id="wcnt">
+              <div className="r1"><b>틀린 개수</b><span className="dots">{Array.from({ length: wc.cap }, (_, i) => <i key={i} className={i < wc.wrong ? 'on' : ''} />)}</span><em>{wc.wrong}/{wc.cap}</em></div>
+              <small>{cs.kind === 'exam' ? `${wc.cap}개 틀리면 평가가 끝나요` : `${wc.cap}개 틀리면 「${cs.name}」을 처음부터 다시 해요`} · 이번 학습에서 <b>{sw}개</b> 틀림</small>
+            </div>
+            <p className="tip">{c.src === 'exam' ? `평가 중에는 ${ui.intro === '단원 소개' ? '소개' : '개념'}를 볼 수 없어요. 차분히 골라요.` : <>모르면 오른쪽 위 <L n="circle-help" c="inl" />로 {ui.intro === '단원 소개' ? '단원 소개' : '단원 개념 정리'}를 볼 수 있어요.</>}</p>
+          </WrongTip>
         </div>
         <div className={`${ui.boardCls} ${ps.answered ? (r!.ok ? 'ok' : 'no') : ''}`} id="board">
           <span className={`fb ${ps.answered ? (r!.ok ? 'ok' : 'no') : ''}`} id="fb" dangerouslySetInnerHTML={{ __html: fbHtml }} />
@@ -325,12 +349,7 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
             ))}
           </div>
         )}
-        <div className={`wcnt ${wc.wrong >= wc.cap - 1 ? 'full' : ''}`} id="wcnt">
-          <div className="r1"><b>틀린 개수</b><span className="dots">{Array.from({ length: wc.cap }, (_, i) => <i key={i} className={i < wc.wrong ? 'on' : ''} />)}</span><em>{wc.wrong}/{wc.cap}</em></div>
-          <small>{cs.kind === 'exam' ? `${wc.cap}개 틀리면 평가가 끝나요` : `${wc.cap}개 틀리면 「${cs.name}」을 처음부터 다시 해요`} · 이번 학습에서 <b>{sw}개</b> 틀림</small>
-        </div>
         <div id="after">
-          {!ps.answered && <p className="tip">{c.src === 'exam' ? `평가 중에는 ${ui.intro === '단원 소개' ? '소개' : '개념'}를 볼 수 없어요. 차분히 골라요.` : <>모르면 오른쪽 위 <L n="circle-help" c="inl" />로 {ui.intro === '단원 소개' ? '단원 소개' : '단원 개념 정리'}를 볼 수 있어요.</>}</p>}
           {ps.answered && r!.ok && !passMsg && !restart && <p className="okflash">정답! 다음 문제로 넘어가요</p>}
           {ps.answered && !(r!.ok && !passMsg && !restart) && (
             <>

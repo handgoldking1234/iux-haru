@@ -46,6 +46,10 @@ const navhook = `
 `;
 rep('render(); drawIcons();', navhook + 'render(); drawIcons();');
 
+/* 사용자 요청: 오늘 학습 카드의 구성(오답 다시·단계 복습·새 진도)을 문제 수 오른쪽으로 */
+rep('<div class="pc-amt">${done}<small> / ${total}문제</small></div>\n        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b> · 새 진도 <b>${pl.n}</b></p>',
+  '<div class="pc-row"><div class="pc-amt">${done}<small> / ${total}문제</small></div>\n        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b> · 새 진도 <b>${pl.n}</b></p></div>');
+
 /* 사용자 요청: 문제 아래 안내 문구·틀린 개수 칸을 없애고, 틀림 옆 아이콘을 누르면 같은 내용을 팝업으로 */
 rep('"chevron-down":"<path d=\\"m6 9 6 6 6-6\\"/>"}', '"chevron-down":"<path d=\\"m6 9 6 6 6-6\\"/>","info":"<circle cx=\\"12\\" cy=\\"12\\" r=\\"10\\"/><path d=\\"M12 16v-4\\"/><path d=\\"M12 8h.01\\"/>"}');
 rep("<b class=\"x\">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span></div>", "<b class=\"x\">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span>${wtip()}</div>");

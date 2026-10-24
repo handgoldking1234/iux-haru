@@ -514,8 +514,8 @@ function renderHome(){
       <div class="hrow"><span class="badge">TODAY</span><span class="sub">${dlabel(today())} · ${p.name}의 학습</span></div>
       <div class="paycard">
         <div class="pc-top"><span class="pc-logo">${LI('calculator')}</span><b>오늘 학습</b>${pl.late?`<span class="latepill">밀린 학습 ${pl.late}건</span>`:''}</div>
-        <div class="pc-amt">${done}<small> / ${total}문제</small></div>
-        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b> · 새 진도 <b>${pl.n}</b></p>
+        <div class="pc-row"><div class="pc-amt">${done}<small> / ${total}문제</small></div>
+        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b> · 새 진도 <b>${pl.n}</b></p></div>
         <div class="pc-btns"><button class="gbtn" id="goCards">오답만</button><button class="gbtn" id="goNew">진도만</button><button class="kbtn" id="go">${LI('play')}${done?'이어서':'시작'}</button></div>
       </div>
       <div class="shortcuts">

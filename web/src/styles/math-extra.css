@@ -29,4 +29,4 @@
 .pg-math .lvl.l-쉬움,.pg-math .steps span.done{background:var(--y-soft);color:#9A6200}
 .pg-math .shortcuts button:first-child span svg,.pg-math .lic.s-ok svg.lucide{stroke:var(--or)}
 .pg-math .wtb[aria-expanded="true"]{color:var(--or)}
-.pg-math .pc-logo svg.lucide,.pg-math .lic.s-now svg.lucide{stroke:var(--k)}
+.pg-math .pc-logo svg.lucide,.pg-math .lic.s-now svg.lucide{stroke:#fff}

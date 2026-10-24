@@ -84,6 +84,7 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
   const [S, setS] = useState<SubjectSave>(() => loadSave(kid.name, def.key, tr));
   const [tab, setTab] = useState<Tab>('home');
   const [view, setView] = useState<View>(null);
+  const [quitAsk, setQuitAsk] = useState(false);
   const [areaF, setAreaF] = useState<string | null>(null);
   const [ps, setPs] = useState<PlayState | null>(null);
   const [slideOpen, setSlideOpen] = useState(false);
@@ -283,12 +284,15 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
   const sub = slideOpen || (!!view && view.k !== 'result');
   const introWord = ui.intro === '단원 소개' ? '소개' : '개념 정리';
   let barTitle = '', barBack: (() => void) | null = null, barHelp: (() => void) | null = null;
+  // 학습 중(오늘 학습 첫 개념·문제 풀기)에는 ← 대신 ✕(그만하기) + 확인 창 — 둘러보는 화면은 ← 그대로
+  let barQuit = false;
   let body: React.ReactNode = null;
 
   if (view?.k === 'concept') {
     const s = stages[IDX[view.id]];
     barTitle = s.name;
     barBack = view.back;
+    barQuit = view.gate;
     body = <Concept key={view.id + (view.at ?? '')} def={def} ui={ui} T={T} s={s} gate={view.gate} at={view.at} trName={trName} isNow={IDX[view.id] === p.stage}
       passedScore={(() => { const x = p.passed[view.id]; return x && x.exam ? x.score : null; })()}
       onClose={view.back} onDone={view.gate ? view.practice! : view.back} onPractice={view.gate ? undefined : view.practice}
@@ -302,6 +306,7 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
     barTitle = meta.current.title;
     barBack = () => { if (timer.current) clearTimeout(timer.current); sess.current = null; setPs(null); setView(null); };
     barHelp = c.src === 'exam' ? null : openFromPlay;
+    barQuit = true;
     const ex = s.log.filter((r) => r.src === 'exam');
     const lv = LEVEL_NAME[levelOf(p.bp[st.id] ?? 0)];
     const wc = s.wrongCount(), sw = s.log.filter((r) => !r.ok).length, cs = curSt;
@@ -511,12 +516,21 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
           <div className="app">
             {sub && barBack && (
               <header id="bar">
-                <button className="bb" aria-label="뒤로" onClick={barBack}><L n="arrow-left" /></button>
+                <button className="bb" aria-label={barQuit ? '그만하기' : '뒤로'} onClick={barQuit ? () => setQuitAsk(true) : barBack}><L n={barQuit ? 'x' : 'arrow-left'} /></button>
                 <h1>{barTitle}</h1>
                 {barHelp ? <button className="bb" aria-label={ui.intro === '단원 소개' ? '단원 소개 보기' : '단원 개념 보기'} onClick={barHelp}><L n="circle-help" /></button> : <span className="bb" />}
               </header>
             )}
             <div id="screen" ref={screen}>{body}</div>
+            {quitAsk && barQuit && barBack && (
+              <div className="dim" onClick={(e) => e.target === e.currentTarget && setQuitAsk(false)}>
+                <div className="dialog" role="alertdialog" aria-labelledby="qt">
+                  <h3 id="qt">그만할까요?</h3>
+                  <p>지금까지 푼 문제는 저장돼요. 오늘 학습에서 이어서 할 수 있어요.</p>
+                  <div className="qrow"><button className="qno" onClick={() => setQuitAsk(false)}>계속하기</button><button onClick={() => { setQuitAsk(false); barBack!(); }}>그만하기</button></div>
+                </div>
+              </div>
+            )}
             <div ref={slideHost} style={{ display: 'contents' }} />
             {trace?.kind === 'hanzi' && <TraceModal ch={trace.ch} label={ui.traceLabel?.(trace.ch) ?? trace.ch} onClose={() => setTrace(null)} />}
             {trace?.kind === 'ink' && <InkModal word={trace.ch} label={ui.traceLabel?.(trace.ch) ?? ''} onClose={() => setTrace(null)} />}

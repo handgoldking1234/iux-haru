@@ -29,3 +29,8 @@
 .pg-math .ringrow>.card{gap:4px}
 .pg-math .ringrow .ring{width:150px;margin:-6px auto -10px}
 .pg-math .ringrow .legend{gap:4px 10px}
+
+/* 그만하기 확인 창: 계속하기(회색) · 그만하기 두 버튼 한 줄 */
+.pg-math .dialog .qrow{display:flex;gap:8px;justify-content:flex-end}
+.pg-math .dialog .qrow button{align-self:auto}
+.pg-math .dialog .qrow .qno{background:var(--bg);color:var(--k)}

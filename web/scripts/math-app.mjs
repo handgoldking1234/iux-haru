@@ -66,6 +66,20 @@ rep('하루 목표 15분`}</p>\n    </section>', '하루 목표 15분`}</p>\n   
 /* 사용자 요청: 입력 버튼의 '· 자릿수만큼 넣으면 자동' 문구 제거 */
 rep('<button data-k="ok" class="okbtn">입력 <small style="font-weight:500;opacity:.8">· 자릿수만큼 넣으면 자동</small></button>', '<button data-k="ok" class="okbtn">입력</button>');
 
+/* 사용자 요청: 학습 중(오늘 학습 첫 개념·문제 풀기)에는 ← 대신 ✕(그만하기) + 확인 창 — 둘러보는 화면은 ← 그대로 */
+rep('"chevron-down":"<path d=\\"m6 9 6 6 6-6\\"/>"', '"x":"<path d=\\"M18 6 6 18\\"/><path d=\\"m6 6 12 12\\"/>","chevron-down":"<path d=\\"m6 9 6 6 6-6\\"/>"');
+rep('function setBar(title,{back,help}={}){', 'function setBar(title,{back,help,quit}={}){');
+rep('<button class="bb" id="bBack" aria-label="뒤로">${LI(\'arrow-left\')}</button>', '<button class="bb" id="bBack" aria-label="${quit?\'그만하기\':\'뒤로\'}">${LI(quit?\'x\':\'arrow-left\')}</button>');
+rep("if(back) bar.querySelector('#bBack').onclick=back;", "if(back) bar.querySelector('#bBack').onclick=quit?()=>askQuit(back):back;");
+rep("setBar(`개념 · ${s.name}`,{back:()=>{ if(gate&&G){G=null;document.onkeydown=null;} save(); onClose&&onClose(); }});",
+  "setBar(`개념 · ${s.name}`,{quit:!!(gate&&G),back:()=>{ if(gate&&G){G=null;document.onkeydown=null;} save(); onClose&&onClose(); }});");
+rep("setBar(g.title,{back:()=>{G=null;document.onkeydown=null;save();render();},help:()=>openFromPlay(s.id)});",
+  "setBar(g.title,{quit:true,back:()=>{G=null;document.onkeydown=null;save();render();},help:()=>openFromPlay(s.id)});");
+rep('function setBar(title,{back,help,quit}={}){', `function askQuit(fn){ const app=root.querySelector('.app'); app.querySelector('#qdlg')?.remove();
+  app.insertAdjacentHTML('beforeend','<div class="dim" id="qdlg"><div class="dialog" role="alertdialog" aria-labelledby="qt"><h3 id="qt">그만할까요?</h3><p>지금까지 푼 문제는 저장돼요. 오늘 학습에서 이어서 할 수 있어요.</p><div class="qrow"><button class="qno" data-q="no">계속하기</button><button data-q="yes">그만하기</button></div></div></div>');
+  const d=app.querySelector('#qdlg'); d.onclick=e=>{ const q=e.target.closest('[data-q]')?.dataset.q; if(e.target===d||q==='no') d.remove(); else if(q==='yes'){ d.remove(); fn(); } }; }
+function setBar(title,{back,help,quit}={}){`);
+
 /* 사용자 요청: 문제 아래 안내 문구·틀린 개수 칸을 없애고, 틀림 옆 아이콘을 누르면 같은 내용을 팝업으로 */
 rep('"chevron-down":"<path d=\\"m6 9 6 6 6-6\\"/>"}', '"chevron-down":"<path d=\\"m6 9 6 6 6-6\\"/>","info":"<circle cx=\\"12\\" cy=\\"12\\" r=\\"10\\"/><path d=\\"M12 16v-4\\"/><path d=\\"M12 8h.01\\"/>"}');
 rep("<b class=\"x\">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span></div>", "<b class=\"x\">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span>${wtip()}</div>");

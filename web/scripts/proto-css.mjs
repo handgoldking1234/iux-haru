@@ -48,10 +48,10 @@ const guard = postcss([{
       return `${m[1]}:not(.pg *)${m[2] ?? ''}`;
     });
   },
-}]).process(shellCss, { from: undefined }).css;
-// 검색 창 (build.py가 셸 문서에 덧붙임)
+}]);
+// 검색 창 (build.py가 셸 문서에 덧붙임) — .src(지우기 단추) 등이 연산 배지에 새지 않게 같이 막는다
 const searchCss = fs.readFileSync(path.join(B, 'search.css'), 'utf8');
-fs.writeFileSync(path.join(OUT, 'shell.css'), head + guard + '\n' + searchCss);
+fs.writeFileSync(path.join(OUT, 'shell.css'), head + guard.process(shellCss + '\n' + searchCss, { from: undefined }).css);
 
 // 놀이터
 const play = fs.readFileSync(path.join(B, 'play.css'), 'utf8');

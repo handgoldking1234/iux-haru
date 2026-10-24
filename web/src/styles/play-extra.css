@@ -8,6 +8,5 @@
 .pg-play .setrow .seg button{white-space:nowrap}
 .pg-play .setrow>span{min-width:0}
 
-/* 홈 머리: 하루공부 로고 (심볼 + 글자) */
+/* 홈 머리: 하루5분 로고 글자 */
 .pg-play .b1 h1.brand{display:flex;align-items:center;gap:6px;font-size:21px;font-weight:900;letter-spacing:-.03em}
-.pg-play .b1 h1.brand svg{flex:none;margin-top:-4px}

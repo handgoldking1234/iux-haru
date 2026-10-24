@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react';
 import { allDone } from '@/lib/rewards/rewards';
 import Ic from './Ic';
-import Logo from './Logo';
 import { useKid } from './Kid';
 import { openSheet } from './Shell';
 
@@ -43,7 +42,7 @@ export default function PlayFrame<T extends string>({ title, back, pills, cur, o
           <header id="bar">
             <div className="b1">
               {back && <button className="bb" onClick={back} aria-label="뒤로"><Ic n="arrow-left" /></button>}
-              {logo ? <h1 className="brand" aria-label="하루공부 홈"><Logo size={30} />하루공부</h1> : <h1>{title}</h1>}
+              {logo ? <h1 className="brand">하루5분</h1> : <h1>{title}</h1>}
               {!back && (
                 <>
                   <button className="hb" aria-label="알림" onClick={() => openSheet('noti')}><Ic n="bell" />{!allDone(rewards, today) && <i className="hdot" />}</button>

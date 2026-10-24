@@ -1,4 +1,4 @@
-/* 하루공부 심볼 — 새싹이 난 얼굴 (로그인 화면 · 홈 머리) */
+/* 하루공부 심볼 — 새싹이 난 얼굴 (로그인 화면) */
 export default function Logo({ size = 56 }: { size?: number }) {
   return (
     <svg viewBox="0 0 48 48" width={size} height={size}>

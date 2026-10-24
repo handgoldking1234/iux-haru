@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { allDone } from '@/lib/rewards/rewards';
 import Ic from './Ic';
+import Logo from './Logo';
 import { useKid } from './Kid';
 import { openSheet } from './Shell';
 
@@ -13,8 +14,10 @@ export interface Pill<T extends string> {
   n?: number;
 }
 
-export default function PlayFrame<T extends string>({ title, back, pills, cur, onPill, rank, children }: {
+export default function PlayFrame<T extends string>({ title, back, pills, cur, onPill, rank, logo, children }: {
   title: string;
+  /** 홈: 제목 대신 하루공부 로고(심볼 + 글자) */
+  logo?: boolean;
   back?: () => void;
   pills?: Pill<T>[];
   cur?: T;
@@ -40,7 +43,7 @@ export default function PlayFrame<T extends string>({ title, back, pills, cur, o
           <header id="bar">
             <div className="b1">
               {back && <button className="bb" onClick={back} aria-label="뒤로"><Ic n="arrow-left" /></button>}
-              <h1>{title}</h1>
+              {logo ? <h1 className="brand" aria-label="하루공부 홈"><Logo size={30} />하루공부</h1> : <h1>{title}</h1>}
               {!back && (
                 <>
                   <button className="hb" aria-label="알림" onClick={() => openSheet('noti')}><Ic n="bell" />{!allDone(rewards, today) && <i className="hdot" />}</button>

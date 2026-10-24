@@ -35,7 +35,7 @@ export default function HomePage() {
   }
 
   return (
-    <PlayFrame title="홈">
+    <PlayFrame title="홈" logo>
       <div className="cols2"><div>
         <section className="sec">
           <div className="mini" role="button" tabIndex={0} aria-label="마이페이지" onClick={() => router.push('/my')}>

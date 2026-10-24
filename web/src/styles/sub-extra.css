@@ -1,9 +1,8 @@
 /* 과목 화면(한자·영단어·국어·과학·역사) 사용자 요청 수정 — 프로토타입 이후 추가, 손으로 고치는 파일 */
 
-/* 오늘 학습 카드: 구성(오답 다시·단원 복습·새 진도) 왼쪽, 문제 수 오른쪽 한 줄 */
-.pg-sub .pc-row{display:flex;align-items:baseline;justify-content:space-between;gap:4px 12px;flex-wrap:wrap}
-.pg-sub .pc-row .mixline{margin:0;text-align:left;order:-1}
-.pg-sub .pc-row .pc-amt{margin-left:auto}
+/* 오늘 학습 카드: 문제 수는 '오늘 학습' 제목 줄 오른쪽, 구성(오답 다시…)은 그 아래 */
+.pg-sub .pc-top .pc-amt{margin-left:auto;line-height:1}
+.pg-sub .pc-top .latepill{margin-left:0}
 
 /* 나의 학습 길: 지금 칸(.now)에 '지금 단계' 카드용 .now 여백(0 16px)이 붙어 간격이 어긋나던 것 */
 .pg-sub .path span.now{margin:0}
@@ -20,3 +19,20 @@
 
 /* 오늘 학습 카드 아래 회색 구분 띠 제거 (다음 칸과 이어 붙임) */
 .pg-sub #screen>.sec:has(.paycard)+.sec{margin-top:-8px;padding-top:4px}
+
+/* 슬라이드: 다음/이전 카드가 옆에서 밀려 들어오는 효과 */
+@keyframes slInNext{from{opacity:0;transform:translateX(48px)}to{opacity:1;transform:none}}
+@keyframes slInPrev{from{opacity:0;transform:translateX(-48px)}to{opacity:1;transform:none}}
+.pg-sub .slp-main>.sl-in-next{animation:slInNext .28s cubic-bezier(.2,.8,.2,1)}
+.pg-sub .slp-main>.sl-in-prev{animation:slInPrev .28s cubic-bezier(.2,.8,.2,1)}
+@media (prefers-reduced-motion:reduce){.pg-sub .slp-main>.sl-in-next,.pg-sub .slp-main>.sl-in-prev{animation:none}}
+
+/* 슬라이드 카드: 급수·부수·획수 같은 태그를 카드 왼쪽 위로 (오른쪽 위 별과 같은 줄) */
+.pg-sub .sc-top .sc-tag{position:absolute;top:18px;left:14px;max-width:calc(100% - 72px);justify-content:flex-start}
+.pg-sub .sc-top:has(.sc-tag){padding-top:32px}
+
+/* 학습결과: 총 문제 개수·총 학습 시간 그래프를 한 줄에 */
+.pg-sub .ringrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pg-sub .ringrow>.card{margin:0;min-width:0}
+.pg-sub .ringrow .ring{width:150px}
+.pg-sub .ringrow .legend{gap:4px 10px}

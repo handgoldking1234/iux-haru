@@ -122,7 +122,7 @@ export function createSlide(ctx: SlideCtx, host: HTMLElement) {
   }
 
   /* ---------- 화면 ---------- */
-  let D0: string[] = [], idx = 0, auto = false, root: HTMLDivElement | null = null, shown = new Set<number>();
+  let D0: string[] = [], idx = 0, dir = 0, auto = false, root: HTMLDivElement | null = null, shown = new Set<number>();
   const el = <T extends HTMLElement = HTMLElement>(s: string) => root!.querySelector<T>(s)!;
   const onKey = (e: KeyboardEvent) => {
     const tg = e.target as HTMLElement | null;
@@ -176,6 +176,8 @@ export function createSlide(ctx: SlideCtx, host: HTMLElement) {
       <div class="slp-ans ${op ? '' : 'hid'}"><b class="${f.cls.includes('hz') ? 'hz' : f.cls === 'en' ? 'en' : ''}">${esc(f.ans)}</b><small>${esc(f.b)}</small></div>
       <button class="slp-chip" data-a="peek">${SIC.eye}${op ? '정답 가리기' : '정답 보기'}</button></div>`;
     }
+    // 카드 넘김: 다음은 오른쪽에서, 이전은 왼쪽에서 밀려 들어온다 (정답 보기 등 같은 카드 다시 그리기는 그대로)
+    if (dir) { m.firstElementChild?.classList.add(dir > 0 ? 'sl-in-next' : 'sl-in-prev'); dir = 0; }
   }
   async function show() {
     paint(); const my = ++token;
@@ -193,7 +195,7 @@ export function createSlide(ctx: SlideCtx, host: HTMLElement) {
       if (!auto) return; await countdown(O.wgap * 1000, my); if (my !== token) return; next();
     }
   }
-  function next() { if (idx < D0.length - 1) { idx++; show(); } else finish(); }
+  function next() { if (idx < D0.length - 1) { idx++; dir = 1; show(); } else finish(); }
   /* 다음 카드까지 남은 시간: 재생 버튼 둘레 링 + 숫자 */
   let cdT: ReturnType<typeof setInterval> | null = null;
   function cdStop() {
@@ -213,7 +215,7 @@ export function createSlide(ctx: SlideCtx, host: HTMLElement) {
       if (cdT) clearInterval(cdT); tick(); cdT = setInterval(tick, 100);
     });
   }
-  function go(d: number) { if (!D0.length) return; hush(); if (d > 0 && idx >= D0.length - 1) { finish(); return; } idx = Math.max(0, Math.min(D0.length - 1, idx + d)); show(); }
+  function go(d: number) { if (!D0.length) return; hush(); if (d > 0 && idx >= D0.length - 1) { finish(); return; } const ni = Math.max(0, Math.min(D0.length - 1, idx + d)); dir = Math.sign(ni - idx); idx = ni; show(); }
   function finish() {
     hush(); auto = false; chrome(); el('.slp-ctl').style.display = 'none'; el('.slp-bar i').style.width = '100%';
     const dict = O.mode === 'dict', m = el('.slp-main'); m.scrollTop = 0;

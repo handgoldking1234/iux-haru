@@ -46,9 +46,9 @@ const navhook = `
 `;
 rep('render(); drawIcons();', navhook + 'render(); drawIcons();');
 
-/* 사용자 요청: 오늘 학습 카드의 구성(오답 다시·단계 복습·새 진도)을 문제 수 오른쪽으로 */
-rep('<div class="pc-amt">${done}<small> / ${total}문제</small></div>\n        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b> · 새 진도 <b>${pl.n}</b></p>',
-  '<div class="pc-row"><div class="pc-amt">${done}<small> / ${total}문제</small></div>\n        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b> · 새 진도 <b>${pl.n}</b></p></div>');
+/* 사용자 요청: 오늘 학습 카드 — 문제 수를 '오늘 학습' 제목 줄 오른쪽으로, 구성(오답 다시·단계 복습·새 진도)은 그 아래 한 줄 */
+rep("밀린 학습 ${pl.late}건</span>`:''}</div>\n        <div class=\"pc-amt\">${done}<small> / ${total}문제</small></div>",
+  "밀린 학습 ${pl.late}건</span>`:''}<div class=\"pc-amt\">${done}<small> / ${total}문제</small></div></div>");
 
 /* 사용자 요청: 첫 화면 바로가기 줄(오답노트·개념 보기·학습결과·학생 바꾸기) 제거 — 위 탭·지금 단계 '개념'·마이 설정에 같은 기능이 있음 */
 rep(`      <div class="shortcuts">
@@ -58,6 +58,10 @@ rep(`      <div class="shortcuts">
         <button data-sc="who"><span>\${LI('users-round')}</span>학생 바꾸기</button>
       </div>
 `, '');
+
+/* 사용자 요청: 학습결과 두 그래프(총 문제 개수·총 학습 시간)를 한 줄에 */
+rep('    <section class="card center">\n      ${ring(tot.n/goalN', '    <div class="ringrow">\n    <section class="card center">\n      ${ring(tot.n/goalN');
+rep('하루 목표 15분`}</p>\n    </section>', '하루 목표 15분`}</p>\n    </section>\n    </div>');
 
 /* 사용자 요청: 입력 버튼의 '· 자릿수만큼 넣으면 자동' 문구 제거 */
 rep('<button data-k="ok" class="okbtn">입력 <small style="font-weight:500;opacity:.8">· 자릿수만큼 넣으면 자동</small></button>', '<button data-k="ok" class="okbtn">입력</button>');

@@ -436,11 +436,8 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
           </div>
           {ui.writeToggle?.inSection && writeRow}
           <div className="paycard">
-            <div className="pc-top"><span className="pc-logo"><L n="book-open" /></span><b>오늘 학습</b>{pl.late ? <span className="latepill">밀린 오답 {pl.late}건</span> : null}</div>
-            <div className="pc-row">
-              <div className="pc-amt">{done}<small> / {total}문제</small></div>
-              <p className="mixline">오답 다시 <b>{pl.cards.length}</b> · 단원 복습 <b>{pl.reviews.length * REV_Q}</b> · {pl.exam ? '승급 평가' : '새 진도'} <b>{pl.n}</b></p>
-            </div>
+            <div className="pc-top"><span className="pc-logo"><L n="book-open" /></span><b>오늘 학습</b>{pl.late ? <span className="latepill">밀린 오답 {pl.late}건</span> : null}<div className="pc-amt">{done}<small> / {total}문제</small></div></div>
+            <p className="mixline">오답 다시 <b>{pl.cards.length}</b> · 단원 복습 <b>{pl.reviews.length * REV_Q}</b> · {pl.exam ? '승급 평가' : '새 진도'} <b>{pl.n}</b></p>
             <div className="pc-btns">
               <button className="gbtn" onClick={() => p.cards.length && start('cards', '오답 다시')}>오답만</button>
               <button className="gbtn" onClick={() => start('new', cur.name)}>{pl.exam ? '평가만' : '진도만'}</button>
@@ -675,6 +672,7 @@ function Report({ def, ui, T, S, trName, today, curArea, stages, onNextDay, onRe
     <>
       <div className="seg">{([['day', '일별 보고서'], ['week', '주간 보고서'], ['month', '월간 보고서']] as const).map(([k, l]) => <button key={k} className={k === rmode ? 'on' : ''} onClick={() => { setRmode(k); setRshift(0); }}>{l}</button>)}</div>
       <div className="datenav"><button aria-label="이전" onClick={() => setRshift(rshift + 1)}><L n="chevron-left" /></button><span>{label}</span><button aria-label="다음" disabled={rshift === 0} onClick={() => rshift > 0 && setRshift(rshift - 1)}><L n="chevron-right" /></button></div>
+      <div className="ringrow">
       <section className="card center">
         <H html={ring(tot.n / goalN, tot.n + '개', '총 문제 개수')} />
         <div className="legend"><span><i style={{ background: 'var(--y)' }} />정답 {tot.c}개</span><span><i style={{ background: 'var(--red)' }} />오답 {tot.n - tot.c}개</span><span>정답률 {rate}%</span></div>
@@ -683,6 +681,7 @@ function Report({ def, ui, T, S, trName, today, curArea, stages, onNextDay, onRe
         <H html={ring(tot.ms / goalMs, mmS(tot.ms), '총 학습 시간', 'var(--k)')} />
         <p className="note">{rmode === 'day' ? '하루 목표 10분' : `${span}일 중 ${att}일 출석 · 하루 목표 10분`}</p>
       </section>
+      </div>
       {rmode !== 'day' && (
         <section className="card"><h3>하루 푼 문제</h3>
           <div className={`week ${rmode}`}>{hs.map((h, i) => <div key={i}><small>{rmode === 'week' && h.n ? h.n : ''}</small><i className={days[i] === t ? 'td' : ''} style={{ height: `${(h.n / mx) * 100}%` }} /></div>)}</div>

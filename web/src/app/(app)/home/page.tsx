@@ -42,7 +42,6 @@ export default function HomePage() {
             <div className="miniav"><Svg html={avatar(st.eq, 64)} /></div>
             <div className="minitx">
               <div className="nm">{kid.name}
-                <button aria-label="마이로 가기" onClick={(e) => { e.stopPropagation(); router.push('/my?edit=1'); }}><Ic n="user-round" /></button>
                 <span className="nmr">
                   <span className="grade"><Ic n={g.icon} />{g.n}</span>
                   <span className="cash"><Ic n="coins" />{st.cash}</span>

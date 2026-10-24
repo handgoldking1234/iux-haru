@@ -20,7 +20,7 @@
 @media (max-width:520px){.pg-math .stat3 div{padding:0 10px}}
 
 /* 연산 색 (사용자 요청: 노랑 · 주황 · 노랑+검정)
-   노랑(--y) 바탕엔 검정 글자, 흰 바탕 위 강조 글자·아이콘은 주황(--or), 검정 바탕 위 글자는 노랑 그대로 */
+   노랑(--y, 카카오 #FEE500) 바탕엔 검정 글자, 흰 바탕 위 강조 글자·아이콘은 주황(--or), 검정 바탕 위 글자는 노랑 그대로 */
 .pg-math{--on:#1E2421;--or:#F57C00;--or-soft:#FFE8CC}
 .pg-math .badge,.pg-math .startbtn,.pg-math .cal div.t,.pg-math .okbtn{color:var(--k)}
 .pg-math .badge{background:var(--or);color:#fff}

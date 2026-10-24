@@ -36,7 +36,7 @@ export const SUBJECTS: Record<SubjectKey, SubjectInfo> = {
     key: 'hist', name: '역사', color: '#8B5A2B', soft: '#F5ECE2', cards: true,
     tracks: [{ key: 'ko', name: '국사' }, { key: 'wo', name: '세계사' }],
   },
-  typ: { key: 'typ', name: '타자', color: '#0E7490', soft: '#E0F2F6', tracks: [], cards: false },
+  typ: { key: 'typ', name: '타자', color: '#2563EB', soft: '#E8F0FE', tracks: [], cards: false },
 };
 
 /** 놀이터(홈) 주색 */

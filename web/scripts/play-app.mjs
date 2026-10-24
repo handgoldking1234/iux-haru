@@ -28,6 +28,9 @@ rep('const ICONS=__ICONS__;', 'const ICONS=env.icons;');
 rep('const PD=__PLAY__;', 'const PD=env.pd;');
 // 사용자 요청: 연산 주색을 노란색으로 (파랑 #2563EB → #F59F00)
 rep("math:['연산','#2563EB'],gugu:['구구단','#2563EB']", "math:['연산','#F59F00'],gugu:['구구단','#F59F00']");
+rep("math:'#2563EB'", "math:'#F59F00'");
+// 사용자 요청: 타자 주색을 파랑으로 (#0E7490 → #2563EB)
+js = js.split("'#0E7490'").join("'#2563EB'");
 rep("let HG=null; try{ if(parent!==window&&parent.HGS) HG=parent.HGS; }catch(e){}\nif(!HG) HG=makeHGS();", 'let HG=env.HGS;');
 rep("const screen=document.getElementById('screen'), bar=document.getElementById('bar'), tabsEl=document.getElementById('tabs');", "const screen=root.querySelector('#screen'), bar=root.querySelector('#bar'), tabsEl=root.querySelector('#tabs');");
 rep("const EMB=(()=>{ try{ return parent!==window&&!!parent.hgNav; }catch(e){ return false; } })();", 'const EMB=true;');

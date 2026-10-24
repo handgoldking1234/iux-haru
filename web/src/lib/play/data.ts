@@ -28,7 +28,7 @@ export const FRIENDS: Friend[] = [
 export const GSUBJ: Record<string, [string, string]> = {
   mix: ['종합', '#DB2777'], math: ['연산', '#F59F00'], gugu: ['구구단', '#F59F00'], hanja: ['한자', '#C2410C'],
   eng: ['영단어', '#7C3AED'], hist: ['역사', '#8B5A2B'], kor: ['국어', '#0B8A5F'], sci: ['과학', '#4F46E5'],
-  spell: ['맞춤법', '#0B8A5F'], tko: ['한글 타자', '#0E7490'], ten: ['영문 타자', '#0E7490'],
+  spell: ['맞춤법', '#0B8A5F'], tko: ['한글 타자', '#2563EB'], ten: ['영문 타자', '#2563EB'],
 };
 export const DANS: [number, string][] = [[0, '전체'], [2, '2단'], [3, '3단'], [4, '4단'], [5, '5단'], [6, '6단'], [7, '7단'], [8, '8단'], [9, '9단']];
 export const danName = (d: number) => (d ? `${d}단` : '전체');

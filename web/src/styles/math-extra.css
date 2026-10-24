@@ -1,0 +1,9 @@
+/* 연산 문제 화면: 틀림 옆 안내 아이콘 + 팝업 (프로토타입 이후 사용자 요청으로 추가 — 손으로 고치는 파일) */
+.pg-math .ptag{position:relative}
+.pg-math .wtip{display:inline-flex}
+.pg-math .wtb{border:0;background:none;padding:2px;margin:-2px;display:grid;place-items:center;color:var(--sub);cursor:pointer;border-radius:50%}
+.pg-math .wtb svg.lucide{width:17px;height:17px}
+.pg-math .wtb[aria-expanded="true"]{color:var(--y)}
+.pg-math .wpop{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);z-index:20;width:min(320px,calc(100vw - 32px));background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 24px rgba(20,24,32,.14);padding:10px;display:flex;flex-direction:column;gap:8px;text-align:left}
+.pg-math .wpop[hidden]{display:none}
+.pg-math .wpop .tip{min-height:0;text-align:left;margin:0 4px}

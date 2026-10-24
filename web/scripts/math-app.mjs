@@ -46,6 +46,21 @@ const navhook = `
 `;
 rep('render(); drawIcons();', navhook + 'render(); drawIcons();');
 
+/* 사용자 요청: 문제 아래 안내 문구·틀린 개수 칸을 없애고, 틀림 옆 아이콘을 누르면 같은 내용을 팝업으로 */
+rep('"chevron-down":"<path d=\\"m6 9 6 6 6-6\\"/>"}', '"chevron-down":"<path d=\\"m6 9 6 6 6-6\\"/>","info":"<circle cx=\\"12\\" cy=\\"12\\" r=\\"10\\"/><path d=\\"M12 16v-4\\"/><path d=\\"M12 8h.01\\"/>"}');
+rep("<b class=\"x\">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span></div>", "<b class=\"x\">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span>${wtip()}</div>");
+rep("<p class=\"tip\" id=\"tip\">모르면 오른쪽 위 ${LI('circle-help','inl')}를 눌러 개념을 볼 수 있어요.</p>\n    ${wrongBox()}\n", '<p class="tip" id="tip"></p>\n');
+rep("  screen.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>press(b.dataset.k));\n}\nfunction openFromPlay",
+  "  screen.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>press(b.dataset.k));\n  bindWtip();\n}\nfunction openFromPlay");
+rep("function refreshWrong(){ const el=document.getElementById('wcnt'); if(el) el.outerHTML=wrongBox(); }",
+  `function wtip(){ return \`<span class="wtip"><button type="button" class="wtb" aria-label="틀린 개수 안내" aria-expanded="false">\${LI('info')}</button><span class="wpop" id="wpop" role="dialog" hidden>\${wrongBox()}<p class="tip">모르면 오른쪽 위 \${LI('circle-help','inl')}를 눌러 개념을 볼 수 있어요.</p></span></span>\`; }
+function bindWtip(){ const w=screen.querySelector('.wtip'); if(!w) return; const b=w.querySelector('.wtb'), pop=w.querySelector('.wpop');
+  const set=on=>{ pop.hidden=!on; b.setAttribute('aria-expanded',on); };
+  b.onclick=e=>{ e.stopPropagation(); set(pop.hidden); };
+  pop.onclick=e=>e.stopPropagation();
+  screen.querySelector('.np').addEventListener('click',()=>set(false)); }
+function refreshWrong(){ const el=document.getElementById('wcnt'); if(el) el.outerHTML=wrongBox(); }`);
+
 const out = `/* eslint-disable */
 // @ts-nocheck
 /**

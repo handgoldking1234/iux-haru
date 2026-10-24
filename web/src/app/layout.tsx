@@ -3,6 +3,7 @@ import '@/styles/proto/shell.css';
 import '@/styles/proto/play.css';
 import '@/styles/proto/sub.css';
 import '@/styles/proto/math.css';
+import '@/styles/math-extra.css';
 import './globals.css';
 
 export const metadata: Metadata = {

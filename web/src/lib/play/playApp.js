@@ -196,7 +196,7 @@ const FRIENDS=[
  {id:'f9',name:'하늘다람쥐',eq:{body:'sky',hat:'beanie',face:'basic',outfit:'scarf',bg:'sunset'},skill:.76,spd:[2.6,6.2],seed:52},
  {id:'f10',name:'달빛여우',eq:{body:'peach',hat:'ribbon',face:'glasses',outfit:'none',bg:'night'},skill:.88,spd:[2,5],seed:81}
 ];
-const SUBJ={mix:['종합','#DB2777'],math:['연산','#2563EB'],gugu:['구구단','#2563EB'],hanja:['한자','#C2410C'],eng:['영단어','#7C3AED'],hist:['역사','#8B5A2B'],kor:['국어','#0B8A5F'],sci:['과학','#4F46E5'],spell:['맞춤법','#0B8A5F'],tko:['한글 타자','#0E7490'],ten:['영문 타자','#0E7490']};
+const SUBJ={mix:['종합','#DB2777'],math:['연산','#CA8A04'],gugu:['구구단','#CA8A04'],hanja:['한자','#C2410C'],eng:['영단어','#7C3AED'],hist:['역사','#8B5A2B'],kor:['국어','#0B8A5F'],sci:['과학','#4F46E5'],spell:['맞춤법','#0B8A5F'],tko:['한글 타자','#0E7490'],ten:['영문 타자','#0E7490']};
 const SNAME={math:'연산',hanja:'한자',eng:'영단어',hist:'역사',kor:'국어',sci:'과학',typ:'타자'};
 const SCOL={math:'#2563EB',hanja:'#C2410C',eng:'#7C3AED',hist:'#8B5A2B',kor:'#0B8A5F',sci:'#4F46E5',typ:'#0E7490'};
 const QUICK=['안녕! 👋','잘 부탁해 🙂','준비됐어 ✋','잘하자 💪','좋아! 👍','와 빠르다 ⚡','아깝다 😅','한 판 더? 🔁','수고했어 👏','고마워 😊'];

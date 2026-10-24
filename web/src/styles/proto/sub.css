@@ -990,7 +990,7 @@
 .pg-sub .slp-play{position:relative}
 .pg-sub .slp-play.cd::before{content:'';position:absolute;inset:-6px;border-radius:50%;background:conic-gradient(var(--y) calc(var(--cd,0) * 1turn),#E1E4EA 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 4px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 4px))}
 
-.pg-sub.s-math{--y:#2563EB;--y2:#2563EB;--y-soft:#E8F0FE;--bg:#F4F5F7;--hi:#E8EBF0;--line:#E1E4EA}
+.pg-sub.s-math{--y:#CA8A04;--y2:#CA8A04;--y-soft:#FEF7D6;--bg:#F4F5F7;--hi:#E8EBF0;--line:#E1E4EA}
 .pg-sub.s-hanja{--y:#C2410C;--y2:#C2410C;--y-soft:#FDEDE4;--bg:#F4F5F7;--hi:#E8EBF0;--line:#E1E4EA}
 .pg-sub.s-eng{--y:#7C3AED;--y2:#7C3AED;--y-soft:#F1EAFE;--bg:#F4F5F7;--hi:#E8EBF0;--line:#E1E4EA}
 .pg-sub.s-hist{--y:#8B5A2B;--y2:#8B5A2B;--y-soft:#F5ECE2;--bg:#F4F5F7;--hi:#E8EBF0;--line:#E1E4EA}

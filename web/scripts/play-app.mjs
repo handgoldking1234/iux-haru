@@ -26,6 +26,8 @@ const rep = (a, b) => {
 };
 rep('const ICONS=__ICONS__;', 'const ICONS=env.icons;');
 rep('const PD=__PLAY__;', 'const PD=env.pd;');
+// 사용자 요청: 연산 주색을 노란색으로 (파랑 #2563EB → #CA8A04)
+rep("math:['연산','#2563EB'],gugu:['구구단','#2563EB']", "math:['연산','#CA8A04'],gugu:['구구단','#CA8A04']");
 rep("let HG=null; try{ if(parent!==window&&parent.HGS) HG=parent.HGS; }catch(e){}\nif(!HG) HG=makeHGS();", 'let HG=env.HGS;');
 rep("const screen=document.getElementById('screen'), bar=document.getElementById('bar'), tabsEl=document.getElementById('tabs');", "const screen=root.querySelector('#screen'), bar=root.querySelector('#bar'), tabsEl=root.querySelector('#tabs');");
 rep("const EMB=(()=>{ try{ return parent!==window&&!!parent.hgNav; }catch(e){ return false; } })();", 'const EMB=true;');

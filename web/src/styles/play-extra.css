@@ -1,0 +1,5 @@
+/* 홈·랭킹·게임·마이 화면(.pg-play) 사용자 요청 수정 — 프로토타입 이후 추가, 손으로 고치는 파일 */
+
+/* 둥근 모서리 줄이기: 버튼 14→10px, 안내 상자 12→8px */
+.pg-play .btn{border-radius:10px}
+.pg-play .gblock{border-radius:8px}

@@ -414,7 +414,6 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
     const avg = (id: string) => { const a = S.sst[id]; return a && a.length ? (a.reduce((x, y) => x + y, 0) / a.length).toFixed(1) : '0.0'; };
     const revText = (id: string) => { const x = p.passed[id]; if (x.exam) return `통과 · ${x.score || 100}점`; if (x.box >= 2) return '완성 · 두 번 복습 끝'; const k = x.due - p.np; return k <= 0 ? '지금 복습할 차례' : `${k}단원 뒤 ${x.box + 1}차 복습`; };
     const lvOf = (id: string) => LEVEL_NAME[levelOf(p.bp[id] ?? 0)];
-    const dueN = dueCards(p, today, known).length;
     const wt = ui.writeToggle;
     const writeRow = wt && (
       <div className="wset"><span><L n="pencil" />{wt.label} <small>{wt.small}</small></span>
@@ -447,12 +446,6 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
               <button className="gbtn" onClick={() => start('new', cur.name)}>{pl.exam ? '평가만' : '진도만'}</button>
               <button className="kbtn" onClick={() => start('today', '오늘 학습')}><L n="play" />{done ? '이어서' : '시작'}</button>
             </div>
-          </div>
-          <div className="shortcuts">
-            <button data-sc="cards" onClick={() => go('cards')}><span><L n="notebook-pen" /></span>오답노트{dueN ? <em className="scn">{dueN}</em> : null}</button>
-            <button data-sc="concept" onClick={() => openConcept(cur.kind === 'exam' ? stages[Math.max(0, p.stage - 1)].id : cur.id, () => setView(null))}><span><L n="book-open" /></span>{def.conceptName}</button>
-            <button data-sc="report" onClick={() => go('report')}><span><L n="chart-pie" /></span>학습결과</button>
-            <button data-sc="who" onClick={() => (location.href = '/kids')}><span><L n="users-round" /></span>학생 바꾸기</button>
           </div>
         </section>
         <section className="sec">

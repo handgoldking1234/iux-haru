@@ -518,12 +518,6 @@ function renderHome(){
         <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b> · 새 진도 <b>${pl.n}</b></p></div>
         <div class="pc-btns"><button class="gbtn" id="goCards">오답만</button><button class="gbtn" id="goNew">진도만</button><button class="kbtn" id="go">${LI('play')}${done?'이어서':'시작'}</button></div>
       </div>
-      <div class="shortcuts">
-        <button data-sc="cards"><span>${LI('notebook-pen')}</span>오답노트</button>
-        <button data-sc="concept"><span>${LI('book-open')}</span>개념 보기</button>
-        <button data-sc="report"><span>${LI('chart-pie')}</span>학습결과</button>
-        <button data-sc="who"><span>${LI('users-round')}</span>학생 바꾸기</button>
-      </div>
     </section>
     <section class="sec">
       <h3 class="sh">오늘 기록</h3>

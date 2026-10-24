@@ -42,7 +42,8 @@ function Settings({ st, save, email }: { st: RewardState; save: (f: (s: RewardSt
   const router = useRouter();
   const [editPlan, setEditPlan] = useState(false);
   const [cfm, setCfm] = useState<null | 'out' | 'del'>(null);
-  const { today } = useKid();
+  const { today, kid } = useKid();
+  const kidsN = useAuth()?.kids.length ?? 1;
   const ts = tasks(st, today);
   const notiState = typeof Notification === 'undefined' ? 'none' : Notification.permission;
 
@@ -106,6 +107,9 @@ function Settings({ st, save, email }: { st: RewardState; save: (f: (s: RewardSt
       <section className="sec">
         <h3 className="sh"><Ic n="user-round" />계정</h3>
         <div className="setrow"><span>보호자 계정<small className="sub" style={{ display: 'block' }}>{email}</small></span></div>
+        <div className="setrow"><span>지금 공부하는 학생<small className="sub" style={{ display: 'block' }}>{kid.name}{kidsN > 1 ? ` · 학생 ${kidsN}명` : ''}</small></span>
+          <button className="btn line" style={{ minHeight: 34, padding: '4px 12px' }} onClick={() => router.push('/kids')}><Ic n="users" />학생 바꾸기</button>
+        </div>
         <button className="btn line full" style={{ marginTop: 6 }} onClick={() => setCfm('out')}><Ic n="log-out" />로그아웃</button>
         <button className="linkbtn" onClick={() => setCfm('del')}><Ic n="user-x" />계정 삭제(탈퇴)</button>
       </section>

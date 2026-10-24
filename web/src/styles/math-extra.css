@@ -26,5 +26,6 @@
 /* 학습결과: 총 문제 개수·총 학습 시간 그래프를 한 줄에 */
 .pg-math .ringrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .pg-math .ringrow>.card{margin:0;min-width:0}
-.pg-math .ringrow .ring{width:150px}
+.pg-math .ringrow>.card{gap:4px}
+.pg-math .ringrow .ring{width:150px;margin:-6px auto -10px}
 .pg-math .ringrow .legend{gap:4px 10px}

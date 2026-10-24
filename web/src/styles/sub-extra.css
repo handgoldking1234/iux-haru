@@ -34,5 +34,10 @@
 /* 학습결과: 총 문제 개수·총 학습 시간 그래프를 한 줄에 */
 .pg-sub .ringrow{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .pg-sub .ringrow>.card{margin:0;min-width:0}
-.pg-sub .ringrow .ring{width:150px}
+.pg-sub .ringrow>.card{gap:4px}
+.pg-sub .ringrow .ring{width:150px;margin:-6px auto -10px}
 .pg-sub .ringrow .legend{gap:4px 10px}
+
+/* 단원 소개 카드: 글자 정보 태그(급수·부수·획수 / 부수·3,500자 중 n자)를 '1 / 10' 줄 오른쪽 위로 */
+.pg-sub .lyric .lk~.info{position:relative}
+.pg-sub .lyric .lk~.info .meta{position:absolute;bottom:calc(100% + 9px);right:0;margin:0;max-width:calc(100% - 60px);justify-content:flex-end;flex-wrap:nowrap}

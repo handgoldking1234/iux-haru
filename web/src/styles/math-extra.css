@@ -18,8 +18,8 @@
 .pg-math .stat3 .ic{grid-area:ic}
 .pg-math .stat3 b{grid-area:b}
 .pg-math .stat3 small{grid-area:s}
-/* 모바일: 칸이 좁아 이름이 줄바꿈되므로 아이콘은 위 오른쪽, 이름은 아래 한 줄 전체 */
-@media (max-width:520px){.pg-math .stat3 div{padding:0 10px;grid-template-areas:"b ic" "s s";align-items:start;gap:2px 6px}.pg-math .stat3 b,.pg-math .stat3 small{white-space:nowrap}}
+/* 모바일: 칸이 좁아 아이콘 · 숫자 · 설명을 한 줄씩 세로로 */
+@media (max-width:520px){.pg-math .stat3 div{padding:0 8px;grid-template-columns:1fr;grid-template-areas:"ic" "b" "s";justify-items:center;text-align:center;gap:4px}.pg-math .stat3 b,.pg-math .stat3 small{white-space:nowrap}}
 
 /* 오늘 학습 카드 아래 회색 구분 띠 제거 (다음 칸과 이어 붙임) */
 .pg-math #screen>.sec:has(.paycard)+.sec{margin-top:-8px;padding-top:4px}

@@ -54,3 +54,12 @@
 
 /* 오늘 기록: 칸 사이 세로선 제거 */
 .pg-sub .stat3 div+div{border-left:0}
+
+/* 지금 단계 제목·설명 글자 줄임 (17→15px, 설명 13px) */
+.pg-sub .nr-body b{font-size:15px}
+.pg-sub .nr-body .pv{font-size:13px}
+.pg-sub .nr-body .pv.hz{font-size:14px}
+
+/* 쓰기 설정 줄(펜으로 쓰기·한자 쓰기 문제 넣기): 아이콘과 글자 사이 6px, 설명 줄은 글자와 같은 위치에서 시작 */
+.pg-sub .wset>span svg.lucide{width:16px;height:16px;vertical-align:-3px;margin:0 6px 0 0}
+.pg-sub .wset>span small{padding-left:22px;margin-top:2px}

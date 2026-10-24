@@ -63,6 +63,9 @@ rep(`      <div class="shortcuts">
 rep('    <section class="card center">\n      ${ring(tot.n/goalN', '    <div class="ringrow">\n    <section class="card center">\n      ${ring(tot.n/goalN');
 rep('하루 목표 15분`}</p>\n    </section>', '하루 목표 15분`}</p>\n    </section>\n    </div>\n    <section class="card wkme"><h3>이번 주 기록</h3><div class="wkt">${env.weekOk()}</div></section>');
 
+/* 사용자 요청: 학습결과 그래프 가운데 숫자 글자 줄임 (30→24, 굵기 900→800) */
+rep('<text x="70" y="72" text-anchor="middle" font-size="30" font-weight="900"', '<text x="70" y="72" text-anchor="middle" font-size="24" font-weight="800"');
+
 /* 사용자 요청: 입력 버튼의 '· 자릿수만큼 넣으면 자동' 문구 제거 */
 rep('<button data-k="ok" class="okbtn">입력 <small style="font-weight:500;opacity:.8">· 자릿수만큼 넣으면 자동</small></button>', '<button data-k="ok" class="okbtn">입력</button>');
 

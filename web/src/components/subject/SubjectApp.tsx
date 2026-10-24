@@ -4,7 +4,7 @@
  * renderHome · renderCards · renderReport · concept · drawPlay · choose · finish 마크업을 그대로 옮겼다.
  * 과목마다 다른 문구·모양은 def.ui, 문제는 def.makeQ. 진도·오답·복습·승급 계산은 lib/engine(StudySession).
  */
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import StudyTop from '@/components/StudyTop';
 import { useKid } from '@/components/Kid';
 import { dueCards, dueStages, planDay } from '@/lib/engine/progress';
@@ -444,7 +444,7 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
           <div className="path">
             {areas.map((a, i) => {
               const ss = stages.filter((s) => s.area === a), all = ss.length > 0 && ss.every((s) => p.passed[s.id]), now = cur.area === a;
-              return <span key={a} style={{ display: 'contents' }}>{i > 0 && <i />}<span className={all ? 'done' : now ? 'now' : ''}>{a}</span></span>;
+              return <Fragment key={a}>{i > 0 && <i />}<span className={all ? 'done' : now ? 'now' : ''}>{a}</span></Fragment>;
             })}
           </div>
           <div className="nowrow">

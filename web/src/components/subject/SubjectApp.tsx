@@ -419,8 +419,10 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
           {ui.writeToggle?.inSection && writeRow}
           <div className="paycard">
             <div className="pc-top"><span className="pc-logo"><L n="book-open" /></span><b>오늘 학습</b>{pl.late ? <span className="latepill">밀린 오답 {pl.late}건</span> : null}</div>
-            <div className="pc-amt">{done}<small> / {total}문제</small></div>
-            <p className="mixline">오답 다시 <b>{pl.cards.length}</b> · 단원 복습 <b>{pl.reviews.length * REV_Q}</b> · {pl.exam ? '승급 평가' : '새 진도'} <b>{pl.n}</b></p>
+            <div className="pc-row">
+              <div className="pc-amt">{done}<small> / {total}문제</small></div>
+              <p className="mixline">오답 다시 <b>{pl.cards.length}</b> · 단원 복습 <b>{pl.reviews.length * REV_Q}</b> · {pl.exam ? '승급 평가' : '새 진도'} <b>{pl.n}</b></p>
+            </div>
             <div className="pc-btns">
               <button className="gbtn" onClick={() => p.cards.length && start('cards', '오답 다시')}>오답만</button>
               <button className="gbtn" onClick={() => start('new', cur.name)}>{pl.exam ? '평가만' : '진도만'}</button>

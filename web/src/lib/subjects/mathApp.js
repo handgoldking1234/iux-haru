@@ -698,7 +698,7 @@ function drawPlay(){
     <div class="pad2" id="pad">
       <div class="padtools"><button data-k="-">${LI('minus')}음수</button><button data-k="/">${LI('slash')}분수</button><button data-k=".">${LI('dot')}소수점</button></div>
       <div class="pad">${['1','2','3','4','5','6','7','8','9','clr','0','del'].map(k=>`<button data-k="${k}" aria-label="${{del:'한 칸 지우기',clr:'전체 지우기'}[k]||k}" class="${k==='clr'?'fn':''}">${{del:LI('arrow-left'),clr:'지우기'}[k]||k}</button>`).join('')}</div>
-      <button data-k="ok" class="okbtn">입력 <small style="font-weight:500;opacity:.8">· 자릿수만큼 넣으면 자동</small></button>
+      <button data-k="ok" class="okbtn">입력</button>
     </div>
   </div>`;
   g.toast='';

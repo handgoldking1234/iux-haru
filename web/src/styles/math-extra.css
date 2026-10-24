@@ -20,18 +20,6 @@
 /* 모바일: 칸이 좁아 이름이 줄바꿈되므로 아이콘은 위 오른쪽, 이름은 아래 한 줄 전체 */
 @media (max-width:520px){.pg-math .stat3 div{padding:0 10px;grid-template-areas:"b ic" "s s";align-items:start;gap:2px 6px}.pg-math .stat3 b,.pg-math .stat3 small{white-space:nowrap}}
 
-/* 연산 색 (사용자 요청: 노랑 · 주황 · 노랑+검정)
-   노랑(--y, 카카오 #FEE500) 바탕엔 검정 글자, 흰 바탕 위 강조 글자·아이콘은 주황(--or), 검정 바탕 위 글자는 노랑 그대로 */
-.pg-math{--on:#1E2421;--or:#F57C00;--or-soft:#FFE8CC}
-.pg-math .badge,.pg-math .startbtn,.pg-math .cal div.t,.pg-math .okbtn{color:var(--k)}
-.pg-math .badge{background:var(--or);color:#fff}
-.pg-math .latepill{background:var(--or);color:#fff}
-.pg-math .ansv,.pg-math .okflash,.pg-math .units li.cur .unit b,.pg-math .now b,.pg-math .big,.pg-math nav button.on{color:var(--or)}
-.pg-math .lvl.l-쉬움,.pg-math .steps span.done{background:var(--y-soft);color:#9A6200}
-.pg-math .shortcuts button:first-child span svg,.pg-math .lic.s-ok svg.lucide{stroke:var(--or)}
-.pg-math .wtb[aria-expanded="true"]{color:var(--or)}
-.pg-math .pc-logo svg.lucide,.pg-math .lic.s-now svg.lucide{stroke:var(--k)}
-
 /* 오늘 학습 카드 아래 회색 구분 띠 제거 (다음 칸과 이어 붙임) */
 .pg-math #screen>.sec:has(.paycard)+.sec{margin-top:-8px;padding-top:4px}
 

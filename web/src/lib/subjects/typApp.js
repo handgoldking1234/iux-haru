@@ -85,7 +85,26 @@ let tab='home', R=null;
 const LI=(n,c)=>`<i data-lucide="${n}"${c?` class="${c}"`:''}></i>`;
 function setBar(title,back){ bar.innerHTML=`${back?`<button class="bb" id="bBack" aria-label="뒤로">${LI('arrow-left')}</button>`:'<span class="bb"></span>'}<h1>${title}</h1><span class="bb"></span>`; if(back) bar.querySelector('#bBack').onclick=back; }
 function showTabs(on){ tabs.hidden=!on; if(on) tabs.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.tab===tab)); }
-function stopRun(){ if(R){ R.stop&&R.stop(); R=null; } document.onkeydown=null; document.onkeyup=null; }
+
+const VO=()=>S.voice||(S.voice={echo:true,rep:false});
+let voT=null, voK=0;
+function vSpeak(t,lang){ try{ const ss=window.speechSynthesis; if(!ss||!t) return Promise.resolve(); ss.cancel();
+  return new Promise(res=>{ const u=new SpeechSynthesisUtterance(t); u.lang=lang==='ko'?'ko-KR':'en-US'; u.rate=lang==='ko'?0.95:0.9; u.onend=u.onerror=()=>res(); ss.speak(u); setTimeout(res,3000+t.length*300); }); }catch(e){ return Promise.resolve(); } }
+function vStop(){ voK++; clearTimeout(voT); voT=null; try{ window.speechSynthesis&&window.speechSynthesis.cancel(); }catch(e){} }
+function vLoop(){ const k=++voK; clearTimeout(voT);
+  const go=()=>{ if(k!==voK||!VO().rep||!R||!R.list) return; vSpeak(R.list[R.i],S.lang).then(()=>{ if(k===voK&&VO().rep) voT=setTimeout(go,2000); }); }; go(); }
+function vEcho(r,v,bad){ const yc=[...v], n=yc.length, pl=r.pl||0, tgt=r.list[r.i], whole=v===tgt; r.pl=n;
+  if(n<(r.sp||0)) r.sp=n; if(VO().echo===false||bad||(n<=pl&&!whole)) return;
+  if(S.lang==='ko'){ const d=whole?n:n-1, sp=Math.min(r.sp||0,d); r.sp=d; const seg=yc.slice(sp,d).join(''); if(d>sp&&tgt.startsWith(yc.slice(0,d).join(''))&&seg.trim()) vSpeak(seg.replace(/s+/g,''),'ko'); }
+  else if(r.kind==='word'){ if(n>pl) vSpeak(yc[n-1],'en'); }
+  else if(yc[n-1]===' '||whole){ const w=v.trim().split(/\s+/).pop(); if(w) vSpeak(w,'en'); } }
+function vBind(inp){ const b=screen.querySelector('.tvo'); if(!b) return; R.pl=0; R.sp=0;
+  b.querySelectorAll('button').forEach(x=>x.onmousedown=e=>e.preventDefault());
+  b.querySelector('#vSay').onclick=()=>{ vSpeak(R.list[R.i],S.lang); inp.focus(); };
+  b.querySelector('#vRep').onclick=e=>{ const o=VO(); o.rep=!o.rep; save(); e.currentTarget.setAttribute('aria-pressed',o.rep); if(o.rep) vLoop(); else vStop(); inp.focus(); };
+  b.querySelector('#vEcho').onclick=e=>{ const o=VO(); o.echo=o.echo===false; save(); e.currentTarget.setAttribute('aria-pressed',o.echo); inp.focus(); };
+  if(VO().rep&&!R.voOn){ R.voOn=true; vLoop(); } }
+function stopRun(){ vStop(); if(R){ R.stop&&R.stop(); R=null; } document.onkeydown=null; document.onkeyup=null; }
 function setTab(t){ stopRun(); tab=t; render(); screen.scrollTop=0; }
 function render(){ showTabs(true); ({home:renderHome,cards:renderGame,report:renderRec})[tab](); }
 const langBar=()=>`<div class="trk" role="tablist" aria-label="언어">${[['ko','한글 (2벌식)'],['en','영문']].map(([k,v])=>`<button role="tab" data-lg="${k}" aria-selected="${S.lang===k}">${v}</button>`).join('')}</div>`;
@@ -174,7 +193,7 @@ function runText(md){
     setBar(title,()=>{stopRun();render();});
     screen.innerHTML=`<div class="np typ">
       <div class="prog"><div class="tr"><i style="width:${r.i/r.list.length*100}%"></i></div><span>${r.i+1} / ${r.list.length}</span></div>
-      <div class="stats"><span>타수 <b id="cpm">0</b></span><span>정확도 <b id="acc">100</b>%</span></div>
+      <div class="stats"><span>타수 <b id="cpm">0</b></span><span>정확도 <b id="acc">100</b>%</span><span class="tvo"><button id="vSay" class="tvb" aria-label="소리 듣기">${LI('volume-2')}</button><button id="vRep" class="tvb" aria-pressed="${!!VO().rep}" aria-label="2초마다 반복해서 듣기">${LI('repeat')}</button><button id="vEcho" class="tvb tvt" aria-pressed="${VO().echo!==false}" aria-label="글자 소리">${lg==='ko'?'가':'A'}</button></span></div>
       <div class="board tgt"><div class="tline" id="tline"></div><div class="nextl">${r.list[r.i+1]?`다음: ${esc(r.list[r.i+1])}`:'마지막이에요'}</div></div>
       <input id="ti" class="tin" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" lang="${lg==='ko'?'ko':'en'}" aria-label="여기에 입력" placeholder="${lg==='ko'?'여기에 한글로 쳐요':'Type here'}">
       <p class="finger" id="fg"></p>
@@ -182,7 +201,7 @@ function runText(md){
       ${kbHTML(lg,null,null)}
     </div>`;
     const inp=screen.querySelector('#ti'); setTimeout(()=>{try{inp.focus();}catch(e){}},30);
-    inp.oninput=()=>check(); paint('');
+    inp.oninput=()=>check(); paint(''); vBind(inp);
   };
   const paint=(typed)=>{
     const r=R, target=r.list[r.i], tk=keys(target), yk=keys(typed);
@@ -202,7 +221,7 @@ function runText(md){
     const a=screen.querySelector('#cpm'),b=screen.querySelector('#acc'); if(a){a.textContent=cpm;b.textContent=acc;} return {cpm,acc}; };
   const check=()=>{
     const r=R; if(!r) return; const inp=screen.querySelector('#ti'), v=inp.value; if(!r.t0&&v) r.t0=performance.now();
-    const {bad,tk}=paint(v);
+    const {bad,tk}=paint(v); vEcho(r,v,bad);
     if(bad&&!r.err){ r.err=true; r.wrong++; const el=document.getElementById('wcnt'); if(el) el.outerHTML=wbox(r.wrong,cap,`${cap}개 틀리면 처음부터 다시 해요 · 다 맞게 치면 자동으로 다음`);
       if(r.wrong>=cap){ R.list=mk(); R.i=0; R.wrong=0; R.keysOK=0; R.t0=0; R.err=false; draw(); flashMsg(`${cap}개를 틀려서 처음부터 다시 해요`); return; } }
     if(!bad) r.err=false;
@@ -318,6 +337,7 @@ Object.assign(LUCIDE,{
  'trophy':'<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>',
  'hand':'<path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>'
 });
+LUCIDE['volume-2']='<path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/>';
 function drawIcons(){ root.querySelectorAll("i[data-lucide]").forEach(el=>{ const n=el.dataset.lucide, b=LUCIDE[n]; if(!b) return; const t=document.createElement("span"); t.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-${n} ${el.className||""}" aria-hidden="true">${b}</svg>`; el.replaceWith(t.firstChild); }); iconQ=false; }
 const MO=new MutationObserver(()=>{ if(!iconQ&&root.querySelector('i[data-lucide]')){ iconQ=true; requestAnimationFrame(drawIcons); } }); MO.observe(root.querySelector('.app'),{childList:true,subtree:true});
 

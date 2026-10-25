@@ -47,6 +47,37 @@ const navhook = `
 `;
 rep('render(); drawIcons();', navhook + 'render(); drawIcons();');
 
+/* 사용자 요청: 낱말·짧은 글 연습 소리 (한글·영문 공통)
+   🔊 지금 낱말·문장 듣기 · 🔁 켜면 다 읽고 2초 쉬고 다시 읽기(다음 낱말로 이어짐) · 가/A 글자 소리 켜고 끄기
+   글자 소리: 한글은 한 글자가 완성될 때마다, 영문 낱말은 한 글자씩, 영문 문장은 낱말 하나를 다 칠 때마다 */
+const voice = `
+const VO=()=>S.voice||(S.voice={echo:true,rep:false});
+let voT=null, voK=0;
+function vSpeak(t,lang){ try{ const ss=window.speechSynthesis; if(!ss||!t) return Promise.resolve(); ss.cancel();
+  return new Promise(res=>{ const u=new SpeechSynthesisUtterance(t); u.lang=lang==='ko'?'ko-KR':'en-US'; u.rate=lang==='ko'?0.95:0.9; u.onend=u.onerror=()=>res(); ss.speak(u); setTimeout(res,3000+t.length*300); }); }catch(e){ return Promise.resolve(); } }
+function vStop(){ voK++; clearTimeout(voT); voT=null; try{ window.speechSynthesis&&window.speechSynthesis.cancel(); }catch(e){} }
+function vLoop(){ const k=++voK; clearTimeout(voT);
+  const go=()=>{ if(k!==voK||!VO().rep||!R||!R.list) return; vSpeak(R.list[R.i],S.lang).then(()=>{ if(k===voK&&VO().rep) voT=setTimeout(go,2000); }); }; go(); }
+function vEcho(r,v,bad){ const yc=[...v], n=yc.length, pl=r.pl||0, tgt=r.list[r.i], whole=v===tgt; r.pl=n;
+  if(n<(r.sp||0)) r.sp=n; if(VO().echo===false||bad||(n<=pl&&!whole)) return;
+  if(S.lang==='ko'){ const d=whole?n:n-1, sp=Math.min(r.sp||0,d); r.sp=d; const seg=yc.slice(sp,d).join(''); if(d>sp&&tgt.startsWith(yc.slice(0,d).join(''))&&seg.trim()) vSpeak(seg.replace(/s+/g,''),'ko'); }
+  else if(r.kind==='word'){ if(n>pl) vSpeak(yc[n-1],'en'); }
+  else if(yc[n-1]===' '||whole){ const w=v.trim().split(/\\s+/).pop(); if(w) vSpeak(w,'en'); } }
+function vBind(inp){ const b=screen.querySelector('.tvo'); if(!b) return; R.pl=0; R.sp=0;
+  b.querySelectorAll('button').forEach(x=>x.onmousedown=e=>e.preventDefault());
+  b.querySelector('#vSay').onclick=()=>{ vSpeak(R.list[R.i],S.lang); inp.focus(); };
+  b.querySelector('#vRep').onclick=e=>{ const o=VO(); o.rep=!o.rep; save(); e.currentTarget.setAttribute('aria-pressed',o.rep); if(o.rep) vLoop(); else vStop(); inp.focus(); };
+  b.querySelector('#vEcho').onclick=e=>{ const o=VO(); o.echo=o.echo===false; save(); e.currentTarget.setAttribute('aria-pressed',o.echo); inp.focus(); };
+  if(VO().rep&&!R.voOn){ R.voOn=true; vLoop(); } }
+`;
+rep('function stopRun(){ if(R){', voice + 'function stopRun(){ vStop(); if(R){');
+// 아이콘 표(LUCIDE)가 만들어진 뒤에 소리 아이콘을 더한다
+rep('function drawIcons(){', "LUCIDE['volume-2']='<path d=\"M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z\"/><path d=\"M16 9a5 5 0 0 1 0 6\"/><path d=\"M19.364 18.364a9 9 0 0 0 0-12.728\"/>';\n" + 'function drawIcons(){');
+rep('<div class="stats"><span>타수 <b id="cpm">0</b></span><span>정확도 <b id="acc">100</b>%</span></div>',
+  '<div class="stats"><span>타수 <b id="cpm">0</b></span><span>정확도 <b id="acc">100</b>%</span><span class="tvo"><button id="vSay" class="tvb" aria-label="소리 듣기">${LI(\'volume-2\')}</button><button id="vRep" class="tvb" aria-pressed="${!!VO().rep}" aria-label="2초마다 반복해서 듣기">${LI(\'repeat\')}</button><button id="vEcho" class="tvb tvt" aria-pressed="${VO().echo!==false}" aria-label="글자 소리">${lg===\'ko\'?\'가\':\'A\'}</button></span></div>');
+rep("inp.oninput=()=>check(); paint('');", "inp.oninput=()=>check(); paint(''); vBind(inp);");
+rep('const {bad,tk}=paint(v);', 'const {bad,tk}=paint(v); vEcho(r,v,bad);');
+
 const out = `/* eslint-disable */
 // @ts-nocheck
 /**

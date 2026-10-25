@@ -68,3 +68,10 @@
 .pg-sub.typlock h2{font-size:18px;font-weight:800;margin:0}
 .pg-sub.typlock .note{margin:0}
 .pg-sub.typlock .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:10px;font-weight:700;text-decoration:none;background:var(--y);color:#fff}
+
+/* 타자 낱말·짧은 글: 소리 버튼(듣기 · 반복 · 글자 소리) */
+.pg-sub .stats{align-items:center}
+.pg-sub .stats .tvo{display:inline-flex;gap:6px;margin-left:auto}
+.pg-sub .tvb{width:36px;height:36px;border:0;border-radius:10px;background:var(--bg);color:var(--sub);display:grid;place-items:center;cursor:pointer;font:inherit;font-size:15px;font-weight:800}
+.pg-sub .tvb svg.lucide{width:18px;height:18px}
+.pg-sub .tvb[aria-pressed="true"]{background:var(--y-soft);color:var(--y)}

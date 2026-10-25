@@ -40,8 +40,8 @@
 .pg-sub .ringrow .legend{gap:4px 10px}
 
 /* 단원 소개 카드: 글자 정보 태그(급수·부수·획수 / 부수·3,500자 중 n자)를 '1 / 10' 줄 오른쪽 위로 */
-.pg-sub .lyric .lk~.info{position:relative}
-.pg-sub .lyric .lk~.info .meta{position:absolute;bottom:calc(100% + 9px);right:0;margin:0;max-width:calc(100% - 60px);justify-content:flex-end;flex-wrap:nowrap}
+.pg-sub .lyric .lkrow~div .info{position:relative}
+.pg-sub .lyric .lkrow~div .info .meta{position:absolute;bottom:calc(100% + 20px);right:0;margin:0;max-width:calc(100% - 60px);justify-content:flex-end;flex-wrap:nowrap}
 
 /* 그만하기 확인 창: 계속하기(회색) · 그만하기 두 버튼 한 줄 */
 .pg-sub .dialog .qrow{display:flex;gap:8px;justify-content:flex-end}
@@ -75,3 +75,11 @@
 .pg-sub .tvb{width:36px;height:36px;border:0;border-radius:10px;background:var(--bg);color:var(--sub);display:grid;place-items:center;cursor:pointer;font:inherit;font-size:15px;font-weight:800}
 .pg-sub .tvb svg.lucide{width:18px;height:18px}
 .pg-sub .tvb[aria-pressed="true"]{background:var(--y-soft);color:var(--y)}
+
+/* 학습 카드 소리 버튼(듣기 · 반복 · 자동) — 타자 연습과 같은 모양 */
+.pg-sub .lkrow{display:flex;align-items:center;gap:10px;min-height:36px}
+.pg-sub .vbar{display:inline-flex;gap:6px;align-items:center}
+.pg-sub .tvb.tvt{width:auto;padding:0 10px;font-size:13px}
+.pg-sub .lyric:has(.vbar) .itop .say{display:none}
+/* 휴대폰: '1 / 10' 줄에 소리 버튼이 들어가 자리가 모자라므로 태그는 원래 자리(뜻·음 아래)로 */
+@media (max-width:520px){.pg-sub .lyric .lkrow~div .info .meta{position:static;max-width:none;justify-content:flex-start;flex-wrap:wrap;margin-top:2px}}

@@ -18,6 +18,8 @@ import { createSlide, SIC, termCard, termFace } from '@/lib/slide';
 import { freshSave, lastPosStore, loadSave, loadTrack, storeSave, storeTrack, type SubjectSave } from '@/lib/subjectStore';
 import type { PQ, SStage, SubjectDef, SubjectUI, Track } from '@/lib/subjects/types';
 import { DEFAULT_UI } from '@/lib/subjects/ui';
+import { loadVoice, saveVoice, sayText, stopVoice, wait, type VoiceOpt } from '@/lib/voice';
+import type { Face } from '@/lib/slide';
 import L, { H } from './L';
 import Timeline from './Timeline';
 import { InkModal, IntroInk, SpellInput, SpellPen } from './Ink';
@@ -552,11 +554,32 @@ function Concept({ def, ui, T, s, gate, at, trName, isNow, passedScore, onClose,
   const [seen, setSeen] = useState(i);
   const [wrote, setWrote] = useState<Set<string>>(new Set());
   const stp = useRef<HTMLDivElement>(null);
+  // 소리: 듣기 · 반복(2초 간격) · 자동(카드를 넘기면 읽기) — 읽는 내용은 슬라이드와 같은 앞면(뜻·음/단어/용어) → 뒷면
+  const [vo, setVo] = useState<VoiceOpt>(loadVoice);
+  const sayId = s.kind !== 'exam' && i >= 1 && i <= n ? s.items[i - 1] : null;
+  const face: Face | null = sayId ? (def.slideFace ? def.slideFace(T, sayId) : T.items[sayId] ? termFace(T.items[sayId] as never, sayId) : null) : null;
+  const read = async (f: Face, alive: () => boolean) => {
+    await sayText(f.fs, f.fl);
+    if (f.bs && alive()) { await wait(400); if (alive()) await sayText(f.bs, 'ko-KR'); }
+  };
   useEffect(() => {
     setSeen((x) => Math.max(x, i));
     stp.current?.querySelector('.on')?.scrollIntoView({ block: 'nearest', inline: 'center' });
-    if (i > 0 && i <= s.items.length) ui.conceptShow?.(s.items[i - 1]);
+    if (i > 0 && i <= s.items.length && !face) ui.conceptShow?.(s.items[i - 1]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [i, s, ui]);
+  useEffect(() => {
+    if (!face) return;
+    let live = true;
+    const alive = () => live;
+    (async () => {
+      if (vo.auto || vo.rep) await read(face, alive);
+      while (live && vo.rep) { await wait(2000); if (live) await read(face, alive); }
+    })();
+    return () => { live = false; stopVoice(); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sayId, vo.rep, vo.auto]);
+  const setV = (o: VoiceOpt) => { setVo(o); saveVoice(o); };
 
   if (s.kind === 'exam') {
     return (
@@ -571,7 +594,7 @@ function Concept({ def, ui, T, s, gate, at, trName, isNow, passedScore, onClose,
   const canTrace = !!(gate && wch && ui.conceptTrace?.(wch));
   const needW = canTrace && !wrote.has(wch!);
   const item = (id: string) => (ui.conceptItem ? ui.conceptItem(T, s, id) : def.infoHTML(T, id));
-  const bodyHtml = i === 0 ? def.conceptIntro(T, s, trName) : i <= n ? `<span class="lk">${i} / ${n}</span>${item(s.items[i - 1])}` : def.conceptEnd(s, gate, cap);
+  const bodyHtml = i === 0 ? def.conceptIntro(T, s, trName) : i <= n ? item(s.items[i - 1]) : def.conceptEnd(s, gate, cap);
   const last = i === total - 1;
   const label = (c: string) => (ui.stepLabel ? ui.stepLabel(T, c) : String((T.items[c] as { t?: string }).t ?? c));
   const steps: [string | null, string][] = [['lightbulb', ui.stepFirst], ...s.items.map((c) => [null, label(c)] as [null, string]), ['bookmark', '기억']];
@@ -591,6 +614,17 @@ function Concept({ def, ui, T, s, gate, at, trName, isNow, passedScore, onClose,
         if (b.closest('.wgrid')) { ui.conceptGrid?.(s.items[+b.dataset.j! - 1]); b.classList.remove('spk'); void b.offsetWidth; b.classList.add('spk'); }
         jump(+b.dataset.j!);
       }}>
+        {i >= 1 && i <= n && (
+          <div className="lkrow"><span className="lk">{i} / {n}</span>
+            {face && (
+              <span className="vbar" onClick={(e) => e.stopPropagation()}>
+                <button className="tvb" aria-label="소리 듣기" onClick={() => { stopVoice(); read(face, () => true); }}><L n="volume-2" /></button>
+                <button className="tvb" aria-label="2초마다 반복해서 듣기" aria-pressed={vo.rep} onClick={() => setV({ ...vo, rep: !vo.rep })}><L n="repeat" /></button>
+                <button className="tvb tvt" aria-label="카드를 넘기면 자동으로 읽기" aria-pressed={vo.auto} onClick={() => setV({ ...vo, auto: !vo.auto })}>자동</button>
+              </span>
+            )}
+          </div>
+        )}
         <H html={bodyHtml} />
         {canTrace && (ui.traceKind === 'ink'
           ? <IntroInk key={wch!} word={wch!} wrote={wrote.has(wch!)} onWrote={() => setWrote((w) => new Set(w).add(wch!))} />

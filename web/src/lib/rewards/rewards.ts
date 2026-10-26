@@ -196,6 +196,7 @@ export const gameLimit = (st: RewardState, today: number) => st.gameLimit + (ens
 export const gamesLeft = (st: RewardState, today: number) => Math.max(0, gameLimit(st, today) - ensureDay(st, today).played);
 
 /** 테스트용: true면 오늘 할 일과 상관없이 꾸미기·게임을 열고, 하루 게임 판 수를 다 써도 계속 할 수 있다
+ *  밤 9시 게임 잠금 · 꾸미기 등급 잠금 · 타자 하루 시간 제한도 함께 푼다
  *  (사용자 요청 2026-10-26, 테스트 끝나면 false로 되돌리기) */
 export const GATE_OFF = true;
 /** 꾸미기·게임이 할 일 기준으로 열렸는지 */
@@ -212,7 +213,7 @@ export function block(st: RewardState, now: Date, off = GATE_OFF): Block {
     return { k: 'study', msg: `오늘 할 일을 모두 끝내면 열려요 (${ts.filter((t) => t.n >= t.goal).length}/${ts.length} 완료)` };
   }
   if (!off && !allDone(st, today)) return { k: 'study', msg: `밀린 공부 ${backlogTotal(st, today)}문제를 끝내면 열려요` };
-  if (st.curfew && now.getHours() >= CURFEW_HOUR) return { k: 'night', msg: '밤 9시가 지나면 게임은 쉬어요. 내일 만나요' };
+  if (!off && st.curfew && now.getHours() >= CURFEW_HOUR) return { k: 'night', msg: '밤 9시가 지나면 게임은 쉬어요. 내일 만나요' };
   if (!off && gamesLeft(st, today) <= 0) return { k: 'used', msg: '오늘 게임을 다 했어요. 내일 다시 열려요' };
   return null;
 }
@@ -325,4 +326,4 @@ export const weekOkText = (n: number, name: string) =>
   n ? `이번 주 ${name}에서 <b>${n}문제</b> 맞혔어요. 월요일에 새로 세요.` : '이번 주에는 아직 맞힌 문제가 없어요. 오늘 할 일부터 시작해요.';
 
 /** 오늘 타자 연습을 더 할 수 있는 시간(ms) — 제한 없음이면 Infinity */
-export const typLeftMs = (st: RewardState, today: number) => (st.typLimit ? Math.max(0, st.typLimit * 60000 - (st.typMs?.[today] ?? 0)) : Infinity);
+export const typLeftMs = (st: RewardState, today: number) => (st.typLimit && !GATE_OFF ? Math.max(0, st.typLimit * 60000 - (st.typMs?.[today] ?? 0)) : Infinity);

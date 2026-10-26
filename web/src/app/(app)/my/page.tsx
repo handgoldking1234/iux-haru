@@ -11,7 +11,7 @@ import { logout } from '@/lib/account';
 import { AVI, CATS, avatar, stampKind, stampSVG } from '@/lib/play/avatar';
 import { GSUBJ } from '@/lib/play/data';
 import { bindTips, myStats, statsInner } from '@/lib/play/stats';
-import { gateOpen, GRADES, gradeOf, tasks, TYP_LIMITS, type Equip, type RewardState } from '@/lib/rewards/rewards';
+import { GATE_OFF, gateOpen, GRADES, gradeOf, tasks, TYP_LIMITS, type Equip, type RewardState } from '@/lib/rewards/rewards';
 import { updateRewards, useAuth } from '@/lib/store';
 import { SUBJECT_KEYS, SUBJECTS } from '@/lib/subjects';
 
@@ -144,7 +144,7 @@ function Shop({ st, save }: { st: RewardState; save: (f: (s: RewardState) => voi
   else if (sel) {
     if (st.eq[cat] === sel.id) act = <button className="btn full" disabled><Ic n="check" />착용 중</button>;
     else if (own(sel)) act = <button className="btn y full" onClick={() => { save((s) => { s.eq[cat] = sel.id; }); pop(`${sel.name} 착용!`); hop(); }}><Ic n="shirt" />착용하기</button>;
-    else if (sel.g && gk < sel.g) act = <button className="btn full" disabled><Ic n="lock" />&apos;{GRADES[sel.g].n}&apos; 등급부터 살 수 있어요</button>;
+    else if (sel.g && gk < sel.g && !GATE_OFF) act = <button className="btn full" disabled><Ic n="lock" />&apos;{GRADES[sel.g].n}&apos; 등급부터 살 수 있어요</button>;
     else if (st.cash < sel.p) act = <button className="btn full" disabled>캐시가 {sel.p - st.cash} 부족해요</button>;
     else act = <button className="btn y full" onClick={() => { save((s) => { s.cash -= sel.p; s.owned.push(cat + ':' + sel.id); s.eq[cat] = sel.id; }); pop(`${sel.name}을(를) 샀어요!`); hop(); }}><Ic n="coins" />{sel.p}캐시로 사고 착용하기</button>;
   }
@@ -177,7 +177,7 @@ function Shop({ st, save }: { st: RewardState; save: (f: (s: RewardState) => voi
         ) : (<>
         <div className="itemgrid">
           {items.map((it) => {
-            const mine = own(it), lock = !!it.g && gk < it.g;
+            const mine = own(it), lock = !!it.g && gk < it.g && !GATE_OFF;
             return (
               <button key={it.id} className={`item ${sel?.id === it.id ? 'sel' : ''} ${st.eq[cat] === it.id ? 'on' : ''} ${lock && !mine ? 'lock' : ''}`} aria-label={it.name} onClick={() => setSelId(it.id)}>
                 <Svg html={avatar({ ...st.eq, [cat]: it.id }, 64)} /><b>{it.name}</b>

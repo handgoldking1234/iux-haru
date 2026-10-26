@@ -95,10 +95,10 @@ function vLoop(){ const k=++voK; clearTimeout(voT);
   const go=()=>{ if(k!==voK||!VO().rep||!R||!R.list) return; vSpeak(R.list[R.i],S.lang).then(()=>{ if(k===voK&&VO().rep) voT=setTimeout(go,2000); }); }; go(); }
 function vEcho(r,v,bad){ const yc=[...v], n=yc.length, pl=r.pl||0, tgt=r.list[r.i], whole=v===tgt; r.pl=n;
   if(n<(r.sp||0)) r.sp=n; if(VO().echo===false||bad||(n<=pl&&!whole)) return;
+  if(r.kind==='word'){ if(whole&&!r.said){ r.said=true; vSpeak(tgt,S.lang); } return; } // 낱말 연습: 다 쳤을 때 낱말 전체를 한 번만 (한글·영문)
   if(S.lang==='ko'){ const d=whole?n:n-1, sp=Math.min(r.sp||0,d); r.sp=d; const seg=yc.slice(sp,d).join(''); if(d>sp&&tgt.startsWith(yc.slice(0,d).join(''))&&seg.trim()) vSpeak(seg.replace(/s+/g,''),'ko'); }
-  else if(r.kind==='word'){ if(n>pl) vSpeak(yc[n-1],'en'); }
   else if(yc[n-1]===' '||whole){ const w=v.trim().split(/\s+/).pop(); if(w) vSpeak(w,'en'); } }
-function vBind(inp){ const b=screen.querySelector('.tvo'); if(!b) return; R.pl=0; R.sp=0;
+function vBind(inp){ const b=screen.querySelector('.tvo'); if(!b) return; R.pl=0; R.sp=0; R.said=false;
   b.querySelectorAll('button').forEach(x=>x.onmousedown=e=>e.preventDefault());
   b.querySelector('#vSay').onclick=()=>{ vSpeak(R.list[R.i],S.lang); inp.focus(); };
   b.querySelector('#vRep').onclick=e=>{ const o=VO(); o.rep=!o.rep; save(); e.currentTarget.setAttribute('aria-pressed',o.rep); if(o.rep) vLoop(); else vStop(); inp.focus(); };

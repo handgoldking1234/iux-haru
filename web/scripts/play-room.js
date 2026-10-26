@@ -12,7 +12,7 @@ const isMe=id=>id===MID();
 const amHost=()=>!!RM&&RM.hostId===MID();
 const meP=()=>({id:MID(),name:myName(),eq:S().eq,ready:false});
 const pName=p=>isMe(p.id)?(S().name?S().name+' (나)':'나'):p.name;
-const myMeta=()=>({id:MID(),name:myName(),eq:S().eq,ready:!!(RM&&RM.ready),host:amHost(),at:RM?RM.at:Date.now()});
+const myMeta=()=>({id:MID(),name:myName(),eq:S().eq,ready:!!(RM&&RM.ready),host:amHost(),at:RM?RM.at:Date.now(),lv:RM?RM.lv:gLv()});
 function send(ev,p){ if(RM&&RM.ch) RM.ch.send(ev,p||{}); }
 function say(p,txt,remote){ if(!RM) return; RM.chat.push({id:p.id,name:p.name,txt}); RM.chat=RM.chat.slice(-40); drawChat(); if(!remote) send('chat',{id:p.id,name:p.name,txt}); }
 function sys(txt){ if(!RM) return; RM.chat.push({sys:true,txt}); drawChat(); }
@@ -45,7 +45,7 @@ async function joinRoom(code){
 function enterRoom(row,host){
   clearT(); leaveCh();
   RM={code:row.code,priv:!row.public,hostId:host?MID():null,hostName:row.host_name,sub:row.subject,dan:row.dan||0,n:row.n,max:row.max_n,
-    players:[meP()],chat:[],phase:'wait',ready:false,at:Date.now(),known:{},synced:false,ban:[]};
+    players:[meP()],chat:[],phase:'wait',ready:false,at:Date.now(),known:{},synced:false,ban:[],lv:host?gLv():null}; // 문제 수준은 방장이 고른 게임 수준
   sys(host?(RM.priv?'비공개 방을 만들었어요. 코드를 친구에게 알려 주세요':'공개 방을 만들었어요. 공개 방 목록에서 누구나 들어올 수 있어요'):`${row.host_name}님의 방에 들어왔어요`);
   view='room'; drawRoom(); screen.scrollTop=0;
   RM.ch=RT.join(row.code,myMeta(),{presence:onPresence,event:onEvent});
@@ -67,7 +67,7 @@ function onPresence(list){
   if(!RM) return;
   const ps=list.filter(Boolean).sort((a,b)=>((b.host?1:0)-(a.host?1:0))||(a.at-b.at));
   const host=ps.find(p=>p.host);
-  if(host){ RM.hostId=host.id; RM.seenHost=true; }
+  if(host){ RM.hostId=host.id; RM.seenHost=true; if(typeof host.lv==='number') RM.lv=host.lv; }
   else if(RM.seenHost&&!amHost()){ toast('방장이 나가서 방이 닫혔어요'); leaveRoom(); return; }
   const ids=new Set(ps.map(p=>p.id));
   if(RM.synced){
@@ -110,7 +110,8 @@ function hostStart(){
   if(RM.players.length<2){ toast('친구가 들어오면 시작할 수 있어요'); return; }
   if(!HG.useTicket()){ toast((HG.block()||{}).msg||'남은 판이 없어요'); return; }
   const rain=RM.sub==='tko'||RM.sub==='ten';
-  const p={sub:RM.sub,dan:RM.dan,n:RM.n,qs:rain?[]:Array.from({length:RM.n},()=>genQ(RM.sub,RM.dan)),seq:rain?shuffle(RM.sub==='tko'?PD.tko:PD.ten):null};
+  LVNOW=RM.lv; let qs; try{ qs=rain?[]:Array.from({length:RM.n},()=>genQ(RM.sub,RM.dan)); } finally{ LVNOW=null; }
+  const p={sub:RM.sub,dan:RM.dan,n:RM.n,lv:RM.lv,qs,seq:rain?shuffle(RM.sub==='tko'?PD.tko:PD.ten):null};
   send('start',p); RT.update(RM.code,{state:'play'}); startMatch(p);
 }
 function drawRoom(){
@@ -122,7 +123,7 @@ function drawRoom(){
   <section class="sec">
     ${RM.priv?`<div class="roomcode"><div><small>${LI('lock','inl')}비공개 방 · 방 코드</small><b>${RM.code}</b></div>${host?`<button class="btn line" id="copy">${LI('copy')}코드 복사</button>`:`<span class="grade">${LI('users')}참가자</span>`}</div>`
       :`<div class="roomcode pub"><div><small>${LI('users','inl')}공개 방 · 방 코드 ${RM.code}</small><b class="pubt">누구나 들어올 수 있어요</b></div>${host?`<button class="btn line" id="toPriv">${LI('lock')}비공개로</button>`:`<span class="grade">${LI('users')}참가자</span>`}</div>`}
-    <div class="roomopt">${SUBJ[RM.sub][0]}${RM.sub==='gugu'?' '+danName(RM.dan):''} · ${RM.n}문제 · 최대 ${RM.max}명 · 방장 ${esc(hostP?pName(hostP):RM.hostName||'')}</div>
+    <div class="roomopt">${SUBJ[RM.sub][0]}${RM.sub==='gugu'?' '+danName(RM.dan):''}${RM.lv!=null&&!['gugu','tko','ten','spell'].includes(RM.sub)?' · '+LVG[RM.lv]+' 수준':''} · ${RM.n}문제 · 최대 ${RM.max}명 · 방장 ${esc(hostP?pName(hostP):RM.hostName||'')}</div>
   </section>
   <section class="sec"><h3 class="sh">${LI('users')}참가자 <small>${RM.players.length} / ${RM.max}</small></h3>
     <div class="players">${Array.from({length:RM.max},(_,i)=>{ const p=RM.players[i]; if(!p) return `<div class="pl empty">${LI('user-plus')}${RM.priv?'코드로 초대':'들어오길 기다려요'}</div>`;
@@ -143,7 +144,7 @@ function drawRoom(){
 
 const QT=10;
 function startMatch(p){
-  clearT(); RM.first=null; RM.rain=null; RM.spd=null; RM.phase='play'; RM.sub=p.sub; RM.dan=p.dan; RM.n=p.n; RM.qs=p.qs||[]; RM.seq=p.seq; RM.qi=-1;
+  clearT(); RM.first=null; RM.rain=null; RM.spd=null; RM.phase='play'; RM.sub=p.sub; RM.dan=p.dan; RM.n=p.n; if(typeof p.lv==='number') RM.lv=p.lv; RM.qs=p.qs||[]; RM.seq=p.seq; RM.qi=-1;
   RM.score={}; RM.right={}; RM.wrong={}; RM.time={}; RM.players.forEach(pl=>{ RM.score[pl.id]=0; RM.right[pl.id]=0; RM.wrong[pl.id]=0; RM.time[pl.id]=0; });
   view='match'; showTabs(false); setBar(`대결 · ${SUBJ[RM.sub][0]}${RM.sub==='gugu'?' '+danName(RM.dan):''}`,()=>{ leaveRoom(); toast('대결을 그만뒀어요'); });
   let n=3; const app=root.querySelector('.app'); const ov=document.createElement('div'); ov.className='count'; ov.textContent=n; app.appendChild(ov);

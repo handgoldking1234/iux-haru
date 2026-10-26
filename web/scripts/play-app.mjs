@@ -39,6 +39,15 @@ js = js.replace(/parent\./g, 'env.');
 js = js.replace(/document\.querySelector\('\.app'\)/g, "root.querySelector('.app')");
 rep('setTab(\'home\');', 'navGo(env.start||\'game\', env.sub);');
 
+/* 사용자 요청: 게임 수준(초1~고3) — 학년별 문제 묶음(env.lv)과 학년별 연산 (scripts/play-level-q.js) */
+rep('function genQ(sub,dan){', fs.readFileSync(path.join(here, 'play-level-q.js'), 'utf8') + 'function genQ(sub,dan){');
+rep("const P=sub==='hist'?PD.hist:sub==='sci'?PD.sci:PD.kor, x=pick(P),", "const P=lvPool(sub)||(sub==='hist'?PD.hist:sub==='sci'?PD.sci:PD.kor), x=pick(P),");
+rep("    const x=pick(PD.han), ans=`${x[1]} ${x[2]}`, set=new Set([ans]);\n    shuffle(PD.han).forEach(", "    const HP=lvPool('han')||PD.han, x=pick(HP), ans=`${x[1]} ${x[2]}`, set=new Set([ans]);\n    shuffle(HP).forEach(");
+rep("    const x=pick(PD.eng), set=new Set([x[1]]);\n    shuffle(PD.eng).forEach(", "    const EP=lvPool('eng')||PD.eng, x=pick(EP), set=new Set([x[1]]);\n    shuffle(EP).forEach(");
+rep("  if(sub==='math'){\n    const t=R(0,4); let q,a;", "  if(sub==='math') return mathLv(curLv());\n  if(sub==='math-old'){\n    const t=R(0,4); let q,a;");
+rep('    ${ticketsH()}\n', '    ${ticketsH()}\n    <div class="lvrow"><small class="sub">게임 수준 · 스피드 게임과 내가 만드는 대결방 문제</small>${chipH(\'gv\',LVG.map((n,i)=>[i,n]),gLv())}</div>\n');
+rep("  screen.querySelectorAll('[data-gs]').forEach(b=>b.onclick=()=>{ gSub=b.dataset.gs; renderGame(); });", "  screen.querySelectorAll('[data-gs]').forEach(b=>b.onclick=()=>{ gSub=b.dataset.gs; renderGame(); });\n  screen.querySelectorAll('[data-gv]').forEach(b=>b.onclick=()=>{ st.gLv=+b.dataset.gv; HG.save(); renderGame(); });");
+
 /* 사용자 요청: 대결방을 가상 친구(시연) 대신 실시간 연결로 — 대결방 부분을 scripts/play-room.js로 바꿔 끼운다 (env.rt = lib/play/room.ts) */
 {
   const a = js.indexOf('/* ---------- 대결방 (시연: 가상 친구) ---------- */'), b = js.indexOf('/* ---------- 랭킹 ---------- */');

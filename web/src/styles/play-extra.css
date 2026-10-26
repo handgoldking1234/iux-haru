@@ -10,3 +10,6 @@
 
 /* 홈 머리: 하루5분 로고 글자 */
 .pg-play .b1 h1.brand{display:flex;align-items:center;gap:6px;font-size:21px;font-weight:900;letter-spacing:-.03em}
+
+/* 게임: 게임 수준(초1~고3) 선택 줄 */
+.pg-play .lvrow{margin-top:12px;display:flex;flex-direction:column;gap:6px}

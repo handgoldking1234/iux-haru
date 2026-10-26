@@ -12,7 +12,7 @@ import { roomRT } from '@/lib/play/room';
 import { hasSupabase } from '@/lib/supabase';
 import { mountPlay } from '@/lib/play/playApp';
 
-let PLAY_DATA: { ICONS: Record<string, string>; PLAY: unknown } | null = null;
+let PLAY_DATA: { ICONS: Record<string, string>; PLAY: unknown; LV?: unknown } | null = null;
 
 function Game() {
   const router = useRouter();
@@ -23,7 +23,9 @@ function Game() {
 
   useEffect(() => {
     if (PLAY_DATA) return;
-    fetch('/content/play.json').then((r) => r.json()).then((d) => { PLAY_DATA = d; setData(d); });
+    // 게임 문제 + 게임 수준(초1~고3)별 문제 묶음
+    Promise.all([fetch('/content/play.json').then((r) => r.json()), fetch('/content/play-lv.json').then((r) => r.json()).catch(() => null)])
+      .then(([d, lv]) => { PLAY_DATA = { ...d, LV: lv }; setData(PLAY_DATA); });
   }, []);
 
   useEffect(() => {
@@ -33,6 +35,7 @@ function Game() {
       icons: data.ICONS, pd: data.PLAY, HGS, start: 'game', sub: sp.get('f') || undefined,
       // 실시간 대결방 (Supabase 로그인 학생만)
       rt: hasSupabase && kid.id ? roomRT(kid.id) : null,
+      lv: data.LV, grade: kid.grade,
       hgNav: (on: boolean) => showNav(on),
       hgNavSel: (t: string) => { if (t !== 'game') router.push(`/${t === 'shop' ? 'my?f=shop' : t}`); },
       hgNavBadge: () => {},
@@ -44,7 +47,7 @@ function Game() {
       fireAlarm: (a: { label?: string }) => pop(`${a.label || '공부할 시간'} — 알림 미리 보기`),
     });
     return () => { app.destroy(); showNav(true); };
-  }, [data, kid.name, kid.id, router, sp]);
+  }, [data, kid.name, kid.id, kid.grade, router, sp]);
 
   return (
     <div className="frames">

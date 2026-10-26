@@ -50,23 +50,23 @@ describe('오늘 할 일과 잠금', () => {
   it('할 일을 모두 끝내야 열리고 +20, 20문제 더 맞히면 +1판', () => {
     const st = freshRewards(T);
     st.plan = { math: 2, hanja: 1, eng: 0, kor: 0, hist: 0, sci: 0, typ: 0 };
-    expect(block(st, at(15))?.msg).toBe('오늘 할 일을 모두 끝내면 열려요 (0/2 완료)');
+    expect(block(st, at(15), false)?.msg).toBe('오늘 할 일을 모두 끝내면 열려요 (0/2 완료)');
     rewardEvent(st, 'ok', 'math', T);
     rewardEvent(st, 'ok', 'math', T);
     const out = rewardEvent(st, 'ok', 'hanja', T);
     expect(out.msg).toContain('오늘 할 일 완료! 꾸미기·게임이 열렸어요 +20');
-    expect(block(st, at(15))).toBeNull();
+    expect(block(st, at(15), false)).toBeNull();
     for (let i = 0; i < 3; i++) expect(takeTicket(st, at(15))).toBe(true);
-    expect(block(st, at(15))?.k).toBe('used');
+    expect(block(st, at(15), false)?.k).toBe('used');
     for (let i = 0; i < 20; i++) rewardEvent(st, 'ok', 'math', T);
-    expect(block(st, at(15))).toBeNull();
+    expect(block(st, at(15), false)).toBeNull();
   });
   it('밤 9시 잠금(선택)', () => {
     const st = freshRewards(T);
     st.plan = { math: 0, hanja: 0, eng: 0, kor: 0, hist: 0, sci: 0, typ: 0 };
     st.curfew = true;
-    expect(block(st, at(20))).toBeNull();
-    expect(block(st, at(21))?.k).toBe('night');
+    expect(block(st, at(20), false)).toBeNull();
+    expect(block(st, at(21), false)?.k).toBe('night');
   });
   it('밀린 공부: 못 끝낸 하루치를 오늘 할 일을 넘긴 정답으로 갚고, 다 갚으면 +5', () => {
     const st = freshRewards(T);
@@ -75,9 +75,9 @@ describe('오늘 할 일과 잠금', () => {
     expect(backlogTotal(st, T + 1)).toBe(1);
     rewardEvent(st, 'ok', 'math', T + 1);
     rewardEvent(st, 'ok', 'math', T + 1);
-    expect(block(st, at(15, T + 1))?.msg).toBe('밀린 공부 1문제를 끝내면 열려요');
+    expect(block(st, at(15, T + 1), false)?.msg).toBe('밀린 공부 1문제를 끝내면 열려요');
     const out = rewardEvent(st, 'ok', 'math', T + 1);
     expect(out.msg.some((m) => m.includes('밀린 공부 완료 +5'))).toBe(true);
-    expect(block(st, at(15, T + 1))).toBeNull();
+    expect(block(st, at(15, T + 1), false)).toBeNull();
   });
 });

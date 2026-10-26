@@ -195,7 +195,8 @@ export const allDone = (st: RewardState, today: number) =>
 export const gameLimit = (st: RewardState, today: number) => st.gameLimit + (ensureDay(st, today).more ? 1 : 0);
 export const gamesLeft = (st: RewardState, today: number) => Math.max(0, gameLimit(st, today) - ensureDay(st, today).played);
 
-/** 테스트용: true면 오늘 할 일과 상관없이 꾸미기·게임을 연다 (사용자 요청 2026-10-26, 테스트 끝나면 false로 되돌리기) */
+/** 테스트용: true면 오늘 할 일과 상관없이 꾸미기·게임을 열고, 하루 게임 판 수를 다 써도 계속 할 수 있다
+ *  (사용자 요청 2026-10-26, 테스트 끝나면 false로 되돌리기) */
 export const GATE_OFF = true;
 /** 꾸미기·게임이 할 일 기준으로 열렸는지 */
 export const gateOpen = (st: RewardState, today: number) => GATE_OFF || allDone(st, today);
@@ -203,15 +204,16 @@ export const gateOpen = (st: RewardState, today: number) => GATE_OFF || allDone(
 export type Block = { k: 'study' | 'night' | 'used'; msg: string } | null;
 
 /** 꾸미기·게임이 잠겼으면 이유를 돌려준다 */
-export function block(st: RewardState, now: Date): Block {
+/** off: 테스트용 잠금 해제(GATE_OFF). 규칙 테스트는 false를 넘겨 실제 잠금을 확인한다 */
+export function block(st: RewardState, now: Date, off = GATE_OFF): Block {
   const today = dayNumber(now);
   const ts = tasks(st, today);
-  if (!GATE_OFF && !todayDone(st, today)) {
+  if (!off && !todayDone(st, today)) {
     return { k: 'study', msg: `오늘 할 일을 모두 끝내면 열려요 (${ts.filter((t) => t.n >= t.goal).length}/${ts.length} 완료)` };
   }
-  if (!GATE_OFF && !allDone(st, today)) return { k: 'study', msg: `밀린 공부 ${backlogTotal(st, today)}문제를 끝내면 열려요` };
+  if (!off && !allDone(st, today)) return { k: 'study', msg: `밀린 공부 ${backlogTotal(st, today)}문제를 끝내면 열려요` };
   if (st.curfew && now.getHours() >= CURFEW_HOUR) return { k: 'night', msg: '밤 9시가 지나면 게임은 쉬어요. 내일 만나요' };
-  if (gamesLeft(st, today) <= 0) return { k: 'used', msg: '오늘 게임을 다 했어요. 내일 다시 열려요' };
+  if (!off && gamesLeft(st, today) <= 0) return { k: 'used', msg: '오늘 게임을 다 했어요. 내일 다시 열려요' };
   return null;
 }
 

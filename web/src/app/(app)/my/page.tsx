@@ -10,7 +10,7 @@ import { logout } from '@/lib/account';
 import { AVI, CATS, avatar, stampKind, stampSVG } from '@/lib/play/avatar';
 import { GSUBJ } from '@/lib/play/data';
 import { bindTips, myStats, statsInner } from '@/lib/play/stats';
-import { allDone, GRADES, gradeOf, tasks, TYP_LIMITS, type Equip, type RewardState } from '@/lib/rewards/rewards';
+import { gateOpen, GRADES, gradeOf, tasks, TYP_LIMITS, type Equip, type RewardState } from '@/lib/rewards/rewards';
 import { updateRewards, useAuth } from '@/lib/store';
 import { SUBJECT_KEYS, SUBJECTS } from '@/lib/subjects';
 
@@ -131,7 +131,7 @@ function Shop({ st, save }: { st: RewardState; save: (f: (s: RewardState) => voi
   const gk = gradeOf(st.xp), items = ITEMS[cat], sel = selId ? items.find((i) => i.id === selId) ?? null : null;
   const own = (it: Item) => it.p === 0 || st.owned.includes(cat + ':' + it.id);
   const preview = { ...st.eq, ...(sel ? { [cat]: sel.id } : {}) };
-  const locked = !allDone(st, today);
+  const locked = !gateOpen(st, today);
   const g = GRADES[gk];
 
   let act = <button className="btn full" disabled>아이템을 골라 미리 입혀 보세요</button>;

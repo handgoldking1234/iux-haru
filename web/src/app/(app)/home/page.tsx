@@ -8,6 +8,7 @@ import { pop } from '@/components/Toast';
 import { avatar, stampKind, stampSVG } from '@/lib/play/avatar';
 import {
   allDone, backlog, GAME_CAP, gamesLeft, GRADES, gradeOf, MORE, rewardEvent, STUDY_CAP, tasks, todayDone,
+  gateOpen,
 } from '@/lib/rewards/rewards';
 import { updateRewards } from '@/lib/store';
 import { SUBJECTS, type SubjectKey } from '@/lib/subjects';
@@ -19,7 +20,7 @@ export default function HomePage() {
   const { kid, rewards: st, today } = useKid();
   const d = st.day!;
   const gk = gradeOf(st.xp), g = GRADES[gk], nx = GRADES[gk + 1];
-  const ts = tasks(st, today), fin = ts.filter((t) => t.n >= t.goal).length, done = allDone(st, today);
+  const ts = tasks(st, today), fin = ts.filter((t) => t.n >= t.goal).length, done = allDone(st, today), open = gateOpen(st, today);
   const bl = backlog(st, today);
   const now = new Date();
   const goSub = (k: SubjectKey) => router.push(`/study/${k}`);
@@ -80,18 +81,17 @@ export default function HomePage() {
               );
             })}
           </ul>
-          <p className={`gblock ${done ? 'open' : ''}`}>
-            <Ic n={done ? 'gift' : 'lock'} />
-            {done ? '오늘 할 일 끝! 꾸미기와 게임(스피드·대결)이 열렸어요' : '오늘 할 일을 모두 끝내면 꾸미기와 게임(스피드·대결)이 열려요'}
+          <p className={`gblock ${open ? 'open' : ''}`}>
+            <Ic n={open ? 'gift' : 'lock'} />
+            {done ? '오늘 할 일 끝! 꾸미기와 게임(스피드·대결)이 열렸어요' : open ? '테스트 중이라 오늘 할 일과 상관없이 꾸미기와 게임이 열려 있어요' : '오늘 할 일을 모두 끝내면 꾸미기와 게임(스피드·대결)이 열려요'}
           </p>
-          {done ? (
+          {open && (
             <div className="row" style={{ marginTop: 10 }}>
               <button className="btn y" onClick={() => router.push('/my?f=shop')}><Ic n="shirt" />꾸미기</button>
               <button className="btn k" onClick={() => router.push('/game')}><Ic n="swords" />게임·대결</button>
             </div>
-          ) : (
-            <button className="btn line full" style={{ marginTop: 10 }} onClick={demoDone}>시연: 오늘 할 일 모두 끝낸 것으로 하기</button>
           )}
+          {!done && <button className="btn line full" style={{ marginTop: 10 }} onClick={demoDone}>시연: 오늘 할 일 모두 끝낸 것으로 하기</button>}
         </section>
 
         <section className="sec">
@@ -127,7 +127,7 @@ export default function HomePage() {
             <div><small>틀림</small><b style={{ color: 'var(--no)' }}>{d.no}</b></div>
             <div><small>점수 (맞힘−틀림)</small><b>{d.ok - d.no}</b></div>
           </div>
-          <p className="note">오늘 받은 캐시 {d.cash + d.game} · 게임 남은 판 {done ? gamesLeft(st, today) : '잠김'}</p>
+          <p className="note">오늘 받은 캐시 {d.cash + d.game} · 게임 남은 판 {open ? gamesLeft(st, today) : '잠김'}</p>
           {Object.keys(d.by).length > 0 && (
             <div className="subj">
               {Object.entries(d.by).map(([k, v]) => <span key={k} style={{ '--c': scol(k) } as React.CSSProperties}>{SUBJECTS[k as SubjectKey]?.name ?? k} {v}</span>)}

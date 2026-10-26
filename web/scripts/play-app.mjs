@@ -39,6 +39,18 @@ js = js.replace(/parent\./g, 'env.');
 js = js.replace(/document\.querySelector\('\.app'\)/g, "root.querySelector('.app')");
 rep('setTab(\'home\');', 'navGo(env.start||\'game\', env.sub);');
 
+/* 사용자 요청: 대결방을 가상 친구(시연) 대신 실시간 연결로 — 대결방 부분을 scripts/play-room.js로 바꿔 끼운다 (env.rt = lib/play/room.ts) */
+{
+  const a = js.indexOf('/* ---------- 대결방 (시연: 가상 친구) ---------- */'), b = js.indexOf('/* ---------- 랭킹 ---------- */');
+  if (a < 0 || b < 0) throw new Error('대결방 부분을 찾지 못함');
+  js = js.slice(0, a) + fs.readFileSync(path.join(here, 'play-room.js'), 'utf8') + js.slice(b);
+  const before = js;
+  js = js.replace(/<div class="pubs">\$\{pubRooms\(\)[\s\S]*?\.join\(''\)\}<\/div>/, '<div class="pubs" id="pubs"><p class="note" style="margin:0">공개 방을 찾는 중…</p></div>');
+  if (js === before) throw new Error('공개 방 목록을 찾지 못함');
+  rep("  screen.querySelectorAll('[data-pub]').forEach(b=>b.onclick=()=>{ const bl=HG.block(); if(bl){ toast(bl.msg); return; } joinPublic(pubRooms()[+b.dataset.pub]); });", '  loadPubs(gb);');
+  rep('시연용이라 친구는 가상 참가자예요. 채팅은 정해진 문구와 이모지만 쓸 수 있어요.', '친구와 실시간으로 대결해요. 보이는 건 닉네임과 캐릭터뿐이고, 채팅은 정해진 문구와 이모지만 쓸 수 있어요.');
+}
+
 const tpl = fs.readFileSync(path.join(ROOT, 'prototype/build/play.tpl.html'), 'utf8');
 const skeleton = tpl.slice(tpl.indexOf('<div class="app">'), tpl.indexOf('<script>')).trim().replace(/__I_[a-z0-9-]+__/g, '');
 

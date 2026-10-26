@@ -48,6 +48,13 @@ rep("  if(sub==='math'){\n    const t=R(0,4); let q,a;", "  if(sub==='math') ret
 rep('    ${ticketsH()}\n', '    ${ticketsH()}\n    <div class="lvrow"><small class="sub">게임 수준 · 스피드 게임과 내가 만드는 대결방 문제</small>${chipH(\'gv\',LVG.map((n,i)=>[i,n]),gLv())}</div>\n');
 rep("  screen.querySelectorAll('[data-gs]').forEach(b=>b.onclick=()=>{ gSub=b.dataset.gs; renderGame(); });", "  screen.querySelectorAll('[data-gs]').forEach(b=>b.onclick=()=>{ gSub=b.dataset.gs; renderGame(); });\n  screen.querySelectorAll('[data-gv]').forEach(b=>b.onclick=()=>{ st.gLv=+b.dataset.gv; HG.save(); renderGame(); });");
 
+/* 사용자 요청: 학년에 맞는 과목만 보이기 · 종합도 그 과목만 · 스피드 게임 문제 중복 없애기 */
+rep("function mixQ(){ if(!mixBag.length) mixBag=shuffle([...MIX_SUBS]);", "function mixQ(){ if(!mixBag.length) mixBag=shuffle(MIX_SUBS.filter(k=>subOK(k)));");
+rep("${chipH('ms',Object.entries(SUBJ).map(([k,v])=>[k,v[0]]),mk.sub)}", "${chipH('ms',subsFor(gLv()),mk.sub)}");
+rep("${chipH('gs',Object.entries(SUBJ).map(([k,v])=>[k,v[0]]),gSub)}", "${chipH('gs',subsFor(gLv()),gSub)}");
+rep("st.gLv=+b.dataset.gv; HG.save(); renderGame();", "st.gLv=+b.dataset.gv; HG.save(); if(!subOK(gSub)) gSub='math'; if(!subOK(mk.sub)) mk.sub='math'; mixBag=[]; renderGame();");
+rep("function nextSpeed(){ SP.cur=genQ(SP.sub,SP.dan);", "function nextSpeed(){ SP.seen=SP.seen||new Set(); SP.cur=genU(SP.sub,SP.dan,SP.seen);");
+
 /* 사용자 요청: 대결방을 가상 친구(시연) 대신 실시간 연결로 — 대결방 부분을 scripts/play-room.js로 바꿔 끼운다 (env.rt = lib/play/room.ts) */
 {
   const a = js.indexOf('/* ---------- 대결방 (시연: 가상 친구) ---------- */'), b = js.indexOf('/* ---------- 랭킹 ---------- */');

@@ -27,3 +27,9 @@ function mathLv(g){
   if(g===10){ if(t===0){ const b=pick([2,3]),n=R(2,b===2?7:4); return numQ(`log${b===2?'₂':'₃'} ${b**n}`,n,'로그'); } const a=R(1,9),d=R(2,6),n=R(5,12); return numQ(`첫째항 ${a}, 공차 ${d}인 등차수열의 제${n}항`,a+(n-1)*d,'등차수열'); }
   if(t===0){ const c=R(1,4),x=R(1,4); return numQ(`f(x) = ${c}x³ 일 때 f'(${x})`,3*c*x*x,'미분계수'); } const k=R(1,4),b=R(1,4); return numQ(`∫₀^${b} ${2*k}x dx`,k*b*b,'정적분');
 }
+/* 학년에 맞는 과목만: 영단어·과학·영문 타자는 초3부터, 역사는 초5부터, 구구단은 초2부터 (나머지는 모든 학년) */
+const SUB_MIN={eng:2,sci:2,ten:2,hist:4,gugu:1};
+const subOK=(k,g)=>(g==null?curLv():g)>=(SUB_MIN[k]||0);
+const subsFor=g=>Object.entries(SUBJ).filter(([k])=>subOK(k,g)).map(([k,v])=>[k,v[0]]);
+/* 한 판 안에서 같은 문제가 다시 나오지 않게 (seen: 이미 낸 문제) */
+function genU(sub,dan,seen){ for(let i=0;i<15;i++){ const q=genQ(sub,dan), k=q.q+'|'+q.ans; if(!seen.has(k)){ seen.add(k); return q; } } return genQ(sub,dan); }

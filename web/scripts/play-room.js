@@ -45,10 +45,12 @@ async function joinRoom(code){
 function enterRoom(row,host){
   clearT(); leaveCh();
   RM={code:row.code,priv:!row.public,hostId:host?MID():null,hostName:row.host_name,sub:row.subject,dan:row.dan||0,n:row.n,max:row.max_n,
-    players:[meP()],chat:[],phase:'wait',ready:false,at:Date.now(),known:{},synced:false,ban:[],lv:host?gLv():null}; // 문제 수준은 방장이 고른 게임 수준
+    players:[meP()],real:[meP()],bots:[],hi:{},chat:[],phase:'wait',ready:false,at:Date.now(),known:{},synced:false,ban:[],lv:host?gLv():null}; // 문제 수준은 방장이 고른 게임 수준
   sys(host?(RM.priv?'비공개 방을 만들었어요. 코드를 친구에게 알려 주세요':'공개 방을 만들었어요. 공개 방 목록에서 누구나 들어올 수 있어요'):`${row.host_name}님의 방에 들어왔어요`);
   view='room'; drawRoom(); screen.scrollTop=0;
-  RM.ch=RT.join(row.code,myMeta(),{presence:onPresence,event:onEvent});
+  // 접속 상태 동기화는 몇 초 늦을 수 있어서, 들어오자마자 '들어왔어요'(hi)를 방송해 서로 바로 보이게 한다
+  RM.ch=RT.join(row.code,myMeta(),{presence:onPresence,event:onEvent,ready:()=>send('hi',myMeta())});
+  if(host&&!RM.priv) addBots();
   if(host) RM.hb=setInterval(()=>{ if(RM&&amHost()) RT.update(RM.code,{cur:RM.players.length}); },30000);
   else later(()=>{ if(RM&&!RM.seenHost){ toast('방장이 없어서 들어갈 수 없어요'); leaveRoom(); } },6000); // 방장이 창을 닫은 방
 }
@@ -57,11 +59,30 @@ window.addEventListener('pagehide',()=>{ if(RM&&amHost()&&RT){ send('closed',{})
 function leaveCh(){ if(!RM) return; if(RM.hb){ clearInterval(RM.hb); RM.hb=null; } if(RM.ch){ try{ RM.ch.leave(); }catch(e){} RM.ch=null; } }
 function leaveRoom(silent){
   if(!RM) return;
+  send('bye',{id:MID()});
   if(amHost()){ send('closed',{}); if(RT) RT.remove(RM.code); }
   const r=RM; clearT(); setTimeout(()=>{ RM=r; leaveCh(); RM=null; },150); RM=null;
   if(!silent){ view=null; render(); } else view=null;
 }
 
+/* 공개 방 AI 친구 — 아직 접속한 학생이 적어서, 공개 방에는 가상 친구가 몇 명 들어와 같이 한다(사용자 요청).
+   방장 기기가 움직이고 다른 참가자에게 방송한다. 진짜 친구가 들어와 자리가 모자라면 비켜 준다 */
+function addBots(){ const n=R(1,Math.min(3,RM.max-1)); shuffle(FRIENDS).slice(0,n).forEach((f,i)=>later(()=>botJoin(f),1500+i*1800+R(0,800))); }
+function botJoin(f){ if(!RM||!amHost()||RM.phase!=='wait'||RM.players.length>=RM.max||RM.bots.some(b=>b.id===f.id)) return;
+  RM.bots.push({id:f.id,name:f.name,eq:f.eq,ready:true,bot:true,skill:f.skill,spd:f.spd}); sys(`${f.name}님이 들어왔어요`); send('bots',{list:RM.bots}); syncPlayers();
+  later(()=>{ const b=RM&&RM.bots.find(x=>x.id===f.id); if(b) say(b,pick(BOT_SAY.join)); },800+R(0,900)); }
+function botReply(){ if(!RM||!amHost()||!RM.bots.length||Math.random()>.5) return; const b=pick(RM.bots); later(()=>{ if(RM&&RM.bots.includes(b)) say(b,pick(RM.phase==='end'?BOT_SAY.end:BOT_SAY.good)); },900+R(0,900)); }
+/* 참가자 = 접속한 학생(접속 상태 + 방금 '들어왔어요' 신호) + AI 친구 */
+function syncPlayers(){
+  if(!RM) return; const now=Date.now(), real=RM.real.slice();
+  Object.values(RM.hi).forEach(h=>{ if(now-h.at<15000&&!real.some(p=>p.id===h.m.id)) real.push({id:h.m.id,name:h.m.name,eq:h.m.eq||{},ready:!!h.m.ready}); });
+  if(!real.some(p=>isMe(p.id))) real.push(meP());
+  real.sort((a,b)=>(b.id===RM.hostId)-(a.id===RM.hostId));
+  if(amHost()) while(real.length+RM.bots.length>RM.max&&RM.bots.length){ const b=RM.bots.pop(); sys(`${b.name}님이 자리를 비켜 줬어요`); send('bots',{list:RM.bots}); }
+  RM.players=[...real,...RM.bots].slice(0,RM.max);
+  if(amHost()) RT.update(RM.code,{cur:RM.players.length});
+  if(view==='room'&&RM.phase==='wait') drawRoom();
+}
 /* 참가자 목록이 바뀔 때 (들어옴 · 나감 · 준비) */
 function onPresence(list){
   if(!RM) return;
@@ -72,21 +93,25 @@ function onPresence(list){
   const ids=new Set(ps.map(p=>p.id));
   if(RM.synced){
     ps.forEach(p=>{ if(!RM.known[p.id]&&!isMe(p.id)&&!p.host) sys(`${p.name}님이 들어왔어요`); });
-    Object.keys(RM.known).forEach(id=>{ if(!ids.has(id)&&!isMe(id)) sys(`${RM.known[id]}님이 나갔어요`); });
+    Object.keys(RM.known).forEach(id=>{ if(!ids.has(id)&&!isMe(id)&&!RM.hi[id]) sys(`${RM.known[id]}님이 나갔어요`); });
   }
-  RM.synced=true; RM.known={}; ps.forEach(p=>{ RM.known[p.id]=p.name; });
+  RM.synced=true; RM.known={}; ps.forEach(p=>{ RM.known[p.id]=p.name; delete RM.hi[p.id]; }); Object.values(RM.hi).forEach(h=>{ RM.known[h.m.id]=h.m.name; });
   if(amHost()) ps.forEach(p=>{ if(RM.ban.includes(p.id)) send('kick',{id:p.id}); });
   if(ps.findIndex(p=>isMe(p.id))>=RM.max&&!amHost()){ toast('방이 꽉 찼어요'); leaveRoom(); return; }
   if(RM.phase!=='wait') return; // 대결 중에는 시작할 때의 참가자 그대로 (나간 사람은 점수판에 남는다)
-  RM.players=ps.slice(0,RM.max).map(p=>({id:p.id,name:p.name,eq:p.eq||{},ready:!!p.ready}));
-  if(!RM.players.some(p=>isMe(p.id))) RM.players.push(meP());
-  if(amHost()) RT.update(RM.code,{cur:RM.players.length});
-  if(view==='room') drawRoom();
+  RM.real=ps.map(p=>({id:p.id,name:p.name,eq:p.eq||{},ready:!!p.ready}));
+  syncPlayers();
 }
 /* 방송 받기 */
 function onEvent(ev,p){
   if(!RM) return;
-  if(ev==='chat') return say(p,p.txt,true);
+  if(ev==='chat'){ say(p,p.txt,true); botReply(); return; }
+  if(ev==='hi'||ev==='hi2'){ if(isMe(p.id)) return; const known=!!RM.known[p.id]; RM.hi[p.id]={m:p,at:Date.now()};
+    if(p.host){ RM.hostId=p.id; RM.seenHost=true; if(typeof p.lv==='number') RM.lv=p.lv; }
+    if(ev==='hi'){ send('hi2',myMeta()); if(amHost()&&RM.bots.length) send('bots',{list:RM.bots}); if(!known&&!p.host&&RM.phase==='wait') sys(`${p.name}님이 들어왔어요`); }
+    RM.known[p.id]=p.name; if(RM.phase==='wait') syncPlayers(); return; }
+  if(ev==='bye'){ delete RM.hi[p.id]; RM.real=RM.real.filter(x=>x.id!==p.id); if(RM.phase==='wait') syncPlayers(); return; }
+  if(ev==='bots'){ RM.bots=p.list||[]; if(RM.phase==='wait') syncPlayers(); return; }
   if(ev==='kick'){ if(isMe(p.id)){ toast('방장이 방에서 내보냈어요'); leaveRoom(); } return; }
   if(ev==='closed'){ if(!amHost()){ toast('방장이 방을 닫았어요'); leaveRoom(); } return; }
   if(ev==='cfg'){ RM.sub=p.sub; RM.dan=p.dan; RM.priv=p.priv; if(p.msg) sys(p.msg); if(view==='room'&&RM.phase!=='play') drawRoom(); return; }
@@ -103,14 +128,14 @@ function chatH(){ return `<div class="chat" id="chat" aria-live="polite"></div><
 function drawChat(){ const c=screen.querySelector('#chat'); if(!c||!RM) return;
   c.innerHTML=RM.chat.map(m=>m.sys?`<div class="msg sys">${esc(m.txt)}</div>`:`<div class="msg ${isMe(m.id)?'mine':''}">${isMe(m.id)?'':`<span class="who">${esc(m.name)}</span>`}<span class="bub">${esc(m.txt)}</span></div>`).join('');
   c.scrollTop=c.scrollHeight; }
-function bindChat(){ screen.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{ if(!RM) return; const now=Date.now(); if(RM.lastSay&&now-RM.lastSay<1200){ toast('조금 천천히 보내요'); return; } RM.lastSay=now; say({id:MID(),name:myName()},QUICK[+b.dataset.q]); }); }
+function bindChat(){ screen.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{ if(!RM) return; const now=Date.now(); if(RM.lastSay&&now-RM.lastSay<1200){ toast('조금 천천히 보내요'); return; } RM.lastSay=now; say({id:MID(),name:myName()},QUICK[+b.dataset.q]); botReply(); }); }
 
 function hostStart(){
   if(!RM||!amHost()) return;
   if(RM.players.length<2){ toast('친구가 들어오면 시작할 수 있어요'); return; }
   if(!HG.useTicket()){ toast((HG.block()||{}).msg||'남은 판이 없어요'); return; }
   const rain=RM.sub==='tko'||RM.sub==='ten';
-  LVNOW=RM.lv; let qs; try{ qs=rain?[]:Array.from({length:RM.n},()=>genQ(RM.sub,RM.dan)); } finally{ LVNOW=null; }
+  LVNOW=RM.lv; let qs; try{ const seen=new Set(); qs=rain?[]:Array.from({length:RM.n},()=>genU(RM.sub,RM.dan,seen)); } finally{ LVNOW=null; }
   const p={sub:RM.sub,dan:RM.dan,n:RM.n,lv:RM.lv,qs,seq:rain?shuffle(RM.sub==='tko'?PD.tko:PD.ten):null};
   send('start',p); RT.update(RM.code,{state:'play'}); startMatch(p);
 }
@@ -127,8 +152,8 @@ function drawRoom(){
   </section>
   <section class="sec"><h3 class="sh">${LI('users')}참가자 <small>${RM.players.length} / ${RM.max}</small></h3>
     <div class="players">${Array.from({length:RM.max},(_,i)=>{ const p=RM.players[i]; if(!p) return `<div class="pl empty">${LI('user-plus')}${RM.priv?'코드로 초대':'들어오길 기다려요'}</div>`;
-      return `<div class="pl">${p.id===RM.hostId?`<span class="host" aria-label="방장">${LI('crown')}</span>`:''}${host&&!isMe(p.id)?`<button class="kick" data-kick="${esc(p.id)}" aria-label="${esc(p.name)} 내보내기">${LI('x')}</button>`:''}${avatar(p.eq,56)}<b>${esc(pName(p))}</b>${p.id!==RM.hostId?`<span class="rd">${p.ready?'준비 완료':''}</span>`:''}</div>`; }).join('')}</div>
-    ${host?`<div style="margin-top:12px">${chipH('rs',Object.entries(SUBJ).map(([k,v])=>[k,v[0]]),RM.sub)}</div>
+      return `<div class="pl">${p.id===RM.hostId?`<span class="host" aria-label="방장">${LI('crown')}</span>`:''}${host&&!isMe(p.id)?`<button class="kick" data-kick="${esc(p.id)}" aria-label="${esc(p.name)} 내보내기">${LI('x')}</button>`:''}${avatar(p.eq,56)}<b>${esc(pName(p))}</b>${p.bot?'<span class="aitag">AI 친구</span>':''}${p.id!==RM.hostId?`<span class="rd">${p.ready?'준비 완료':''}</span>`:''}</div>`; }).join('')}</div>
+    ${host?`<div style="margin-top:12px">${chipH('rs',subsFor(RM.lv),RM.sub)}</div>
       <button class="btn y full" id="go" style="margin-top:10px" ${canStart?'':'disabled'}>${LI('swords')}${canStart?'대결 시작 (티켓 1장)':'친구가 들어오면 시작할 수 있어요'}</button>`
       :`<button class="btn ${me.ready?'line':'y'} full" id="ready" style="margin-top:12px">${me.ready?'준비 취소':'준비 완료'}</button><p class="note">방장이 시작하면 대결이 시작돼요. 시작할 때 티켓 1장을 써요.</p>`}
   </section>
@@ -136,7 +161,7 @@ function drawRoom(){
   drawChat(); bindChat();
   const tp=screen.querySelector('#toPriv'); if(tp) tp.onclick=()=>{ RM.priv=true; RT.update(RM.code,{public:false}); const msg=`비공개로 바꿨어요. 방 코드는 ${RM.code}예요`; send('cfg',{sub:RM.sub,dan:RM.dan,priv:true,msg}); sys(msg); drawRoom(); };
   const cp=screen.querySelector('#copy'); if(cp) cp.onclick=()=>{ try{ navigator.clipboard.writeText(RM.code).then(()=>toast('코드를 복사했어요'),()=>toast(`방 코드: ${RM.code}`)); }catch(e){ toast(`방 코드: ${RM.code}`); } };
-  screen.querySelectorAll('[data-kick]').forEach(b=>b.onclick=()=>{ const p=RM.players.find(x=>x.id===b.dataset.kick); if(!p) return; RM.ban.push(p.id); send('kick',{id:p.id}); sys(`${p.name}님을 내보냈어요`); });
+  screen.querySelectorAll('[data-kick]').forEach(b=>b.onclick=()=>{ const p=RM.players.find(x=>x.id===b.dataset.kick); if(!p) return; if(p.bot){ RM.bots=RM.bots.filter(x=>x.id!==p.id); send('bots',{list:RM.bots}); sys(`${p.name}님을 내보냈어요`); syncPlayers(); return; } RM.ban.push(p.id); send('kick',{id:p.id}); sys(`${p.name}님을 내보냈어요`); });
   screen.querySelectorAll('[data-rs]').forEach(b=>b.onclick=()=>{ RM.sub=b.dataset.rs; RT.update(RM.code,{subject:RM.sub}); const msg=`과목을 ${SUBJ[RM.sub][0]}(으)로 바꿨어요`; send('cfg',{sub:RM.sub,dan:RM.dan,priv:RM.priv,msg}); sys(msg); drawRoom(); });
   const go=screen.querySelector('#go'); if(go) go.onclick=hostStart;
   const rd=screen.querySelector('#ready'); if(rd) rd.onclick=()=>{ RM.ready=!RM.ready; if(RM.ch) RM.ch.track(myMeta()); send('rd',{id:MID(),ready:RM.ready}); me.ready=RM.ready; drawRoom(); }; // 접속 상태 동기화는 느려서 방송으로도 바로 알린다
@@ -187,6 +212,9 @@ function startRain(){
     r.raf=requestAnimationFrame(step); };
   r.raf=requestAnimationFrame(step);
   r.win=id=>{ if(RM.first||r.dead) return; RM.first=id; finish(id); };
+  if(amHost()) RM.players.filter(p=>p.bot).forEach(p=>{ const go=()=>{ if(r.dead||!RM) return; const len=[...(r.seq[((r.pops[p.id]||0)+(r.miss[p.id]||0))%r.seq.length]||'abc')].length;
+    later(()=>{ if(r.dead||!RM) return; if(Math.random()<p.skill) r.pops[p.id]=(r.pops[p.id]||0)+1; else r.miss[p.id]=(r.miss[p.id]||0)+1; r.redraw();
+      const won=r.pops[p.id]>=RM.n&&!RM.first; send('rp',{id:p.id,pops:r.pops[p.id],miss:r.miss[p.id],win:won}); if(won) r.win(p.id); else go(); },(1000+len*(lang==='ko'?520:300))*(1.7-p.skill)*(0.75+Math.random()*0.6)); }; later(go,800+Math.random()*900); });
   function finish(id){ if(r.dead) return; r.dead=true; cancelAnimationFrame(r.raf); const el=(performance.now()-r.t0)/1000;
     RM.spd={avg:cpm(),top:r.top||cpm(),keys:r.keys}; typCpm(RM.spd.avg); RM.qs=[]; RM.players.forEach(p=>{ RM.right[p.id]=r.pops[p.id]||0; RM.wrong[p.id]=r.miss[p.id]||0; RM.score[p.id]=(r.pops[p.id]||0)-(r.miss[p.id]||0); RM.time[p.id]=p.id===id?el:120; });
     const who=id&&RM.players.find(p=>p.id===id);
@@ -213,6 +241,8 @@ function showQ(qi){
   bindType(c,v=>answerQ(v,null));
   RM.iv=setInterval(()=>{ if(!RM) return; const left=QT*1000-(performance.now()-RM.t0); const t=screen.querySelector('#tbar'); if(t) t.style.transform=`scaleX(${Math.max(0,left/(QT*1000))})`; const s=screen.querySelector('#tsec'); if(s) s.textContent=Math.ceil(Math.max(0,left)/1000)+'초';
     if(left<=0){ if(amHost()) hostReveal(); else { clearInterval(RM.iv); RM.iv=null; } } },100);
+  if(amHost()) RM.players.filter(p=>p.bot).forEach(p=>{ const t=c.kind==='type'?(900+[...c.ans].length*(c.lang==='ko'?420:260)*(1.6-p.skill)*(0.8+Math.random()*0.5)):(p.spd[0]+Math.random()*(p.spd[1]-p.spd[0]))*1000*(c.kind==='long'||c.kind==='desc'?1.4:1);
+    if(t<QT*1000) later(()=>{ if(!RM||RM.reveal||RM.qi!==qi) return; const pts=Math.random()<p.skill?1:-1; send('ans',{id:p.id,qi,pts,t:t/1000}); record(p.id,pts,t/1000); },t); });
 }
 function record(id,pts,t){ RM.ans[id]=pts; RM.score[id]=(RM.score[id]||0)+pts; if(pts>0){ RM.right[id]=(RM.right[id]||0)+1; RM.time[id]=(RM.time[id]||0)+t; } else if(pts<0) RM.wrong[id]=(RM.wrong[id]||0)+1;
   const sc=screen.querySelector('#sc'); if(sc) sc.innerHTML=scoreH();
@@ -251,9 +281,9 @@ function endMatch(){
   <section class="sec"><h3 class="sh">${LI('message-circle')}채팅</h3>${chatH()}</section>
   <section class="sec"><div class="row">${amHost()?`<button class="btn y" id="again">${LI('repeat')}한 판 더</button>`:''}<button class="btn line" id="toRoom">${LI('door-open')}방으로</button><button class="btn line" id="out">나가기</button></div></section>`;
   drawChat(); bindChat();
-  if(amHost()) RT.update(RM.code,{state:'wait'});
+  if(amHost()){ RT.update(RM.code,{state:'wait'}); RM.players.filter(p=>p.bot).forEach(p=>later(()=>say(p,pick(BOT_SAY.end)),800+R(0,1600))); }
   const ag=screen.querySelector('#again'); if(ag) ag.onclick=()=>{ RM.phase='wait'; hostStart(); };
-  screen.querySelector('#toRoom').onclick=()=>{ RM.phase='wait'; RM.ready=false; if(RM.ch) RM.ch.track(myMeta()); drawRoom(); };
+  screen.querySelector('#toRoom').onclick=()=>{ RM.phase='wait'; RM.ready=false; if(RM.ch) RM.ch.track(myMeta()); syncPlayers(); drawRoom(); };
   screen.querySelector('#out').onclick=()=>{ leaveRoom(); };
 }
 

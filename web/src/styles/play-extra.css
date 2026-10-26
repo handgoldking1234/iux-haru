@@ -13,3 +13,6 @@
 
 /* 게임: 게임 수준(초1~고3) 선택 줄 */
 .pg-play .lvrow{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+
+/* 대결방: 공개 방 AI 친구 표시 */
+.pg-play .pl .aitag{font-size:11px;font-weight:700;color:var(--sub);background:var(--bg);border-radius:99px;padding:1px 7px}

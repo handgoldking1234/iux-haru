@@ -620,7 +620,7 @@ function Concept({ def, ui, T, s, gate, at, trName, isNow, passedScore, onClose,
               <span className="vbar" onClick={(e) => e.stopPropagation()}>
                 <button className="tvb" aria-label="소리 듣기" onClick={() => { stopVoice(); read(face, () => true); }}><L n="volume-2" /></button>
                 <button className="tvb" aria-label="2초마다 반복해서 듣기" aria-pressed={vo.rep} onClick={() => setV({ ...vo, rep: !vo.rep })}><L n="repeat" /></button>
-                <button className="tvb tvt" aria-label="카드를 넘기면 자동으로 읽기" aria-pressed={vo.auto} onClick={() => setV({ ...vo, auto: !vo.auto })}>자동</button>
+                <button className="tvb tvt" aria-label="카드를 넘기면 자동으로 읽기" aria-pressed={vo.auto} onClick={() => setV({ ...vo, auto: !vo.auto })}><L n="circle-play" />자동</button>
               </span>
             )}
           </div>

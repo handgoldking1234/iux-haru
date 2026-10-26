@@ -88,7 +88,7 @@ function showTabs(on){ tabs.hidden=!on; if(on) tabs.querySelectorAll('button').f
 
 const VO=()=>S.voice||(S.voice={echo:true,rep:false});
 let voT=null, voK=0;
-function vSpeak(t,lang){ try{ const ss=window.speechSynthesis; if(!ss||!t) return Promise.resolve(); ss.cancel();
+function vSpeak(t,lang){ if(env.say) return env.say(t,lang==='ko'?'ko-KR':'en-US'); try{ const ss=window.speechSynthesis; if(!ss||!t) return Promise.resolve(); ss.cancel();
   return new Promise(res=>{ const u=new SpeechSynthesisUtterance(t); u.lang=lang==='ko'?'ko-KR':'en-US'; u.rate=lang==='ko'?0.95:0.9; u.onend=u.onerror=()=>res(); ss.speak(u); setTimeout(res,3000+t.length*300); }); }catch(e){ return Promise.resolve(); } }
 function vStop(){ voK++; clearTimeout(voT); voT=null; try{ window.speechSynthesis&&window.speechSynthesis.cancel(); }catch(e){} }
 function vLoop(){ const k=++voK; clearTimeout(voT);
@@ -193,7 +193,7 @@ function runText(md){
     setBar(title,()=>{stopRun();render();});
     screen.innerHTML=`<div class="np typ">
       <div class="prog"><div class="tr"><i style="width:${r.i/r.list.length*100}%"></i></div><span>${r.i+1} / ${r.list.length}</span></div>
-      <div class="stats"><span>타수 <b id="cpm">0</b></span><span>정확도 <b id="acc">100</b>%</span><span class="tvo"><button id="vSay" class="tvb" aria-label="소리 듣기">${LI('volume-2')}</button><button id="vRep" class="tvb" aria-pressed="${!!VO().rep}" aria-label="2초마다 반복해서 듣기">${LI('repeat')}</button><button id="vEcho" class="tvb tvt" aria-pressed="${VO().echo!==false}" aria-label="글자 소리">${lg==='ko'?'가':'A'}</button></span></div>
+      <div class="stats"><span>타수 <b id="cpm">0</b></span><span>정확도 <b id="acc">100</b>%</span><span class="tvo"><button id="vSay" class="tvb" aria-label="소리 듣기">${LI('volume-2')}</button><button id="vRep" class="tvb" aria-pressed="${!!VO().rep}" aria-label="2초마다 반복해서 듣기">${LI('repeat')}</button><button id="vEcho" class="tvb" aria-pressed="${VO().echo!==false}" aria-label="글자 소리">${LI('type')}</button></span></div>
       <div class="board tgt"><div class="tline" id="tline"></div><div class="nextl">${r.list[r.i+1]?`다음: ${esc(r.list[r.i+1])}`:'마지막이에요'}</div></div>
       <input id="ti" class="tin" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" lang="${lg==='ko'?'ko':'en'}" aria-label="여기에 입력" placeholder="${lg==='ko'?'여기에 한글로 쳐요':'Type here'}">
       <p class="finger" id="fg"></p>
@@ -337,6 +337,7 @@ Object.assign(LUCIDE,{
  'trophy':'<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>',
  'hand':'<path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>'
 });
+LUCIDE['type']='<polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/>';
 LUCIDE['volume-2']='<path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/>';
 function drawIcons(){ root.querySelectorAll("i[data-lucide]").forEach(el=>{ const n=el.dataset.lucide, b=LUCIDE[n]; if(!b) return; const t=document.createElement("span"); t.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-${n} ${el.className||""}" aria-hidden="true">${b}</svg>`; el.replaceWith(t.firstChild); }); iconQ=false; }
 const MO=new MutationObserver(()=>{ if(!iconQ&&root.querySelector('i[data-lucide]')){ iconQ=true; requestAnimationFrame(drawIcons); } }); MO.observe(root.querySelector('.app'),{childList:true,subtree:true});

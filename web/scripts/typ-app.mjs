@@ -53,7 +53,7 @@ rep('render(); drawIcons();', navhook + 'render(); drawIcons();');
 const voice = `
 const VO=()=>S.voice||(S.voice={echo:true,rep:false});
 let voT=null, voK=0;
-function vSpeak(t,lang){ try{ const ss=window.speechSynthesis; if(!ss||!t) return Promise.resolve(); ss.cancel();
+function vSpeak(t,lang){ if(env.say) return env.say(t,lang==='ko'?'ko-KR':'en-US'); try{ const ss=window.speechSynthesis; if(!ss||!t) return Promise.resolve(); ss.cancel();
   return new Promise(res=>{ const u=new SpeechSynthesisUtterance(t); u.lang=lang==='ko'?'ko-KR':'en-US'; u.rate=lang==='ko'?0.95:0.9; u.onend=u.onerror=()=>res(); ss.speak(u); setTimeout(res,3000+t.length*300); }); }catch(e){ return Promise.resolve(); } }
 function vStop(){ voK++; clearTimeout(voT); voT=null; try{ window.speechSynthesis&&window.speechSynthesis.cancel(); }catch(e){} }
 function vLoop(){ const k=++voK; clearTimeout(voT);
@@ -72,9 +72,9 @@ function vBind(inp){ const b=screen.querySelector('.tvo'); if(!b) return; R.pl=0
 `;
 rep('function stopRun(){ if(R){', voice + 'function stopRun(){ vStop(); if(R){');
 // 아이콘 표(LUCIDE)가 만들어진 뒤에 소리 아이콘을 더한다
-rep('function drawIcons(){', "LUCIDE['volume-2']='<path d=\"M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z\"/><path d=\"M16 9a5 5 0 0 1 0 6\"/><path d=\"M19.364 18.364a9 9 0 0 0 0-12.728\"/>';\n" + 'function drawIcons(){');
+rep('function drawIcons(){', "LUCIDE['type']='<polyline points=\"4 7 4 4 20 4 20 7\"/><line x1=\"9\" x2=\"15\" y1=\"20\" y2=\"20\"/><line x1=\"12\" x2=\"12\" y1=\"4\" y2=\"20\"/>';\nLUCIDE['volume-2']='<path d=\"M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z\"/><path d=\"M16 9a5 5 0 0 1 0 6\"/><path d=\"M19.364 18.364a9 9 0 0 0 0-12.728\"/>';\n" + 'function drawIcons(){');
 rep('<div class="stats"><span>타수 <b id="cpm">0</b></span><span>정확도 <b id="acc">100</b>%</span></div>',
-  '<div class="stats"><span>타수 <b id="cpm">0</b></span><span>정확도 <b id="acc">100</b>%</span><span class="tvo"><button id="vSay" class="tvb" aria-label="소리 듣기">${LI(\'volume-2\')}</button><button id="vRep" class="tvb" aria-pressed="${!!VO().rep}" aria-label="2초마다 반복해서 듣기">${LI(\'repeat\')}</button><button id="vEcho" class="tvb tvt" aria-pressed="${VO().echo!==false}" aria-label="글자 소리">${lg===\'ko\'?\'가\':\'A\'}</button></span></div>');
+  '<div class="stats"><span>타수 <b id="cpm">0</b></span><span>정확도 <b id="acc">100</b>%</span><span class="tvo"><button id="vSay" class="tvb" aria-label="소리 듣기">${LI(\'volume-2\')}</button><button id="vRep" class="tvb" aria-pressed="${!!VO().rep}" aria-label="2초마다 반복해서 듣기">${LI(\'repeat\')}</button><button id="vEcho" class="tvb" aria-pressed="${VO().echo!==false}" aria-label="글자 소리">${LI(\'type\')}</button></span></div>');
 rep("inp.oninput=()=>check(); paint('');", "inp.oninput=()=>check(); paint(''); vBind(inp);");
 rep('const {bad,tk}=paint(v);', 'const {bad,tk}=paint(v); vEcho(r,v,bad);');
 

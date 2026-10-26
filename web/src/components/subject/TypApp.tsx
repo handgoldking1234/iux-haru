@@ -7,6 +7,7 @@ import { useKid } from '@/components/Kid';
 import { saveLocal } from '@/lib/sync';
 import { report, sfx } from '@/lib/feedback';
 import { typLeftMs } from '@/lib/rewards/rewards';
+import { sayText } from '@/lib/voice';
 import { updateRewards } from '@/lib/store';
 import { mountTyp } from '@/lib/subjects/typApp';
 
@@ -32,6 +33,8 @@ export default function TypApp({ data }: { data: unknown }) {
       // 하루공부 랭킹 '타자 속도'
       pushCpm: (c: number) => updateRewards(kid.name, (st) => { if (c > (st.typCpm ?? 0)) st.typCpm = c; }),
       nick: kid.name,
+      // 소리: 기기 음성 중 가장 자연스러운(AI·고품질) 목소리
+      say: (t: string, lang: string) => sayText(t, lang),
       onSub: (o: boolean, list: Tab[]) => { setOff(o); setTabs(list); },
     });
     return () => { app.current?.destroy(); app.current = null; };

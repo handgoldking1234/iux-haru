@@ -45,3 +45,6 @@ LUCIDE['volume-2'] = '<path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1
 
 // 문제 화면 틀린 개수 안내 팝업 (lucide info)
 LUCIDE['info'] = '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>';
+
+// 학습 카드 '자동' 읽기 버튼 (lucide circle-play)
+LUCIDE['circle-play'] = '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>';

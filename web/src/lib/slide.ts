@@ -6,6 +6,7 @@
  */
 
 import { saveLocal } from './sync';
+import { vScore } from './voice';
 
 export interface Face {
   id: string;
@@ -59,8 +60,6 @@ export const chips = (lab: string, arr: string[] | undefined) => (arr && arr.len
 
 /* ---------- 음성: 기기에서 가장 자연스러운 목소리 고르기 ---------- */
 type Opt = { mode: 'view' | 'dict'; rate: number; rep: number; gap1: number; gap2: number; wgap: number; order: string; scope: string; vko: string; ven: string };
-const GOOD = /natural|neural|online|premium|enhanced|siri|google/i, NAMES = /yuna|sora|sunhi|injoon|hyunsu|seoyeon|jimin|samantha|aria|jenny|ava|allison|guy|davis|libby|sonia/i, BAD = /compact|espeak|robot|novelty|whisper|zarvox|bells|bad news|jester|trinoids/i;
-const vScore = (v: SpeechSynthesisVoice) => (GOOD.test(v.name) ? 50 : 0) + (NAMES.test(v.name) ? 25 : 0) + (v.localService === false ? 8 : 0) - (BAD.test(v.name) ? 80 : 0);
 
 type Wb = { cats: { id: string; name: string; items: string[] }[]; cur: string };
 
@@ -238,7 +237,7 @@ export function createSlide(ctx: SlideCtx, host: HTMLElement) {
       const vs = voicesFor(lang);
       if (!vs.length) return `<div class="slp-row"><b>${lab}</b><p class="slp-note">이 기기에는 ${lang.startsWith('en') ? '영어' : '한국어'} 목소리가 없어요.</p></div>`;
       const cur = (pickVoice(lang) || { name: '' }).name;
-      return `<div class="slp-row"><b>${lab}</b><select class="slp-sel" data-vk="${k}" aria-label="${lab}">${vs.map((v) => `<option value="${esc(v.name)}" ${v.name === cur ? 'selected' : ''}>${esc(v.name.replace(/^(Microsoft|Google)\s*/, '').replace(/\s*-\s*.*$/, ''))}${GOOD.test(v.name) ? ' · 자연스러운 목소리' : ''}</option>`).join('')}</select><button class="slp-chip" data-a="test" data-tl="${lang}">들어 보기</button></div>`;
+      return `<div class="slp-row"><b>${lab}</b><select class="slp-sel" data-vk="${k}" aria-label="${lab}">${vs.map((v) => `<option value="${esc(v.name)}" ${v.name === cur ? 'selected' : ''}>${esc(v.name.replace(/^(Microsoft|Google)\s*/, '').replace(/\s*-\s*.*$/, ''))}${vScore(v) >= 50 ? ' · 자연스러운 목소리' : ''}</option>`).join('')}</select><button class="slp-chip" data-a="test" data-tl="${lang}">들어 보기</button></div>`;
     };
     el('.slp-sheet').hidden = false;
     el('.slp-sh').innerHTML = `<h3>슬라이드 설정<button class="slp-ib" data-a="shclose" aria-label="닫기">${SIC.x}</button></h3>

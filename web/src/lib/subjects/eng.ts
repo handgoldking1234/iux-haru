@@ -1,6 +1,7 @@
 /* 영단어 — prototype/build/eng.js의 단어·단원·문제·카드 부분을 그대로 옮김.
    m=뜻 고르기 · k=단어 고르기 · b=예문 빈칸 · s=철자 쓰기 · l=듣고 뜻 고르기 */
 import { pick, shuffle } from '../engine/choices';
+import { bestVoice } from '../voice';
 import { EXAM_CAP, EXAM_PASS_N, RULES } from '../engine/rules';
 import { LI } from '../protoIcons';
 import { chips, type Face } from '../slide';
@@ -21,7 +22,7 @@ export function speak(text: string, rate?: number) {
   if (!canSpeak()) return;
   try {
     speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = 'en-US'; u.rate = rate || 0.85;
-    const v = speechSynthesis.getVoices().find((x) => /^en(-|_)US/i.test(x.lang)) || speechSynthesis.getVoices().find((x) => /^en/i.test(x.lang));
+    const v = bestVoice('en-US');
     if (v) u.voice = v; speechSynthesis.speak(u);
   } catch { /* 소리를 못 내는 환경 */ }
 }

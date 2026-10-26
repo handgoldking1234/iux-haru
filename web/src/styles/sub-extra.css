@@ -83,3 +83,7 @@
 .pg-sub .lyric:has(.vbar) .itop .say{display:none}
 /* 휴대폰: '1 / 10' 줄에 소리 버튼이 들어가 자리가 모자라므로 태그는 원래 자리(뜻·음 아래)로 */
 @media (max-width:520px){.pg-sub .lyric .lkrow~div .info .meta{position:static;max-width:none;justify-content:flex-start;flex-wrap:wrap;margin-top:2px}}
+
+/* 자동 버튼: 아이콘 + 글자 */
+.pg-sub .tvb.tvt{display:inline-flex;align-items:center;gap:4px}
+.pg-sub .tvb.tvt svg.lucide{width:16px;height:16px}

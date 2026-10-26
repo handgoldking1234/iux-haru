@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useRef, useState } from 'react';
 import Ic, { Svg } from '@/components/Ic';
+import { useHop } from '@/components/Buddy';
 import { useKid } from '@/components/Kid';
 import PlayFrame from '@/components/PlayFrame';
 import { pop } from '@/components/Toast';
@@ -128,6 +129,10 @@ function Shop({ st, save }: { st: RewardState; save: (f: (s: RewardState) => voi
   const { today } = useKid();
   const [cat, setCat] = useState<Cat>('body');
   const [selId, setSelId] = useState<string | null>(null);
+  // 보관함: 산 아이템만 모아 한 번에 입어 보기 (사용자 요청)
+  const [box, setBox] = useState(false);
+  const { hop, cls: hopCls } = useHop();
+  const bought = st.owned.map((k) => { const [c, id] = k.split(':') as [Cat, string]; const it = ITEMS[c]?.find((x) => x.id === id); return it ? { c, it } : null; }).filter(Boolean) as { c: Cat; it: Item }[];
   const gk = gradeOf(st.xp), items = ITEMS[cat], sel = selId ? items.find((i) => i.id === selId) ?? null : null;
   const own = (it: Item) => it.p === 0 || st.owned.includes(cat + ':' + it.id);
   const preview = { ...st.eq, ...(sel ? { [cat]: sel.id } : {}) };
@@ -138,21 +143,38 @@ function Shop({ st, save }: { st: RewardState; save: (f: (s: RewardState) => voi
   if (sel && locked) act = <button className="btn full" disabled><Ic n="lock" />오늘 할 일을 끝내면 사고 입을 수 있어요</button>;
   else if (sel) {
     if (st.eq[cat] === sel.id) act = <button className="btn full" disabled><Ic n="check" />착용 중</button>;
-    else if (own(sel)) act = <button className="btn y full" onClick={() => { save((s) => { s.eq[cat] = sel.id; }); pop(`${sel.name} 착용!`); }}><Ic n="shirt" />착용하기</button>;
+    else if (own(sel)) act = <button className="btn y full" onClick={() => { save((s) => { s.eq[cat] = sel.id; }); pop(`${sel.name} 착용!`); hop(); }}><Ic n="shirt" />착용하기</button>;
     else if (sel.g && gk < sel.g) act = <button className="btn full" disabled><Ic n="lock" />&apos;{GRADES[sel.g].n}&apos; 등급부터 살 수 있어요</button>;
     else if (st.cash < sel.p) act = <button className="btn full" disabled>캐시가 {sel.p - st.cash} 부족해요</button>;
-    else act = <button className="btn y full" onClick={() => { save((s) => { s.cash -= sel.p; s.owned.push(cat + ':' + sel.id); s.eq[cat] = sel.id; }); pop(`${sel.name}을(를) 샀어요!`); }}><Ic n="coins" />{sel.p}캐시로 사고 착용하기</button>;
+    else act = <button className="btn y full" onClick={() => { save((s) => { s.cash -= sel.p; s.owned.push(cat + ':' + sel.id); s.eq[cat] = sel.id; }); pop(`${sel.name}을(를) 샀어요!`); hop(); }}><Ic n="coins" />{sel.p}캐시로 사고 착용하기</button>;
   }
 
   return (
     <>
-      <section className="sec center"><div className="me"><div className="avbig"><Svg html={avatar(preview, 150)} /></div>
+      <section className="sec center"><div className="me"><div className={`avbig ${hopCls}`} onClick={hop}><Svg html={avatar(box ? st.eq : preview, 150)} /></div>
         <div className="row" style={{ justifyContent: 'center' }}><span className="grade"><Ic n={g.icon} />{g.n}</span><span className="cash"><Ic n="coins" />{st.cash}</span></div></div></section>
       <section className="sec">
         {locked && <p className="gblock" style={{ margin: '0 0 12px' }}><Ic n="lock" />미리 입혀 보기만 돼요. 오늘 할 일을 모두 끝내면 사고 입을 수 있어요</p>}
         <div className="chips" role="tablist">
-          {CATL.map(([k, l]) => <button key={k} className={`chip ${k === cat ? 'on' : ''}`} role="tab" aria-selected={k === cat} onClick={() => { setCat(k); setSelId(null); }}>{l}</button>)}
+          <button className={`chip ${box ? 'on' : ''}`} role="tab" aria-selected={box} onClick={() => { setBox(true); setSelId(null); }}><Ic n="shirt" />보관함 {bought.length}</button>
+          {CATL.map(([k, l]) => <button key={k} className={`chip ${!box && k === cat ? 'on' : ''}`} role="tab" aria-selected={!box && k === cat} onClick={() => { setBox(false); setCat(k); setSelId(null); }}>{l}</button>)}
         </div>
+        {box ? (
+          <>
+            {bought.length ? (
+              <div className="itemgrid">
+                {bought.map(({ c, it }) => (
+                  <button key={c + it.id} className={`item ${st.eq[c] === it.id ? 'on' : ''}`} aria-label={`${it.name} 입기`} disabled={locked}
+                    onClick={() => { if (st.eq[c] === it.id) return; save((s) => { s.eq[c] = it.id; }); pop(`${it.name} 착용!`); hop(); }}>
+                    <Svg html={avatar({ ...st.eq, [c]: it.id }, 64)} /><b>{it.name}</b>
+                    <small>{st.eq[c] === it.id ? <><Ic n="check" />입는 중</> : CATL.find(([k]) => k === c)?.[1]}</small>
+                  </button>
+                ))}
+              </div>
+            ) : <p className="note" style={{ margin: '12px 0' }}>아직 산 아이템이 없어요. 아이템을 사면 여기에 모여서 언제든 다시 입을 수 있어요.</p>}
+            <p className="note">누르면 바로 입어요. 산 아이템은 없어지지 않아요.</p>
+          </>
+        ) : (<>
         <div className="itemgrid">
           {items.map((it) => {
             const mine = own(it), lock = !!it.g && gk < it.g;
@@ -166,6 +188,7 @@ function Shop({ st, save }: { st: RewardState; save: (f: (s: RewardState) => voi
         </div>
         <div className="shopact">{act}</div>
         <p className="note">왕관·망토·별 안경·황금 몸·밤하늘은 등급을 올려야 살 수 있어요. 뽑기나 현금 결제는 없어요.</p>
+        </>)}
       </section>
     </>
   );
@@ -177,6 +200,7 @@ function My() {
   const { kid, rewards: st, today } = useKid();
   const [sub, setSub] = useState<Sub>((sp.get('f') as Sub) || 'info');
   const statsRef = useRef<HTMLElement>(null);
+  const meHop = useHop();
   const save = (f: (s: RewardState) => void) => updateRewards(kid.name, f);
   const gk = gradeOf(st.xp), g = GRADES[gk], nx = GRADES[gk + 1], m = myStats(st, today), t = today;
 
@@ -210,7 +234,7 @@ function My() {
         <div className="cols2"><div>
           <section className="sec" hidden={!show('')}>
             <div className="me">
-              <div className="avbig"><Svg html={avatar(st.eq, 130)} /></div>
+              <div className={`avbig ${meHop.cls}`} onClick={meHop.hop}><Svg html={avatar(st.eq, 130)} /></div>
               <div className="nm">{kid.name}<button aria-label="닉네임 바꾸기" onClick={() => pop('닉네임은 보호자가 학생 정보에서 바꿔요')}><Ic n="pencil" /></button></div>
               <div className="row" style={{ justifyContent: 'center' }}><span className="grade"><Ic n={g.icon} />{g.n}</span><span className="cash"><Ic n="coins" />{st.cash}</span></div>
               <div className="gbar"><div className="tr"><i style={{ width: `${nx ? Math.round(((st.xp - g.x) / (nx.x - g.x)) * 100) : 100}%` }} /></div>

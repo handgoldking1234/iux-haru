@@ -1,5 +1,6 @@
 'use client';
 /* 과목 → 셸 보상 연결 (프로토타입 shell.html message 처리 · sfx · bigStamp) */
+import { buddy } from '@/components/Buddy';
 import { pop } from '@/components/Toast';
 import { rewardEvent, type RewardState } from './rewards/rewards';
 import { updateRewards } from './store';
@@ -55,6 +56,7 @@ export function report(kid: string, e: 'ok' | 'no' | 'pass' | 'grad', s: Subject
     const d = r.day!;
     best = d.ok / (d.ok + d.no || 1) >= 0.9;
   });
+  if (s !== 'typ') buddy(e === 'ok' ? 'ok' : e === 'no' ? 'no' : 'win');
   if (s !== 'typ') {
     if (e === 'ok') sfx('ok', st);
     else if (e === 'no') sfx('no', st);

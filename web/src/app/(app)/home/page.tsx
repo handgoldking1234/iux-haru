@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Ic, { Svg } from '@/components/Ic';
 import { useKid } from '@/components/Kid';
 import PlayFrame from '@/components/PlayFrame';
+import { useHop } from '@/components/Buddy';
 import { pop } from '@/components/Toast';
 import { avatar, stampKind, stampSVG } from '@/lib/play/avatar';
 import {
@@ -20,6 +21,7 @@ export default function HomePage() {
   const { kid, rewards: st, today } = useKid();
   const d = st.day!;
   const gk = gradeOf(st.xp), g = GRADES[gk], nx = GRADES[gk + 1];
+  const homeHop = useHop();
   const ts = tasks(st, today), fin = ts.filter((t) => t.n >= t.goal).length, done = allDone(st, today), open = gateOpen(st, today);
   const bl = backlog(st, today);
   const now = new Date();
@@ -40,7 +42,7 @@ export default function HomePage() {
       <div className="cols2"><div>
         <section className="sec">
           <div className="mini" role="button" tabIndex={0} aria-label="마이페이지" onClick={() => router.push('/my')}>
-            <div className="miniav"><Svg html={avatar(st.eq, 64)} /></div>
+            <div className={`miniav ${homeHop.cls}`} onClick={(e) => { e.stopPropagation(); homeHop.hop(); }}><Svg html={avatar(st.eq, 64)} /></div>
             <div className="minitx">
               <div className="nm">{kid.name}
                 <span className="nmr">

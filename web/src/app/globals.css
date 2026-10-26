@@ -6,3 +6,19 @@
   /* iframe처럼: 화면 안의 position:fixed(슬라이드·알림창)가 이 틀을 기준으로 놓이게 */
   transform: translateZ(0);
 }
+
+/* 캐릭터 반응(Buddy) — 맞힘 통통 · 틀림 갸웃 · 통과 점프 */
+.buddy{position:fixed;right:16px;bottom:92px;z-index:21;width:64px;height:64px;pointer-events:none;filter:drop-shadow(0 6px 10px rgba(0,0,0,.15));animation:bdIn .18s ease-out}
+.buddy.b-ok>*{display:block;animation:bdHop .9s cubic-bezier(.3,.7,.4,1) both;transform-origin:50% 100%}
+.buddy.b-no>*{display:block;animation:bdNo .9s ease-in-out both;transform-origin:50% 100%}
+.buddy.b-win>*{display:block;animation:bdWin 1.4s cubic-bezier(.3,.7,.4,1) both;transform-origin:50% 100%}
+@keyframes bdIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes bdHop{0%{transform:none}15%{transform:scale(1.08,.9)}35%{transform:translateY(-22px) scale(.95,1.06)}55%{transform:scale(1.06,.93)}70%{transform:translateY(-9px)}85%,100%{transform:none}}
+@keyframes bdNo{0%,100%{transform:none}20%{transform:rotate(-10deg)}40%{transform:rotate(9deg)}60%{transform:rotate(-6deg) translateY(3px)}80%{transform:rotate(3deg) translateY(3px)}}
+@keyframes bdWin{0%{transform:none}12%{transform:scale(1.12,.86)}35%{transform:translateY(-46px) rotate(-8deg) scale(1.1)}55%{transform:translateY(-46px) rotate(8deg) scale(1.1)}75%{transform:scale(1.08,.9)}88%{transform:translateY(-10px)}100%{transform:none}}
+/* 누르면 통통 (홈·마이 캐릭터) — 같은 애니메이션을 두 이름으로 번갈아 붙여 연달아 눌러도 다시 튄다 */
+.hop0>*,.hop1>*{display:block;transform-origin:50% 100%}
+.hop0>*{animation:bdHop .8s cubic-bezier(.3,.7,.4,1)}
+.hop1>*{animation:bdHop2 .8s cubic-bezier(.3,.7,.4,1)}
+@keyframes bdHop2{0%{transform:none}15%{transform:scale(1.08,.9)}35%{transform:translateY(-22px) scale(.95,1.06)}55%{transform:scale(1.06,.93)}70%{transform:translateY(-9px)}85%,100%{transform:none}}
+@media (prefers-reduced-motion:reduce){.buddy>*,.hop0>*,.hop1>*{animation:none!important}}

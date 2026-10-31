@@ -18,6 +18,7 @@
 | `docs/06_architecture.md` | 프로토타입 구조, 빌드, 저장 키, 테스트 |
 | `docs/07_data.md` | 콘텐츠 데이터 형식·규모·출처·라이선스 |
 | `docs/08_roadmap.md` | 본개발 전환 계획, 남은 일, 열린 결정 |
+| `docs/09_admin.md` | 관리자 페이지 기능 분석(대시보드·유입·회원·학습·게임·CMS·권한·이벤트). 시안은 `prototype/admin/index.html` |
 
 ## 작업 규칙 (꼭 지킬 것)
 

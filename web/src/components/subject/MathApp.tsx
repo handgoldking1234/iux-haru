@@ -28,6 +28,9 @@ export default function MathApp() {
       // 새 학생: 기초(초1 덧셈)부터
       fresh: () => ({ offset: 0, active: 'me', profiles: { me: { id: 'me', name: kid.name, age: kid.grade, color: '#0FA37F', stage: 0, streak: 0, grad: 0, read: {}, passed: {}, sst: {}, stat: {}, hist: {}, cards: [], bp: {} } } }),
       switchKid: () => { location.href = '/kids'; },
+      // 조안호식: 학년 맞춤 — 학생 학년, 보호자 '학년보다 앞선 진도 열기'
+      grade: kid.grade,
+      ahead: () => !!getRewards(kid.name).ahead,
       weekOk: () => weekOkText(weekOkOf(getRewards(kid.name), 'math', dayNumber(new Date())), '연산'),
       onSub: (o: boolean, list: Tab[]) => { setOff(o); setTabs(list); },
     });

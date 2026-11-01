@@ -25,7 +25,10 @@ import Timeline from './Timeline';
 import { InkModal, IntroInk, SpellInput, SpellPen } from './Ink';
 import { IntroTrace, TraceModal, WritePad } from './Writer';
 
-const { GOAL, SET, REV_Q, EXAM_N, EXAM_PASS } = RULES;
+const { GOAL, SET, REV_Q, EXAM_N, EXAM_PASS, MASTER_N } = RULES;
+/** 학교급 순서 — 학생 학년보다 앞선 학교급 단원은 보호자가 열기 전까지 잠금 */
+const SCHOOL: Record<string, number> = { 초등: 0, 중등: 1, 고등: 2 };
+const schoolOf = (grade: string) => ({ 초: 0, 중: 1, 고: 2 } as Record<string, number>)[grade?.[0]] ?? 0;
 const DOW = ['일', '월', '화', '수', '목', '금', '토'];
 const dlabel = (d: number) => { const t = new Date(d * 864e5); return `${t.getUTCMonth() + 1}/${t.getUTCDate()}(${DOW[t.getUTCDay()]})`; };
 const mmS = (ms: number) => { const m = Math.round((ms || 0) / 60000); return m < 60 ? `${m}분` : `${Math.floor(m / 60)}시간 ${m % 60}분`; };
@@ -76,7 +79,9 @@ function WrongTip({ children }: { children: React.ReactNode }) {
 }
 
 export default function SubjectApp({ def, data }: { def: SubjectDef; data: unknown }) {
-  const { kid } = useKid();
+  const { kid, rewards } = useKid();
+  const ahead = !!rewards?.ahead;
+  const locked = useCallback((s: Stage) => !ahead && (SCHOOL[s.area] ?? -1) > schoolOf(kid.grade), [ahead, kid.grade]);
   const ui: SubjectUI = def.ui ?? DEFAULT_UI;
   const Q_ICON = <span className="pillq">{ui.qIcon}</span>;
   const [tr, setTr] = useState(() => {
@@ -193,7 +198,7 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
 
   function start(mode: Mode, title: string, stageId?: string) {
     def.prepare?.(T, curSt);
-    const s = new StudySession({ progress: S.p, stages, plugin, lastPos, mode, stageId, known, env: { rng: Math.random, today: () => today } });
+    const s = new StudySession({ progress: S.p, stages, plugin, lastPos, mode, stageId, known, locked, env: { rng: Math.random, today: () => today } });
     if (!s.length) return;
     sess.current = s;
     doneQ.current = [];
@@ -236,8 +241,8 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
     setPs({ ...ps, answered: true, chosen: k, res, toast: '' });
     ui.onAnswer?.(q.view, ok);
     const toast = res.graduated ? '오답 졸업!' : '';
-    if (ok && !res.passed && !res.restart) { timer.current = setTimeout(() => next(toast), ui.okDelay ?? AUTO_OK); return; }
-    timer.current = setTimeout(() => next(toast), res.passed || res.restart || res.examStopped ? AUTO_LONG : autoNo);
+    if (ok && !res.passed && !res.restart && !res.perfect) { timer.current = setTimeout(() => next(toast), ui.okDelay ?? AUTO_OK); return; }
+    timer.current = setTimeout(() => next(toast), res.passed || res.perfect || res.restart || res.examStopped ? AUTO_LONG : autoNo);
   }
 
   function finish() {
@@ -315,7 +320,8 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
     const wc = s.wrongCount(), sw = s.log.filter((r) => !r.ok).length, cs = curSt;
     const r = ps.res, last = s.index >= s.length - 1;
     const lab = v.lab;
-    const passMsg = r?.passed ? `${r.passed.from.name} 통과! ${r.passed.to.kind === 'exam' ? `이제 ${r.passed.to.name}에 도전해요` : `다음 단원은 ${introWord}부터 시작해요`} · 3단원 뒤에 복습해요` : '';
+    const passMsg = r?.passed ? `${r.passed.from.name} 통과! ${r.passed.to.kind === 'exam' ? `이제 ${r.passed.to.name}에 도전해요` : `다음 단원은 ${introWord}부터 시작해요`} · 3단원 뒤에 복습해요`
+      : r?.perfect ? (r.perfect.sameDay ? `오늘은 이미 100점을 냈어요. 다른 날 한 번 더 100점이면 통과해요 (${r.perfect.n}/${r.perfect.need})` : `100점! (${r.perfect.n}/${r.perfect.need}) 다른 날 한 번 더 100점이면 통과해요`) : '';
     const restart = r?.restart ? `${r.restart.cap}개를 틀려서 「${r.restart.stage.name}」을 처음부터 다시 시작해요. ${introWord}부터 다시 봐요.` : r?.examStopped ? `${EXAM_CAP}개를 틀려서 평가가 끝났어요. 틀린 ${ui.thing}를 복습하고 다시 도전해요.` : '';
     const fbHtml = !ps.answered ? '' : r!.ok ? '정답!' : (v.long ? '정답은 초록색 설명이에요' : `정답은 ${ui.fbAns ? ui.fbAns({ ...v, answer: c.answer }) : c.answer}`) + (c.src === 'exam' ? ' · 오답노트에 저장' : ' · 3문제 뒤 다시 나와요');
     const cc = v.cc ?? (lab ? 'hzc' : ''), sc = v.sc ?? (lab ? 'hz' : '');
@@ -325,7 +331,7 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
         {ps.toast && <div className="toast">{ps.toast}</div>}
         <div className="ptag">
           {c.src === 'new' ? <span className={`lvl l-${lv}`}>{lv}</span> : <span className="lvl src">{SRC[c.src]}</span>}
-          <span>{def.tname[c.qtype]} · {c.src === 'exam' ? `정답 ${ex.filter((x) => x.ok).length}/${ex.length}` : st.name}{c.src === 'new' ? ` · 연속 ${p.streak}/${GOAL}` : ''}
+          <span>{def.tname[c.qtype]} · {c.src === 'exam' ? `정답 ${ex.filter((x) => x.ok).length}/${ex.length}` : st.name}{c.src === 'new' ? ` · 연속 ${p.streak}/${GOAL} · 100점 ${p.mast?.[st.id]?.length ?? 0}/${MASTER_N}` : ''}
             {ui.ptagWrong && c.src === 'new' && <> · <b className="x">틀림 {p.wr[st.id] ?? 0}/{wrongCap(st.area)}</b></>}
             {ui.ptagWrong && c.src === 'exam' && <> · <b className="x">틀림 {ex.filter((x) => !x.ok).length}/{EXAM_CAP}</b></>}</span>
           <WrongTip key={s.index}>
@@ -415,12 +421,12 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
       onNextDay={() => persist({ ...S, offset: S.offset + 1 })} onReset={() => persist(freshSave())} />;
   } else {
     // 홈
-    const pl = planDay(p, stages, today, known), total = pl.total, done = Math.min(S.hist[today]?.n || 0, total);
+    const pl = planDay(p, stages, today, known, locked), total = pl.total, done = Math.min(S.hist[today]?.n || 0, total);
     const cur = curSt, af = areaF ?? cur.area;
     const list = stages.map((s, i) => ({ s, i })).filter(({ s }) => s.area === af);
-    const due = dueStages(p);
+    const due = dueStages(p, today);
     const avg = (id: string) => { const a = S.sst[id]; return a && a.length ? (a.reduce((x, y) => x + y, 0) / a.length).toFixed(1) : '0.0'; };
-    const revText = (id: string) => { const x = p.passed[id]; if (x.exam) return `통과 · ${x.score || 100}점`; if (x.box >= 2) return '완성 · 두 번 복습 끝'; const k = x.due - p.np; return k <= 0 ? '지금 복습할 차례' : `${k}단원 뒤 ${x.box + 1}차 복습`; };
+    const revText = (id: string) => { const x = p.passed[id]; if (x.exam) return `통과 · ${x.score || 100}점`; if (x.box >= 2) { const k = (x.ld ?? today) - today; return k <= 0 ? '완성 · 장기 복습 차례' : `완성 · ${k}일 뒤 장기 복습`; } const k = x.due - p.np; return k <= 0 ? '지금 복습할 차례' : `${k}단원 뒤 ${x.box + 1}차 복습`; };
     const lvOf = (id: string) => LEVEL_NAME[levelOf(p.bp[id] ?? 0)];
     const wt = ui.writeToggle;
     const writeRow = wt && (
@@ -445,10 +451,10 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
           {ui.writeToggle?.inSection && writeRow}
           <div className="paycard">
             <div className="pc-top"><span className="pc-logo"><L n="book-open" /></span><b>오늘 학습</b>{pl.late ? <span className="latepill">밀린 오답 {pl.late}건</span> : null}<div className="pc-amt">{done}<small> / {total}문제</small></div></div>
-            <p className="mixline">오답 다시 <b>{pl.cards.length}</b> · 단원 복습 <b>{pl.reviews.length * REV_Q}</b> · {pl.exam ? '승급 평가' : '새 진도'} <b>{pl.n}</b></p>
+            <p className="mixline">오답 다시 <b>{pl.cards.length}</b> · 단원 복습 <b>{pl.reviews.length * REV_Q}</b> · {pl.hold ? '배운 단원 다지기' : pl.exam ? '승급 평가' : '새 진도'} <b>{pl.n}</b></p>
             <div className="pc-btns">
               <button className="gbtn" onClick={() => p.cards.length && start('cards', '오답 다시')}>오답만</button>
-              <button className="gbtn" onClick={() => start('new', cur.name)}>{pl.exam ? '평가만' : '진도만'}</button>
+              <button className="gbtn" onClick={() => start('new', cur.name)}>{pl.hold ? '다지기만' : pl.exam ? '평가만' : '진도만'}</button>
               <button className="kbtn" onClick={() => start('today', '오늘 학습')}><L n="play" />{done ? '이어서' : '시작'}</button>
             </div>
           </div>
@@ -469,13 +475,15 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
             <div className="nr-body">
               <H html={ui.nowTitle(cur)} />
               <span className="streak">
-                {cur.kind === 'exam' ? <em>{ui.examStreak(cur)}</em>
-                  : p.read[cur.id] ? <>{Array.from({ length: GOAL }, (_, i) => <i key={i} className={i < p.streak ? 'on' : ''} />)}<em>연속 {p.streak}/{GOAL} · 틀림 {p.wr[cur.id] ?? 0}/{wrongCap(cur.area)}</em></>
+                {pl.hold ? <em><L n="lock" /> {cur.area} 단원이에요 · 학년이 올라가면 열려요</em>
+                  : cur.kind === 'exam' ? <em>{ui.examStreak(cur)}</em>
+                  : p.read[cur.id] ? <>{Array.from({ length: GOAL }, (_, i) => <i key={i} className={i < p.streak ? 'on' : ''} />)}<em>연속 {p.streak}/{GOAL} · 100점 {p.mast?.[cur.id]?.length ?? 0}/{MASTER_N} · 틀림 {p.wr[cur.id] ?? 0}/{wrongCap(cur.area)}</em></>
                     : <em>{ui.intro === '단원 소개' ? '단원 소개' : '개념 정리'}를 먼저 봐요 · {wrongCap(cur.area)}개 틀리면 처음부터</em>}
               </span>
             </div>
             {cur.kind !== 'exam' && <button className="qbtn" aria-label={`${cur.name} ${ui.qIcon}`} onClick={() => openConcept(cur.id, () => setView(null))}>{Q_ICON}</button>}
           </div>
+          {pl.hold && <p className="duebox"><L n="lock" /><span><b>{kid.grade} 범위를 다 배웠어요</b> — {cur.area} 단원은 학년이 올라가면 열려요(보호자 설정에서 미리 열 수 있어요). 지금은 배운 단원을 섞어 100점을 지켜요.</span></p>}
           {due.length > 0 && <p className="duebox"><L n="repeat" /><span><b>복습할 단원 {due.length}개</b> — {due.map((id) => stages[IDX[id]].name).join(', ')}. 새 진도보다 먼저 나와요.</span></p>}
         </section>
         <section className="sec flush">
@@ -485,9 +493,9 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
           </div>
           <ul className="units">
             {list.map(({ s, i }) => {
-              const pd = p.passed[s.id], now = i === p.stage, lock = !pd && !now, dueNow = pd && !pd.exam && pd.box < 2 && pd.due <= p.np;
+              const pd = p.passed[s.id], now = i === p.stage, lock = !pd && !now, dueNow = pd && !pd.exam && ((pd.box < 2 && pd.due <= p.np) || (pd.box >= 2 && pd.ld != null && pd.ld <= today));
               const sub2 = pd ? (s.kind === 'exam' ? revText(s.id) : `최근 평균 ${avg(s.id)} · ${revText(s.id)}`)
-                : now ? (s.kind === 'exam' ? `${EXAM_N}문제 · ${Math.round(EXAM_PASS * 100)}% 이상 통과` : `난이도 ${lvOf(s.id)} · 연속 ${p.streak}/${GOAL}`)
+                : now ? (s.kind === 'exam' ? `${EXAM_N}문제 · ${Math.round(EXAM_PASS * 100)}% 이상 통과` : `난이도 ${lvOf(s.id)} · 연속 ${p.streak}/${GOAL} · 100점 ${p.mast?.[s.id]?.length ?? 0}/${MASTER_N}`)
                   : s.kind === 'exam' ? ui.examSub(s) : ui.lockedSub(s);
               const li = pd ? (dueNow ? <span className="lic s-due"><L n="repeat" /></span> : <span className="lic s-ok"><L n="check" /></span>)
                 : now ? <span className="lic s-now"><L n={s.kind === 'exam' ? 'bookmark' : 'pencil'} /></span> : <span className="lic s-lk"><L n={s.kind === 'exam' ? 'bookmark' : 'lock'} /></span>;
@@ -652,7 +660,7 @@ function Result({ ui, trName, today, p, curName, v, stages, IDX, tname, cardLine
   const g = v.res, n = g.log.length, c = g.log.filter((r) => r.ok).length;
   const wrong = v.done.filter((r) => !r.ok && r.src !== 'retry');
   const ex = g.exam;
-  const revMsg = (o: string | null) => (o === 'done' ? '완성!' : o === 'again' ? `${RULES.REV_GAP[1]}단원 뒤 한 번 더` : o === 'reset' ? `${RULES.REV_GAP[0]}단원 뒤 다시` : '');
+  const revMsg = (o: string | null) => (o === 'done' ? `완성! ${RULES.LONG_GAP[0]}일 뒤 장기 복습` : o === 'long' ? '장기 복습 통과' : o === 'longAgain' ? `${RULES.LONG_RETRY}일 뒤 다시` : o === 'again' ? `${RULES.REV_GAP[1]}단원 뒤 한 번 더` : o === 'reset' ? `${RULES.REV_GAP[0]}단원 뒤 다시` : '');
   return (
     <>
       <div className="res">
@@ -717,7 +725,7 @@ function Report({ def, ui, T, S, trName, today, curArea, stages, onNextDay, onRe
   const areas = def.areas.filter((a) => stages.some((s) => s.area === a));
   const shown = areas.slice(0, areas.indexOf(curArea) + 1);
   const units = stages.filter((s) => s.kind !== 'exam'), pu = units.filter((s) => p.passed[s.id]);
-  const done2 = pu.filter((s) => p.passed[s.id].box >= 2).length, wait = pu.length - done2, dueN = dueStages(p).length;
+  const done2 = pu.filter((s) => p.passed[s.id].box >= 2).length, wait = pu.length - done2, dueN = dueStages(p, today).length;
   return (
     <>
       <div className="seg">{([['day', '일별 보고서'], ['week', '주간 보고서'], ['month', '월간 보고서']] as const).map(([k, l]) => <button key={k} className={k === rmode ? 'on' : ''} onClick={() => { setRmode(k); setRshift(0); }}>{l}</button>)}</div>

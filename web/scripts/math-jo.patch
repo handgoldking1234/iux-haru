@@ -1,0 +1,162 @@
+## 연산 조안호식 규칙 (2026-11 사용자 요청) — scripts/math-app.mjs가 차례로 바꿔 끼운다
+## 학년 맞춤 · 정확하고 빠르게 100점(한 판 10문제, 목표 시간 안)을 서로 다른 날 여러 번 → 다음 단계
+## 지난 학년 단계는 100점 1번이면 확인 통과 · 학년보다 위 단계는 보호자가 열기 전까지 잠금 → 학년 다지기
+## 통과 단계 복습 간격은 다 맞고 빠르면 3→6→12→24→48→90일로 늘고, 틀리거나 느리면 3일 + 처방(담당 선생님 역할)
+@@FIND
+const GOAL=10, SET=20, CARD_GAP=[1,3,5];
+@@WITH
+const GOAL=10, SET=20, CARD_GAP=[1,3,5];
+/* 조안호식: 한 판(새 진도 10문제)을 다 맞히고 목표 시간 안에 풀어야 100점. 내 학년 이상은 서로 다른 날 3번, 지난 학년은 1번 */
+const PAN=10;
+const GI=g=>({'초':0,'중':6,'고':9}[String(g||'초1')[0]]||0)+(+String(g||'초1').slice(1)||1);
+const MYG=()=>GI(env.grade||'초1');
+const NEED=s=>GI(s.g)<MYG()?1:3;
+const TL=s=>{ const g=GI(s.g); return g<=2?5:g<=4?7:g<=6?10:g<=9?15:20; };
+const LOCKED=s=>!!s&&!env.ahead()&&GI(s.g)>MYG();
+const RV_GAP=[3,6,12,24,48,90];
+const MS=(p,id)=>((p.ms||{})[id]||[]);
+function holdItems(p,n){ const ids=Object.keys(p.passed).filter(id=>IDX[id]!=null&&GI(STAGES[IDX[id]].g)<=MYG()); for(let i=ids.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [ids[i],ids[j]]=[ids[j],ids[i]]; }
+  const mine=ids.filter(id=>GI(STAGES[IDX[id]].g)===MYG()), pool=mine.length?[...mine,...mine,...ids]:ids;
+  return pool.length?Array.from({length:n},(_,k)=>({src:'hold',st:pool[k%pool.length]})):[]; }
+@@END
+@@FIND
+function plan(p){ const cards=dueCards(p).slice(0,10), rv0=dueStages(p).slice(0,3), rv=[...rv0.flatMap(id=>[id,id]),...warm(p,rv0)]; return {cards,rv,n:Math.max(4,SET-cards.length-rv.length),late:p.cards.filter(c=>c.due<today()).length}; }
+@@WITH
+function plan(p){ const cards=dueCards(p).slice(0,6), rv0=dueStages(p).slice(0,3), rv=[...rv0.flatMap(id=>[id,id]),...warm(p,rv0)];
+  const rx=Object.keys(p.rx||{}).filter(id=>IDX[id]!=null).slice(0,2).flatMap(id=>[id,id,id]);
+  const hold=LOCKED(STAGES[p.stage]), n=hold?(holdItems(p,1).length?PAN:0):PAN;
+  return {cards,rv,rx,hold,n,late:p.cards.filter(c=>c.due<today()).length}; }
+@@END
+@@FIND
+  if(mode==='today'){ const pl=plan(p); return [...pl.cards.map(c=>({src:'card',card:c})),...pl.rv.map(id=>({src:'review',st:id})),...Array.from({length:pl.n},()=>({src:'new'}))]; }
+@@WITH
+  if(mode==='today'){ const pl=plan(p); return [...pl.cards.map(c=>({src:'card',card:c})),...pl.rv.map(id=>({src:'review',st:id})),...pl.rx.map(id=>({src:'rx',st:id})),...(pl.hold?holdItems(p,pl.n):Array.from({length:pl.n},()=>({src:'new'})))]; }
+@@END
+@@FIND
+  if(mode==='new') return Array.from({length:10},()=>({src:'new'}));
+@@WITH
+  if(mode==='new') return LOCKED(STAGES[p.stage])?holdItems(p,PAN):Array.from({length:PAN},()=>({src:'new'}));
+@@END
+@@FIND
+log:[],passedNow:[],reviewed:{},toast:'',began:performance.now(),away:0,wrongWait:false};
+@@WITH
+log:[],passedNow:[],reviewed:{},rxd:{},pans:[],pan:null,toast:'',began:performance.now(),away:0,wrongWait:false};
+@@END
+@@FIND
+  const g=G, p=P(), it=g.q[g.i], sid=STAGES[p.stage].id;
+@@WITH
+  const g=G, p=P();
+  if(g.q[g.i]&&g.q[g.i].src==='new'&&LOCKED(STAGES[p.stage])){ g.q.splice(g.i,g.q.length-g.i,...holdItems(p,PAN)); if(g.i>=g.q.length) return finish(); }
+  const it=g.q[g.i], sid=STAGES[p.stage].id;
+@@END
+@@FIND
+  if(c.src==='review'){ const r=g.reviewed[c.st]=g.reviewed[c.st]||{n:0,w:0}; r.n++; if(!ok){r.w++; addCard(p,c);} }
+@@WITH
+  const ms1=Math.min(performance.now()-g.t0,60000);
+  if(c.src==='review'){ const r=g.reviewed[c.st]=g.reviewed[c.st]||{n:0,w:0,ms:0}; r.n++; r.ms+=ms1; if(!ok){r.w++; addCard(p,c);} }
+  if(c.src==='rx'||c.src==='hold'){ const r=g.rxd[c.st]=g.rxd[c.st]||{n:0,w:0,ms:0,rx:c.src==='rx'}; r.n++; r.ms+=ms1; if(!ok){ r.w++; addCard(p,c); (p.rx=p.rx||{})[c.st]=3; } }
+@@END
+@@FIND
+    if(ok){ p.streak++; if(p.streak>=GOAL&&p.bp[s.id]>=Math.floor(bl*2/3)&&p.stage<STAGES.length-1){ p.passed[s.id]={due:t+3}; if(p.wr) delete p.wr[s.id]; g.passedNow.push(s.name); HG('pass'); p.stage++; p.streak=0; areaF=null; g.toast=`${s.name} 통과! 다음 단계는 개념 설명부터 시작해요`; } }
+@@WITH
+    if(ok) p.streak++;
+    /* 한 판(10문제) 채점: 다 맞고 · 목표 시간 안 · 어려운 문제까지 올라왔으면 100점 */
+    const pn=g.pan=g.pan&&g.pan.st===s.id?g.pan:{st:s.id,n:0,c:0,ms:0}; pn.n++; if(ok) pn.c++; pn.ms+=ms1;
+    if(pn.n>=PAN){ g.pan=null;
+      const sec=Math.round(pn.ms/1000), lim=TL(s)*PAN, hard=p.bp[s.id]>=Math.floor(bl*2/3), perfect=pn.c===PAN&&sec<=lim&&hard, need=NEED(s);
+      g.pans.push({st:s.id,c:pn.c,sec,lim,perfect});
+      if(perfect){ const m=(p.ms=p.ms||{})[s.id]=MS(p,s.id), same=m.includes(t); if(!same) m.push(t);
+        if(m.length>=need&&p.stage<STAGES.length-1){ p.passed[s.id]={due:t+RV_GAP[0],k:0}; if(p.wr) delete p.wr[s.id]; delete p.ms[s.id]; g.passedNow.push(s.name); HG('pass'); p.stage++; p.streak=0; areaF=null; g.toast=`100점 ${need}번! ${s.name} 통과 · 다음 단계는 개념 설명부터 시작해요`; }
+        else g.toast=same?`오늘은 이미 100점을 냈어요 (${m.length}/${need}) · 다른 날 한 번 더 100점이면 다음 단계예요`:`100점! ${sec}초 (${m.length}/${need}) · 다른 날 ${need-m.length}번 더 100점이면 다음 단계예요`; }
+      else g.toast=pn.c<PAN?`이번 판 ${pn.c*10}점 · 10문제를 다 맞히면 100점이에요`:!hard?`10문제 다 맞았어요! 이제 더 어려운 문제로 100점에 도전해요`:`10문제 다 맞았어요! ${sec}초 — 목표 ${lim}초 안에 풀면 100점이에요`; }
+@@END
+@@FIND
+    else { p.streak=0; addCard(p,c); p.wr=p.wr||{}; p.wr[s.id]=(p.wr[s.id]||0)+1;
+@@WITH
+    if(!ok){ p.streak=0; addCard(p,c); p.wr=p.wr||{}; p.wr[s.id]=(p.wr[s.id]||0)+1;
+@@END
+@@FIND
+  Object.entries(g.reviewed).forEach(([id,r])=>{ if(p.passed[id]) p.passed[id].due=t+(r.w?3:5); });
+@@WITH
+  /* 통과 단계 복습: 다 맞고 빠르면 간격을 늘리고(3→6→12→24→48→90일), 틀리거나 느리면 3일 뒤 + 처방 */
+  Object.entries(g.reviewed).forEach(([id,r])=>{ const ps=p.passed[id]; if(!ps) return; r.slow=r.ms/r.n/1000>TL(STAGES[IDX[id]]);
+    if(r.w||r.slow){ ps.k=0; ps.due=t+RV_GAP[0]; (p.rx=p.rx||{})[id]=3; } else { ps.k=Math.min((ps.k||0)+1,RV_GAP.length-1); ps.due=t+RV_GAP[ps.k]; } });
+  /* 처방: 다 맞히면 한 번 줄고, 0이 되면 끝 · 틀리면 다시 3번 */
+  Object.entries(g.rxd).forEach(([id,r])=>{ if(!r.rx||!p.rx||p.rx[id]==null) return; if(r.w) p.rx[id]=3; else if(--p.rx[id]<=0) delete p.rx[id]; });
+@@END
+@@FIND
+<div class="cell"><b>${p.streak}/${GOAL}</b><span>지금 단계 연속</span></div></div>
+@@WITH
+<div class="cell"><b>${MS(p,STAGES[p.stage].id).length}/${NEED(STAGES[p.stage])}</b><span>지금 단계 100점</span></div></div>
+    ${g.pans.length?`<div class="box"><h3>한 판 결과 <small class="note">10문제 다 맞고 목표 시간 안이면 100점</small></h3><div class="list">${g.pans.map(x=>`<div><span>${STAGES[IDX[x.st]].name}</span><span>${x.perfect?`<b>100점</b> · ${x.sec}초`:`${x.c*10}점 · ${x.sec}초 <small class="note">목표 ${x.lim}초</small>`}</span></div>`).join('')}</div></div>`:''}
+@@END
+@@FIND
+${r.w?`<span class="x">✕${r.w}</span> → 3일 뒤`:'다 맞음 → 5일 뒤'}
+@@WITH
+${r.w?`<span class="x">✕${r.w}</span>`:r.slow?'다 맞음 · 느림':'다 맞음'} → ${p.passed[id]?p.passed[id].due-t:3}일 뒤${p.rx&&p.rx[id]?' · 처방':''}
+@@END
+@@FIND
+        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b> · 새 진도 <b>${pl.n}</b></p>
+@@WITH
+        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b>${pl.rx.length?` · 처방 <b>${pl.rx.length}</b>`:''} · ${pl.hold?'학년 다지기':'새 진도'} <b>${pl.n}</b></p>
+@@END
+@@FIND
+  const p=P(), pl=plan(p), total=pl.cards.length+pl.rv.length+pl.n,
+@@WITH
+  const p=P(), pl=plan(p), total=pl.cards.length+pl.rv.length+pl.rx.length+pl.n,
+@@END
+@@FIND
+<em>연속 ${p.streak}/${GOAL} · 틀림 ${WR(p,cur.id)}/${CAP(cur)}</em>`
+@@WITH
+<em>100점 ${MS(p,cur.id).length}/${NEED(cur)} · 목표 ${TL(cur)*PAN}초 · 틀림 ${WR(p,cur.id)}/${CAP(cur)}</em>`
+@@END
+@@FIND
+?Array.from({length:GOAL},(_,i)=>`<i class="${i<p.streak?'on':''}"></i>`).join('')
+@@WITH
+?Array.from({length:NEED(cur)},(_,i)=>`<i class="${i<MS(p,cur.id).length?'on':''}"></i>`).join('')
+@@END
+@@FIND
+        <button class="qbtn" data-q="${cur.id}" aria-label="${cur.name} 개념">${Q_ICON}</button>
+      </div>
+    </section>
+@@WITH
+        <button class="qbtn" data-q="${cur.id}" aria-label="${cur.name} 개념">${Q_ICON}</button>
+      </div>
+      ${pl.hold?`<p class="note">${LI('lock')} ${env.grade} 단계를 모두 통과했어요. 다음 학년 단계는 보호자 설정에서 열 수 있어요. 지금은 배운 단계를 섞어 풀며 100점을 지켜요.</p>`:''}
+    </section>
+@@END
+@@FIND
+`난이도 ${LV(s.id,p)} · 문제 ${((p.bp||{})[s.id]||0)+1}/${BANK[s.id].length} · 연속 ${p.streak}/${GOAL}`
+@@WITH
+`난이도 ${LV(s.id,p)} · 100점 ${MS(p,s.id).length}/${NEED(s)} · 목표 ${TL(s)*PAN}초`
+@@END
+@@FIND
+`${s.g} · 예) ${s.ex}`;
+@@WITH
+LOCKED(s)?`${s.g} · 학년이 올라가면 열려요`:`${s.g} · 예) ${s.ex}`;
+@@END
+@@FIND
+<span>${s.g} ${s.name}${c.src==='new'?` · 연속 ${p.streak}/${GOAL} · <b class="x">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span>
+@@WITH
+<span>${s.g} ${s.name}${c.src==='new'?` · 한 판 ${g.pan&&g.pan.st===s.id?g.pan.n+1:1}/${PAN} · 100점 ${MS(p,s.id).length}/${NEED(s)} · 목표 ${TL(s)*PAN}초 · <b class="x">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span>
+@@END
+@@FIND
+어려운 문제까지 올라가 연속 ${GOAL}문제를 맞히면 다음 단계로 넘어가고,
+@@WITH
+어려운 문제까지 올라가 한 판(${PAN}문제)을 다 맞히고 목표 시간(${TL(s)*PAN}초) 안에 풀면 100점이에요. 100점을 ${NEED(s)>1?`서로 다른 날 ${NEED(s)}번`:'1번'} 내면 다음 단계로 넘어가고,
+@@END
+@@FIND
+const SRC={card:'오답 다시',review:'단계 복습',new:'새 진도',retry:'방금 틀린 문제'};
+@@WITH
+const SRC={card:'오답 다시',review:'단계 복습',new:'새 진도',retry:'방금 틀린 문제',rx:'처방',hold:'학년 다지기'};
+@@END
+@@FIND
+<span class="streak">${p.read[cur.id]?
+@@WITH
+<span class="streak">${pl.hold?`<em>${LI('lock')} ${cur.g} 단계예요 · 학년이 올라가면 열려요</em>`:p.read[cur.id]?
+@@END
+@@FIND
+<button class="gbtn" id="goNew">진도만</button>
+@@WITH
+<button class="gbtn" id="goNew">${pl.hold?'다지기만':'진도만'}</button>
+@@END

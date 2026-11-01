@@ -25,7 +25,8 @@ export interface Card {
 }
 
 export type Passed =
-  | { exam?: false; box: number; due: number }
+  /** box·due: 3·5단원 뒤 복습 · ld·lb: 완성 뒤 장기 복습 날짜(일 번호)와 횟수 */
+  | { exam?: false; box: number; due: number; ld?: number; lb?: number }
   | { exam: true; box: 2; score: number };
 
 /** 학생 한 명의 한 갈래 진도 (DB: progress + passed_units + wrong_cards) */
@@ -46,6 +47,8 @@ export interface Progress {
   cards: Card[];
   /** 졸업한 오답 수 */
   grad: number;
+  /** 단원별 '100점 한 판'을 낸 날(일 번호) — 서로 다른 날 MASTER_N번이면 통과 */
+  mast?: Record<string, number[]>;
   allDone?: boolean;
 }
 

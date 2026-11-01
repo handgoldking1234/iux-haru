@@ -98,11 +98,18 @@ function bindWtip(){ const w=screen.querySelector('.wtip'); if(!w) return; const
   screen.querySelector('.np').addEventListener('click',()=>set(false)); }
 function refreshWrong(){ const el=document.getElementById('wcnt'); if(el) el.outerHTML=wrongBox(); }`);
 
+/* 조안호식 연산 규칙 (scripts/math-jo.patch): @@FIND … @@WITH … @@END 블록을 차례로 바꿔 끼운다 */
+const NL = String.fromCharCode(10);
+for (const blk of fs.readFileSync(path.join(here, 'math-jo.patch'), 'utf8').split(String.fromCharCode(13)).join('').split('@@FIND' + NL).slice(1)) {
+  const [find, rest] = blk.split(NL + '@@WITH' + NL);
+  rep(find, rest.slice(0, rest.indexOf(NL + '@@END')));
+}
+
 const out = `/* eslint-disable */
 // @ts-nocheck
 /**
  * 연산(셈하루) — prototype/build/math.html을 그대로 옮김 (자동 생성: scripts/math-app.mjs, 직접 고치지 않기)
- * env: { hg(e), load(), save(S), fresh(), switchKid(), onSub(off, tabs), weekOk() }
+ * env: { hg(e), load(), save(S), fresh(), switchKid(), onSub(off, tabs), weekOk(), grade, ahead() }
  */
 export const MATH_SKELETON = ${JSON.stringify(skeleton)};
 

@@ -23,6 +23,21 @@ export const TYP_LIMITS = [15, 30, 60, 0] as const;
 export type Plan = Record<SubjectKey, number>;
 export const DEFAULT_PLAN: Plan = { math: 20, hanja: 10, eng: 10, kor: 10, hist: 0, sci: 0, typ: 0 };
 
+/** 과학·역사 요일 번갈아 (보호자가 '끄기'로 둔 과목만 채움): 월·수·금 과학, 화·목 역사, 하루 ROT_N문제 */
+export const ROT_N = 10;
+export const ROT_DAYS: Partial<Record<SubjectKey, number[]>> = { sci: [1, 3, 5], hist: [2, 4] };
+/** 일 번호의 요일 (0=일요일) — 1970-01-01은 목요일 */
+export const dowOf = (d: number) => (((d + 4) % 7) + 7) % 7;
+/** 그날의 할 일: 보호자가 정한 분량 + (켜져 있으면) 과학·역사 요일 번갈아 */
+export function planOn(st: { plan: Plan; rot?: boolean }, d: number): Plan {
+  const p = { ...st.plan };
+  if (st.rot !== false) {
+    const w = dowOf(d);
+    for (const [k, days] of Object.entries(ROT_DAYS) as [SubjectKey, number[]][]) if (!p[k] && days.includes(w)) p[k] = ROT_N;
+  }
+  return p;
+}
+
 export const GRADES = [
   { n: '씨앗', x: 0, icon: 'circle-dot' },
   { n: '새싹', x: 150, icon: 'sprout' },
@@ -106,6 +121,10 @@ export interface RewardState {
   /** 설정 · 게임 기록 (없으면 기본값) */
   sfx?: boolean;
   engWrite?: boolean;
+  /** 과학·역사 요일 번갈아 (기본 켬) */
+  rot?: boolean;
+  /** 학년보다 앞선 진도 열기 (기본 끔) — 연산은 다음 학년 단계, 다른 과목은 다음 학교급 단원 */
+  ahead?: boolean;
   hanjaWrite?: boolean;
   best?: Record<string, number>;
   wins?: number;
@@ -152,7 +171,7 @@ export function ensureDay(st: RewardState, today: number): DayState {
     (st.hist ??= {})[o.d] = { ok: o.ok, no: o.no, done: o.bonus };
   }
   for (const k of Object.keys(st.log)) if (+k < today - (BACKLOG_DAYS + 1)) delete st.log[+k];
-  st.day = { d: today, cash: 0, ok: 0, no: 0, by: {}, byNo: {}, streak: 0, game: 0, played: 0, bonus: false, more: false, plan: { ...st.plan } };
+  st.day = { d: today, cash: 0, ok: 0, no: 0, by: {}, byNo: {}, streak: 0, game: 0, played: 0, bonus: false, more: false, plan: planOn(st, today) };
   return st.day;
 }
 
@@ -168,7 +187,7 @@ export function backlog(st: RewardState, today: number): BacklogItem[] {
   ensureDay(st, today);
   const out: BacklogItem[] = [];
   for (let d = Math.max(today - BACKLOG_DAYS, st.since); d < today; d++) {
-    const L = (st.log[d] ??= { by: {}, plan: { ...st.plan }, paid: {} });
+    const L = (st.log[d] ??= { by: {}, plan: planOn(st, d), paid: {} });
     for (const k of SUBJECT_KEYS) {
       const g = L.plan[k] ?? 0;
       if (!g) continue;
@@ -183,8 +202,9 @@ export const backlogTotal = (st: RewardState, today: number) => backlog(st, toda
 
 export function tasks(st: RewardState, today: number) {
   const d = ensureDay(st, today);
-  return SUBJECT_KEYS.filter((k) => (st.plan[k] ?? 0) > 0).map((k) => ({
-    k, name: SUBJECTS[k].name, goal: st.plan[k], n: Math.min(d.by[k] ?? 0, st.plan[k]),
+  const pl = d.plan ?? planOn(st, today);
+  return SUBJECT_KEYS.filter((k) => (pl[k] ?? 0) > 0).map((k) => ({
+    k, name: SUBJECTS[k].name, goal: pl[k], n: Math.min(d.by[k] ?? 0, pl[k]),
   }));
 }
 
@@ -281,7 +301,7 @@ export function rewardEvent(st: RewardState, e: 'ok' | 'no' | 'pass' | 'grad', s
       out.gradeUp = after;
       out.msg.push(`'${GRADES[after].n}' 등급이 됐어요!`);
     }
-    const g = st.plan[s] ?? 0;
+    const g = d.plan?.[s] ?? 0;
     if (g > 0 && d.by[s] === g && !allDone(st, today)) out.msg.push(`${SUBJECTS[s].name} 할 일 완료!`);
     if ((d.by[s] ?? 0) > g) {
       const b = backlog(st, today).find((x) => x.k === s);

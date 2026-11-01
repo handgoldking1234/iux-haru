@@ -1,6 +1,6 @@
 import { avoidLastPosition, pick, reshuffleForRetry, shuffle } from './choices';
 import {
-  addWrongCard, answerCard, applyReview, dueCards, dueStages, nextBp, passUnit, planDay,
+  addWrongCard, answerCard, applyReview, dueCards, dueStages, holdUnits, isHeld, markPerfect, nextBp, passUnit, planDay,
 } from './progress';
 import { EXAM_CAP, EXAM_PASS_N, RULES, wrongCap } from './rules';
 import type { Card, Env, LastPosStore, PlayQuestion, Progress, Stage, SubjectPlugin } from './types';
@@ -43,6 +43,8 @@ export interface AnswerResult {
   restart?: { stage: Stage; cap: number };
   /** 승급 평가에서 5개 틀려 평가가 끝남 */
   examStopped?: boolean;
+  /** 어려움 구간 연속 정답으로 '100점 한 판'을 냈을 때 (통과 전): 지금까지 n번 / 필요 need번 · 오늘 이미 냈으면 sameDay */
+  perfect?: { n: number; need: number; sameDay: boolean };
   /** 같은 문제가 3문제 뒤 다시 나오는지 */
   retryQueued: boolean;
 }
@@ -68,6 +70,8 @@ export interface SessionOptions {
   stageId?: string;
   /** 지워진 항목의 오답 카드를 거르기 위해 */
   known?: (item: string) => boolean;
+  /** 학년보다 앞선 학교급이면 true → 새 진도 대신 배운 단원 다지기 */
+  locked?: (s: Stage) => boolean;
 }
 
 const reviewItems = (ids: string[]): QItem[] =>
@@ -120,7 +124,19 @@ export class StudySession {
     return this.stages[this.idx[id]];
   }
 
+  /** 새 진도가 잠겼을 때: 배운 단원을 고루 섞은 다지기 문제 */
+  private holdItems(n: number): QItem[] {
+    const ids = shuffle(holdUnits(this.p), this.o.env.rng);
+    if (!ids.length) return [];
+    return Array.from({ length: n }, (_, k) => ({ src: 'review' as const, stage: ids[k % ids.length], free: true }));
+  }
+
+  private get held() {
+    return isHeld(this.p, this.stages, this.o.locked);
+  }
+
   private progressItems(n: number): QItem[] {
+    if (this.held) return this.holdItems(RULES.HOLD_N);
     const cs = this.curStage();
     return cs.kind === 'exam'
       ? Array.from({ length: RULES.EXAM_N }, () => ({ src: 'exam' as const, stage: cs.id }))
@@ -130,7 +146,7 @@ export class StudySession {
   private buildQueue(mode: Mode, stageId?: string): QItem[] {
     const p = this.p, t = this.today, known = this.o.known;
     if (mode === 'today') {
-      const pl = planDay(p, this.stages, t, known);
+      const pl = planDay(p, this.stages, t, known, this.o.locked);
       return [
         ...pl.cards.map((card) => ({ src: 'card' as const, card })),
         ...reviewItems(pl.reviews),
@@ -144,7 +160,7 @@ export class StudySession {
         .map((card) => ({ src: 'card' as const, card }));
     }
     if (mode === 'new') {
-      return [...reviewItems(dueStages(p).slice(0, RULES.SET_MAX_REVIEW_UNITS)), ...this.progressItems(RULES.NEW_ONLY_N)];
+      return [...reviewItems(dueStages(p, t).slice(0, RULES.SET_MAX_REVIEW_UNITS)), ...this.progressItems(RULES.NEW_ONLY_N)];
     }
     if (!stageId) return [];
     return Array.from({ length: RULES.NEW_ONLY_N }, () => ({ src: 'review' as const, stage: stageId, free: true }));
@@ -190,6 +206,10 @@ export class StudySession {
     if (this.i >= this.q.length) return { kind: 'done' };
     if (this.cur) return { kind: 'question', q: this.cur, index: this.i, total: this.q.length };
     const it = this.q[this.i], cs = this.curStage();
+    if (it.src === 'new' && this.held) {
+      this.q.splice(this.i, this.q.length - this.i, ...this.holdItems(RULES.HOLD_N));
+      return this.step();
+    }
     if (it.src === 'new' && cs.kind === 'exam') {
       this.q.splice(this.i, this.q.length - this.i, ...this.progressItems(0));
       return this.step();
@@ -245,13 +265,20 @@ export class StudySession {
       p.bp[cs.id] = nextBp(p.bp[cs.id] ?? 0, ok, p.streak);
       if (ok) {
         p.streak++;
-        if (p.streak >= RULES.GOAL && p.bp[cs.id] >= RULES.BP_HARD && p.stage < this.stages.length - 1) {
+        const perfect = p.streak >= RULES.GOAL && p.bp[cs.id] >= RULES.BP_HARD && p.stage < this.stages.length - 1;
+        const m = perfect ? markPerfect(p, cs.id, t) : null;
+        if (m && !m.done) {
+          // 100점 한 판 — 서로 다른 날 한 번 더 내야 통과. 연속은 다시 0부터
+          p.streak = 0;
+          res.perfect = { n: m.n, need: RULES.MASTER_N, sameDay: m.sameDay };
+        }
+        if (m && m.done) {
           passUnit(p, cs);
           this.passedNow.push(cs);
           res.events.push('pass');
           const nx = this.curStage();
           res.passed = { from: cs, to: nx };
-          const due = dueStages(p);
+          const due = dueStages(p, t);
           this.q.splice(this.i + 1);
           this.q.push(
             ...reviewItems(due.slice(0, 2)),
@@ -302,7 +329,7 @@ export class StudySession {
   finish(): SessionResult {
     const p = this.p;
     const reviews = Object.entries(this.reviewed).map(([stage, r]) => ({
-      stage, n: r.n, wrong: r.w, outcome: r.free ? null : applyReview(p, stage, r.w),
+      stage, n: r.n, wrong: r.w, outcome: r.free ? null : applyReview(p, stage, r.w, this.today),
     }));
     let exam: SessionResult['exam'];
     if (this.examStage) {

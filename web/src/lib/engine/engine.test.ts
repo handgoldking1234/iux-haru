@@ -1,19 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { avoidLastPosition, memoryLastPos, reshuffleForRetry } from './choices';
-import { addWrongCard, answerCard, applyReview, newProgress, nextBp, planDay } from './progress';
+import { addWrongCard, answerCard, applyReview, dueStages, newProgress, nextBp, planDay } from './progress';
 import { EXAM_CAP, EXAM_PASS_N, RULES, levelOf, wrongCap } from './rules';
 import { StudySession, type AnswerResult, type Mode } from './session';
 import { fakePlugin, makeStages, seeded } from './testkit';
-import type { Progress } from './types';
+import type { Progress, Stage } from './types';
 
 const T = 20000;
 
-function session(p: Progress, mode: Mode = 'today', opts: { day?: number; seed?: number } = {}) {
+function session(p: Progress, mode: Mode = 'today', opts: { day?: number; seed?: number; locked?: (s: Stage) => boolean } = {}) {
   const stages = makeStages();
   let day = opts.day ?? T;
   const lastPos = memoryLastPos();
   const s = new StudySession({
-    progress: p, stages, plugin: fakePlugin(stages), lastPos, mode,
+    progress: p, stages, plugin: fakePlugin(stages), lastPos, mode, locked: opts.locked,
     env: { rng: seeded(opts.seed), today: () => day },
   });
   return { s, stages, lastPos, setDay: (d: number) => (day = d) };
@@ -45,6 +45,8 @@ describe('규칙 숫자', () => {
     expect(RULES.SET).toBe(20);
     expect(RULES.CARD_GAP).toEqual([1, 3, 5]);
     expect(RULES.REV_GAP).toEqual([3, 5]);
+    expect(RULES.MASTER_N).toBe(2);
+    expect(RULES.LONG_GAP).toEqual([30, 90, 180]);
     expect(EXAM_PASS_N).toBe(16);
     expect(EXAM_CAP).toBe(5);
     expect(wrongCap('초등')).toBe(5);
@@ -126,17 +128,28 @@ describe('단원 안 진행', () => {
     expect(s.step().kind).toBe('question');
   });
 
-  it('어려움 구간에서 연속 10문제 맞히면 통과하고 다음 단원은 소개부터', () => {
+  it('어려움 구간 연속 10문제(100점 한 판)를 서로 다른 날 두 번 내면 통과하고 다음 단원은 소개부터', () => {
     const p = newProgress();
-    const { s } = session(p);
-    const out = run(s, () => true, 11);
+    const { s, setDay } = session(p);
+    // 첫날: 100점 한 판 → 1/2, 같은 날 또 100점이어도 1/2
+    const d1 = run(s, () => true, 30);
+    const per = d1.filter((x) => x.r.perfect);
+    expect(per[0].r.perfect).toEqual({ n: 1, need: 2, sameDay: false });
+    expect(d1.some((x) => x.r.passed)).toBe(false);
+    if (per[1]) expect(per[1].r.perfect).toEqual({ n: 1, need: 2, sameDay: true });
+    expect(p.stage).toBe(0);
+    // 다음 날: 한 판 더 100점이면 통과
+    setDay(T + 1);
+    const { s: s2 } = session(p, 'new', { day: T + 1 });
+    const out = run(s2, () => true, 10);
     const passAt = out.findIndex((x) => x.r.passed);
     expect(passAt).toBe(9);
     expect(out[passAt].r.events).toEqual(['ok', 'pass']);
     expect(p.stage).toBe(1);
+    expect(p.mast?.s0).toBeUndefined();
     expect(p.passed.s0).toEqual({ box: 0, due: 4 });
     expect(p.read.s1).toBeFalsy();
-    expect(s.step()).toMatchObject({ kind: 'intro', stage: { id: 's1' } });
+    expect(s2.step()).toMatchObject({ kind: 'intro', stage: { id: 's1' } });
   });
 
   it('난이도가 어려움에 닿기 전에는 연속 10개여도 통과하지 않는다', () => {
@@ -197,6 +210,23 @@ describe('통과 단원 복습 3단원 → 5단원', () => {
     expect(p.passed.s0.box).toBe(2);
   });
 
+  it('완성한 단원은 30일 → 90일 → 180일마다 장기 복습, 틀리면 7일 뒤 다시', () => {
+    const p = newProgress();
+    p.np = 9;
+    p.passed.s0 = { box: 1, due: 9 };
+    expect(applyReview(p, 's0', 0, T)).toBe('done');
+    expect(p.passed.s0).toMatchObject({ box: 2, ld: T + 30, lb: 0 });
+    expect(dueStages(p, T + 29)).toEqual([]);
+    expect(dueStages(p, T + 30)).toEqual(['s0']);
+    expect(applyReview(p, 's0', 1, T + 30)).toBe('longAgain');
+    expect(p.passed.s0).toMatchObject({ ld: T + 37 });
+    expect(applyReview(p, 's0', 0, T + 37)).toBe('long');
+    expect(p.passed.s0).toMatchObject({ ld: T + 127, lb: 1 });
+    expect(applyReview(p, 's0', 0, T + 127)).toBe('long');
+    expect(applyReview(p, 's0', 0, T + 307)).toBe('long');
+    expect(p.passed.s0).toMatchObject({ ld: T + 487, lb: 2 });
+  });
+
   it('세션에서 복습을 다 맞히면 마칠 때 반영된다', () => {
     const p = newProgress();
     p.stage = 4;
@@ -209,6 +239,25 @@ describe('통과 단원 복습 3단원 → 5단원', () => {
     // 중간에 단원을 통과하면 복습 차례 단원이 한 번 더 붙는다(프로토타입과 같음)
     expect(res.reviews[0]).toMatchObject({ stage: 's0', wrong: 0, outcome: 'again' });
     expect(res.reviews[0].n % 4).toBe(0);
+  });
+});
+
+describe('학년보다 앞선 학교급 잠금', () => {
+  it('잠긴 칸이면 새 진도 대신 배운 단원을 섞어 다진다', () => {
+    const p = newProgress();
+    p.stage = 2;
+    p.passed.s0 = { box: 2, due: 0 };
+    p.passed.s1 = { box: 2, due: 0 };
+    const locked = (st: Stage) => st.id === 's2';
+    const stages = makeStages();
+    const pl = planDay(p, stages, T, undefined, locked);
+    expect(pl.hold).toBe(true);
+    expect(pl.n).toBe(RULES.HOLD_N);
+    const { s } = session(p, 'today', { locked });
+    const out = run(s, () => true);
+    expect(out.length).toBe(RULES.HOLD_N);
+    expect(out.every((x) => x.q.src === 'review' && ['s0', 's1'].includes(x.q.stage))).toBe(true);
+    expect(p.stage).toBe(2);
   });
 });
 

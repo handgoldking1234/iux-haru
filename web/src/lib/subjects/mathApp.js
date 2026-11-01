@@ -2,7 +2,7 @@
 // @ts-nocheck
 /**
  * 연산(셈하루) — prototype/build/math.html을 그대로 옮김 (자동 생성: scripts/math-app.mjs, 직접 고치지 않기)
- * env: { hg(e), load(), save(S), fresh(), switchKid(), onSub(off, tabs), weekOk() }
+ * env: { hg(e), load(), save(S), fresh(), switchKid(), onSub(off, tabs), weekOk(), grade, ahead() }
  */
 export const MATH_SKELETON = "<div class=\"app\">\n  <header id=\"bar\"></header>\n  <div id=\"screen\"></div>\n  <nav id=\"tabs\">\n    <button data-tab=\"home\"><span class=\"tb\"><i data-lucide=\"house\"></i></span>연산학습</button>\n    <button data-tab=\"cards\"><span class=\"tb\"><i data-lucide=\"notebook-pen\"></i></span>오답노트</button>\n    <button data-tab=\"report\"><span class=\"tb\"><i data-lucide=\"chart-pie\"></i></span>학습결과</button>\n  </nav>\n</div>";
 
@@ -19,6 +19,18 @@ root.innerHTML = MATH_SKELETON;
    - 개념은 언제든: 앱바 ?, 오답 직후, 단원 목록·오답노트·결과의 ? 버튼
    ========================================================= */
 const GOAL=10, SET=20, CARD_GAP=[1,3,5];
+/* 조안호식: 한 판(새 진도 10문제)을 다 맞히고 목표 시간 안에 풀어야 100점. 내 학년 이상은 서로 다른 날 3번, 지난 학년은 1번 */
+const PAN=10;
+const GI=g=>({'초':0,'중':6,'고':9}[String(g||'초1')[0]]||0)+(+String(g||'초1').slice(1)||1);
+const MYG=()=>GI(env.grade||'초1');
+const NEED=s=>GI(s.g)<MYG()?1:3;
+const TL=s=>{ const g=GI(s.g); return g<=2?5:g<=4?7:g<=6?10:g<=9?15:20; };
+const LOCKED=s=>!!s&&!env.ahead()&&GI(s.g)>MYG();
+const RV_GAP=[3,6,12,24,48,90];
+const MS=(p,id)=>((p.ms||{})[id]||[]);
+function holdItems(p,n){ const ids=Object.keys(p.passed).filter(id=>IDX[id]!=null&&GI(STAGES[IDX[id]].g)<=MYG()); for(let i=ids.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [ids[i],ids[j]]=[ids[j],ids[i]]; }
+  const mine=ids.filter(id=>GI(STAGES[IDX[id]].g)===MYG()), pool=mine.length?[...mine,...mine,...ids]:ids;
+  return pool.length?Array.from({length:n},(_,k)=>({src:'hold',st:pool[k%pool.length]})):[]; }
 /* 하루공부 보상 연동: 정답·통과·오답 졸업을 놀이터(캐시·등급)로 알림 */
 const HG=e=>env.hg(e);
 /* 틀림 상한: 한 단계에서 이만큼 틀리면 그 단계를 처음부터(개념부터) 다시 */
@@ -443,11 +455,14 @@ const plain=q=>q.replace(/<small>.*<\/small>/,'').replace('<br>',' ');
 function dueCards(p){ return p.cards.filter(c=>c.due<=today()).sort((a,b)=>(a.due-b.due)||(b.wrong-a.wrong)); }
 function dueStages(p){ return Object.entries(p.passed).filter(([,v])=>v.due<=today()).sort((a,b)=>a[1].due-b[1].due).map(([id])=>id); }
 function warm(p,rv){ const b=Object.keys(p.passed).filter(id=>IDX[id]!=null&&/초[123]/.test(STAGES[IDX[id]].g)&&!rv.includes(id)); const o=[]; for(let k=0;k<2&&b.length;k++) o.push(b.splice(Math.floor(Math.random()*b.length),1)[0]); return o; }
-function plan(p){ const cards=dueCards(p).slice(0,10), rv0=dueStages(p).slice(0,3), rv=[...rv0.flatMap(id=>[id,id]),...warm(p,rv0)]; return {cards,rv,n:Math.max(4,SET-cards.length-rv.length),late:p.cards.filter(c=>c.due<today()).length}; }
+function plan(p){ const cards=dueCards(p).slice(0,6), rv0=dueStages(p).slice(0,3), rv=[...rv0.flatMap(id=>[id,id]),...warm(p,rv0)];
+  const rx=Object.keys(p.rx||{}).filter(id=>IDX[id]!=null).slice(0,2).flatMap(id=>[id,id,id]);
+  const hold=LOCKED(STAGES[p.stage]), n=hold?(holdItems(p,1).length?PAN:0):PAN;
+  return {cards,rv,rx,hold,n,late:p.cards.filter(c=>c.due<today()).length}; }
 function buildQueue(p,mode,arg){
-  if(mode==='today'){ const pl=plan(p); return [...pl.cards.map(c=>({src:'card',card:c})),...pl.rv.map(id=>({src:'review',st:id})),...Array.from({length:pl.n},()=>({src:'new'}))]; }
+  if(mode==='today'){ const pl=plan(p); return [...pl.cards.map(c=>({src:'card',card:c})),...pl.rv.map(id=>({src:'review',st:id})),...pl.rx.map(id=>({src:'rx',st:id})),...(pl.hold?holdItems(p,pl.n):Array.from({length:pl.n},()=>({src:'new'})))]; }
   if(mode==='cards') return [...dueCards(p),...p.cards.filter(c=>c.due>today())].slice(0,15).map(c=>({src:'card',card:c}));
-  if(mode==='new') return Array.from({length:10},()=>({src:'new'}));
+  if(mode==='new') return LOCKED(STAGES[p.stage])?holdItems(p,PAN):Array.from({length:PAN},()=>({src:'new'}));
   if(mode==='stage') return Array.from({length:10},()=>({src:'review',st:arg}));
 }
 function resolve(it,p){
@@ -507,7 +522,7 @@ function render(){ showTabs(true); ({home:renderHome,cards:renderCards,report:re
 
 /* ---------- 연산학습 (홈) ---------- */
 function renderHome(){
-  const p=P(), pl=plan(p), total=pl.cards.length+pl.rv.length+pl.n, done=Math.min((p.hist[today()]||{}).n||0,total);
+  const p=P(), pl=plan(p), total=pl.cards.length+pl.rv.length+pl.rx.length+pl.n, done=Math.min((p.hist[today()]||{}).n||0,total);
   const cur=STAGES[p.stage]; if(!areaF) areaF=cur.area;
   setBar('연산학습');
   const list=STAGES.map((s,i)=>({...s,i})).filter(s=>s.area===areaF);
@@ -517,8 +532,8 @@ function renderHome(){
       <div class="hrow"><span class="badge">TODAY</span><span class="sub">${dlabel(today())} · ${p.name}의 학습</span></div>
       <div class="paycard">
         <div class="pc-top"><span class="pc-logo">${LI('calculator')}</span><b>오늘 학습</b>${pl.late?`<span class="latepill">밀린 학습 ${pl.late}건</span>`:''}<div class="pc-amt">${done}<small> / ${total}문제</small></div></div>
-        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b> · 새 진도 <b>${pl.n}</b></p>
-        <div class="pc-btns"><button class="gbtn" id="goCards">오답만</button><button class="gbtn" id="goNew">진도만</button><button class="kbtn" id="go">${LI('play')}${done?'이어서':'시작'}</button></div>
+        <p class="mixline">오답 다시 <b>${pl.cards.length}</b> · 단계 복습 <b>${pl.rv.length}</b>${pl.rx.length?` · 처방 <b>${pl.rx.length}</b>`:''} · ${pl.hold?'학년 다지기':'새 진도'} <b>${pl.n}</b></p>
+        <div class="pc-btns"><button class="gbtn" id="goCards">오답만</button><button class="gbtn" id="goNew">${pl.hold?'다지기만':'진도만'}</button><button class="kbtn" id="go">${LI('play')}${done?'이어서':'시작'}</button></div>
       </div>
     </section>
     <section class="sec">
@@ -534,9 +549,10 @@ function renderHome(){
       <div class="nowrow">
         <span class="lic s-now">${LI('pencil')}</span>
         <div class="nr-body"><b>${cur.name}</b>
-          <span class="streak">${p.read[cur.id]?Array.from({length:GOAL},(_,i)=>`<i class="${i<p.streak?'on':''}"></i>`).join('')+`<em>연속 ${p.streak}/${GOAL} · 틀림 ${WR(p,cur.id)}/${CAP(cur)}</em>`:`<em>개념 설명을 먼저 읽어요 · ${CAP(cur)}개 틀리면 처음부터</em>`}</span></div>
+          <span class="streak">${pl.hold?`<em>${LI('lock')} ${cur.g} 단계예요 · 학년이 올라가면 열려요</em>`:p.read[cur.id]?Array.from({length:NEED(cur)},(_,i)=>`<i class="${i<MS(p,cur.id).length?'on':''}"></i>`).join('')+`<em>100점 ${MS(p,cur.id).length}/${NEED(cur)} · 목표 ${TL(cur)*PAN}초 · 틀림 ${WR(p,cur.id)}/${CAP(cur)}</em>`:`<em>개념 설명을 먼저 읽어요 · ${CAP(cur)}개 틀리면 처음부터</em>`}</span></div>
         <button class="qbtn" data-q="${cur.id}" aria-label="${cur.name} 개념">${Q_ICON}</button>
       </div>
+      ${pl.hold?`<p class="note">${LI('lock')} ${env.grade} 단계를 모두 통과했어요. 다음 학년 단계는 보호자 설정에서 열 수 있어요. 지금은 배운 단계를 섞어 풀며 100점을 지켜요.</p>`:''}
     </section>
     <section class="sec flush">
       <h3 class="sh pad16">단원 목록</h3>
@@ -544,7 +560,7 @@ function renderHome(){
     <ul class="units">${list.map(s=>{
       const ps=p.passed[s.id], now=s.i===p.stage, lock=!ps&&!now, due=ps&&ps.due<=today();
       const st=ps?(due?`<span class="tag due">${LI('repeat')}복습 차례</span>`:`<span class="tag ok">${LI('check')}통과</span>`):now?`<span class="tag nowt">${LI('pencil')}학습 중</span>`:`<span class="tag lk">${LI('lock')}잠김</span>`;
-      const sub=ps?`최근 평균 ${avg(s.id)} · 다음 복습 ${rel(ps.due)}`:now?`난이도 ${LV(s.id,p)} · 문제 ${((p.bp||{})[s.id]||0)+1}/${BANK[s.id].length} · 연속 ${p.streak}/${GOAL}`:`${s.g} · 예) ${s.ex}`;
+      const sub=ps?`최근 평균 ${avg(s.id)} · 다음 복습 ${rel(ps.due)}`:now?`난이도 ${LV(s.id,p)} · 100점 ${MS(p,s.id).length}/${NEED(s)} · 목표 ${TL(s)*PAN}초`:LOCKED(s)?`${s.g} · 학년이 올라가면 열려요`:`${s.g} · 예) ${s.ex}`;
       const li=ps?(due?`<span class="lic s-due">${LI('repeat')}</span>`:`<span class="lic s-ok">${LI('check')}</span>`):now?`<span class="lic s-now">${LI('pencil')}</span>`:`<span class="lic s-lk">${LI('lock')}</span>`;
       return `<li class="${now?'cur':''} ${lock?'lock':''}">${li}<button class="unit" data-st="${s.id}" ${lock?'disabled':''}><b>${s.name}</b><small>${sub}</small></button>${st}<button class="qbtn" data-q="${s.id}" aria-label="${s.name} 개념">${Q_ICON}</button></li>`;}).join('')}</ul>
     </section>
@@ -646,7 +662,7 @@ function concept(id,gate,onClose,onPractice){
     if(i===0) body=`<span class="lk">${s.g} · ${s.area}</span><h2>${s.name}</h2>${s.c.map(t=>`<p>${t}</p>`).join('')}`;
     const ex=i>0&&i<total-1?s.exs[i-1]:null;
     if(ex) body=`<span class="lk">예제 ${i} / ${s.exs.length}</span><div class="ex">${ex.q}</div><ol>${ex.st.map((t,k)=>`<li class="${k<shown?'':'hide'}">${k<shown?t:'눌러서 다음 줄 보기'}</li>`).join('')}</ol>${shown>=ex.st.length?`<span class="eqa">답: ${ex.ans}</span>`:''}`;
-    if(i===total-1) body=`<span class="lk">기억할 점</span><h2>${s.tip}</h2><p class="soft">${gate?`이 단계는 ${CAP(s)}개를 틀리면 처음부터 다시 해요. 이제 문제를 풀어요. 쉬운 문제부터 시작해서 잘 맞히면 점점 어려워져요. 어려운 문제까지 올라가 연속 ${GOAL}문제를 맞히면 다음 단계로 넘어가고, 틀린 문제는 오답노트에 들어가 1·3·5일 뒤 다시 나와요.`:'틀린 문제는 오답노트에 들어가 1·3·5일 뒤 다시 나와요.'}</p>`;
+    if(i===total-1) body=`<span class="lk">기억할 점</span><h2>${s.tip}</h2><p class="soft">${gate?`이 단계는 ${CAP(s)}개를 틀리면 처음부터 다시 해요. 이제 문제를 풀어요. 쉬운 문제부터 시작해서 잘 맞히면 점점 어려워져요. 어려운 문제까지 올라가 한 판(${PAN}문제)을 다 맞히고 목표 시간(${TL(s)*PAN}초) 안에 풀면 100점이에요. 100점을 ${NEED(s)>1?`서로 다른 날 ${NEED(s)}번`:'1번'} 내면 다음 단계로 넘어가고, 틀린 문제는 오답노트에 들어가 1·3·5일 뒤 다시 나와요.`:'틀린 문제는 오답노트에 들어가 1·3·5일 뒤 다시 나와요.'}</p>`;
     const stepLocked=!!ex&&shown<ex.st.length, last=i===total-1;
     screen.innerHTML=`<div class="cx">
       <div class="steps">${[['lightbulb','개념'],...s.exs.map((_,k)=>['pencil-line','예제 '+(k+1)]),['bookmark','기억']].map(([ic,t],k)=>`<span class="${k===i?'on':k<i?'done':''}">${LI(k<i?'check':ic)}${t}</span>`).join('')}</div>
@@ -670,20 +686,22 @@ function concept(id,gate,onClose,onPractice){
 /* ---------- 풀이 ---------- */
 function start(mode,title,arg){
   const p=P(), q=buildQueue(p,mode,arg); if(!q.length) return;
-  G={mode,title,arg,q,i:0,input:'',cur:null,t0:0,lock:false,log:[],passedNow:[],reviewed:{},toast:'',began:performance.now(),away:0,wrongWait:false};
+  G={mode,title,arg,q,i:0,input:'',cur:null,t0:0,lock:false,log:[],passedNow:[],reviewed:{},rxd:{},pans:[],pan:null,toast:'',began:performance.now(),away:0,wrongWait:false};
   document.onkeydown=e=>{ if(!G) return; if(G.wrongWait){ if(e.key==='Enter') nextAfterWrong(); return; } if(!G.cur) return;
     if(/^[0-9]$/.test(e.key))press(e.key); else if(['.','/','-'].includes(e.key))press(e.key); else if(e.key==='Backspace')press('del'); else if(e.key==='Enter')press('ok'); };
   advance();
 }
 function advance(){
-  const g=G, p=P(), it=g.q[g.i], sid=STAGES[p.stage].id;
+  const g=G, p=P();
+  if(g.q[g.i]&&g.q[g.i].src==='new'&&LOCKED(STAGES[p.stage])){ g.q.splice(g.i,g.q.length-g.i,...holdItems(p,PAN)); if(g.i>=g.q.length) return finish(); }
+  const it=g.q[g.i], sid=STAGES[p.stage].id;
   if(it.src==='new'&&!p.read[sid]){
     g.cur=null; const t0=performance.now();
     return concept(sid,true,ok=>{ if(ok&&G===g){ g.away+=performance.now()-t0; advance(); } else { G=null; render(); } });
   }
   g.cur={...it,...resolve(it,p)}; g.input=''; g.t0=performance.now(); drawPlay();
 }
-const SRC={card:'오답 다시',review:'단계 복습',new:'새 진도',retry:'방금 틀린 문제'};
+const SRC={card:'오답 다시',review:'단계 복습',new:'새 진도',retry:'방금 틀린 문제',rx:'처방',hold:'학년 다지기'};
 function drawPlay(){
   showTabs(false);
   const g=G,p=P(),c=g.cur,s=STAGES[IDX[c.st]];
@@ -691,7 +709,7 @@ function drawPlay(){
   screen.innerHTML=`<div class="np">
     <div class="prog"><div class="tr"><i style="width:${g.i/g.q.length*100}%"></i></div><span>${g.i+1} / ${g.q.length}</span></div>
     ${g.toast?`<div class="toast">${g.toast}</div>`:''}
-    <div class="ptag">${c.src==='new'?`<span class="lvl l-${LV(s.id,p)}">${LV(s.id,p)}</span>`:`<span class="lvl src">${SRC[c.src]}</span>`}<span>${s.g} ${s.name}${c.src==='new'?` · 연속 ${p.streak}/${GOAL} · <b class="x">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span>${wtip()}</div>
+    <div class="ptag">${c.src==='new'?`<span class="lvl l-${LV(s.id,p)}">${LV(s.id,p)}</span>`:`<span class="lvl src">${SRC[c.src]}</span>`}<span>${s.g} ${s.name}${c.src==='new'?` · 한 판 ${g.pan&&g.pan.st===s.id?g.pan.n+1:1}/${PAN} · 100점 ${MS(p,s.id).length}/${NEED(s)} · 목표 ${TL(s)*PAN}초 · <b class="x">틀림 ${WR(p,s.id)}/${CAP(s)}</b>`:''}</span>${wtip()}</div>
     <div class="board" id="board"><span class="fb" id="fb"></span><div class="q">${c.q}</div><div class="ans empty" id="ans"></div></div>
     <p class="tip" id="tip"></p>
     <div class="pad2" id="pad">
@@ -751,12 +769,23 @@ function check(){
   if(c.src==='card'){ const cd=c.card;
     if(ok){ cd.box++; if(cd.box>=3){ p.cards=p.cards.filter(x=>x!==cd); p.grad++; HG('grad'); g.toast='오답 졸업!'; } else cd.due=t+CARD_GAP[cd.box]; }
     else { cd.box=0; cd.due=t+1; cd.wrong++; } }
-  if(c.src==='review'){ const r=g.reviewed[c.st]=g.reviewed[c.st]||{n:0,w:0}; r.n++; if(!ok){r.w++; addCard(p,c);} }
+  const ms1=Math.min(performance.now()-g.t0,60000);
+  if(c.src==='review'){ const r=g.reviewed[c.st]=g.reviewed[c.st]||{n:0,w:0,ms:0}; r.n++; r.ms+=ms1; if(!ok){r.w++; addCard(p,c);} }
+  if(c.src==='rx'||c.src==='hold'){ const r=g.rxd[c.st]=g.rxd[c.st]||{n:0,w:0,ms:0,rx:c.src==='rx'}; r.n++; r.ms+=ms1; if(!ok){ r.w++; addCard(p,c); (p.rx=p.rx||{})[c.st]=3; } }
   if(c.src==='new'){
     p.bp=p.bp||{}; const bl=BANK[s.id].length, pos=p.bp[s.id]||0;
     p.bp[s.id]=ok?Math.min(bl-1,pos+(p.streak>=2?2:1)):Math.max(0,pos-2);
-    if(ok){ p.streak++; if(p.streak>=GOAL&&p.bp[s.id]>=Math.floor(bl*2/3)&&p.stage<STAGES.length-1){ p.passed[s.id]={due:t+3}; if(p.wr) delete p.wr[s.id]; g.passedNow.push(s.name); HG('pass'); p.stage++; p.streak=0; areaF=null; g.toast=`${s.name} 통과! 다음 단계는 개념 설명부터 시작해요`; } }
-    else { p.streak=0; addCard(p,c); p.wr=p.wr||{}; p.wr[s.id]=(p.wr[s.id]||0)+1;
+    if(ok) p.streak++;
+    /* 한 판(10문제) 채점: 다 맞고 · 목표 시간 안 · 어려운 문제까지 올라왔으면 100점 */
+    const pn=g.pan=g.pan&&g.pan.st===s.id?g.pan:{st:s.id,n:0,c:0,ms:0}; pn.n++; if(ok) pn.c++; pn.ms+=ms1;
+    if(pn.n>=PAN){ g.pan=null;
+      const sec=Math.round(pn.ms/1000), lim=TL(s)*PAN, hard=p.bp[s.id]>=Math.floor(bl*2/3), perfect=pn.c===PAN&&sec<=lim&&hard, need=NEED(s);
+      g.pans.push({st:s.id,c:pn.c,sec,lim,perfect});
+      if(perfect){ const m=(p.ms=p.ms||{})[s.id]=MS(p,s.id), same=m.includes(t); if(!same) m.push(t);
+        if(m.length>=need&&p.stage<STAGES.length-1){ p.passed[s.id]={due:t+RV_GAP[0],k:0}; if(p.wr) delete p.wr[s.id]; delete p.ms[s.id]; g.passedNow.push(s.name); HG('pass'); p.stage++; p.streak=0; areaF=null; g.toast=`100점 ${need}번! ${s.name} 통과 · 다음 단계는 개념 설명부터 시작해요`; }
+        else g.toast=same?`오늘은 이미 100점을 냈어요 (${m.length}/${need}) · 다른 날 한 번 더 100점이면 다음 단계예요`:`100점! ${sec}초 (${m.length}/${need}) · 다른 날 ${need-m.length}번 더 100점이면 다음 단계예요`; }
+      else g.toast=pn.c<PAN?`이번 판 ${pn.c*10}점 · 10문제를 다 맞히면 100점이에요`:!hard?`10문제 다 맞았어요! 이제 더 어려운 문제로 100점에 도전해요`:`10문제 다 맞았어요! ${sec}초 — 목표 ${lim}초 안에 풀면 100점이에요`; }
+    if(!ok){ p.streak=0; addCard(p,c); p.wr=p.wr||{}; p.wr[s.id]=(p.wr[s.id]||0)+1;
       if(p.wr[s.id]>=CAP(s)){ p.wr[s.id]=0; p.bp[s.id]=0; p.read[s.id]=false; g.restart=`${CAP(s)}개를 틀려서 「${s.name}」을 처음부터 다시 시작해요. 개념부터 다시 봐요.`; g.restarts=(g.restarts||0)+1; } } }
   if(!ok&&c.src!=='retry') g.q.splice(Math.min(g.i+4,g.q.length),0,{src:'retry',q:c.q,a:c.a,st:c.st});
   save(); refreshWrong();
@@ -778,7 +807,11 @@ function check(){
 function mmss(ms){ const s=Math.round(ms/1000); return s<60?`${s}초`:`${Math.floor(s/60)}분 ${s%60}초`; }
 function finish(){
   const g=G,p=P(),t=today(); G=null; document.onkeydown=null;
-  Object.entries(g.reviewed).forEach(([id,r])=>{ if(p.passed[id]) p.passed[id].due=t+(r.w?3:5); });
+  /* 통과 단계 복습: 다 맞고 빠르면 간격을 늘리고(3→6→12→24→48→90일), 틀리거나 느리면 3일 뒤 + 처방 */
+  Object.entries(g.reviewed).forEach(([id,r])=>{ const ps=p.passed[id]; if(!ps) return; r.slow=r.ms/r.n/1000>TL(STAGES[IDX[id]]);
+    if(r.w||r.slow){ ps.k=0; ps.due=t+RV_GAP[0]; (p.rx=p.rx||{})[id]=3; } else { ps.k=Math.min((ps.k||0)+1,RV_GAP.length-1); ps.due=t+RV_GAP[ps.k]; } });
+  /* 처방: 다 맞히면 한 번 줄고, 0이 되면 끝 · 틀리면 다시 3번 */
+  Object.entries(g.rxd).forEach(([id,r])=>{ if(!r.rx||!p.rx||p.rx[id]==null) return; if(r.w) p.rx[id]=3; else if(--p.rx[id]<=0) delete p.rx[id]; });
   const per={}; g.log.filter(r=>r.src!=='retry').forEach(r=>{ const o=per[r.st]=per[r.st]||{n:0,c:0}; o.n++; if(r.ok)o.c++; });
   Object.entries(per).forEach(([id,o])=>{ const a=p.sst[id]=p.sst[id]||[]; a.push(Math.round(o.c/o.n*100)); if(a.length>3)a.shift(); });
   save(); tab='home'; showTabs(true);
@@ -787,9 +820,10 @@ function finish(){
   setBar(g.title+' 결과');
   screen.innerHTML=`<div class="res">
     <div class="box center"><small class="note">${dlabel(t)} · 풀이 시간 ${time}</small><div class="big">${n?Math.round(c/n*100):0}점</div><p class="note">${n}문제 중 ${c}개 정답 (틀린 문제 다시 풀기 포함)</p></div>
-    <div class="grid3"><div class="cell"><b>${wrong.length}</b><span>내일 다시 나올 오답</span></div><div class="cell"><b>${g.passedNow.length}</b><span>통과한 단계</span></div><div class="cell"><b>${p.streak}/${GOAL}</b><span>지금 단계 연속</span></div></div>
+    <div class="grid3"><div class="cell"><b>${wrong.length}</b><span>내일 다시 나올 오답</span></div><div class="cell"><b>${g.passedNow.length}</b><span>통과한 단계</span></div><div class="cell"><b>${MS(p,STAGES[p.stage].id).length}/${NEED(STAGES[p.stage])}</b><span>지금 단계 100점</span></div></div>
+    ${g.pans.length?`<div class="box"><h3>한 판 결과 <small class="note">10문제 다 맞고 목표 시간 안이면 100점</small></h3><div class="list">${g.pans.map(x=>`<div><span>${STAGES[IDX[x.st]].name}</span><span>${x.perfect?`<b>100점</b> · ${x.sec}초`:`${x.c*10}점 · ${x.sec}초 <small class="note">목표 ${x.lim}초</small>`}</span></div>`).join('')}</div></div>`:''}
     ${g.passedNow.length?`<div class="toast">${g.passedNow.join(', ')} 통과 → 다음: ${STAGES[p.stage].name}</div>`:''}${g.restarts?`<div class="toast warn">틀림 상한에 닿아 「${STAGES[p.stage].name}」을 처음부터 다시 해요</div>`:''}
-    ${rv.length?`<div class="box"><h3>단계 복습 결과</h3><div class="list">${rv.map(([id,r])=>`<div><span>${STAGES[IDX[id]].name}</span><span>${r.w?`<span class="x">✕${r.w}</span> → 3일 뒤`:'다 맞음 → 5일 뒤'}</span></div>`).join('')}</div></div>`:''}
+    ${rv.length?`<div class="box"><h3>단계 복습 결과</h3><div class="list">${rv.map(([id,r])=>`<div><span>${STAGES[IDX[id]].name}</span><span>${r.w?`<span class="x">✕${r.w}</span>`:r.slow?'다 맞음 · 느림':'다 맞음'} → ${p.passed[id]?p.passed[id].due-t:3}일 뒤${p.rx&&p.rx[id]?' · 처방':''}</span></div>`).join('')}</div></div>`:''}
     ${wrong.length?`<div class="box"><h3>틀린 문제 <small class="note">오답노트에 저장됨 · ?를 누르면 개념</small></h3><ul class="units in">${wrong.slice(0,8).map(r=>`<li><div class="unit static"><b class="mq">${plain(r.q)} = <span class="ansv">${show(r.a)}</span></b><small>내 답 <span class="x">${r.you.replace('-','−')}</span> · ${STAGES[IDX[r.st]].name}</small></div><button class="qbtn" data-q="${r.st}" aria-label="개념">${Q_ICON}</button></li>`).join('')}</ul></div>`:'<p class="note center">틀린 문제가 없어요.</p>'}
     <div class="btns sp"><button class="btn" id="home">${LI('house')}연산학습으로</button><button class="btn k" id="cards">${LI('notebook-pen')}오답노트 보기</button></div>
   </div>

@@ -11,7 +11,7 @@ import { logout } from '@/lib/account';
 import { AVI, CATS, avatar, stampKind, stampSVG } from '@/lib/play/avatar';
 import { GSUBJ } from '@/lib/play/data';
 import { bindTips, myStats, statsInner } from '@/lib/play/stats';
-import { GATE_OFF, gateOpen, GRADES, gradeOf, tasks, TYP_LIMITS, type Equip, type RewardState } from '@/lib/rewards/rewards';
+import { GATE_OFF, gateOpen, GRADES, gradeOf, planOn, ROT_N, tasks, TYP_LIMITS, type Equip, type RewardState } from '@/lib/rewards/rewards';
 import { updateRewards, useAuth } from '@/lib/store';
 import { SUBJECT_KEYS, SUBJECTS } from '@/lib/subjects';
 
@@ -61,7 +61,7 @@ function Settings({ st, save, email }: { st: RewardState; save: (f: (s: RewardSt
                     <button key={v} className={(st.plan[k] || 0) === v ? 'on' : ''} onClick={() => save((s) => {
                       s.plan[k] = v;
                       if (!Object.values(s.plan).some((x) => x > 0)) s.plan.math = 10;
-                      if (s.day) s.day.plan = { ...s.plan };
+                      if (s.day) s.day.plan = planOn(s, s.day.d);
                     })}>{l}</button>
                   ))}
                 </div>
@@ -70,8 +70,10 @@ function Settings({ st, save, email }: { st: RewardState; save: (f: (s: RewardSt
             <button className="btn y full" style={{ marginTop: 8 }} onClick={() => { setEditPlan(false); pop('오늘 할 일을 정했어요'); }}>저장</button>
           </>
         ) : (
-          <p className="note" style={{ margin: 0 }}>{ts.map((t) => `${t.name} ${t.goal}`).join(' · ') || '할 일이 없어요'} — 매일 같은 할 일이 새로 시작돼요. 맞힌 문제만 세요.</p>
+          <p className="note" style={{ margin: 0 }}>{ts.map((t) => `${t.name} ${t.goal}`).join(' · ') || '할 일이 없어요'} — 오늘 할 일이에요. 맞힌 문제만 세요.</p>
         )}
+        <div className="setrow"><span>학년보다 앞선 진도 열기<small className="sub" style={{ display: 'block' }}>끄면 학년에 맞는 범위를 100점으로 다지는 데 집중해요</small></span><button className="sw" role="switch" aria-checked={!!st.ahead} aria-label="학년보다 앞선 진도 열기" onClick={() => save((s) => { s.ahead = !s.ahead; })} /></div>
+        <div className="setrow"><span>과학·역사 요일 번갈아<small className="sub" style={{ display: 'block' }}>끄기로 둔 과목만 · 월·수·금 과학, 화·목 역사 {ROT_N}문제</small></span><button className="sw" role="switch" aria-checked={st.rot !== false} aria-label="과학·역사 요일 번갈아" onClick={() => save((s) => { s.rot = s.rot === false; if (s.day) s.day.plan = planOn(s, s.day.d); })} /></div>
         <div className="setrow"><span>영단어 펜으로 쓰기 (철자 문제·따라 쓰기)</span><button className="sw" role="switch" aria-checked={st.engWrite !== false} aria-label="영단어 펜으로 쓰기" onClick={() => save((s) => { s.engWrite = s.engWrite === false; })} /></div>
         <div className="setrow"><span>한자 쓰기 문제 넣기 (펜·손가락)</span><button className="sw" role="switch" aria-checked={st.hanjaWrite !== false} aria-label="한자 쓰기 문제 넣기" onClick={() => save((s) => { s.hanjaWrite = s.hanjaWrite === false; })} /></div>
         <div className="setrow"><span>밀린 공부도 끝내야 꾸미기·게임 열기</span><button className="sw" role="switch" aria-checked={!!st.backGate} aria-label="밀린 공부도 끝내야 열기" onClick={() => save((s) => { s.backGate = !s.backGate; })} /></div>

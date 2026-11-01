@@ -19,7 +19,7 @@ function totp(key) {
 
 const log = [], errs = [];
 const b = await chromium.launch();
-const p = await b.newPage({ viewport: { width: 1024, height: +(process.env.VH ?? 780) } });
+const p = await b.newPage({ viewport: { width: +(process.env.VW ?? 1024), height: +(process.env.VH ?? 780) } });
 p.on('pageerror', (e) => errs.push(e.message)); p.on('console', (m) => m.type() === 'error' && errs.push(m.text()));
 await p.goto(`${BASE}/admin`);
 await p.fill('#lEmail', email); await p.fill('#lPw', pw); await p.click('#lf1 button[type=submit]');

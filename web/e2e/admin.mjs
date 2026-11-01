@@ -41,6 +41,8 @@ for (const [k, n] of [['users', '회원'], ['sys', '관리자']]) {
 await p.locator('[data-v="users"]').first().click(); await p.waitForTimeout(800);
 const row = p.locator('#memRows tr').first();
 if (await row.count()) { await row.click(); await p.waitForTimeout(2000); log.push('회원 상세: ' + (await p.locator('.drawer').innerText()).replace(/\s+/g, ' ').slice(0, 300)); await p.screenshot({ path: `${OUT}/adm-drawer.png` }); }
+await p.keyboard.press('Escape'); await p.locator('[data-v="users"]').first().click(); await p.waitForTimeout(800); await p.mouse.move(600, 400); await p.mouse.wheel(0, 1500); await p.waitForTimeout(500);
+log.push('회원 목록 스크롤: ' + await p.evaluate(() => document.querySelector('.pg-admin').scrollTop));
 await p.setViewportSize({ width: 390, height: +(process.env.VH ?? 780) }); await p.keyboard.press('Escape');
 await p.locator('[data-v="dash"]').first().click({ force: true }).catch(() => {}); await p.waitForTimeout(1000);
 await p.screenshot({ path: `${OUT}/adm-dash-390.png`, fullPage: true });

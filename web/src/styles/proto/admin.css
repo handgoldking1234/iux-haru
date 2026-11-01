@@ -203,3 +203,5 @@
 .pg-admin .spark polyline{stroke-dasharray:1000;animation:draw 1.2s ease-out both}
 .pg-admin .coh td.h{animation:pop .45s ease-out both;animation-delay:calc(var(--i,0) * 25ms)}
 @media (prefers-reduced-motion:reduce){.pg-admin *{transition:none!important;animation:none!important}}
+
+.pg-admin{height:100vh;height:100dvh;overflow-y:auto}

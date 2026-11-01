@@ -29,7 +29,9 @@ const scoped = postcss([prefixer({
   },
 })]).process(css, { from: undefined }).css;
 fs.writeFileSync(path.resolve(here, '../src/styles/proto/admin.css'),
-  '/* 자동 생성 — scripts/admin-app.mjs. 직접 고치지 말고 prototype/admin/index.html 기준으로 다시 만든다 */\n' + scoped);
+  '/* 자동 생성 — scripts/admin-app.mjs. 직접 고치지 말고 prototype/admin/index.html 기준으로 다시 만든다 */\n' + scoped
+  // 학생 앱(shell.css)이 html·body 스크롤을 막아 두었으므로 관리자 화면이 스스로 스크롤한다
+  + '\n.pg-admin{height:100vh;height:100dvh;overflow-y:auto}\n');
 
 /* 마크업 */
 // 시안에 미리 넣어 둔 관리자 이메일은 공개 페이지에 드러나지 않게 지운다

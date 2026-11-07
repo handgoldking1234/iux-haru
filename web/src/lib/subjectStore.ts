@@ -12,6 +12,8 @@ export interface SubjectSave {
   stat: Record<string, { n: number; c: number }>;
   /** 단원별 최근 점수 3개 */
   sst: Record<string, number[]>;
+  /** 항목별 마지막으로 푼 날 — 퀴즈풀기 범위(어제·최근 7일·전체) */
+  seen?: Record<string, number>;
   /** 시연 도구 '하루 넘기기' */
   offset: number;
 }

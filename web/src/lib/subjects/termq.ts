@@ -1,6 +1,7 @@
 /* 용어 문제 공통 — prototype/build/hist.js·kor.js·sci.js의 mates·makeQ (같은 코드를 복제해 쓰던 부분) */
 import { shuffle } from '../engine/choices';
-import type { PQ, Track } from './types';
+import type { PQ, QuizDef, QZ, Track } from './types';
+import { exactMatch } from './quizMatch';
 
 export const esc = (s: unknown) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 
@@ -57,3 +58,22 @@ export function termQ(T: Track, id: string, t0: string, rng: () => number, qsub 
   return { ...base, qtype: 'dt', ask: '설명에 알맞은 것은?', q: `<span class="dq">${esc(x.d)}</span>`, qc: 'txt', hint: `<span class="hint">${esc(x.unit.title)}</span>`, choices: shuffle([x.t, ...mates(3, (y) => IT(T, y).t, (y) => !x.d.includes(IT(T, y).t) && !IT(T, y).d.includes(x.t)).map((y) => IT(T, y).t)], rng), answer: x.t, long: false };
 }
 
+
+/** 받침에 맞는 조사: josa('낱말','을','를') → '낱말을' */
+export const josa = (w: string, a: string, b: string) => { const c = w.charCodeAt(w.length - 1) - 0xac00; return w + (c >= 0 && c < 11172 && c % 28 ? a : b); };
+
+/** 퀴즈풀기 (국어·과학·역사): 설명 고르기 · 용어 고르기는 과목 문제(td·dt) 그대로, 용어 쓰기는 설명 보고 입력 */
+export function termQuiz(n: { td: string; dt: string; ti: string; thing: string }): QuizDef {
+  return {
+    types: () => [
+      { key: 'td', label: n.td, badge: '뜻', qt: 'td' },
+      { key: 'dt', label: n.dt, badge: n.thing, qt: 'dt' },
+      { key: 'ti', label: n.ti, badge: n.thing, input: true },
+    ],
+    can: (T, id, t) => { const x = T.items[id] as unknown as TItem | undefined; return !!x && !x.mc && !!x.t && !!x.d && (t !== 'ti' || x.t.length <= 14); },
+    make(T, id): QZ {
+      const x = IT(T, id);
+      return { item: id, ask: `설명을 읽고 ${josa(n.thing, '을', '를')} 써요`, q: `<span class="qsub">${esc(x.d)}</span>`, qc: 'txt', hint: `<span class="hint">${x.t.replace(/\s/g, '').length}글자</span>`, answer: x.t, accept: (y) => exactMatch(y, x.t), lang: 'ko', rule: '띄어쓰기와 괄호 속 말은 보지 않아요.' };
+    },
+  };
+}

@@ -1,6 +1,6 @@
 /* 역사 — prototype/build/hist.js의 갈래·문제·카드 부분을 그대로 옮김 */
 import { pick } from '../engine/choices';
-import { esc, termQ } from './termq';
+import { esc, termQ, termQuiz } from './termq';
 import { EXAM_CAP, EXAM_PASS_N, RULES } from '../engine/rules';
 import type { PQ, SStage, SubjectDef, Track } from './types';
 
@@ -59,6 +59,7 @@ const makeQ = (T: Track, id: string, t: string, rng: () => number): PQ => termQ(
 
 export const HIST: SubjectDef = {
   key: 'hist',
+  quiz: termQuiz({ td: '설명 고르기', dt: '용어 고르기', ti: '용어 쓰기', thing: '용어' }),
   tracks: TRN,
   defaultTrack: 'ko',
   areas: LV,

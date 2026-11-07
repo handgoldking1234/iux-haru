@@ -6,7 +6,8 @@ import { EXAM_CAP, EXAM_PASS_N, RULES } from '../engine/rules';
 import { LI } from '../protoIcons';
 import { chips, type Face } from '../slide';
 import { DEFAULT_UI } from './ui';
-import type { PQ, SStage, SubjectDef, Track } from './types';
+import type { PQ, QuizDef, QZ, SStage, SubjectDef, Track } from './types';
+import { exactMatch, koMatch } from './quizMatch';
 
 const esc = (s: unknown) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 interface W { w: string; lv: number; pos: string; ko: string; ex: string; exko: string; th: string; alt: string; der: string; ipa: string }
@@ -79,6 +80,29 @@ function makeQ(_T: Track, w: string, t0: string, rng: () => number): PQ {
   /* s */ return { ...base, ask: '뜻을 보고 철자를 써요', q: `${esc(x.ko)}`, qc: 'koq', hint: `<span class="hint">${x.pos} · ${x.w.length}글자 · ${esc(x.w[0])}로 시작</span>`, choices: [], answer: x.w, spell: true, ...en };
 }
 
+/* 퀴즈풀기: 한글 뜻 맞히기 · 영단어 맞히기 · 한글 뜻 입력 · 영단어 입력 · 문장 빈칸 입력 */
+const QUIZ: QuizDef = {
+  types: () => [
+    { key: 'km', label: '한글 뜻 맞히기', badge: 'KR' },
+    { key: 'ek', label: '영단어 맞히기', badge: 'EN' },
+    { key: 'ki', label: '한글 뜻 입력', badge: 'KR', input: true },
+    { key: 'ei', label: '영단어 입력', badge: 'EN', input: true },
+    { key: 'sb', label: '문장 빈칸 입력', badge: 'abc', input: true, beta: true },
+  ],
+  can: (_T, w, t) => !!WD[w] && (t !== 'sb' || blankOK(w)),
+  make(_T, w, t, rng): QZ {
+    const x = WD[w], en = `<span class="en">${esc(x.w)}</span>`;
+    const kos = () => shuffle([x.ko, ...near(w, 3, (y) => WD[y].ko, rng).map((y) => WD[y].ko)], rng);
+    const ens = () => shuffle([x.w, ...near(w, 3, (y) => y.toLowerCase(), rng)], rng);
+    if (t === 'km') return { item: w, ask: '알맞은 뜻을 골라요', q: en, qc: 'enq', choices: kos(), answer: x.ko, say: x.w };
+    if (t === 'ek') return { item: w, ask: '알맞은 단어를 골라요', q: esc(x.ko), qc: 'koq', hint: `<span class="hint">${x.pos}</span>`, choices: ens(), answer: x.w };
+    if (t === 'ki') return { item: w, ask: '뜻을 한글로 써요', q: en, qc: 'enq', answer: x.ko, accept: (y) => koMatch(y, x.ko), lang: 'ko', say: x.w, rule: '뜻이 여러 개면 하나만 맞게 써도 정답이에요. 띄어쓰기와 괄호 속 말은 보지 않아요.' };
+    if (t === 'ei') return { item: w, ask: '영어 철자를 써요', q: esc(x.ko), qc: 'koq', hint: `<span class="hint">${x.pos} · ${x.w.length}글자</span>`, answer: x.w, accept: (y) => exactMatch(y, x.w), lang: 'en', rule: '대문자·소문자는 가리지 않아요.' };
+    const re = new RegExp(`\\b(${x.w.replace(/[-]/g, '\\-')}[a-z]*)\\b`, 'i'), m = re.exec(x.ex)!;
+    return { item: w, ask: '빈칸에 들어갈 단어를 알맞은 모양으로 써요', q: '', answer: m[1], accept: (y) => exactMatch(y, m[1]), lang: 'en', before: x.ex.slice(0, m.index), after: x.ex.slice(m.index + m[1].length), ko: x.exko, rule: '문장에 맞는 모양(복수형·과거형 등)으로 써야 정답이에요.' };
+  },
+};
+
 const preview = (s: SStage) => s.items.slice(0, 6).join(' · ') + (s.items.length > 6 ? ' …' : '');
 const theme = (s: SStage) => (s.raw?.theme as string) ?? '';
 
@@ -98,6 +122,7 @@ function slideCard(_T: Track, id: string) {
 
 export const ENG: SubjectDef = {
   key: 'eng',
+  quiz: QUIZ,
   tracks: { all: '영단어' },
   defaultTrack: 'all',
   get areas() { return LV; },

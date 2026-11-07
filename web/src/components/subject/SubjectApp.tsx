@@ -12,7 +12,8 @@ import { EXAM_CAP, LEVEL_NAME, levelOf, RULES, wrongCap } from '@/lib/engine/rul
 import { StudySession, type AnswerResult, type Mode, type SessionResult } from '@/lib/engine/session';
 import type { PlayQuestion, Stage } from '@/lib/engine/types';
 import { report } from '@/lib/feedback';
-import { dayNumber, weekOkOf, weekOkText } from '@/lib/rewards/rewards';
+import { dayNumber, quizLeft, weekOkOf, weekOkText } from '@/lib/rewards/rewards';
+import { getRewards } from '@/lib/store';
 import { SUBJECTS, type SubjectKey } from '@/lib/subjects';
 import { createSlide, SIC, termCard, termFace } from '@/lib/slide';
 import { freshSave, lastPosStore, loadSave, loadTrack, storeSave, storeTrack, type SubjectSave } from '@/lib/subjectStore';
@@ -22,6 +23,7 @@ import { loadVoice, saveVoice, sayText, stopVoice, wait, type VoiceOpt } from '@
 import type { Face } from '@/lib/slide';
 import L, { H } from './L';
 import Timeline from './Timeline';
+import Quiz, { quizPool } from './Quiz';
 import { InkModal, IntroInk, SpellInput, SpellPen } from './Ink';
 import { IntroTrace, TraceModal, WritePad } from './Writer';
 
@@ -36,7 +38,7 @@ const mmss = (ms: number) => { const s = Math.round(ms / 1000); return s < 60 ? 
 const SRC: Record<string, string> = { card: '오답 다시', review: '단원 복습', new: '새 진도', retry: '방금 틀린 문제', exam: '승급 평가' };
 const AUTO_OK = 600, AUTO_LONG = 3800;
 
-type Tab = 'home' | 'cards' | 'report';
+type Tab = 'home' | 'cards' | 'report' | 'quiz';
 type Done = { q: PQ; you: string; ok: boolean; src: string; stage: string };
 type View =
   | null
@@ -91,6 +93,8 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
   const T: Track = useMemo(() => def.setup(data, tr), [def, data, tr]);
   const [S, setS] = useState<SubjectSave>(() => loadSave(kid.name, def.key, tr));
   const [tab, setTab] = useState<Tab>('home');
+  // 홈의 퀴즈 안내에서 왔을 때 (?tab=quiz) — 서버 렌더와 맞추려고 그린 뒤에 바꾼다
+  useEffect(() => { if (def.quiz && new URLSearchParams(location.search).get('tab') === 'quiz') setTab('quiz'); }, [def.quiz]);
   const [view, setView] = useState<View>(null);
   const [quitAsk, setQuitAsk] = useState(false);
   const [areaF, setAreaF] = useState<string | null>(null);
@@ -235,6 +239,8 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
     const ok = res.ok, ar = ui.statArea ? ui.statArea(T, q.view, st) : (stages[IDX[T.stof[q.item]]] ?? st).area;
     S.stat[ar] = S.stat[ar] || { n: 0, c: 0 };
     S.stat[ar].n++; if (ok) S.stat[ar].c++;
+    // 퀴즈풀기 범위용: 이 항목을 마지막으로 푼 날
+    (S.seen ??= {})[q.item] = today;
     const h = (S.hist[today] = S.hist[today] || { n: 0, c: 0, ms: 0 });
     h.n++; if (ok) h.c++; h.ms = (h.ms || 0) + ms;
     persist(S);
@@ -416,11 +422,14 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
         </ul>
       </>
     );
+  } else if (tab === 'quiz' && def.quiz) {
+    body = <Quiz key={`${def.key}-${tr}`} def={def} T={T} S={S} today={today} kid={kid.name} thing={ui.thing} stages={stages} curSt={curSt} onHome={() => go('home')} />;
   } else if (tab === 'report') {
     body = <Report def={def} ui={ui} T={T} S={S} trName={trName} today={today} curArea={curSt.area} stages={stages}
       onNextDay={() => persist({ ...S, offset: S.offset + 1 })} onReset={() => persist(freshSave())} />;
   } else {
     // 홈
+    const qp = def.quiz ? quizPool(S, T, today) : null, qLeft = quizLeft(rewards ?? getRewards(kid.name), today);
     const pl = planDay(p, stages, today, known, locked), total = pl.total, done = Math.min(S.hist[today]?.n || 0, total);
     const cur = curSt, af = areaF ?? cur.area;
     const list = stages.map((s, i) => ({ s, i })).filter(({ s }) => s.area === af);
@@ -458,6 +467,14 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
               <button className="kbtn" onClick={() => start('today', '오늘 학습')}><L n="play" />{done ? '이어서' : '시작'}</button>
             </div>
           </div>
+          {qp && qp.a.length > 0 && (
+            <button className="qzpromo" onClick={() => go('quiz')}>
+              <span className="qzhi"><L n="sparkles" /></span>
+              <span><b>{qp.y.length ? `어제 공부한 ${ui.thing} ${qp.y.length}개` : qp.w.length ? `이번 주 공부한 ${ui.thing} ${qp.w.length}개` : `공부한 ${ui.thing} ${qp.a.length}개`}, 퀴즈로 다시 풀어 볼까요?</b>
+                <small>{qLeft ? `하고 싶을 때만! 맞힌 만큼 캐시 · 오늘 ${qLeft}캐시 남음` : '오늘 퀴즈 캐시는 다 받았어요 · 복습은 계속할 수 있어요'}</small></span>
+              <L n="chevron-right" />
+            </button>
+          )}
         </section>
         <section className="sec">
           {def.key === 'hist' && (
@@ -521,7 +538,7 @@ export default function SubjectApp({ def, data }: { def: SubjectDef; data: unkno
   return (
     <>
       <StudyTop<Tab> subject={def.key} tab={tab} onTab={go} hidden={sub}
-        tabs={[{ key: 'home', name: def.tabName }, { key: 'cards', name: '오답노트', n: dueN }, { key: 'report', name: '학습결과' }]} />
+        tabs={[{ key: 'home', name: def.tabName }, { key: 'cards', name: '오답노트', n: dueN }, { key: 'report', name: '학습결과' }, ...(def.quiz ? [{ key: 'quiz' as Tab, name: '퀴즈풀기' }] : [])]} />
       <div className="frames">
         <div className={`pg pg-sub s-${def.key}`}>
           <div className="app">

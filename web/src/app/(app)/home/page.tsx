@@ -9,7 +9,7 @@ import { pop } from '@/components/Toast';
 import { avatar, stampKind, stampSVG } from '@/lib/play/avatar';
 import {
   allDone, backlog, GAME_CAP, gamesLeft, GRADES, gradeOf, MORE, rewardEvent, STUDY_CAP, tasks, todayDone,
-  gateOpen,
+  gateOpen, QUIZ_CAP, quizLeft,
 } from '@/lib/rewards/rewards';
 import { updateRewards } from '@/lib/store';
 import { SUBJECTS, type SubjectKey } from '@/lib/subjects';
@@ -93,6 +93,10 @@ export default function HomePage() {
               <button className="btn k" onClick={() => router.push('/game')}><Ic n="swords" />게임·대결</button>
             </div>
           )}
+          {/* 퀴즈풀기 안내 — 강요 없이, 하고 싶을 때 복습하고 캐시 더 받기 */}
+          <button className="btn line full" style={{ marginTop: 10 }} onClick={() => router.push(`/study/${ts.find((t) => ['eng', 'hanja', 'kor', 'sci', 'hist'].includes(t.k))?.k ?? 'eng'}?tab=quiz`)}>
+            <Ic n="sparkles" />{quizLeft(st, today) ? `퀴즈로 복습하면 캐시를 더 받아요 · 오늘 ${quizLeft(st, today)}캐시 남음` : `오늘 퀴즈 캐시 ${QUIZ_CAP}을 다 받았어요! 멋져요`}<Ic n="chevron-right" />
+          </button>
           {!done && <button className="btn line full" style={{ marginTop: 10 }} onClick={demoDone}>시연: 오늘 할 일 모두 끝낸 것으로 하기</button>}
         </section>
 

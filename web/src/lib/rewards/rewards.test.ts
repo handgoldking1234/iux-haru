@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  backlogTotal, block, dowOf, ensureDay, freshRewards, gameEarn, gradeOf, planOn, rewardEvent, takeTicket, tasks,
+  backlogTotal, block, dowOf, ensureDay, freshRewards, gameEarn, gradeOf, planOn, quizEarn, rewardEvent, takeTicket, tasks,
 } from './rewards';
 
 const T = 20000;
@@ -98,5 +98,22 @@ describe('과학·역사 요일 번갈아', () => {
     expect(planOn(st, mon + 1).sci).toBe(5);
     st.rot = false;
     expect(planOn(st, mon + 1).hist).toBe(0);
+  });
+});
+
+describe('퀴즈풀기 보상', () => {
+  it('맞힌 만큼 캐시, 100점이면 +5, 하루 최대 30 · 최고 기록과 지난 점수', () => {
+    const st = freshRewards(T);
+    const c0 = st.cash;
+    const a = quizEarn(st, T, 'eng:all:km', 20, 20);
+    expect(a.gain).toBe(25);
+    expect(a.perfect).toBe(true);
+    const b = quizEarn(st, T, 'eng:all:km', 10, 20);
+    expect(b.gain).toBe(5);
+    expect(b.capped).toBe(true);
+    expect(b.prevLast).toBe(100);
+    expect(st.cash - c0).toBe(30);
+    expect(quizEarn(st, T + 1, 'eng:all:km', 3, 20).gain).toBe(3);
+    expect(st.quizN).toBe(3);
   });
 });

@@ -60,7 +60,43 @@ export interface PQ {
   extra?: Record<string, unknown>;
 }
 
+/** 퀴즈풀기 유형 — qt가 있으면 과목 makeQ(qt)로 고르기 문제를 만들고, 없으면 quiz.make로 만든다 */
+export interface QuizType { key: string; label: string; badge: string; input?: boolean; beta?: boolean; qt?: string }
+/** 퀴즈 한 문제 (입력 문제는 accept로 채점) */
+export interface QZ {
+  item: string;
+  ask: string;
+  /** 크게 보여 줄 문제 (HTML) */
+  q: string;
+  qc?: string;
+  hint?: string;
+  choices?: string[];
+  answer: string;
+  /** 정답으로 보여 줄 말 (없으면 answer) */
+  shown?: string;
+  accept?: (you: string) => boolean;
+  /** 발음 듣기로 읽을 말 */
+  say?: string;
+  /** 입력 칸 언어 (ko는 한글 입력) */
+  lang?: 'ko' | 'en';
+  /** 문장 빈칸: 앞·뒤 글과 뜻 */
+  before?: string;
+  after?: string;
+  ko?: string;
+  /** 정답 기준 안내 */
+  rule?: string;
+  view?: PQ;
+}
+export interface QuizDef {
+  types(T: Track): QuizType[];
+  /** 이 항목으로 이 유형을 낼 수 있는지 */
+  can(T: Track, item: string, type: string): boolean;
+  make?(T: Track, item: string, type: string, rng: () => number): QZ;
+}
+
 export interface SubjectDef {
+  /** 퀴즈풀기 (공부한 것 다시 풀기) */
+  quiz?: QuizDef;
   key: SubjectKey;
   /** 갈래 이름 (국사·세계사 등) */
   tracks: Record<string, string>;

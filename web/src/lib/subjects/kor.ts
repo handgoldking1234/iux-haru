@@ -2,7 +2,7 @@
    어휘(vc)·수업(kr)·섞어서(mix). 맞춤법 낱말은 '바른 표기 고르기', 단원마다 객관식 문항이 섞인다 */
 import { pick, shuffle } from '../engine/choices';
 import { EXAM_CAP, EXAM_PASS_N, RULES } from '../engine/rules';
-import { esc, termQ } from './termq';
+import { esc, termQ, termQuiz } from './termq';
 import type { PQ, SStage, SubjectDef, Track } from './types';
 
 const LV = ['초등', '중등', '고등'];
@@ -85,6 +85,7 @@ export const cardLineMc = (T: Track, id: string) => {
 
 export const KOR: SubjectDef = {
   key: 'kor',
+  quiz: termQuiz({ td: '뜻 고르기', dt: '낱말 고르기', ti: '낱말 쓰기', thing: '낱말' }),
   tracks: TRN,
   defaultTrack: 'mix',
   areas: LV,

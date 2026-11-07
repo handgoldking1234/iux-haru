@@ -11,6 +11,11 @@ import { SUBJECT_KEYS, SUBJECTS, type SubjectKey } from '../subjects';
 
 export const STUDY_CAP = 150;
 export const GAME_CAP = 30;
+/** 퀴즈(복습, 선택): 맞힌 문제마다 1캐시, 100점이면 +QUIZ_PERFECT, 하루 최대 QUIZ_CAP (2026-11 사용자 요청) */
+export const QUIZ_CAP = 30;
+export const QUIZ_PERFECT = 5;
+/** 퀴즈 횟수 달성 도장 */
+export const QUIZ_MARKS = [1, 5, 10, 30, 50, 100];
 export const MORE = 20;
 export const STREAK_BONUS = { every: 5, cash: 3 };
 export const BONUS = { grad: 5, pass: 20, done: 20, backDay: 5 };
@@ -57,6 +62,8 @@ export interface DayState {
   byNo: Partial<Record<SubjectKey, number>>;
   streak: number;
   game: number;
+  /** 오늘 퀴즈로 받은 캐시 */
+  quiz?: number;
   played: number;
   bonus: boolean;
   doneAt?: number;
@@ -123,6 +130,10 @@ export interface RewardState {
   engWrite?: boolean;
   /** 과학·역사 요일 번갈아 (기본 켬) */
   rot?: boolean;
+  /** 지금까지 끝낸 퀴즈 수 · 과목·범위·유형별 최고 점수 · 마지막 점수 */
+  quizN?: number;
+  quizBest?: Record<string, number>;
+  quizLast?: Record<string, number>;
   /** 학년보다 앞선 진도 열기 (기본 끔) — 연산은 다음 학년 단계, 다른 과목은 다음 학교급 단원 */
   ahead?: boolean;
   hanjaWrite?: boolean;
@@ -266,6 +277,24 @@ export function gameEarn(st: RewardState, today: number, n: number) {
   st.cash += v;
   return v;
 }
+
+/** 퀴즈를 끝냈을 때: 맞힌 수만큼(+100점 보너스) 캐시, 하루 상한 QUIZ_CAP. key = 과목·범위·유형 */
+export function quizEarn(st: RewardState, today: number, key: string, correct: number, total: number) {
+  const d = ensureDay(st, today);
+  const score = total ? Math.round((correct / total) * 100) : 0;
+  const perfect = total >= 5 && correct === total;
+  const want = correct + (perfect ? QUIZ_PERFECT : 0);
+  const gain = Math.max(0, Math.min(want, QUIZ_CAP - (d.quiz ?? 0)));
+  d.quiz = (d.quiz ?? 0) + gain;
+  st.cash += gain;
+  st.quizN = (st.quizN ?? 0) + 1;
+  const best = (st.quizBest ??= {}), last = (st.quizLast ??= {});
+  const prevBest = best[key], prevLast = last[key];
+  if (prevBest == null || score > prevBest) best[key] = score;
+  last[key] = score;
+  return { gain, perfect, score, prevBest, prevLast, newBest: prevBest != null && score > prevBest, n: st.quizN, mark: QUIZ_MARKS.includes(st.quizN), capped: gain < want };
+}
+export const quizLeft = (st: RewardState, today: number) => Math.max(0, QUIZ_CAP - (ensureDay(st, today).quiz ?? 0));
 
 export interface EventOut {
   gain: number;

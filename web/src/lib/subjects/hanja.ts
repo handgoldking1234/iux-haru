@@ -150,6 +150,10 @@ function slideCard(_T: Track, id: string) {
 
 export const HANJA: SubjectDef = {
   key: 'hanja',
+  quiz: {
+    types: () => [{ key: 'e', label: '음 맞히기', badge: '음', qt: 'e' }, { key: 'h', label: '한자 맞히기', badge: '漢', qt: 'h' }, { key: 'w', label: '한자어 읽기', badge: '語', qt: 'w' }],
+    can: (T, id) => !!T.items[id],
+  },
   tracks: { school: '학교 필수', grade: '급수별', cjm: '천자문' },
   defaultTrack: 'school',
   get areas() { return core ? core.AREAS : ['부수']; },

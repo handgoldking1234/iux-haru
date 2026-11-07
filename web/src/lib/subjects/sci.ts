@@ -2,7 +2,7 @@
    문제·객관식은 국어와 같은 방식, 개념 첫 장에 '먼저 알면 좋아요'와 핵심 원리 카드가 있다 */
 import { RULES, EXAM_CAP, EXAM_PASS_N } from '../engine/rules';
 import { KOR, setupTerms } from './kor';
-import { esc } from './termq';
+import { esc, termQuiz } from './termq';
 import type { SubjectDef, Track } from './types';
 
 const LV = ['초등', '중등', '고등'];
@@ -17,6 +17,7 @@ const korInfo = KOR.infoHTML;
 export const SCI: SubjectDef = {
   ...KOR,
   key: 'sci',
+  quiz: termQuiz({ td: '설명 고르기', dt: '용어 고르기', ti: '용어 쓰기', thing: '용어' }),
   tracks: TRN,
   defaultTrack: 'mix',
   areas: LV,

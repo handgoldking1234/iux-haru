@@ -87,3 +87,68 @@
 /* 자동 버튼: 아이콘 + 글자 */
 .pg-sub .tvb.tvt{display:inline-flex;align-items:center;gap:4px}
 .pg-sub .tvb.tvt svg.lucide{width:16px;height:16px}
+
+/* 퀴즈풀기 (2026-11 사용자 요청: 공부한 것을 어제·최근 7일·전체로 골라 다시 풀기, 끝내면 캐시) — 바탕은 과목 주색을 연하게 */
+.pg-sub{--qzbg:color-mix(in srgb,var(--y) 9%,#fff)}
+.pg-sub .qzpromo{display:flex;align-items:center;gap:12px;width:100%;margin-top:10px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--qzbg);color:var(--fg);text-align:left;cursor:pointer;font:inherit}
+.pg-sub .qzpromo>span:nth-child(2){flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.pg-sub .qzpromo b{font-size:14px;line-height:1.35}
+.pg-sub .qzpromo small{font-size:12px;color:var(--sub)}
+.pg-sub .qzpromo>svg.lucide{width:18px;height:18px;color:var(--sub);flex:none}
+.pg-sub .qzhi{width:36px;height:36px;border-radius:10px;background:var(--y);color:#fff;display:grid;place-items:center;flex:none}
+.pg-sub .qzhi svg.lucide{width:19px;height:19px}
+.pg-sub .qz .qzhero{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;background:var(--qzbg);margin-bottom:6px;flex-wrap:wrap}
+.pg-sub .qz .qzhero>div{flex:1;min-width:180px;display:flex;flex-direction:column;gap:2px}
+.pg-sub .qz .qzhero b{font-size:16px}
+.pg-sub .qz .qzhero small{font-size:12.5px;color:var(--sub)}
+.pg-sub .qzleft{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:99px;background:#fff;color:var(--fg);border:1px solid var(--line)}
+.pg-sub .qzleft svg.lucide{width:14px;height:14px;color:#C98A00}
+.pg-sub .qzleft.off{color:var(--sub)}
+.pg-sub .qzrange{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pg-sub .qzrange button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 6px;border-radius:12px;border:1px solid var(--line);background:#fff;font:inherit;font-weight:700;font-size:14px;color:var(--fg);cursor:pointer}
+.pg-sub .qzrange button small{font-weight:500;font-size:12px;color:var(--sub)}
+.pg-sub .qzrange button.on{border-color:var(--y);background:var(--qzbg);box-shadow:inset 0 0 0 1px var(--y)}
+.pg-sub .qzrange button:disabled{opacity:.45;cursor:default}
+.pg-sub .qztypes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:700px){.pg-sub .qztypes{grid-template-columns:repeat(3,1fr)}}
+.pg-sub .qzt{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px 14px;border-radius:16px;border:1px solid var(--line);background:#fff;font:inherit;color:var(--fg);cursor:pointer;transition:transform .12s,box-shadow .12s}
+.pg-sub .qzt:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(20,24,32,.08)}
+.pg-sub .qzt:disabled{opacity:.45;cursor:default}
+.pg-sub .qzt b{font-size:15px}
+.pg-sub .qzt small{font-size:12px;color:var(--sub)}
+.pg-sub .qzic{position:relative;width:64px;height:46px;border-radius:12px;background:var(--qzbg);display:grid;place-items:center;color:var(--y)}
+.pg-sub .qzic svg.lucide{width:22px;height:22px}
+.pg-sub .qzic em{position:absolute;top:-8px;left:50%;transform:translateX(-50%);font-style:normal;font-size:11px;font-weight:800;line-height:1;padding:3px 6px;border-radius:6px;background:var(--y);color:#fff;white-space:nowrap}
+.pg-sub .qzempty{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:28px 12px;color:var(--sub)}
+.pg-sub .qzempty>svg.lucide{width:30px;height:30px}
+.pg-sub .np.qz .qzhead{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;margin-bottom:6px}
+.pg-sub .qzn{font-size:15px;color:var(--sub)}
+.pg-sub .qzn b{font-size:20px;color:var(--fg)}
+.pg-sub .qztl{font-size:13px;font-weight:700;color:var(--sub);text-align:center}
+.pg-sub .qzsay{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:#fff;font:inherit;font-size:13px;font-weight:700;color:var(--fg);cursor:pointer}
+.pg-sub .qzsay svg.lucide{width:16px;height:16px}
+.pg-sub .qzsay.sm{padding:5px;margin-left:auto}
+.pg-sub .qzrule{border:0;background:none;padding:2px;margin-left:4px;vertical-align:-3px;color:var(--sub);cursor:pointer}
+.pg-sub .qzrule svg.lucide{width:16px;height:16px}
+.pg-sub .qzrulebox{margin:4px auto 0;max-width:320px;font-size:12.5px;color:var(--sub);background:var(--bg);border-radius:10px;padding:8px 10px}
+.pg-sub .qzko{font-size:15px;font-weight:700;margin:6px 0 10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.pg-sub .qzsent{font-size:20px;font-weight:700;line-height:1.7;margin:0}
+.pg-sub .qzsent input,.pg-sub .qzin input{font:inherit;font-weight:700;border:2px solid var(--y);border-radius:10px;padding:2px 8px;background:#fff;color:var(--fg);outline:none;min-width:0}
+.pg-sub .qzsent input{margin:0 4px;max-width:100%}
+.pg-sub .qzin{margin:4px 0 2px}
+.pg-sub .qzin input{width:100%;font-size:18px;padding:12px 14px}
+.pg-sub .qzsent input.ok,.pg-sub .qzin input.ok{border-color:var(--good)}
+.pg-sub .qzsent input.no,.pg-sub .qzin input.no{border-color:var(--red)}
+.pg-sub .qzbtns{display:flex;justify-content:center;gap:10px;margin:14px 0 6px}
+.pg-sub .qzbtns .btn{min-width:120px}
+.pg-sub .qzpraise{font-size:16px;font-weight:700;margin:4px 0 2px}
+.pg-sub .qzgain{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 14px;border-radius:99px;background:#FFF6D6;font-size:14px;animation:qzPop .45s cubic-bezier(.3,1.6,.5,1)}
+.pg-sub .qzgain svg.lucide{width:18px;height:18px;color:#C98A00}
+.pg-sub .qzgain em{font-style:normal;font-size:12px;color:var(--sub)}
+@keyframes qzPop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.pg-sub .qzgain{animation:none}}
+.pg-sub .qzwrong{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.pg-sub .qzwrong li{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:14px;flex-wrap:wrap}
+.pg-sub .qzwrong li:first-child{border-top:0}
+.pg-sub .qzwrong li>span:first-child{font-weight:700;min-width:0}
+.pg-sub .qzwrong .qza{color:var(--sub)}

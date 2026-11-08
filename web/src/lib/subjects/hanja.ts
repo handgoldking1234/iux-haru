@@ -177,7 +177,7 @@ export const HANJA: SubjectDef = {
   listSub: () => (core?.TRK === 'cjm' ? '1부 → 5부 · 250구절' : core?.TRK === 'school' ? '초 → 중 → 고' : '부수 → 8급 → … → 1급'),
   conceptName: '단원 소개',
   appName: '한자씨앗',
-  tabName: '한자학습',
+  tabName: '한자어학습',
   trkClass: 'trk tl3',
   slideKind: 'han',
   slideFace,
@@ -196,7 +196,7 @@ export const HANJA: SubjectDef = {
     showYou: true,
     statTitle: '급수별 정답률',
     todayText: (kid) => `${kid}의 학습`,
-    homeBtn: () => '한자학습으로',
+    homeBtn: () => '한자어학습으로',
     learned: (T, stage) => {
       const H = core!, done = T.stages.slice(0, stage);
       const learned = done.filter((s) => raw(s).kind === 'char').reduce((a, s) => a + s.items.length, 0);

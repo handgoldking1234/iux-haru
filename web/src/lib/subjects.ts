@@ -17,7 +17,7 @@ export interface SubjectInfo {
 export const SUBJECTS: Record<SubjectKey, SubjectInfo> = {
   math: { key: 'math', name: '연산', color: '#22A55B', soft: '#E6F6EC', tracks: [], cards: false },
   hanja: {
-    key: 'hanja', name: '한자', color: '#C2410C', soft: '#FDEDE4', cards: true,
+    key: 'hanja', name: '한자어', color: '#C2410C', soft: '#FDEDE4', cards: true,
     tracks: [{ key: 'school', name: '학교 필수' }, { key: 'grade', name: '급수별' }, { key: 'cjm', name: '천자문' }],
   },
   eng: { key: 'eng', name: '영단어', color: '#7C3AED', soft: '#F1EAFE', tracks: [], cards: true },
@@ -34,7 +34,7 @@ export const SUBJECTS: Record<SubjectKey, SubjectInfo> = {
   },
   hist: {
     key: 'hist', name: '역사', color: '#8B5A2B', soft: '#F5ECE2', cards: true,
-    tracks: [{ key: 'ko', name: '국사' }, { key: 'wo', name: '세계사' }],
+    tracks: [{ key: 'ko', name: '한국사' }, { key: 'wo', name: '세계사' }],
   },
   typ: { key: 'typ', name: '타자', color: '#2563EB', soft: '#E8F0FE', tracks: [], cards: false },
 };

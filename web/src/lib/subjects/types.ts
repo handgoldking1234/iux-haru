@@ -98,7 +98,7 @@ export interface SubjectDef {
   /** 퀴즈풀기 (공부한 것 다시 풀기) */
   quiz?: QuizDef;
   key: SubjectKey;
-  /** 갈래 이름 (국사·세계사 등) */
+  /** 갈래 이름 (한국사·세계사 등) */
   tracks: Record<string, string>;
   defaultTrack: string;
   /** 학교급 순서 (단원 목록 칩) */
@@ -144,7 +144,7 @@ export interface SubjectDef {
   listSub(trName: string): string;
   /** 바로가기 '개념 정리' 이름 */
   conceptName: string;
-  /** 오늘 학습 줄 "○○의 국사 학습" */
+  /** 오늘 학습 줄 "○○의 한국사 학습" */
   appName: string;
 }
 

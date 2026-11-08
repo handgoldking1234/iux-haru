@@ -18,7 +18,7 @@ const fmt=n=>Number(n).toLocaleString('ko-KR');
 const pct=(n,d=1)=>(n*100).toFixed(d)+'%';
 /* 예시 데이터: 고정 시드로 늘 같은 값 */
 let seed=7; const rnd=()=>{ seed=(seed*16807)%2147483647; return (seed-1)/2147483646; };
-const SUBJ=[['math','연산'],['hanja','한자'],['eng','영단어'],['kor','국어'],['sci','과학'],['hist','역사'],['typ','타자']];
+const SUBJ=[['math','연산'],['hanja','한자어'],['eng','영단어'],['kor','국어'],['sci','과학'],['hist','역사'],['typ','타자']];
 const COL=k=>`var(--c-${k})`;
 
 /* 90일 추이 */
@@ -67,7 +67,7 @@ const LIVE=['dash','users','sys'];
 let D={series:[],sum:{}};
 async function loadAll(){ const rows=await env.daily(90); D.series=rows.map(r=>{ const d=new Date(r.day+'T00:00:00'); return {d,dau:r.active,done:r.active?r.done/r.active:0,sign:r.signups,kids:r.kids,solved:r.solved,correct:r.correct}; }); await reloadSum(); }
 async function reloadSum(){ D.sum=await env.summary(range); }
-const SUBN={math:'연산',gugu:'구구단',hanja:'한자',eng:'영단어',kor:'국어',sci:'과학',hist:'역사',typ:'타자'};
+const SUBN={math:'연산',gugu:'구구단',hanja:'한자어',eng:'영단어',kor:'국어',sci:'과학',hist:'역사',typ:'타자'};
 const GRADE_ORDER=['초1','초2','초3','초4','초5','초6','중1','중2','중3','고1','고2','고3'];
 const emptyChart=t=>`<div class="empty">${t}</div>`;
 V.dash=()=>{ const S0=D.series, r=S0.slice(-range), pr=S0.slice(-range*2,-range), sm=D.sum||{};
@@ -196,7 +196,7 @@ V.game=()=>{ seed=31; const k=range/7;
     {n:'종합 대결',i:'gamepad-2',p:1180,u:241,sc:'71점',t:'2분 40초',acc:0.78,re:0.27},
     {n:'산성비 타자',i:'keyboard',p:1960,u:302,sc:'평균 148타/분',t:'2분 05초',acc:0.93,re:0.52}].map(m=>({...m,p:Math.round(m.p*k),u:Math.round(m.u*Math.min(1,0.6+k*0.4))}));
   const tot=modes.reduce((a,m)=>a+m.p,0);
-  const subj=[['연산','math',2480],['영단어','eng',1320],['한자','hanja',910],['국어','kor',420],['과학','sci',330],['역사','hist',240]].map(([n,c,v])=>({n,c:COL(c),v:Math.round(v*k)}));
+  const subj=[['연산','math',2480],['영단어','eng',1320],['한자어','hanja',910],['국어','kor',420],['과학','sci',330],['역사','hist',240]].map(([n,c,v])=>({n,c:COL(c),v:Math.round(v*k)}));
   const lock=[{n:'할 일 미완료',v:Math.round(3120*k),c:'var(--warn)'},{n:'오늘 횟수 소진',v:Math.round(1480*k),c:'var(--mute)'},{n:'밤 9시 잠금',v:Math.round(410*k),c:'var(--mute)'},{n:'밀린 공부 잠금',v:Math.round(690*k),c:'var(--warn)'}];
   return `<div class="grid k8">
     <div class="panel kpi hero"><span class="lab">${I('gamepad-2')}게임한 학생</span><span class="val num">63.4%</span><span class="dl">게임이 열린 학생 중 · <span class="up">▲ 3.2%p</span></span></div>

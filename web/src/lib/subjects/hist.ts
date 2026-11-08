@@ -5,7 +5,7 @@ import { EXAM_CAP, EXAM_PASS_N, RULES } from '../engine/rules';
 import type { PQ, SStage, SubjectDef, Track } from './types';
 
 const LV = ['초등', '중등', '고등'];
-const TRN: Record<string, string> = { ko: '국사', wo: '세계사' };
+const TRN: Record<string, string> = { ko: '한국사', wo: '세계사' };
 
 interface HItem { t: string; d: string; k: string; y: number | null; yl: string; id: string; ui: number; unit: HUnit }
 interface HUnit { lv: number; n: number; title: string; era: string; sum: string; items: Omit<HItem, 'id' | 'ui' | 'unit'>[] }
@@ -79,7 +79,7 @@ export const HIST: SubjectDef = {
   examIntro: (s, trName) => `<span class="lk">${trName} ${s.area} · 용어 ${s.items.length}개</span><h2>${s.name}</h2>
       <p>${trName} ${s.area} 단원의 핵심 용어 ${s.items.length}개 가운데 ${RULES.EXAM_N}문제가 무작위로 나와요. 용어·설명 고르기, 시대 순서, 연도, OX가 섞여 있어요.</p>
       <p class="soft">${EXAM_PASS_N}개 이상 맞히면 다음 학교급이 열려요. ${EXAM_CAP}개를 틀리면 평가가 끝나고, 틀린 용어를 오답노트로 복습한 뒤 다시 도전해요.</p>`,
-  homeNote: "국사와 세계사는 진도를 따로 저장해요. 한 단원에서 정해진 개수(초등 5 · 중등 6 · 고등 7개)를 틀리면 그 단원을 처음부터 다시 해요. 통과한 단원은 3단원 뒤, 5단원 뒤에 다시 복습하고, 그 뒤에도 30일·90일마다 다시 나와요. 잠긴 단원도 '개념'으로 미리 볼 수 있어요.",
+  homeNote: "한국사와 세계사는 진도를 따로 저장해요. 한 단원에서 정해진 개수(초등 5 · 중등 6 · 고등 7개)를 틀리면 그 단원을 처음부터 다시 해요. 통과한 단원은 3단원 뒤, 5단원 뒤에 다시 복습하고, 그 뒤에도 30일·90일마다 다시 나와요. 잠긴 단원도 '개념'으로 미리 볼 수 있어요.",
   listSub: (tr) => `${tr} · 초등 → 중등 → 고등`,
   conceptName: '개념 정리',
   appName: '역사하루',

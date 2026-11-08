@@ -5,7 +5,7 @@ const LIVE=['dash','users','sys'];
 let D={series:[],sum:{}};
 async function loadAll(){ const rows=await env.daily(90); D.series=rows.map(r=>{ const d=new Date(r.day+'T00:00:00'); return {d,dau:r.active,done:r.active?r.done/r.active:0,sign:r.signups,kids:r.kids,solved:r.solved,correct:r.correct}; }); await reloadSum(); }
 async function reloadSum(){ D.sum=await env.summary(range); }
-const SUBN={math:'연산',gugu:'구구단',hanja:'한자',eng:'영단어',kor:'국어',sci:'과학',hist:'역사',typ:'타자'};
+const SUBN={math:'연산',gugu:'구구단',hanja:'한자어',eng:'영단어',kor:'국어',sci:'과학',hist:'역사',typ:'타자'};
 const GRADE_ORDER=['초1','초2','초3','초4','초5','초6','중1','중2','중3','고1','고2','고3'];
 const emptyChart=t=>`<div class="empty">${t}</div>`;
 V.dash=()=>{ const S0=D.series, r=S0.slice(-range), pr=S0.slice(-range*2,-range), sm=D.sum||{};

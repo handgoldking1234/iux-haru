@@ -4,9 +4,9 @@
 /* 통합 학습 검색: 영단어·한자·천자문·국어·과학·역사 (단어·용어·단원) */
 export function createSearch(env){
 const IDX=env.idx;
-const SN={eng:['영단어','#7C3AED'],hanja:['한자','#C2410C'],kor:['국어','#0B8A5F'],sci:['과학','#4F46E5'],hist:['역사','#8B5A2B']};
+const SN={eng:['영단어','#7C3AED'],hanja:['한자어','#C2410C'],kor:['국어','#0B8A5F'],sci:['과학','#4F46E5'],hist:['역사','#8B5A2B']};
 const TY={w:'단어',h:'한자',p:'천자문',t:'용어',u:'단원'};
-const FIL=[['all','전체'],['eng','영단어'],['hanja','한자'],['cjm','천자문'],['kor','국어'],['sci','과학'],['hist','역사'],['unit','단원']];
+const FIL=[['all','전체'],['eng','영단어'],['hanja','한자어'],['cjm','천자문'],['kor','국어'],['sci','과학'],['hist','역사'],['unit','단원']];
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const SV=p=>`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
 const IC={search:SV('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),back:SV('<path d="m15 18-6-6 6-6"/>'),x:SV('<path d="M18 6 6 18"/><path d="m6 6 12 12"/>'),vol:SV('<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/>'),go:SV('<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>'),clock:SV('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')};

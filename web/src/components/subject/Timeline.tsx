@@ -1,6 +1,6 @@
 'use client';
 /* 한눈에 보는 연표 — 프로토타입 hist.js renderTimeline 그대로.
-   표준 연표 + 수준(상식 → 교과서 → 시험, 누적), 전체(우리나라|세계 두 칸) · 국사만 · 세계사만 */
+   표준 연표 + 수준(상식 → 교과서 → 시험, 누적), 전체(우리나라|세계 두 칸) · 한국사만 · 세계사만 */
 import { useState } from 'react';
 
 const LVN = ['상식', '교과서', '시험'];
@@ -26,7 +26,7 @@ export default function Timeline({ data, initial }: { data: unknown; initial: st
   return (
     <>
       <div className="trk tl3" role="tablist" aria-label="연표 범위">
-        {([['all', '전체'], ['ko', '국사'], ['wo', '세계사']] as const).map(([k, v]) => <button key={k} role="tab" aria-selected={f.tr === k} onClick={() => setF({ ...f, tr: k })}>{v}</button>)}
+        {([['all', '전체'], ['ko', '한국사'], ['wo', '세계사']] as const).map(([k, v]) => <button key={k} role="tab" aria-selected={f.tr === k} onClick={() => setF({ ...f, tr: k })}>{v}</button>)}
       </div>
       <div className="tlctl"><span>수준</span>{LVN.map((n, k) => <button key={k} className={`chip ${f.lv === k ? 'on' : ''}`} onClick={() => setF({ ...f, lv: k })}>{n}{k ? ' 까지' : ''}</button>)}<em>{rows.length}개</em></div>
       <p className="note pad16">상식은 누구나 아는 사건, 교과서는 중학 교과서 수준, 시험은 고등·수능·한국사 시험에 나오는 사건까지예요. 사건을 누르면 설명이 보여요.</p>

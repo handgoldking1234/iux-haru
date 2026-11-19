@@ -9,7 +9,7 @@ import '@/styles/play-extra.css';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: '하루공부',
+  title: '매일쑥',
   description: '매일 조금씩, 기초를 튼튼하게',
 };
 

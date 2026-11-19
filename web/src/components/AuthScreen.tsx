@@ -105,7 +105,7 @@ export default function AuthScreen({ start }: { start: View }) {
       <div className="aw">
         {v === 'login' && (
           <section className="as" aria-labelledby="aT1">
-            <div className="alogo"><span className="amark" aria-hidden="true"><Logo /></span><h1 id="aT1">하루공부</h1><p>매일 조금씩, 기초를 튼튼하게</p></div>
+            <div className="alogo"><span className="amark" aria-hidden="true"><Logo /></span><h1 id="aT1">매일쑥</h1><p>매일 조금씩, 기초를 튼튼하게</p></div>
             <form className="af" onSubmit={onLogin} noValidate>
               <label className="afl"><span>이메일</span><input type="email" autoComplete="email" placeholder="parent@example.com" value={lEmail} onChange={(e) => setLEmail(e.target.value)} autoFocus /></label>
               <label className="afl"><span>비밀번호</span><input type="password" autoComplete="current-password" placeholder="8자 이상" value={lPw} onChange={(e) => setLPw(e.target.value)} /></label>

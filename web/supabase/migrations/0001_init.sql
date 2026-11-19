@@ -1,4 +1,4 @@
--- 하루공부 초기 스키마 — docs/08_roadmap.md 'DB 초안'
+-- 매일쑥 초기 스키마 — docs/08_roadmap.md 'DB 초안'
 -- 계정 주인은 보호자(auth.users). 자녀는 닉네임·학년만 저장한다(만 14세 미만, 법정대리인 동의).
 -- 규칙 계산(진도·오답 간격·보상)은 web/src/lib/engine · rewards 한 곳에서만 한다.
 

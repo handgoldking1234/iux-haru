@@ -13,7 +13,7 @@ def app(js_file,css_file,data_file,title,tab):
     head=head.replace('/* 레이아웃: 당근색 앱바',f'/* {title} — 레이아웃: 앱바')
     k=head.rindex('</style>'); head=head[:k]+open(B+css_file).read().replace('.hanja-note{}\n','')+head[k:]
     sk={'app.js':'hanja','eng.js':'eng','hist.js':'hist','kor.js':'kor','sci.js':'sci','typ.js':'typ'}[js_file]
-    js=f"/* 하루공부 보상 연동 */\nconst HG=e=>{{ try{{ if(parent!==window) parent.postMessage({{hg:e,s:'{sk}'}},'*'); }}catch(_){{}} }};\n"+open(B+js_file).read().replace('__DATA__',open(B+data_file).read()).replace('__LUCIDE__',open(B+'lucide.js').read())
+    js=f"/* 매일쑥 보상 연동 */\nconst HG=e=>{{ try{{ if(parent!==window) parent.postMessage({{hg:e,s:'{sk}'}},'*'); }}catch(_){{}} }};\n"+open(B+js_file).read().replace('__DATA__',open(B+data_file).read()).replace('__LUCIDE__',open(B+'lucide.js').read())
     if js_file=='app.js' and os.path.exists(B+'pics.js'): js=open(B+'pics.js').read()+'\n'+js
     if js_file=='app.js' and os.path.exists(B+'strokes.js'): js=open(B+'strokes.js').read()+'\n'+js
     return head+'<script>\n'+js+'\n</script>\n\n</body></html>\n'

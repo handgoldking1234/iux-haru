@@ -31,7 +31,7 @@ const MS=(p,id)=>((p.ms||{})[id]||[]);
 function holdItems(p,n){ const ids=Object.keys(p.passed).filter(id=>IDX[id]!=null&&GI(STAGES[IDX[id]].g)<=MYG()); for(let i=ids.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [ids[i],ids[j]]=[ids[j],ids[i]]; }
   const mine=ids.filter(id=>GI(STAGES[IDX[id]].g)===MYG()), pool=mine.length?[...mine,...mine,...ids]:ids;
   return pool.length?Array.from({length:n},(_,k)=>({src:'hold',st:pool[k%pool.length]})):[]; }
-/* 하루공부 보상 연동: 정답·통과·오답 졸업을 놀이터(캐시·등급)로 알림 */
+/* 매일쑥 보상 연동: 정답·통과·오답 졸업을 놀이터(캐시·등급)로 알림 */
 const HG=e=>env.hg(e);
 /* 틀림 상한: 한 단계에서 이만큼 틀리면 그 단계를 처음부터(개념부터) 다시 */
 const CAP=s=> /초[12]/.test(s.g)?5:/초[34]/.test(s.g)?6:/초[56]/.test(s.g)?7:8;

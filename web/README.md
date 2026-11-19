@@ -1,4 +1,4 @@
-# 하루공부 web (본개발)
+# 매일쑥 web (본개발)
 
 Next.js 15(App Router) + TypeScript + Supabase. 기준 화면·규칙은 `../prototype`, `../docs`.
 

@@ -9,7 +9,7 @@ import { hasSupabase } from '@/lib/supabase';
 export default function AdminPage() {
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    document.title = '하루공부 관리자';
+    document.title = '매일쑥 관리자';
     if (!hasSupabase || !root.current) return;
     const app = mountAdmin(root.current, api);
     return () => app.destroy();

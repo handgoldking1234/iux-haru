@@ -15,7 +15,7 @@ export interface Pill<T extends string> {
 
 export default function PlayFrame<T extends string>({ title, back, pills, cur, onPill, rank, logo, children }: {
   title: string;
-  /** 홈: 제목 대신 하루공부 로고(심볼 + 글자) */
+  /** 홈: 제목 대신 매일쑥 로고(심볼 + 글자) */
   logo?: boolean;
   back?: () => void;
   pills?: Pill<T>[];

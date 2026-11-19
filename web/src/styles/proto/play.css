@@ -1,5 +1,5 @@
 /* 자동 생성 — scripts/proto-css.mjs. 직접 고치지 말고 원본(prototype/build) 기준으로 다시 만든다 */
-/* 놀이터 — 하루공부 공통 보상(캐시·등급·꾸미기·게임·대결·랭킹). 의도적 라이트 단일 테마 */
+/* 놀이터 — 매일쑥 공통 보상(캐시·등급·꾸미기·게임·대결·랭킹). 의도적 라이트 단일 테마 */
 .pg-play{color-scheme:light;--y:#DB2777;--y2:#BE185D;--soft:#FCE7F3;--bg:#F4F5F7;--paper:#fff;--line:#E1E4EA;--fg:#1E2421;--sub:#5B616B;--mute:#8A9099;--ok:#0FA37F;--no:#E5484D;--gold:#E0A100;--r:16px}
 .pg-play *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 .pg-play,.pg-play{height:100%;margin:0}

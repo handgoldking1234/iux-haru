@@ -28,7 +28,7 @@ export async function afterPassword(quiet = false): Promise<Step> {
   if (quiet) return { ok: false, err: '' };
   // 처음: 인증 앱 등록 (확인 안 된 이전 등록은 지우고 새로)
   for (const f of fs?.all ?? []) if (f.status !== 'verified') await sb().auth.mfa.unenroll({ factorId: f.id });
-  const { data: en, error } = await sb().auth.mfa.enroll({ factorType: 'totp', friendlyName: '하루공부 관리자' });
+  const { data: en, error } = await sb().auth.mfa.enroll({ factorType: 'totp', friendlyName: '매일쑥 관리자' });
   if (error || !en) return { ok: false, err: '2단계 인증을 준비하지 못했어요. 잠시 뒤 다시 해 주세요.' };
   // qr_code는 따옴표가 든 SVG 원문(data:image/svg+xml;utf-8,<svg …>)이라 img src에 넣기 전에 인코딩한다
   const svg = en.totp.qr_code.slice(en.totp.qr_code.indexOf('<svg'));

@@ -1,5 +1,5 @@
 /* =========================================================
-   놀이터 — 하루공부 동기부여 (프로토타입)
+   놀이터 — 매일쑥 동기부여 (프로토타입)
    나(아바타·등급·캐시) · 게임(스피드 게임·대결방) · 랭킹
    대결방은 시연용: 친구는 가상 참가자이고, 실제 버전은 서버 실시간 연결(Supabase Realtime)로 바꿈
    아동 안전: 닉네임만 노출, 채팅은 정해진 문구·이모지만, 방은 코드로만 입장, 캐시 현금 판매 없음
@@ -12,7 +12,7 @@ const R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 const shuffle=a=>{ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
 
-/* 저장소: 셸(하루공부) 안이면 셸 것을 같이 씀, 단독 실행이면 자체 저장소 */
+/* 저장소: 셸(매일쑥) 안이면 셸 것을 같이 씀, 단독 실행이면 자체 저장소 */
 let HG=null; try{ if(parent!==window&&parent.HGS) HG=parent.HGS; }catch(e){}
 if(!HG) HG=makeHGS();
 const S=()=>HG.st;
@@ -403,7 +403,7 @@ function bindSettings(q,st,rr){
   screen.querySelectorAll('[data-ao]').forEach(b=>b.onclick=()=>{ const a=st.alarms[+b.dataset.ao]; a.on=!a.on; HG.save(); });
   screen.querySelectorAll('[data-ad]').forEach(b=>b.onclick=()=>{ st.alarms.splice(+b.dataset.ad,1); HG.save(); });
   if(q('#aAdd')) q('#aAdd').onclick=()=>{ st.alarms.push({t:'18:00',on:true,label:'공부할 시간'}); HG.save(); };
-  if(q('#aTest')) q('#aTest').onclick=()=>{ try{ if(parent!==window&&parent.fireAlarm){ parent.fireAlarm(st.alarms[0]||{label:'공부할 시간',t:''},true); return; } }catch(e){} toast('알림 미리 보기는 하루공부 화면에서 돼요'); };
+  if(q('#aTest')) q('#aTest').onclick=()=>{ try{ if(parent!==window&&parent.fireAlarm){ parent.fireAlarm(st.alarms[0]||{label:'공부할 시간',t:''},true); return; } }catch(e){} toast('알림 미리 보기는 매일쑥 화면에서 돼요'); };
   if(q('#aPerm')) q('#aPerm').onclick=()=>{ try{ Notification.requestPermission().then(()=>rr()); }catch(e){ toast('이 화면에서는 알림을 켤 수 없어요'); } };
   screen.querySelectorAll('[data-pk]').forEach(b=>b.onclick=()=>{ st.plan[b.dataset.pk]=+b.dataset.pv; if(!Object.values(st.plan).some(v=>v>0)) st.plan.math=10; editPlan=true; HG.save(); });
   if(q('#pd')) q('#pd').onclick=()=>{ editPlan=false; HG.save(); toast('오늘 할 일을 정했어요'); };

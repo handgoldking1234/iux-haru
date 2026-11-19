@@ -1,9 +1,9 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>하루공부</title>
+<title>매일쑥</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap">
 <style>
-/* 하루공부 — 과목 전환 셸. 과목마다 주색: 연산 파랑 · 한자 주홍 · 영단어 보라 · 역사 갈색 · 국어 초록 · 타자 청록. 의도적 라이트 단일 테마 */
+/* 매일쑥 — 과목 전환 셸. 과목마다 주색: 연산 파랑 · 한자 주홍 · 영단어 보라 · 역사 갈색 · 국어 초록 · 타자 청록. 의도적 라이트 단일 테마 */
 :root{color-scheme:light;--bg:#FFFFFF;--paper:#fff;--line:#E1E4EA;--fg:#1E2421;--sub:#5B616B;--c:#2563EB}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;overflow:hidden}
@@ -176,7 +176,7 @@ body{background:var(--bg);color:var(--fg);font-family:"Noto Sans KR","Apple SD G
 <div class="auth" id="auth" hidden>
 <div class="aw">
  <section class="as" data-v="login" aria-labelledby="aT1">
-  <div class="alogo"><span class="amark" aria-hidden="true"><svg viewBox="0 0 48 48" width="56" height="56"><circle cx="24" cy="27" r="16" fill="#FFE3A3"/><path d="M24 11v-5" stroke="#3E9B5B" stroke-width="2.6" stroke-linecap="round"/><path d="M24 7q-7-7-12-2 5 6 12 2z" fill="#5BC27A"/><path d="M24 6q7-8 13-3-6 7-13 3z" fill="#6FD68C"/><circle cx="19" cy="26" r="2" fill="#2B2F36"/><circle cx="29" cy="26" r="2" fill="#2B2F36"/><path d="M21 31q3 3 6 0" stroke="#2B2F36" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><h1 id="aT1">하루공부</h1><p>매일 조금씩, 기초를 튼튼하게</p></div>
+  <div class="alogo"><span class="amark" aria-hidden="true"><svg viewBox="0 0 48 48" width="56" height="56"><circle cx="24" cy="27" r="16" fill="#FFE3A3"/><path d="M24 11v-5" stroke="#3E9B5B" stroke-width="2.6" stroke-linecap="round"/><path d="M24 7q-7-7-12-2 5 6 12 2z" fill="#5BC27A"/><path d="M24 6q7-8 13-3-6 7-13 3z" fill="#6FD68C"/><circle cx="19" cy="26" r="2" fill="#2B2F36"/><circle cx="29" cy="26" r="2" fill="#2B2F36"/><path d="M21 31q3 3 6 0" stroke="#2B2F36" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span><h1 id="aT1">매일쑥</h1><p>매일 조금씩, 기초를 튼튼하게</p></div>
   <form class="af" id="fLogin" novalidate>
    <label class="afl"><span>이메일</span><input type="email" id="lEmail" autocomplete="email" placeholder="parent@example.com" required></label>
    <label class="afl"><span>비밀번호</span><input type="password" id="lPw" autocomplete="current-password" placeholder="8자 이상" required></label>
@@ -370,7 +370,7 @@ function fireAlarm(a,test){
   o.querySelector('b').textContent=(test?'[미리 보기] ':'')+(a.label||'공부할 시간'); o.querySelector('p').textContent=msg;
   o.querySelector('.go').onclick=()=>{ o.remove(); show('play'); }; o.querySelector('.cl').onclick=()=>o.remove();
   document.body.appendChild(o);
-  try{ if('Notification' in window&&Notification.permission==='granted') new Notification('하루공부 · '+(a.label||'공부할 시간'),{body:msg}); }catch(e){}
+  try{ if('Notification' in window&&Notification.permission==='granted') new Notification('매일쑥 · '+(a.label||'공부할 시간'),{body:msg}); }catch(e){}
 }
 window.fireAlarm=fireAlarm;
 function checkAlarm(){ const st=HGS.st, t=HGS.dayN(), now=new Date(), cur=now.getHours()*60+now.getMinutes();

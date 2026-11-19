@@ -42,7 +42,7 @@ const CAP_DRILL=5, CAP_WORD=5, CAP_SENT=8, LIVES=5;
 const RANK_ACC=90;
 const weekNo=()=>{ const d=new Date(); return Math.floor((Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/864e5)+3)/7); };
 function addChars(lg,n){ const w=weekNo(); if(!S.wk||S.wk.w!==w) S.wk={w,ko:0,en:0}; S.wk[lg]=(S.wk[lg]||0)+n; save(); }
-/* 하루공부 랭킹에 타자 속도 올리기 */
+/* 매일쑥 랭킹에 타자 속도 올리기 */
 const sfx=k=>{ try{ parent!==window&&parent.hgSfx&&parent.hgSfx(k); }catch(e){} };
 function pushCpm(c){ try{ const H=parent!==window&&parent.HGS; if(H&&c>(H.st.typCpm||0)){ H.st.typCpm=c; H.save(); } }catch(e){} }
 function rankBest(lg,cpm,acc){ if(acc<RANK_ACC) return; pushCpm(cpm); const b=S.best[lg].rank; if(!b||cpm>b.cpm){ S.best[lg].rank={cpm,acc}; save(); } }

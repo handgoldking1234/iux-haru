@@ -30,7 +30,7 @@ export default function TypApp({ data }: { data: unknown }) {
       load: () => { try { return JSON.parse(localStorage.getItem(key(kid.name)) || 'null'); } catch { return null; } },
       save: (S: unknown) => saveLocal(key(kid.name), S),
       sfx: (k: 'ok' | 'no' | 'win') => sfx(k, live.current),
-      // 하루공부 랭킹 '타자 속도'
+      // 매일쑥 랭킹 '타자 속도'
       pushCpm: (c: number) => updateRewards(kid.name, (st) => { if (c > (st.typCpm ?? 0)) st.typCpm = c; }),
       nick: kid.name,
       // 소리: 기기 음성 중 가장 자연스러운(AI·고품질) 목소리

@@ -55,6 +55,7 @@ compare 스크립트로 나란히 비교한다.
 - [x] 연산(키패드) · 타자(자리 연습·낱말·짧은 글·산성비)
 - [x] 슬라이드·받아쓰기·나만의 단어장 · 통합 검색 · 스피드 게임·대결방(가상 친구)
 - [x] Supabase 연결 코드: 인증, 학습 기록 동기화(`sync.ts`), 대결방 실시간(`play/room.ts`), 랭킹, 관리자(2단계 인증) — 마이그레이션 0001~0005
-- [ ] Supabase 실제 프로젝트에 마이그레이션 적용 · Vercel 환경 변수 등록 · e2e(`supabase-*.mjs`) 통과
+- [x] Supabase 프로젝트 `iux-haru`(ref `vatqcnwpkhnatvhkobap`): 스키마 적용됨, Vercel Production 환경 변수(URL·publishable key) 등록, Auth Site URL `https://maeilssuk.iux.kr` + Redirect(`/**`, localhost)
+- [ ] e2e(`supabase-*.mjs`)를 운영 주소로 통과 · 마이그레이션 이력(supabase_migrations) 정리
 - [x] 배포: Vercel `iux` 팀 `maeilssuk` 프로젝트(Root Directory `web`) → https://maeilssuk.iux.kr (가비아 DNS는 `*.iux.kr` → Vercel로 이미 연결)
 - [ ] 연산·타자도 공통 엔진·React로 옮기기 (지금은 프로토타입 코드를 그대로 띄움)

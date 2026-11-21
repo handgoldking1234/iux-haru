@@ -118,7 +118,7 @@ export default function AuthScreen({ start }: { start: View }) {
             <div className="asns">
               {([['kakao', '카카오'], ['naver', '네이버'], ['google', 'Google']] as const).map(([c, n]) => (
                 <button key={c} type="button" className={`sns ${c}`} onClick={() => pop(`${n} 로그인은 준비 중이에요`)}>
-                  <b aria-hidden="true"><img src={c === 'naver' ? '/sns/naver-btn.png' : `/sns/${c}.png`} alt="" width={24} height={24} style={{ display: 'block', borderRadius: 6 }} /></b>{n}로 시작하기
+                  <b aria-hidden="true"><img src={`/sns/${({ kakao: 'kakao', naver: 'naver-btn', google: 'google-sm' } as const)[c]}.png`} alt="" width={24} height={24} style={{ display: 'block', borderRadius: 6 }} /></b>{n}로 시작하기
                 </button>
               ))}
             </div>

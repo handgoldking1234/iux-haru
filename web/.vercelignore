@@ -4,5 +4,5 @@
 node_modules
 .next
 e2e
-*.png
-!public/**/*.png
+# 테스트 스크린샷(최상위 폴더의 png)만 뺀다. public/ 이미지는 배포에 필요
+/*.png

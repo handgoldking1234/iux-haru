@@ -116,9 +116,9 @@ export default function AuthScreen({ start }: { start: View }) {
             <div className="alinks"><button type="button" onClick={() => go('find')}>비밀번호 찾기</button><i></i><button type="button" onClick={() => go('signup')}>회원가입</button></div>
             <div className="aor"><span>간편 로그인</span></div>
             <div className="asns">
-              {([['kakao', '카카오', 'K'], ['naver', '네이버', 'N'], ['google', 'Google', 'G']] as const).map(([c, n, b]) => (
+              {([['kakao', '카카오'], ['naver', '네이버'], ['google', 'Google']] as const).map(([c, n]) => (
                 <button key={c} type="button" className={`sns ${c}`} onClick={() => pop(`${n} 로그인은 준비 중이에요`)}>
-                  <b aria-hidden="true">{b}</b>{n}로 시작하기
+                  <b aria-hidden="true"><img src={`/sns/${c}.png`} alt="" width={24} height={24} style={{ display: 'block', borderRadius: 6 }} /></b>{n}로 시작하기
                 </button>
               ))}
             </div>

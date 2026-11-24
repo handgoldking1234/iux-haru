@@ -3,12 +3,13 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Mail } from 'lucide-react';
-import { addKid, GRADES, login, okEmail, okKidName, okNewPw, selectKid, signup } from '@/lib/account';
+import { addKid, cancelSocial, giveConsent, GRADES, login, okEmail, okKidName, okNewPw, selectKid, signup, startSocial } from '@/lib/account';
+import type { LocalAuth } from '@/lib/store';
 import { useAuth } from '@/lib/store';
 import { pop } from './Toast';
 import Logo from './Logo';
 
-type View = 'login' | 'signup' | 'find' | 'code' | 'kids';
+type View = 'login' | 'signup' | 'find' | 'code' | 'kids' | 'consent';
 type Way = 'email' | 'kakao' | 'naver' | 'google';
 
 // 마지막으로 쓴 로그인 방법 ("최근 로그인" 표시용). 기존 저장 키 접두어를 따른다.
@@ -31,7 +32,7 @@ const Back = ({ go }: { go: () => void }) => (
   <button type="button" className="aback" onClick={go} aria-label="뒤로">←</button>
 );
 
-export default function AuthScreen({ start }: { start: View }) {
+export default function AuthScreen({ start, pending }: { start: View; pending?: LocalAuth }) {
   const router = useRouter();
   const auth = useAuth();
   const [v, setV] = useState<View>(start);
@@ -119,7 +120,28 @@ export default function AuthScreen({ start }: { start: View }) {
     }
   }
 
+  async function onConsent(e: React.FormEvent) {
+    e.preventDefault();
+    if (!pending) return go('login');
+    if (terms.slice(0, 3).some((t) => !t)) return setErr('필수 약관에 모두 동의해 주세요');
+    try {
+      await giveConsent(pending);
+      go('kids');
+    } catch (x) {
+      setErr((x as Error).message);
+    }
+  }
+
   const allTerms = terms.every(Boolean);
+  const termList = ['[필수] 이용약관 동의', '[필수] 개인정보 수집·이용 동의', '[필수] 만 14세 미만 아동의 법정대리인(보호자) 동의', '[선택] 공부 알림·소식 받기'];
+  const termsBox = (
+    <div className="aterms">
+      <label className="achk all"><input type="checkbox" checked={allTerms} onChange={(e) => setTerms(terms.map(() => e.target.checked))} /> 모두 동의</label>
+      {termList.map((t, i) => (
+        <label key={t} className="achk"><input type="checkbox" checked={terms[i]} onChange={(e) => setTerms(terms.map((x, j) => (j === i ? e.target.checked : x)))} /> {t}</label>
+      ))}
+    </div>
+  );
 
   return (
     <div className="auth" ref={root}>
@@ -148,7 +170,7 @@ export default function AuthScreen({ start }: { start: View }) {
               {SNS.map((x) => (
                 <div key={x.id} className="asns-i">
                   {last === x.id && <span className="alast">최근 로그인</span>}
-                  <button type="button" className={`snsr ${x.id}`} aria-label={`${x.name}로 로그인`} onClick={() => pop(`${x.name} 로그인은 준비 중이에요`)}>
+                  <button type="button" className={`snsr ${x.id}`} aria-label={`${x.name}로 로그인`} onClick={() => startSocial(x.id).catch((e: Error) => pop(e.message))}>
                     <img src={x.img} alt="" width={30} height={30} />
                   </button>
                 </div>
@@ -178,14 +200,21 @@ export default function AuthScreen({ start }: { start: View }) {
                 <label className="afl"><span>학년</span><select value={s.grade} onChange={(e) => setS({ ...s, grade: e.target.value })}>{GRADES.map((g) => <option key={g}>{g}</option>)}</select></label>
               </div>
               <label className="afl"><span>초대 코드 <small>(선택)</small></span><input maxLength={8} placeholder="친구에게 받은 코드" style={{ textTransform: 'uppercase' }} value={s.code} onChange={(e) => setS({ ...s, code: e.target.value })} /></label>
-              <div className="aterms">
-                <label className="achk all"><input type="checkbox" checked={allTerms} onChange={(e) => setTerms(terms.map(() => e.target.checked))} /> 모두 동의</label>
-                {['[필수] 이용약관 동의', '[필수] 개인정보 수집·이용 동의', '[필수] 만 14세 미만 아동의 법정대리인(보호자) 동의', '[선택] 공부 알림·소식 받기'].map((t, i) => (
-                  <label key={t} className="achk"><input type="checkbox" checked={terms[i]} onChange={(e) => setTerms(terms.map((x, j) => (j === i ? e.target.checked : x)))} /> {t}</label>
-                ))}
-              </div>
+              {termsBox}
               <p className="aerr" role="alert">{err}</p>
               <button className="abtn k" type="submit">가입하고 시작하기</button>
+            </form>
+          </section>
+        )}
+
+        {v === 'consent' && pending && (
+          <section className="as" aria-labelledby="aT6">
+            <div className="ahd"><Back go={() => { cancelSocial().finally(() => go('login')); }} /><h2 id="aT6">처음 오셨네요</h2></div>
+            <p className="asub">보호자 계정으로 시작해요. 약관에 동의하면 아이를 학생으로 추가할 수 있어요.</p>
+            <form className="af" onSubmit={onConsent} noValidate>
+              {termsBox}
+              <p className="aerr" role="alert">{err}</p>
+              <button className="abtn k" type="submit">동의하고 시작하기</button>
             </form>
           </section>
         )}

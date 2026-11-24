@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: ['/', '/login'],
-        disallow: ['/admin', '/api', '/home', '/study', '/game', '/rank', '/my', '/kids'],
+        disallow: ['/admin', '/api', '/auth', '/home', '/study', '/game', '/rank', '/my', '/kids'],
       },
     ],
     sitemap: 'https://maeilssuk.iux.kr/sitemap.xml',

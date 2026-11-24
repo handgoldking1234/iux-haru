@@ -65,3 +65,56 @@ export async function logout() {
   if (hasSupabase) await supabase().auth.signOut();
   setAuth(null);
 }
+
+/* ───────── SNS 로그인 (Google·카카오는 Supabase 기본, 네이버는 사용자 정의 공급자 custom:naver) ───────── */
+export type Social = 'google' | 'kakao' | 'naver';
+const PENDING_KEY = 'harugongbu-socialPending';
+const PROVIDER: Record<Social, string> = { google: 'google', kakao: 'kakao', naver: 'custom:naver' };
+
+/** 공급자 로그인 화면으로 보낸다. 돌아오는 곳은 /auth/callback */
+export async function startSocial(way: Social) {
+  if (!hasSupabase) throw new Error('지금은 이메일로만 로그인할 수 있어요');
+  try { localStorage.setItem(PENDING_KEY, way); } catch { /* 표시용이라 없어도 된다 */ }
+  const { error } = await supabase().auth.signInWithOAuth({
+    // 네이버는 Supabase 대시보드에 만든 사용자 정의 공급자 이름을 쓴다
+    provider: PROVIDER[way] as 'google',
+    options: { redirectTo: `${window.location.origin}/auth/callback` },
+  });
+  if (error) throw new Error('로그인 화면을 열지 못했어요. 잠시 뒤 다시 해 주세요');
+}
+
+export interface SocialResult {
+  auth: LocalAuth;
+  /** 처음 온 SNS 보호자: 약관·법정대리인 동의를 아직 받지 않았다 */
+  needConsent: boolean;
+  way: Social | null;
+}
+
+/** /auth/callback에서 부른다. 브라우저 클라이언트가 주소의 code를 세션으로 바꾼 뒤 결과를 읽는다 */
+export async function finishSocial(): Promise<SocialResult> {
+  const { data, error } = await supabase().auth.getSession();
+  const user = data.session?.user;
+  if (error || !user) throw new Error('로그인하지 못했어요. 다시 해 주세요');
+  let way: Social | null = null;
+  try { way = localStorage.getItem(PENDING_KEY) as Social | null; localStorage.removeItem(PENDING_KEY); } catch { /* 없음 */ }
+  const meta = user.user_metadata ?? {};
+  const email = user.email || meta.email || meta.name || meta.nickname || '보호자';
+  const { data: g } = await supabase().from('guardians').select('consent_at').eq('id', user.id).maybeSingle();
+  const auth: LocalAuth = { email, via: way ?? String(user.app_metadata?.provider ?? 'sns'), kids: await loadKids() };
+  return { auth, needConsent: !g?.consent_at, way };
+}
+
+/** 첫 SNS 로그인 동의 저장 (필수 약관 3개를 확인한 뒤에만 부른다) */
+export async function giveConsent(a: LocalAuth): Promise<LocalAuth> {
+  const { data } = await supabase().auth.getUser();
+  const { error } = await supabase().from('guardians').update({ consent_at: new Date().toISOString() }).eq('id', data.user?.id);
+  if (error) throw new Error('동의를 저장하지 못했어요. 다시 해 주세요');
+  setAuth(a);
+  return a;
+}
+
+/** 동의 없이 나가면 계정 연결을 끊는다 */
+export async function cancelSocial() {
+  await supabase().auth.signOut();
+  setAuth(null);
+}

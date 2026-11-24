@@ -2,12 +2,29 @@
 /* 로그인 · 회원가입 · 비밀번호 찾기 · 초대 코드 · 학생 고르기 — 프로토타입 shell.html #auth 마크업 그대로 */
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
+import { Mail } from 'lucide-react';
 import { addKid, GRADES, login, okEmail, okKidName, okNewPw, selectKid, signup } from '@/lib/account';
 import { useAuth } from '@/lib/store';
 import { pop } from './Toast';
 import Logo from './Logo';
 
 type View = 'login' | 'signup' | 'find' | 'code' | 'kids';
+type Way = 'email' | 'kakao' | 'naver' | 'google';
+
+// 마지막으로 쓴 로그인 방법 ("최근 로그인" 표시용). 기존 저장 키 접두어를 따른다.
+const LAST_KEY = 'harugongbu-lastLogin';
+const readLast = (): Way | null => {
+  try { return (localStorage.getItem(LAST_KEY) as Way | null) ?? null; } catch { return null; }
+};
+const saveLast = (w: Way) => {
+  try { localStorage.setItem(LAST_KEY, w); } catch { /* 저장 못 해도 로그인은 계속 */ }
+};
+
+const SNS = [
+  { id: 'kakao', name: '카카오', img: '/sns/kakao.png' },
+  { id: 'naver', name: '네이버', img: '/sns/naver-n.png' },
+  { id: 'google', name: 'Google', img: '/sns/google-sm.png' },
+] as const;
 
 
 const Back = ({ go }: { go: () => void }) => (
@@ -28,6 +45,9 @@ export default function AuthScreen({ start }: { start: View }) {
   const [cCode, setCCode] = useState('');
   const [kidForm, setKidForm] = useState<null | { name: string; grade: string; err: string }>(null);
   const root = useRef<HTMLDivElement>(null);
+  const [emailOpen, setEmailOpen] = useState(false);
+  const [last, setLast] = useState<Way | null>(null);
+  useEffect(() => setLast(readLast()), []);
 
   useEffect(() => {
     if (v === 'kids' && auth === null) setV('login');
@@ -48,6 +68,7 @@ export default function AuthScreen({ start }: { start: View }) {
     if (lPw.length < 8) return setErr('비밀번호는 8자 이상이에요');
     try {
       await login(em, lPw, auth ?? null);
+      saveLast('email');
       go('kids');
     } catch (x) {
       setErr((x as Error).message);
@@ -104,25 +125,44 @@ export default function AuthScreen({ start }: { start: View }) {
     <div className="auth" ref={root}>
       <div className="aw">
         {v === 'login' && (
-          <section className="as" aria-labelledby="aT1">
-            <div className="alogo"><span className="amark" aria-hidden="true"><Logo /></span><h1 id="aT1">매일쑥</h1><p>매일 조금씩, 기초를 튼튼하게</p></div>
-            <form className="af" onSubmit={onLogin} noValidate>
-              <label className="afl"><span>이메일</span><input type="email" autoComplete="email" placeholder="parent@example.com" value={lEmail} onChange={(e) => setLEmail(e.target.value)} autoFocus /></label>
-              <label className="afl"><span>비밀번호</span><input type="password" autoComplete="current-password" placeholder="8자 이상" value={lPw} onChange={(e) => setLPw(e.target.value)} /></label>
-              <p className="aerr" role="alert">{err}</p>
-              <label className="achk"><input type="checkbox" checked={keep} onChange={(e) => setKeep(e.target.checked)} /> 로그인 상태 유지</label>
-              <button className="abtn k" type="submit">로그인</button>
-            </form>
-            <div className="alinks"><button type="button" onClick={() => go('find')}>비밀번호 찾기</button><i></i><button type="button" onClick={() => go('signup')}>회원가입</button></div>
-            <div className="aor"><span>간편 로그인</span></div>
-            <div className="asns">
-              {([['kakao', '카카오'], ['naver', '네이버'], ['google', 'Google']] as const).map(([c, n]) => (
-                <button key={c} type="button" className={`sns ${c}`} onClick={() => pop(`${n} 로그인은 준비 중이에요`)}>
-                  <b aria-hidden="true"><img src={`/sns/${({ kakao: 'kakao', naver: 'naver-btn', google: 'google-sm' } as const)[c]}.png`} alt="" width={24} height={24} style={{ display: 'block', borderRadius: 6 }} /></b>{n}로 시작하기
+          <section className="as alog" aria-labelledby="aT1">
+            <div className="alogo"><span className="amark" aria-hidden="true"><Logo /></span><h1 id="aT1">로그인</h1></div>
+            {!emailOpen ? (
+              <div className="aemail-wrap">
+                {last === 'email' && <span className="alast">최근 로그인</span>}
+                <button type="button" className="aemail" onClick={() => setEmailOpen(true)}>
+                  <Mail aria-hidden="true" size={22} strokeWidth={1.8} /><span>이메일로 로그인</span>
                 </button>
+              </div>
+            ) : (
+              <form className="af" onSubmit={onLogin} noValidate>
+                <label className="afl"><span>이메일</span><input type="email" autoComplete="email" placeholder="parent@example.com" value={lEmail} onChange={(e) => setLEmail(e.target.value)} autoFocus /></label>
+                <label className="afl"><span>비밀번호</span><input type="password" autoComplete="current-password" placeholder="8자 이상" value={lPw} onChange={(e) => setLPw(e.target.value)} /></label>
+                <p className="aerr" role="alert">{err}</p>
+                <label className="achk"><input type="checkbox" checked={keep} onChange={(e) => setKeep(e.target.checked)} /> 로그인 상태 유지</label>
+                <button className="abtn k" type="submit">로그인</button>
+              </form>
+            )}
+            <div className="aor"><span>또는</span></div>
+            <div className="asns-r">
+              {SNS.map((x) => (
+                <div key={x.id} className="asns-i">
+                  {last === x.id && <span className="alast">최근 로그인</span>}
+                  <button type="button" className={`snsr ${x.id}`} aria-label={`${x.name}로 로그인`} onClick={() => pop(`${x.name} 로그인은 준비 중이에요`)}>
+                    <img src={x.img} alt="" width={30} height={30} />
+                  </button>
+                </div>
               ))}
             </div>
-            <button type="button" className="acode" onClick={() => go('code')}>초대 코드가 있어요</button>
+            <div className="ainfo">
+              <div><p>처음이신가요?</p><button type="button" onClick={() => go('signup')}>회원가입</button></div>
+              <i aria-hidden="true"></i>
+              <div><p>초대 코드가 있나요?</p><button type="button" onClick={() => go('code')}>코드 입력</button></div>
+            </div>
+            <p className="ahelp">로그인에 어려움이 있나요? <button type="button" onClick={() => go('find')}>비밀번호 찾기</button></p>
+            <p className="alegal">
+              <button type="button" onClick={() => pop('이용약관은 준비 중이에요')}>이용약관</button> · <button type="button" className="b" onClick={() => pop('개인정보처리방침은 준비 중이에요')}>개인정보처리방침</button>
+            </p>
           </section>
         )}
 

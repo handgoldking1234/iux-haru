@@ -22,3 +22,28 @@
 .hop1>*{animation:bdHop2 .8s cubic-bezier(.3,.7,.4,1)}
 @keyframes bdHop2{0%{transform:none}15%{transform:scale(1.08,.9)}35%{transform:translateY(-22px) scale(.95,1.06)}55%{transform:scale(1.06,.93)}70%{transform:translateY(-9px)}85%,100%{transform:none}}
 @media (prefers-reduced-motion:reduce){.buddy>*,.hop0>*,.hop1>*{animation:none!important}}
+
+/* 로그인 첫 화면 (2026-11-24 개편): 이메일 버튼 · 둥근 간편 로그인 · 안내 상자 */
+.alog .alogo{margin-bottom:22px}
+.alog .alogo h1{font-size:28px}
+.aemail-wrap,.asns-i{position:relative}
+.aemail{font:inherit;width:100%;height:54px;display:flex;align-items:center;justify-content:center;position:relative;border:1.5px solid #E1E4EA;border-radius:14px;background:#fff;color:#1E2421;font-size:16px;font-weight:700;cursor:pointer}
+.aemail svg{position:absolute;left:18px;top:50%;transform:translateY(-50%)}
+.aemail:hover{background:#F7F8FA}
+.alog .aor{margin:22px 0 18px}
+.asns-r{display:flex;justify-content:center;gap:22px}
+.snsr{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;cursor:pointer;border:1.5px solid #E1E4EA;background:#fff;padding:0}
+.snsr.kakao{background:#FEE500;border-color:#FEE500}
+.snsr img{display:block;width:30px;height:30px}
+.alast{position:absolute;left:50%;top:-14px;transform:translateX(-50%);white-space:nowrap;background:#1E2421;color:#fff;font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:999px;z-index:1;pointer-events:none}
+.aemail-wrap .alast{left:auto;right:12px;transform:none}
+.ainfo{display:flex;align-items:stretch;margin-top:26px;background:#F3F4F7;border-radius:14px;padding:16px 8px}
+.ainfo>div{flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.ainfo>i{width:1px;background:#D5D9E0;margin:2px 0}
+.ainfo p{margin:0;color:#5B616B;font-size:14px}
+.ainfo button,.ahelp button{font:inherit;border:0;background:none;padding:0;cursor:pointer;color:#1E2421;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.ainfo button{font-size:14.5px}
+.ahelp{margin:22px 0 0;text-align:center;color:#1E2421;font-size:14.5px}
+.alegal{margin:14px 0 0;text-align:center;color:#8A9099;font-size:13px}
+.alegal button{font:inherit;border:0;background:none;padding:0;cursor:pointer;color:#8A9099;text-decoration:underline;text-underline-offset:2px}
+.alegal button.b{font-weight:800;color:#5B616B}

@@ -3,7 +3,7 @@
  * 보호자 계정 — 로그인·가입·학생 추가·로그아웃 (프로토타입 shell.html 로그인 흐름과 같은 규칙).
  * 화면은 늘 브라우저의 LocalAuth를 읽고, Supabase가 있으면 서버 결과로 그것을 채운다.
  */
-import { hasSupabase, supabase } from './supabase';
+import { enabledProviders, hasSupabase, supabase } from './supabase';
 import { setAuth, type Kid, type LocalAuth } from './store';
 
 export const GRADES = ['초1', '초2', '초3', '초4', '초5', '초6', '중1', '중2', '중3', '고1', '고2', '고3'];
@@ -70,10 +70,17 @@ export async function logout() {
 export type Social = 'google' | 'kakao' | 'naver';
 const PENDING_KEY = 'harugongbu-socialPending';
 const PROVIDER: Record<Social, string> = { google: 'google', kakao: 'kakao', naver: 'custom:naver' };
+const NAME: Record<Social, string> = { google: 'Google', kakao: '카카오', naver: '네이버' };
 
 /** 공급자 로그인 화면으로 보낸다. 돌아오는 곳은 /auth/callback */
 export async function startSocial(way: Social) {
   if (!hasSupabase) throw new Error('지금은 이메일로만 로그인할 수 있어요');
+  // Supabase에서 아직 켜지 않은 공급자면 오류 화면(JSON)으로 넘기지 않고 안내만 한다
+  const on = await enabledProviders();
+  if (on) {
+    const ready = way === 'naver' ? Object.entries(on).some(([k, v]) => v && k.includes('naver')) : on[way] === true;
+    if (!ready) throw new Error(`${NAME[way]} 로그인은 준비 중이에요`);
+  }
   try { localStorage.setItem(PENDING_KEY, way); } catch { /* 표시용이라 없어도 된다 */ }
   const { error } = await supabase().auth.signInWithOAuth({
     // 네이버는 Supabase 대시보드에 만든 사용자 정의 공급자 이름을 쓴다

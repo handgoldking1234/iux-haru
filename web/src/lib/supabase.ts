@@ -14,3 +14,16 @@ export function supabase(): SupabaseClient {
   if (!hasSupabase) throw new Error('Supabase 키가 없어요 (.env.local)');
   return (client ??= createBrowserClient(url!, key!));
 }
+
+/** 켜져 있는 로그인 공급자 목록 (Supabase Auth 공개 설정). 못 읽으면 null */
+export async function enabledProviders(): Promise<Record<string, boolean> | null> {
+  if (!hasSupabase) return null;
+  try {
+    const r = await fetch(`${url}/auth/v1/settings`, { headers: { apikey: key! } });
+    if (!r.ok) return null;
+    const j = (await r.json()) as { external?: Record<string, boolean> };
+    return j.external ?? null;
+  } catch {
+    return null;
+  }
+}

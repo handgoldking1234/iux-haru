@@ -46,7 +46,8 @@ export default function AuthScreen({ start, pending }: { start: View; pending?: 
   const [cCode, setCCode] = useState('');
   const [kidForm, setKidForm] = useState<null | { name: string; grade: string; err: string }>(null);
   const root = useRef<HTMLDivElement>(null);
-  const [emailOpen, setEmailOpen] = useState(false);
+  // SNS 로그인이 열리기 전까지는 이메일 입력칸을 처음부터 펼쳐 둔다
+  const [emailOpen, setEmailOpen] = useState(true);
   const [last, setLast] = useState<Way | null>(null);
   useEffect(() => setLast(readLast()), []);
 

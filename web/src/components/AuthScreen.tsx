@@ -184,7 +184,7 @@ export default function AuthScreen({ start, pending }: { start: View; pending?: 
             </div>
             <p className="ahelp">로그인에 어려움이 있나요? <button type="button" onClick={() => go('find')}>비밀번호 찾기</button></p>
             <p className="alegal">
-              <button type="button" onClick={() => pop('이용약관은 준비 중이에요')}>이용약관</button> · <button type="button" className="b" onClick={() => pop('개인정보처리방침은 준비 중이에요')}>개인정보처리방침</button>
+              <a href="/terms">이용약관</a> · <a className="b" href="/privacy">개인정보처리방침</a>
             </p>
           </section>
         )}

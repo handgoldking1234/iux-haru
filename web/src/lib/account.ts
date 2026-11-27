@@ -41,8 +41,11 @@ export async function login(email: string, pw: string, prev: LocalAuth | null): 
 /** 보호자 가입 + 첫 학생. 필수 약관(법정대리인 동의 포함)을 확인한 뒤에만 부른다 */
 export async function signup(email: string, pw: string, kid: Kid, code: string | null): Promise<LocalAuth> {
   if (hasSupabase) {
-    const { error } = await supabase().auth.signUp({ email, password: pw });
+    const { data, error } = await supabase().auth.signUp({ email, password: pw });
+    // 같은 이메일로 SNS 가입이 이미 있으면 0007 트리거가 막는다. 이메일 가입이 이미 있으면 Supabase가 identities를 비워 돌려준다
+    if (error && /saving new user|already|EMAIL_ALREADY/i.test(error.message)) throw new Error('이미 가입한 이메일이에요. 처음 가입한 방법으로 로그인해 주세요');
     if (error) throw new Error('가입하지 못했어요. 잠시 뒤 다시 해 주세요');
+    if (data.user && data.user.identities?.length === 0) throw new Error('이미 가입한 이메일이에요. 로그인해 주세요');
     kid = await insertKid(kid);
   }
   const a = { email, via: 'email', kids: [kid], code };

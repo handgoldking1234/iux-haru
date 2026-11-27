@@ -13,9 +13,14 @@ export default function AuthCallback() {
   const [err, setErr] = useState('');
 
   useEffect(() => {
-    const q = new URLSearchParams(window.location.search);
+    // 공급자·Supabase 오류는 주소의 ?…나 #… 뒤에 붙어 온다
+    const q = new URLSearchParams(window.location.search + '&' + window.location.hash.replace(/^#/, ''));
     if (q.get('error')) {
-      setErr('로그인을 취소했거나 실패했어요. 다시 해 주세요');
+      const d = (q.get('error_description') || '') + (q.get('error_code') || '');
+      // 0007 트리거: 같은 이메일로 다른 방법을 써서 이미 가입한 경우
+      setErr(/EMAIL_ALREADY_REGISTERED|saving new user|already/i.test(d)
+        ? '이미 다른 방법으로 가입한 이메일이에요. 처음 가입한 방법으로 로그인해 주세요'
+        : '로그인을 취소했거나 실패했어요. 다시 해 주세요');
       return;
     }
     finishSocial()

@@ -78,7 +78,9 @@ export async function startSocial(way: Social) {
   // Supabase에서 아직 켜지 않은 공급자면 오류 화면(JSON)으로 넘기지 않고 안내만 한다
   const on = await enabledProviders();
   if (on) {
-    const ready = way === 'naver' ? Object.entries(on).some(([k, v]) => v && k.includes('naver')) : on[way] === true;
+    // 네이버(사용자 정의 공급자)는 공개 설정에 안 나올 수 있어, 목록에 있으면서 꺼진 경우만 막는다
+    const nk = Object.keys(on).find((k) => k.includes('naver'));
+    const ready = way === 'naver' ? (nk ? on[nk] === true : true) : on[way] === true;
     if (!ready) throw new Error(`${NAME[way]} 로그인은 준비 중이에요`);
   }
   try { localStorage.setItem(PENDING_KEY, way); } catch { /* 표시용이라 없어도 된다 */ }
